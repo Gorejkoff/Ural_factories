@@ -1,0 +1,90 @@
+.menu {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+
+   background-color: var(--modal-bg);
+
+   &__container {
+      padding-top: 24px;
+      padding-bottom: 24px;
+   }
+
+   &__shell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   &__close {
+      --size-icon: 56px;
+   }
+
+   &__body {
+      margin-top: 24px;
+      padding: 48px;
+      display: flex;
+      border-radius: 16px;
+      background-color: var(--color-lavender);
+      max-width: 1029px;
+      width: 100%;
+   }
+
+   &__list {
+      flex: 1 1 auto;
+      columns: 2;
+
+      li {
+         list-style: none;
+      }
+   }
+
+   &__link {
+      margin-right: 40px;
+      margin-bottom: 12px;
+      display: block;
+      font-weight: 500;
+      font-size: 18px;
+   }
+
+   &__download {
+      flex: 0 0 243px;
+      border-radius: 12px;
+      background-color: var(--color-blue-alice);
+   }
+
+   &__download-image {
+      padding: 8px 8px 0;
+   }
+
+   &__download-image-sell {
+      position: relative;
+      padding-bottom: 63.436%;
+      overflow: hidden;
+      border-radius: 8px;
+
+      img {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__download-button {
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+   }
+
+   &__download-button-text {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 122%;
+   }
+}

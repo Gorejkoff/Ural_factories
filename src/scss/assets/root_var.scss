@@ -2,7 +2,11 @@
    --font-family: "Hoves", sans-serif;
 
    --color-white: #ffffff;
+   --color-sea-foam: #FFFBF9;
+   --color-blue-alice: #F9FCFF;
    --color-black: #0C1014;
+   --color-darkpurple-blue: #0a0f13;
+   --color-blackish-blue: #1a1f24;
    --color-orange: #FF774D;
    --color-blue-crayola: #b5b7c5;
    --color-periwinkle-crayola: #d4d6e3;
@@ -12,6 +16,8 @@
    --color-silver-grey: #8c98a2;
    --color-lavender: #e7edf7;
    --vh: 100vh;
+
+   --modal-bg: rgba(12, 16, 20, 0.6);
 
    @supports (height: 100dvh) {
       --vh: 100dvh;

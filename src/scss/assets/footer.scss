@@ -1,1 +1,121 @@
 @use '../assets/variablesSCSS.scss' as *;
+
+.footer {
+   margin-top: 160px;
+   padding-bottom: 24px;
+
+   &__container {}
+
+   &__body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      --button-color: var(--color-periwinkle-crayola);
+   }
+
+   &__top {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__base {
+      padding: 24px;
+      border-radius: 24px;
+      background-color: var(--color-blackish-blue);
+      color: var(--color-periwinkle-crayola);
+   }
+
+   &__button {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: flex-end;
+   }
+
+   &__logo {
+      width: 100%;
+      max-width: 420px;
+
+      img,
+      svg {
+         max-width: 100%;
+      }
+   }
+
+   &__copyright {
+      width: 100%;
+      max-width: 227px;
+      font-size: 14px;
+      color: var(--color-silver-grey);
+   }
+
+   &__contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+   }
+
+   &__contacts-email {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 112%;
+   }
+
+   &__contacts-tel {
+      font-weight: 300;
+      font-size: 40px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+   }
+
+   &__address {
+      display: flex;
+      flex-direction: column;
+      font-style: normal;
+   }
+
+   &__addres-title {
+      margin-bottom: 12px;
+      font-size: 16px;
+      line-height: 112%;
+      color: var(--color-silver-grey)
+   }
+
+   &__address-text {
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 112%;
+   }
+
+
+
+   &__address-button {
+      margin-top: 32px;
+   }
+
+   &__addres-block {
+      display: flex;
+
+      &>* {
+         flex: 0 0 50%;
+      }
+   }
+
+   &__form {
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__form-title {
+      margin-bottom: 44px;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 100%;
+      letter-spacing: -0.03em;
+   }
+
+
+}

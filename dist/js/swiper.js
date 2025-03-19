@@ -6176,6 +6176,37 @@ var Swiper = function () {
       Q
 }();
 
+// ================================================!!!!!!!!!!!!!!
+
+
+
+if (document.querySelector('.services-section__swiper')) {
+   const swiper = new Swiper('.swiper', {
+      keyboard: {
+         enabled: true,
+         onlyInViewport: true,
+      },
+      // loop: true,
+      spaceBetween: 8,
+      speed: 300,
+      slidesPerView: 3,
+      grabCursor: true,
+
+      navigation: {
+         nextEl: ".services-section__swiper-button-next",
+         prevEl: ".services-section__swiper-button-prev",
+      },
+      pagination: {
+         el: '.services-section__pagination',
+         type: 'fraction',
+      },
+   });
+}
+
+
+
+
+
 
 /* создание и ликвидация состояния слайдера в зависимости от ширины вьюпорта */
 // if (document.querySelector('.swiper')) {

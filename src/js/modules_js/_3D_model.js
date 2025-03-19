@@ -34,8 +34,8 @@ let frequency;
 const loader = new GLTFLoader();
 
 loader.load(
-   `../dist/glb/transmitter-3.glb`,
-   // `../glb/transmitter-3.glb`,
+   // `../dist/glb/transmitter-3.glb`,
+   `../glb/transmitter-3.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
@@ -47,7 +47,7 @@ loader.load(
       cylinder = object.getObjectByProperty('name', 'Cylinder');
       volume = object.getObjectByProperty('name', 'volume');
       frequency = object.getObjectByProperty('name', 'Frequency');
-      console.log(cylinder);
+      // console.log(cylinder);
 
    },
    // function (xhr) {
@@ -164,7 +164,7 @@ window.addEventListener("resize", function () {
 });
 
 
-animate();
+// animate();
 
 
 

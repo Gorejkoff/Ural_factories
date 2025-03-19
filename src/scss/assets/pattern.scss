@@ -57,10 +57,17 @@ body {
    font-size: var(--button-font-size, 18px);
 }
 
+.button-darck {
+   --button-color: var(--color-periwinkle-crayola);
+   --button-max-width: 292px;
+   --button-border-color: var(--color-periwinkle-crayola-02);
+}
+
 .button-icon {
-   --size-icon: calc(var(--button-height, 56px) - 8px);
-   width: var(--size-icon);
-   height: var(--size-icon);
+   --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
+   width: var(--button-size-icon);
+   min-width: var(--button-size-icon);
+   height: var(--button-size-icon);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -180,20 +187,87 @@ body {
 //    border-radius: 6px;
 // }
 
-// .swiper-wrapper {
-//    position: relative;
-//    z-index: 1;
-//    display: flex;
-//    transition-property: transform;
+.swiper-wrapper {
+   position: relative;
+   z-index: 1;
+   display: flex;
+   transition-property: transform;
 
-//    .swiper-slide {
-//       flex-shrink: 0;
-//       width: 100%;
-//       position: relative;
-//       transition-property: transform;
-//       touch-action: pan-y;
-//    }
-// }
+   .swiper-slide {
+      flex-shrink: 0;
+      width: 100%;
+      position: relative;
+      transition-property: transform;
+      touch-action: pan-y;
+   }
+}
+
+.swiper-button-shell {
+   display: flex;
+   gap: 4px;
+}
+
+.swiper-button {
+   width: 48px;
+   min-width: 48px;
+   height: 48px;
+   border-radius: 8px;
+   border: 1px solid var(--color-periwinkle-crayola-02);
+}
+
+.swiper-pagination {
+   font-weight: 500;
+   font-size: 18px;
+   color: var(--color-silver-grey);
+}
+
+.input-text {
+   margin-bottom: 24px;
+   padding-bottom: 12px;
+   border-bottom: 1px solid var(--color-periwinkle-crayola-02);
+   width: 100%;
+   font-size: 16px;
+   line-height: 112%;
+   color: var(--color-silver-grey);
+}
+
+.textarea {
+   margin-bottom: 24px;
+   height: 90px;
+   resize: none;
+   border-bottom: 1px solid var(--color-periwinkle-crayola-02);
+}
+
+.checkbox-body {
+   display: flex;
+   gap: 12px;
+}
+
+.checkbox-input {
+   display: none;
+
+   &:checked+.checkbox-item svg {
+      display: block;
+   }
+}
+
+.checkbox-item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 24px;
+   min-width: 24px;
+   height: 24px;
+   min-height: 24px;
+   border-radius: 4px;
+   background-color: var(--color-periwinkle-crayola);
+
+   svg {
+      display: none;
+   }
+}
+
+.checkbox-text {}
 
 // .js-tabs-shell {
 //    will-change: height;
