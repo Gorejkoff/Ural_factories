@@ -258,6 +258,7 @@ body {
 }
 
 .blur-block {
+  margin-top: 8px;
   border-radius: 24px;
   padding: 96px 96px 160px;
   backdrop-filter: blur(20px);
@@ -628,6 +629,109 @@ body {
 
 .about-section__data-arrow {
   width: 28px;
+}
+
+.delivery-section__title {
+  max-width: 191px;
+}
+
+.delivery-section__gryd {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 8px;
+}
+
+.delivery-section__cell {
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-lavender);
+}
+
+.delivery-section__cell-content {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.delivery-section__image {
+  margin-bottom: 32px;
+  padding-bottom: 58.3%;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.delivery-section__image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.delivery-section__cell-tags {
+  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 8px;
+}
+
+.delivery-section__cell-tags span {
+  padding: 6px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 32px;
+  border: 1px solid #b6b8c5;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 112%;
+}
+
+.delivery-section__cell-title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
 }
 
 @media (min-width: 768px) {

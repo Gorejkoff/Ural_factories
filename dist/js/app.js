@@ -106,8 +106,8 @@ let frequency;
 const loader = new GLTFLoader();
 
 loader.load(
-   `../dist/glb/transmitter-1.glb`,
-   // `../glb/transmitter-1.glb`,
+   // `../dist/glb/transmitter-1.glb`,
+   `../glb/transmitter-3.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
@@ -189,24 +189,22 @@ camera.position.z = 50;
 
 
 //Добавьте свет в сцену, чтобы мы могли увидеть 3D -модель
-const topLight = new THREE.DirectionalLight(0xffffff, 3); // (color, intensity)
-topLight.position.set(5, 5, 10);
-
+const topLight = new THREE.DirectionalLight(0xffffff, 6); // (color, intensity)
+topLight.position.set(40, 100, 40);
 // topLight.castShadow = true;
-
-// console.log(topLight);
-
-
 scene.add(topLight);
 
 // const helper = new THREE.DirectionalLightHelper(topLight, 5);
 // scene.add(helper);
 
 
-const leftLight = new THREE.DirectionalLight(0xffffff, 0); // (color, intensity)
-leftLight.position.set(-5, 5, 10);
+const leftLight = new THREE.DirectionalLight(0xffffff, 5); // (color, intensity)
+leftLight.position.set(-50, 0, 10);
 leftLight.castShadow = true;
-// scene.add(leftLight);
+scene.add(leftLight);
+
+// const helper2= new THREE.DirectionalLightHelper(leftLight, 1);
+// scene.add(helper2);
 
 const color = 0xFFFFFF;
 const intensity = 10;
@@ -214,8 +212,8 @@ const light = new THREE.AmbientLight(color, intensity);
 // scene.add(light);
 
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0xffffff, 5);
+// scene.add(ambientLight);
 
 
 //Это добавляет элементы управления в камеру, поэтому мы можем повернуть / масштабировать ее с помощью мыши
