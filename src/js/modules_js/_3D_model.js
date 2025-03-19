@@ -49,14 +49,14 @@ loader.load(
       console.log(cylinder);
 
    },
-   function (xhr) {
-      // прогресс загрузки модели
-      // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-   },
-   function (error) {
-      //Если есть ошибка
-      console.error(error);
-   }
+   // function (xhr) {
+   //    // прогресс загрузки модели
+   //    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+   // },
+   // function (error) {
+   //    //Если есть ошибка
+   //    console.error(error);
+   // }
 );
 
 function moveRadio() {
