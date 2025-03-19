@@ -1,0 +1,280 @@
+<div class="filter clear-hidden" data-transition="300" data-max_height="180">
+   <form class="filter__form" action="#" method="post" name="filter" id="filter">
+
+
+      <div class="filter__header">
+         <div class="filter__title">Фильтры</div>
+         <button class="filter__clear" type="button">Очистить все фильтры</button>
+         <button class="filter__close" type="button">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <rect width="30" height="30" rx="15" fill="#222222" />
+               <path d="M22 9.91L20.59 8.5L15 14.09L9.41 8.5L8 9.91L13.59 15.5L8 21.09L9.41 22.5L15 16.91L20.59 22.5L22 21.09L16.41 15.5L22 9.91Z" fill="#ECECEC" />
+            </svg>
+         </button>
+      </div>
+
+
+      <div class="filter__body">
+
+
+         <div class="filter__block">
+            <div class="filter__list">
+               <ol>
+                  <li>
+                     <label class="filter__check">
+                        <input type="checkbox" name="filter" value="Швейцарские часы">
+                        <span class="filter__check-item">
+                           <img src="@img/svg/check.svg" alt="отметка выбора">
+                        </span>
+                        <span class="filter__check-text">Швейцарские часы</span>
+                     </label>
+                  </li>
+                  <li>
+                     <label class="filter__check">
+                        <input type="checkbox" name="filter" value="Ювелирные украшения">
+                        <span class="filter__check-item">
+                           <img src="@img/svg/check.svg" alt="отметка выбора">
+                        </span>
+                        <span class="filter__check-text">Ювелирные украшения</span>
+                     </label>
+                  </li>
+                  <li>
+                     <label class="filter__check">
+                        <input type="checkbox" name="filter" value="Patek Philippe">
+                        <span class="filter__check-item">
+                           <img src="@img/svg/check.svg" alt="отметка выбора">
+                        </span>
+                        <span class="filter__check-text">Сумки</span>
+                     </label>
+                  </li>
+               </ol>
+            </div>
+         </div>
+
+
+         <div class="filter__block">
+            <button class="filter__category" type="button">
+               <span>Производитель</span>
+               <img src="./img/svg/arrow-menu.svg" alt="указатель">
+            </button>
+            <div class="filter__list filter__list-hidden scroll">
+               <div class="filter__list-inner">
+                  <ol>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Без названия">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Без названия</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Rolex">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Rolex</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Patek Philippe">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Patek Philippe</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Audemars Piguet">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Audemars Piguet</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Van Cleef & Arpels">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Van Cleef & Arpels</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Без названия">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Без названия</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Rolex">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Rolex</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="checkbox" name="brand" value="Patek Philippe">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Patek Philippe</span>
+                        </label>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="filter__block">
+            <button class="filter__category" type="button">
+               <span>Цена</span>
+               <img src="./img/svg/arrow-menu.svg" alt="указатель">
+            </button>
+            <div class="filter__list filter__list-hidden scroll">
+               <div class="filter__list-inner filter__vertical-indicator">
+                  <div class="filter__vertical-indicator-range">
+                  </div>
+                  <ol>
+                     <li>
+                        <label class="filter__check">
+                           <input type="radio" name="prise" value="0">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">До 10 000 $</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="radio" name="prise" value="1">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">10 000 $-15 000 $</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="radio" name="prise" value="2">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">15 000 $-25 000 $</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="radio" name="prise" value="3">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">25 000 $-50 000 $</span>
+                        </label>
+                     </li>
+                     <li>
+                        <label class="filter__check">
+                           <input type="radio" name="prise" value="4">
+                           <span class="filter__check-item">
+                              <img src="@img/svg/check.svg" alt="отметка выбора">
+                           </span>
+                           <span class="filter__check-text">Свыше 50 000 $</span>
+                        </label>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="filter__block">
+            <button class="filter__category" type="button">
+               <span>Наличие</span>
+               <img src="./img/svg/arrow-menu.svg" alt="указатель">
+            </button>
+            <div class="filter__list filter__list-hidden scroll">
+               <div class="filter__list-inner">
+                  <div class="filter__check-buttons">
+                     <label class="filter__check-button">
+                        <input type="checkbox" name="availability" value="">
+                        <span>В наличии</span>
+                     </label>
+                     <label class="filter__check-button">
+                        <input type="checkbox" name="availability" value="">
+                        <span>Под заказ</span>
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="filter__block">
+            <button class="filter__category" type="button">
+               <span>Диаметр</span>
+               <img src="./img/svg/arrow-menu.svg" alt="указатель">
+            </button>
+            <div class="filter__list filter__list-hidden scroll">
+               <div class="filter__list-inner">
+                  <div class="filter__range">
+                     <div class="filter__range-inputs">
+                        <input class="filter__min" type="number" min="10" max="98" name="range_min" value="0">
+                        <span></span>
+                        <input class="filter__max" type="number" min="10" max="98" name="range_max" value="">
+                     </div>
+                     <div class="filter__track-range track-range">
+                        <span class="filter__spin-min spin-min">
+                           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M20 0L23.1396 16.8604L40 20L23.1396 23.1396L20 40L16.8604 23.1396L0 20L16.8604 16.8604L20 0Z" fill="#116C42" />
+                           </svg>
+                        </span>
+                        <span class="filter__spin-max spin-max">
+                           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M20 0L23.1396 16.8604L40 20L23.1396 23.1396L20 40L16.8604 23.1396L0 20L16.8604 16.8604L20 0Z" fill="#116C42" />
+                           </svg>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="filter__block">
+            <button class="filter__category" type="button">
+               <span>Состояние</span>
+               <img src="./img/svg/arrow-menu.svg" alt="указатель">
+            </button>
+            <div class="filter__list filter__list-hidden scroll">
+               <div class="filter__list-inner">
+                  <div class="filter__check-buttons">
+                     <label class="filter__check-button">
+                        <input type="checkbox" name="condition" value="">
+                        <span>Новое</span>
+                     </label>
+                     <label class="filter__check-button">
+                        <input type="checkbox" name="condition" value="">
+                        <span>С пробегом</span>
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+      </div>
+      <button class="filter__submit" type="submit">Применить</button>
+   </form>
+</div>

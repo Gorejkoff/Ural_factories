@@ -1,0 +1,13 @@
+@use '../assets/mixin.scss' as *;
+@use '../assets/variablesSCSS.scss' as *;
+
+.mobile-menu {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: var(--vh);
+   width: 100%;
+
+
+   background-color: var(--color-white);
+}

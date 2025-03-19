@@ -1,0 +1,14 @@
+.enter__code {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+
+   input {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      border: 1px solid var(--color-black, black);
+   }
+
+}

@@ -1,0 +1,57 @@
+@font-face {
+   font-family:
+      Hoves;
+   font-display: swap;
+   src:
+      url("../fonts/TTHovesRegular.woff2") format("woff2"),
+      url("../fonts/TTHovesRegular.woff") format("woff");
+   font-weight:
+      400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family:
+      Hoves;
+   font-display: swap;
+   src:
+      url("../fonts/TTHovesMedium.woff2") format("woff2"),
+      url("../fonts/TTHovesMedium.woff") format("woff");
+   font-weight:
+      500;
+   font-style: normal;
+}
+
+@font-face {
+   font-family:
+      Hoves;
+   font-display: swap;
+   src:
+      url("../fonts/TTHovesLight.woff2") format("woff2"),
+      url("../fonts/TTHovesLight.woff") format("woff");
+   font-weight:
+      300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family:
+      Hoves;
+   font-display: swap;
+   src:
+      url("../fonts/TTHovesDemiBold.woff2") format("woff2"),
+      url("../fonts/TTHovesDemiBold.woff") format("woff");
+   font-weight:
+      600;
+   font-style: normal;
+}
+
+// 100: Thin;
+// 200: Extra Light (Ultra Light);
+// 300: Light;
+// 400: Normal; Regular
+// 500: Medium;
+// 600: Semi Bold (Demi Bold);
+// 700: Bold;
+// 800: Extra Bold (Ultra Bold);
+// 900: Black (Heavy).

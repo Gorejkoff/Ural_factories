@@ -1,0 +1,48 @@
+@use '../assets/variablesSCSS.scss' as *;
+
+.header {
+   position: relative;
+   z-index: 5;
+   padding-top: 24px;
+   padding-bottom: 24px;
+
+   &__container {}
+
+   &__body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__wrapper {
+      flex: 1 1 40%;
+   }
+
+   &__logo {
+      display: inline-block;
+
+      svg {
+         max-width: 100%;
+
+         path {
+            fill: var(--color-black)
+         }
+      }
+   }
+
+   &__button-menu {
+      padding: 19px;
+      min-height: 56px;
+      background-color: var(--color-orange);
+      border-radius: 8px;
+   }
+
+   &__button-contact {
+      margin-left: auto;
+      --button-max-width: 272px;
+      // --button-height: 56px;
+      --button-background: var(--color-black);
+      --button-color: var(--color-periwinkle-crayola);
+
+   }
+}

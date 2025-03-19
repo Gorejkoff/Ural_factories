@@ -1,0 +1,20 @@
+:root {
+   --font-family: "Hoves", sans-serif;
+
+   --color-white: #ffffff;
+   --color-black: #0C1014;
+   --color-orange: #FF774D;
+   --color-blue-crayola: #b5b7c5;
+   --color-periwinkle-crayola: #d4d6e3;
+   --color-periwinkle-crayola-02: rgba(212, 214, 227, 0.2);
+   --color-bg-008: rgba(212, 214, 227, 0.08);
+   --color-modal-bg: rgba(0, 0, 0, 0.6);
+   --color-silver-grey: #8c98a2;
+   --color-lavender: #e7edf7;
+   --vh: 100vh;
+
+   @supports (height: 100dvh) {
+      --vh: 100dvh;
+   }
+
+}

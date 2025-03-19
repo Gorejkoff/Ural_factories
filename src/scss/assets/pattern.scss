@@ -1,0 +1,242 @@
+@use 'variablesSCSS' as *;
+
+body {
+   font-family: var(--font-family);
+   font-weight: 400;
+   color: var(--color-black);
+   --padding-container: #{$padding-mobile};
+   --container-width: #{$width-content};
+   --max-width-container: #{$max-width-container};
+   scrollbar-gutter: stable;
+   background-color: var(--color-black);
+
+   @media (min-width:768px) {
+      --padding-container: #{$padding-tablet};
+   }
+
+   @media (min-width:1024px) {
+      --padding-container: #{$padding-desktop};
+   }
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+.main {
+   flex: 1 1 auto;
+}
+
+// .shadow {
+//    box-shadow: -3px 0 16px 0 rgba(51, 51, 51, 0.3);
+// }
+
+[class*="__container"] {
+   padding-left: var(--padding-container);
+   padding-right: var(--padding-container);
+   margin: 0 auto;
+   width: 100%;
+   max-width: var(--max-width-container);
+}
+
+.button {
+   padding: 4px 4px 4px 20px;
+   height: var(--button-height, 56px);
+   width: 100%;
+   max-width: var(--button-max-width, 100%);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 8px;
+   border: 1px solid var(--button-border-color, var(--color-blue-crayola));
+   border-radius: 12px;
+   background-color: var(--button-background, transparent);
+   color: var(--button-color, var(--color-black));
+   font-size: var(--button-font-size, 18px);
+}
+
+.button-icon {
+   --size-icon: calc(var(--button-height, 56px) - 8px);
+   width: var(--size-icon);
+   height: var(--size-icon);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--color-orange);
+   border-radius: 8px;
+}
+
+.scroll-animation-trigger {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   pointer-events: none;
+}
+
+.scroll-animation {
+   position: relative;
+}
+
+// #container3D {
+//    position: absolute;
+//    top: 0;
+//    left: 50%;
+//    transform: translateX(-50%);
+// }
+
+
+.blur-block {
+   border-radius: 24px;
+   padding: 96px 96px 160px;
+   backdrop-filter: blur(20px);
+   -webkit-backdrop-filter: blur(20px);
+   background: var(--color-bg-008);
+
+
+}
+
+.blur-title {
+   margin-bottom: 64px;
+   font-size: 18px;
+   line-height: 122%;
+   color: var(--color-silver-grey);
+}
+
+
+// .hidden-max1024 {
+//    @media (max-width:1023.98px) {
+//       display: none !important;
+//    }
+// }
+
+// .hidden-max768 {
+//    @media (max-width:767.98px) {
+//       display: none !important;
+//    }
+// }
+
+// .title-header {
+//    margin-bottom: 10px;
+//    font-weight: 700;
+//    font-size: 18px;
+//    line-height: 133%;
+//    text-transform: uppercase;
+//    color: var(--color-yellow-broom);
+
+//    @media (min-width:768px) {
+//       margin-bottom: 20px;
+//       font-size: 20px;
+//    }
+
+//    @media (min-width:1024px) {
+//       font-size: 24px;
+//    }
+// }
+
+// .title-section {
+//    font-weight: 700;
+//    font-size: 40px;
+
+//    @media (min-width:768px) {
+//       font-size: 50px;
+//    }
+
+//    @media (min-width:1024px) {
+//       font-size: 60px;
+//    }
+// }
+
+// .margin-section {
+//    margin-bottom: 40px;
+
+//    @media (min-width:768px) {
+//       margin-bottom: 70px;
+//    }
+
+//    @media (min-width:1024px) {
+//       margin-bottom: 100px;
+//    }
+// }
+
+// .scroll::-webkit-scrollbar {
+//    width: 11px;
+//    height: 11px;
+//    border-radius: 6px;
+// }
+
+// .scroll::-webkit-scrollbar-track {
+//    border-radius: 6px;
+//    background-color: var(--color-lightgrey, lightgrey);
+// }
+
+// .scroll::-webkit-scrollbar-thumb {
+//    background-color: var(--color-green, green);
+//    background-clip: content-box;
+//    border-radius: 6px;
+// }
+
+// .swiper-wrapper {
+//    position: relative;
+//    z-index: 1;
+//    display: flex;
+//    transition-property: transform;
+
+//    .swiper-slide {
+//       flex-shrink: 0;
+//       width: 100%;
+//       position: relative;
+//       transition-property: transform;
+//       touch-action: pan-y;
+//    }
+// }
+
+// .js-tabs-shell {
+//    will-change: height;
+//    transform: translateZ(0);
+//    height: 0;
+//    overflow: hidden;
+//    transition: height $tr-time-l $bezier;
+// }
+
+// .js-tabs-toggle {
+//    cursor: pointer;
+// }
+
+// /* указатель количества, абсолютное позиционирование */
+// [data-icon-quantity] {
+//    position: relative;
+//    display: block;
+
+//    &::after {
+//       content: attr(data-icon-quantity);
+//       padding: 5px;
+//       position: absolute;
+//       top: 0;
+//       right: 0;
+//       transform: translate(25%, -25%);
+
+//       min-width: 24px;
+//       height: 24px;
+
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+
+//       border-radius: 12px;
+//       font-size: 12px;
+//       color: var(--color-white, #ffffff);
+//       background-color: var(--color-black, #000000);
+//    }
+// }
+
+// /* указатель количества, в строку */
+// [data-string-quantity] {
+//    &::after {
+//       content: " (" attr(data-string-quantity) ")";
+//       color:var(--color-black, #000000);
+//    }
+// }

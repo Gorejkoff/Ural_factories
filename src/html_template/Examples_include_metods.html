@@ -1,0 +1,28 @@
+<!-- цикл -->
+@@loop('../directory/file.html','json/file.json')
+
+<!-- цикл for -->
+@@include('html/file.html',{"arr":[1,2,3,4]})
+@@for( var i = 0; i < arr.length; i++ ) { <p>`+arr[i]+`</p> }
+
+
+   <!-- цикл с перебором массива -->
+   @@loop('html/test.html','[ { "name": "first", "number": [1,2] }, { "name": "second", "number": [ 1,2,3] } ]')
+   <div>
+      <div>@@name</div>
+      <div>
+         @@for( var i = 0; i < context.number.length; i++ ){ <p>`+context.number[i]+`</p> }
+      </div>
+   </div>
+
+   <!-- вставка с условием или данными -->
+   @@include('html/file.html',{value: true,})
+   <!-- вариант вставки с условием -->
+   <div>Text 1</div>
+   @@if(value == true){<div>Text 2</div>}
+   <!-- или -->
+   @@if(value == true){<div>Text 1</div>}
+   @@if(value ! == true){<div>Text 2</div>}
+
+
+   <a href="#0" class="button @@if(context.props){@@props}">@@text</a>

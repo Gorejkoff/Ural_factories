@@ -1,0 +1,33 @@
+// $prop - свойство,
+// $min - минимальное значение,
+// $max - максимальное значение,
+// $minW - минимальная ширина вьюпорта,
+// $maxW - махимальная ширина вьюпорта
+
+@mixin size_adaptive ($prop, $min, $max, $minW, $maxW) {
+   $minpx : $min + px;
+   $minWidth : $minW + px;
+   $maxWidth : $maxW - 0.02 + px;
+
+   @media (min-width: $minWidth) and (max-width:$maxWidth) {
+      #{$prop}: calc($minpx + (100vw - $minWidth)/($maxW - $minW)*($max - $min));
+   }
+}
+
+
+// $grow - коэффициент увеличения,
+// $shrink - коэффициент уменьшения,
+// $min - минимальная ширина,
+// $max - максимальная ширина,
+// $minW - минимальная ширина вьюпорта,
+// $maxW - махимальная ширина вьюпорта
+
+@mixin size_adaptive_flex ($grow, $shrink, $min, $max, $minW, $maxW) {
+   $minpx : $min + px;
+   $minWidth : $minW + px;
+   $maxWidth : $maxW - 0.02 + px;
+
+   @media (min-width: $minWidth) and (max-width:$maxWidth) {
+      flex: $grow $shrink calc($minpx + (100vw - $minWidth)/($maxW - $minW)*($max - $min));
+   }
+}
