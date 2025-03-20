@@ -34,8 +34,8 @@ let frequency;
 const loader = new GLTFLoader();
 
 loader.load(
-   // `../dist/glb/transmitter-3.glb`,
-   `../glb/transmitter-3.glb`,
+   `../dist/glb/transmitter-3.glb`,
+   // `../glb/transmitter-3.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);

@@ -18,8 +18,8 @@ class TabsSwitching {
    }
 }
 
-if (document.querySelector('.bestsellers__body')) {
-   let tab = new TabsSwitching('.tab', '.tab__button', '.bestsellers__swiper', setValue);
+if (document.querySelector('.bestshellers__body')) {
+   let tab = new TabsSwitching('.tab', '.tab__button', '.bestshellers__swiper', setValue);
    tab.init();
 }
 

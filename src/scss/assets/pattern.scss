@@ -42,8 +42,8 @@ body {
 }
 
 .button {
-   padding: 4px 4px 4px 20px;
-   height: var(--button-height, 56px);
+   padding: 3px 3px 3px 16px;
+   height: var(--button-height, 46px);
    width: 100%;
    max-width: var(--button-max-width, 100%);
    display: flex;
@@ -51,10 +51,17 @@ body {
    justify-content: space-between;
    gap: 8px;
    border: 1px solid var(--button-border-color, var(--color-blue-crayola));
-   border-radius: 12px;
+   border-radius: 8px;
    background-color: var(--button-background, transparent);
    color: var(--button-color, var(--color-black));
-   font-size: var(--button-font-size, 18px);
+   font-size: var(--button-font-size, 14px);
+
+   @media (min-width:1024px) {
+      padding: 4px 4px 4px 20px;
+      height: var(--button-height, 56px);
+      border-radius: 12px;
+      font-size: var(--button-font-size, 18px);
+   }
 }
 
 .button-darck {
@@ -64,7 +71,7 @@ body {
 }
 
 .button-icon {
-   --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
+   --button-size-icon: var(--size-icon, calc(var(--button-height, 46px) - 6px));
    width: var(--button-size-icon);
    min-width: var(--button-size-icon);
    height: var(--button-size-icon);
@@ -72,7 +79,13 @@ body {
    align-items: center;
    justify-content: center;
    background-color: var(--color-orange);
-   border-radius: 8px;
+   border-radius: 5px;
+
+   @media (min-width:1024px) {
+      --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
+      border-radius: 8px;
+   }
+
 }
 
 .scroll-animation-trigger {
@@ -99,19 +112,32 @@ body {
 .blur-block {
    margin-top: 8px;
    border-radius: 24px;
-   padding: 96px 96px 160px;
+   padding: 48px 16px;
    backdrop-filter: blur(20px);
    -webkit-backdrop-filter: blur(20px);
    background: var(--color-bg-008);
 
+   @media (min-width:1024px) {
+      padding: 48px 32px;
+   }
+
+   @media (min-width:1200px) {
+      padding: 96px 96px 160px;
+   }
 
 }
 
 .blur-title {
-   margin-bottom: 64px;
-   font-size: 18px;
+   margin-bottom: 32px;
+   font-size: 14px;
    line-height: 122%;
    color: var(--color-silver-grey);
+
+   @media (min-width:1024px) {
+      margin-bottom: 64px;
+      font-size: 18px;
+
+   }
 }
 
 

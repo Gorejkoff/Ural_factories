@@ -213,8 +213,8 @@ body {
 }
 
 .button {
-  padding: 4px 4px 4px 20px;
-  height: var(--button-height, 56px);
+  padding: 3px 3px 3px 16px;
+  height: var(--button-height, 46px);
   width: 100%;
   max-width: var(--button-max-width, 100%);
   display: -webkit-box;
@@ -228,10 +228,10 @@ body {
           justify-content: space-between;
   gap: 8px;
   border: 1px solid var(--button-border-color, var(--color-blue-crayola));
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: var(--button-background, transparent);
   color: var(--button-color, var(--color-black));
-  font-size: var(--button-font-size, 18px);
+  font-size: var(--button-font-size, 14px);
 }
 
 .button-darck {
@@ -241,7 +241,7 @@ body {
 }
 
 .button-icon {
-  --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
+  --button-size-icon: var(--size-icon, calc(var(--button-height, 46px) - 6px));
   width: var(--button-size-icon);
   min-width: var(--button-size-icon);
   height: var(--button-size-icon);
@@ -255,7 +255,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: var(--color-orange);
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .scroll-animation-trigger {
@@ -274,15 +274,15 @@ body {
 .blur-block {
   margin-top: 8px;
   border-radius: 24px;
-  padding: 96px 96px 160px;
+  padding: 48px 16px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   background: var(--color-bg-008);
 }
 
 .blur-title {
-  margin-bottom: 64px;
-  font-size: 18px;
+  margin-bottom: 32px;
+  font-size: 14px;
   line-height: 122%;
   color: var(--color-silver-grey);
 }
@@ -741,9 +741,9 @@ body {
 }
 
 .products__header-title {
-  padding: 32px;
+  padding: 20px 16px;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 18px;
   line-height: 100%;
   letter-spacing: -0.03em;
   border-bottom: 1px solid var(--color-blue-crayola);
@@ -752,8 +752,8 @@ body {
 .products__header-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .products__header-cell {
@@ -766,8 +766,8 @@ body {
   border-right: 1px solid var(--color-blue-crayola);
 }
 
-.products__header-cell-sell {
-  padding: 32px;
+.products__header-cell-shell {
+  padding: 16px;
   position: absolute;
   top: 0;
   left: 0;
@@ -798,8 +798,8 @@ body {
 .products__grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr);
   gap: 8px;
 }
 
@@ -811,8 +811,8 @@ body {
   overflow: hidden;
 }
 
-.products__cell-sell {
-  padding: 32px;
+.products__cell-shell {
+  padding: 16px;
   position: absolute;
   top: 0;
   left: 0;
@@ -834,7 +834,7 @@ body {
 .products__cell-title {
   margin-bottom: 52px;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 18px;
   line-height: 100%;
   letter-spacing: -0.03em;
 }
@@ -932,8 +932,8 @@ body {
 .delivery-section__gryd {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
   gap: 8px;
 }
@@ -953,9 +953,9 @@ body {
 }
 
 .delivery-section__cell-content {
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -1010,10 +1010,10 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 32px;
+  min-height: 24px;
   border: 1px solid #b6b8c5;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 112%;
 }
 
@@ -1023,7 +1023,7 @@ body {
           flex: 1 1 auto;
   margin-bottom: 40px;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 20px;
   line-height: 100%;
   letter-spacing: -0.03em;
 }
@@ -1229,14 +1229,14 @@ body {
   padding: 8px 8px 0;
 }
 
-.menu__download-image-sell {
+.menu__download-image-shell {
   position: relative;
   padding-bottom: 63.436%;
   overflow: hidden;
   border-radius: 8px;
 }
 
-.menu__download-image-sell img {
+.menu__download-image-shell img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1406,10 +1406,101 @@ body {
   body {
     --padding-container: 20px;
   }
+
+  .products__grid {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
   body {
     --padding-container: 24px;
+  }
+
+  .button {
+    padding: 4px 4px 4px 20px;
+    height: var(--button-height, 56px);
+    border-radius: 12px;
+    font-size: var(--button-font-size, 18px);
+  }
+
+  .button-icon {
+    --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
+    border-radius: 8px;
+  }
+
+  .blur-block {
+    padding: 48px 32px;
+  }
+
+  .blur-title {
+    margin-bottom: 64px;
+    font-size: 18px;
+  }
+
+  .products__header-title {
+    font-size: 24px;
+  }
+
+  .products__header-grid {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .products__header-cell-shell {
+    padding: 32px;
+  }
+
+  .products__grid {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .products__cell-shell {
+    padding: 24px;
+  }
+
+  .products__cell-title {
+    font-size: 24px;
+  }
+
+  .delivery-section__gryd {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .delivery-section__cell-content {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+  }
+
+  .delivery-section__cell-tags span {
+    min-height: 32px;
+    font-size: 16px;
+  }
+
+  .delivery-section__cell-title {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .blur-block {
+    padding: 96px 96px 160px;
+  }
+
+  .products__header-title {
+    padding: 32px;
+    font-size: 32px;
+  }
+
+  .products__cell-shell {
+    padding: 32px;
+  }
+
+  .products__cell-title {
+    font-size: 32px;
   }
 }

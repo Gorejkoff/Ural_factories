@@ -10,17 +10,31 @@
    }
 
    &__header-title {
-      padding: 32px;
+      padding: 20px 16px;
       font-weight: 500;
-      font-size: 32px;
+      font-size: 18px;
       line-height: 100%;
       letter-spacing: -0.03em;
       border-bottom: 1px solid var(--color-blue-crayola);
+
+      @media (min-width:1024px) {
+         font-size: 24px;
+      }
+
+      @media (min-width:1200px) {
+         padding: 32px;
+         font-size: 32px;
+      }
    }
 
    &__header-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
+
+      @media (min-width:1024px) {
+         grid-template-columns: 1fr 1fr;
+
+      }
    }
 
    &__header-cell {
@@ -34,8 +48,8 @@
    }
 
 
-   &__header-cell-sell {
-      padding: 32px;
+   &__header-cell-shell {
+      padding: 16px;
       position: absolute;
       top: 0;
       left: 0;
@@ -44,6 +58,10 @@
       z-index: 1;
       display: flex;
       align-items: flex-end;
+
+      @media (min-width:1024px) {
+         padding: 32px;
+      }
    }
 
    &__header-cell-image {
@@ -58,8 +76,16 @@
 
    &__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 8px;
+
+      @media (min-width:768px) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width:1024px) {
+         grid-template-columns: repeat(3, 1fr);
+      }
    }
 
    &__cell {
@@ -71,8 +97,8 @@
       // --button-background: var(--color-sea-foam)
    }
 
-   &__cell-sell {
-      padding: 32px;
+   &__cell-shell {
+      padding: 16px;
       position: absolute;
       top: 0;
       left: 0;
@@ -82,14 +108,30 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media (min-width:1024px) {
+         padding: 24px;
+      }
+
+      @media (min-width:1200px) {
+         padding: 32px;
+      }
    }
 
    &__cell-title {
       margin-bottom: 52px;
       font-weight: 500;
-      font-size: 32px;
+      font-size: 18px;
       line-height: 100%;
       letter-spacing: -0.03em;
+
+      @media (min-width:1024px) {
+         font-size: 24px;
+      }
+
+      @media (min-width:1200px) {
+         font-size: 32px;
+      }
    }
 
    &__cell-image {
