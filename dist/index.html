@@ -6,7 +6,7 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
 <meta name="description" content="Описание сайта">
-<link rel="stylesheet" href="css/style.css?_v=20250319234558">
+<link rel="stylesheet" href="css/style.css?_v=20250320220940">
 </head>
 
 
@@ -42,7 +42,7 @@
             </a>
          </div>
 
-         <button class="header__button-menu" type="button" aria-label="открыть меню">
+         <button class="header__button-menu button-icon js-modal-open" type="button" aria-label="открыть меню" data-modal_open="menu-contacts">
             <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                <circle cx="2" cy="2" r="2" fill="#FFFBF9" />
                <circle cx="10" cy="2" r="2" fill="#FFFBF9" />
@@ -54,7 +54,7 @@
          </button>
 
          <div class="header__wrapper">
-            <button class="header__button-contact button" type="button">
+            <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu">
                <span>Связаться с нами</span>
                <span class="button-icon">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -663,17 +663,17 @@
       </div>
    </div>
 
-   <div class="menu">
+   <div id="menu" class="menu js-modal-hidden js-modal-close">
    <div class="menu__container">
       <div class="menu__shell">
 
-         <button class="menu__close  button-icon" type="button">
+         <button class="menu__close button-icon js-modal-close" type="button">
             <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M4.20371 5.80416L0.668173 2.26862C0.277648 1.8781 0.277648 1.24493 0.668173 0.85441C1.0587 0.463886 1.69186 0.463886 2.08239 0.85441L5.61792 4.38994L9.15345 0.854411C9.54398 0.463886 10.1771 0.463886 10.5677 0.85441C10.9582 1.24493 10.9582 1.8781 10.5677 2.26862L7.03213 5.80416L10.5677 9.33969C10.9582 9.73022 10.9582 10.3634 10.5677 10.7539C10.1771 11.1444 9.54398 11.1444 9.15345 10.7539L5.61792 7.21837L2.08239 10.7539C1.69186 11.1444 1.0587 11.1444 0.668172 10.7539C0.277648 10.3634 0.277648 9.73022 0.668172 9.33969L4.20371 5.80416Z" fill="#FEFEFE" />
             </svg>
          </button>
 
-         <div class="menu__body">
+         <div class="menu__body js-modal-stop-close">
             <ol class="menu__list">
                <li><a class="menu__link" href="#0">О компании</a></li>
                <li><a class="menu__link" href="#0">Каталог продукции и ПО</a></li>
@@ -712,7 +712,7 @@
       </div>
    </div>
 </div>
-   <div class="menu-contacts">
+   <div id="menu-contacts" class="menu-contacts js-modal-hidden js-modal-close">
    <div class="menu-contacts__container">
       <div class="menu-contacts__shell">
          <div></div>
@@ -721,7 +721,7 @@
                <path d="M4.20371 5.80416L0.668173 2.26862C0.277648 1.8781 0.277648 1.24493 0.668173 0.85441C1.0587 0.463886 1.69186 0.463886 2.08239 0.85441L5.61792 4.38994L9.15345 0.854411C9.54398 0.463886 10.1771 0.463886 10.5677 0.85441C10.9582 1.24493 10.9582 1.8781 10.5677 2.26862L7.03213 5.80416L10.5677 9.33969C10.9582 9.73022 10.9582 10.3634 10.5677 10.7539C10.1771 11.1444 9.54398 11.1444 9.15345 10.7539L5.61792 7.21837L2.08239 10.7539C1.69186 11.1444 1.0587 11.1444 0.668172 10.7539C0.277648 10.3634 0.277648 9.73022 0.668172 9.33969L4.20371 5.80416Z" fill="#FEFEFE" />
             </svg>
          </button>
-         <div class="menu-contacts__body">
+         <div class="menu-contacts__body js-modal-stop-close">
 
             <div class="menu-contacts__contacts menu-contacts__base">
                <a class="menu-contacts__contacts-email" href="mailto:sale@uralradio.ru">sale@uralradio.ru</a>
@@ -792,13 +792,13 @@
    </div>
 </div>
 
-   <script defer src='./js/gsap.min.js?_v=20250319234558'></script>
-<script defer src='./js/ScrollToPlugin.min.js?_v=20250319234558'></script>
-<script defer src='./js/ScrollTrigger.min.js?_v=20250319234558'></script>
-<script defer src='./js/ScrollSmoother.js?_v=20250319234558'></script>
-<script defer type="module" src='./js/app.js?_v=20250319234558'></script>
+   <script defer src='./js/gsap.min.js?_v=20250320220940'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250320220940'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250320220940'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250320220940'></script>
+<script defer type="module" src='./js/app.js?_v=20250320220940'></script>
 
-<script defer src='./js/swiper.js?_v=20250319234558'></script>
+<script defer src='./js/swiper.js?_v=20250320220940'></script>
 
 
 

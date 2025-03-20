@@ -31,10 +31,7 @@
    }
 
    &__button-menu {
-      padding: 19px;
-      min-height: 56px;
-      background-color: var(--color-orange);
-      border-radius: 8px;
+      --size-icon: 56px;
    }
 
    &__button-contact {

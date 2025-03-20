@@ -1,5 +1,5 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-// import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 
@@ -117,35 +117,38 @@ camera.position.z = 50;
 
 
 //Добавьте свет в сцену, чтобы мы могли увидеть 3D -модель
-const topLight = new THREE.DirectionalLight(0xffffff, 6); // (color, intensity)
-topLight.position.set(40, 100, 40);
-// topLight.castShadow = true;
-scene.add(topLight);
-
-// const helper = new THREE.DirectionalLightHelper(topLight, 5);
-// scene.add(helper);
-
-
-const leftLight = new THREE.DirectionalLight(0xffffff, 5); // (color, intensity)
-leftLight.position.set(-50, 0, 10);
-leftLight.castShadow = true;
+const color_light = 0x3b3b3b;
+// const color_light = 0x404040;
+const leftLight = new THREE.DirectionalLight(color_light, 18); // (color, intensity)
+leftLight.position.set(3, 5, 1.5) //top-left-ish
 scene.add(leftLight);
-
-// const helper2= new THREE.DirectionalLightHelper(leftLight, 1);
+const helper = new THREE.DirectionalLightHelper(leftLight, 1);
+// scene.add(helper);
+const leftLight2 = new THREE.DirectionalLight(color_light, 18); // (color, intensity)
+leftLight2.position.set(-3, -5, 1.5) //top-left-ish
+scene.add(leftLight2);
+const helper2 = new THREE.DirectionalLightHelper(leftLight2, 1);
 // scene.add(helper2);
+const leftLight3 = new THREE.DirectionalLight(color_light, 18); // (color, intensity)
+leftLight3.position.set(-3, 5, 1.5) //top-left-ish
+scene.add(leftLight3);
+const leftLight4 = new THREE.DirectionalLight(color_light, 18); // (color, intensity)
+leftLight4.position.set(3, -5, 1.5) //top-left-ish
+scene.add(leftLight4);
 
-const color = 0xFFFFFF;
+
+const color = 0x404040;
 const intensity = 10;
 const light = new THREE.AmbientLight(color, intensity);
 // scene.add(light);
 
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 5);
+const ambientLight = new THREE.AmbientLight(0x404040, 5);
 // scene.add(ambientLight);
 
 
 //Это добавляет элементы управления в камеру, поэтому мы можем повернуть / масштабировать ее с помощью мыши
-// controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 
 //Render the scene
@@ -164,7 +167,7 @@ window.addEventListener("resize", function () {
 });
 
 
-// animate();
+animate();
 
 
 
