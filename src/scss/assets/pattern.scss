@@ -7,7 +7,7 @@ body {
    --padding-container: #{$padding-mobile};
    --container-width: #{$width-content};
    --max-width-container: #{$max-width-container};
-   scrollbar-gutter: stable;
+   // scrollbar-gutter: stable;
    background-color: var(--color-black);
 
    @media (min-width:768px) {
@@ -79,7 +79,7 @@ body {
    align-items: center;
    justify-content: center;
    background-color: var(--color-orange);
-   border-radius: 5px;
+   border-radius: var(--button-border-radius, 5px);
 
    @media (min-width:1024px) {
       --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
@@ -140,6 +140,23 @@ body {
    }
 }
 
+.js-text-animate {
+   &>* {
+      display: block;
+   }
+
+   .color-text {
+      color: var(--color-text);
+   }
+
+   .word {
+      white-space: nowrap;
+   }
+
+   .letter {
+      opacity: 0.3;
+   }
+}
 
 // .hidden-max1024 {
 //    @media (max-width:1023.98px) {
@@ -248,7 +265,7 @@ body {
 }
 
 .input-text {
-   margin-bottom: 24px;
+   margin-bottom: 16px;
    padding-bottom: 12px;
    border-bottom: 1px solid var(--color-periwinkle-crayola-02);
    width: 100%;
@@ -257,18 +274,22 @@ body {
    color: var(--color-silver-grey);
 
    @media (min-width:1024px) {
+      margin-bottom: 24px;
       font-size: 16px;
    }
 }
 
 .textarea {
-   margin-bottom: 24px;
+   margin-bottom: 16px;
    height: 88px;
    resize: none;
    border-bottom: 1px solid var(--color-periwinkle-crayola-02);
+   font-size: 14px;
 
    @media (min-width:1024px) {
+      margin-bottom: 24px;
       height: 92px;
+      font-size: 16px;
    }
 }
 

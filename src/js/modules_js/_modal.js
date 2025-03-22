@@ -12,16 +12,14 @@ js-modal-stop-close - атрибут указывает на поле, при к
 т.е. контейнер контента, при этом внешний родительский контейнет помечается атрибутом js-modal-close.
 допускается дополнительно кнопка закрытия внутри js-modal-stop-close.
 */
+
 document.addEventListener('click', (event) => {
    if (event.target.closest('.js-modal-open')) { openModal(event) }
    if (event.target.closest('.js-modal-close')) { testModalStopClose(event) }
 })
 function openModal(event) {
-   let modalElement = event.target.closest('.js-modal-open').dataset.modal_open;
-   if (typeof modalElement !== "undefined" && document.querySelector(`#${modalElement}`)) {
-      document.querySelector(`#${modalElement}`).classList.add('js-modal-visible');
-      document.body.classList.add('body-overflow')
-   }
+   let id = event.target.closest('.js-modal-open').dataset.modal_open;
+   if (typeof id !== "undefined") { initOpenModal(id) };
 }
 function testModalStopClose(event) {
    if (event.target.closest('.js-modal-stop-close') &&
@@ -33,23 +31,40 @@ function testModalStopClose(event) {
 }
 function closeModal(event) {
    event.target.closest('.js-modal-hidden').classList.remove('js-modal-visible');
-   if (!document.querySelector('.js-modal-visible')) {
-      document.body.classList.remove('body-overflow');
-   }
+   setTimeout(() => { event.target.closest('.js-modal-hidden').style.removeProperty('--opacity-effect') }, 400);
+   activeScrollCloseModal();
 }
 // функция закрытия модального окна (передать id модального окна)
-function initCloseModal(modalElement) {
-   if (document.querySelector(`#${modalElement}`)) {
-      document.querySelector(`#${modalElement}`).classList.remove('js-modal-visible');
+function initCloseModal(id) {
+   if (document.querySelector(`#${id}`)) {
+      document.querySelector(`#${id}`).classList.remove('js-modal-visible');
+      setTimeout(() => { document.querySelector(`#${id}`).style.removeProperty('--opacity-effect') }, 400);
    }
-   if (!document.querySelector('.js-modal-visible')) {
-      document.body.classList.remove('body-overflow');
-   }
+   activeScrollCloseModal();
 }
 // функция открытия модального окна (передать id модального окна)
-function initOpenModal(modalElement) {
-   if (document.querySelector(`#${modalElement}`)) {
-      document.querySelector(`#${modalElement}`).classList.add('js-modal-visible');
-      document.body.classList.add('body-overflow')
+function initOpenModal(id) {
+   if (document.querySelector(`#${id}`)) {
+      document.querySelector(`#${id}`).classList.add('js-modal-visible');
+      // document.body.classList.add('body-overflow');
+      smoother.paused(true);
+      document.querySelector(`#${id}`).style.setProperty('--opacity-effect', 1);
+      menuIsOpen();
    }
 }
+function activeScrollCloseModal() {
+   if (!document.querySelector('.js-modal-visible')) {
+      // document.body.classList.remove('body-overflow');
+      smoother.paused(false);
+      menuIsClose();
+   }
+}
+
+function menuIsOpen() {
+   document.body.classList.add('menu-open');
+}
+function menuIsClose() {
+   document.body.classList.remove('menu-open');
+}
+
+

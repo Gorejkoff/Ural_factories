@@ -44,8 +44,8 @@
          font-size: 72px;
       }
 
-      span {
-         color: var(--color-silver-grey);
+      .color-text {
+         --color-text: var(--color-silver-grey);
       }
    }
 

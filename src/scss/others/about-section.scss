@@ -12,20 +12,24 @@
 
    &__title {
       margin-bottom: 64px;
+      height: var(--vh);
+      max-width: 1150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       font-size: 32px;
       line-height: 91%;
       letter-spacing: -0.03em;
       color: var(--color-periwinkle-crayola);
-      max-width: 1150px;
       @include size_adaptive (font-size, 32, 88, 375, 1024);
 
       @media (min-width:1024px) {
-         margin: 0 auto 96px;
+         margin: 0 auto;
          font-size: 88px;
       }
 
-      span {
-         color: var(--color-silver-grey);
+      .color-text {
+         --color-text: var(--color-silver-grey);
       }
    }
 

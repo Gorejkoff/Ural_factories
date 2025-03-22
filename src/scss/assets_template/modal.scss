@@ -47,15 +47,44 @@
 // }
 
 
-.js-modal-hidden {
-   display: none;
+// .js-modal-hidden {
+//    display: none;
 
-   &.js-modal-visible {
-      display: block;
+//    &.js-modal-visible {
+//       display: block;
+//    }
+// }
 
+.menu-base.js-modal-hidden {
+   pointer-events: none;
+   transition: opacity 0.3s;
+   opacity: var(--opacity-effect, 0);
+}
+
+.menu-base.js-modal-hidden.js-modal-visible {
+   pointer-events: all;
+}
+
+.js-menu-effect {
+   height: 0;
+   overflow: hidden;
+   transition: height 0.4s cubic-bezier(.77, 0, .175, 1);
+
+   @media (min-width:1024px) {
+      max-height: calc(var(--vh) - 48px);
+      overflow-y: auto;
+   }
+
+   &::-webkit-scrollbar {
+      display: none;
    }
 }
 
-.body-overflow {
-   overflow: hidden;
+.menu-open .js-modal-visible .js-menu-effect {
+   height: var(--height-effect);
+   transition: height 0.4s 0.3s cubic-bezier(.77, 0, .175, 1);
 }
+
+// .body-overflow {
+//    overflow: hidden;
+// }

@@ -1,7 +1,39 @@
+var smoother;
+function addTextAnimatePin(name) {
+   let tl = gsap.timeline({
+      scrollTrigger: {
+         trigger: `${name}`,
+         start: "0% 0%",
+         end: `100% 0%`,
+         pin: true,
+         scrub: true,
+      }
+   })
+   const text = document.querySelectorAll(`${name} .letter`);
+   text && text.forEach((e) => {
+      tl.to(e, 1, { opacity: 1 })
+   })
+}
+
+function addTextAnimate(name) {
+   let tl = gsap.timeline({
+      scrollTrigger: {
+         trigger: `${name}`,
+         start: "0% 90%",
+         end: `0% 5%`,
+         scrub: true,
+      }
+   })
+   const text = document.querySelectorAll(`${name} .letter`);
+   text && text.forEach((e) => {
+      tl.to(e, 1, { opacity: 1 })
+   })
+}
+
 
 window.addEventListener('load', function (event) {
    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-   let smoother = ScrollSmoother.create({
+   smoother = ScrollSmoother.create({
       smooth: 1,
       // effects: true
    });
@@ -58,14 +90,16 @@ window.addEventListener('load', function (event) {
 
    LIST_DESCRIPTION_BLOCK.forEach((element, index) => {
       let durationValue = 0.7;
-      let xValue = window.innerWidth;
+      let xValue = 100;
       if (index % 2 == 0) { xValue *= -1 };
       gsap.fromTo(element, {
          x: xValue,
+         opacity: 0,
          duration: durationValue,
       },
          {
             x: 0,
+            opacity: 1,
             duration: durationValue,
             scrollTrigger: {
                trigger: element,
@@ -78,6 +112,10 @@ window.addEventListener('load', function (event) {
    })
 
 
+
+   addTextAnimatePin('.about-section__title');
+
+   addTextAnimate('.services-section__title')
 
 
 

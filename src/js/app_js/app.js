@@ -36,9 +36,13 @@ function throttle(callee, timeout) {
       }, timeout)
    }
 }
-
-
-
+const menuEffectList = document.querySelectorAll('.js-menu-effect');
+function setMenuEffectSize() {
+   menuEffectList.forEach(e => {
+      e.style.setProperty('--height-effect', e.querySelector('*').offsetHeight + 'px');
+   })
+}
+queueMicrotask(setMenuEffectSize)
 /* запись переменных высоты элементов */
 // function addHeightVariable() {
 //    if (typeof HEADER !== "undefined") {
@@ -52,6 +56,7 @@ function throttle(callee, timeout) {
 window.addEventListener('resize', () => {
    //  addHeightVariable();
    closeHeaderMenu();
+   setMenuEffectSize();
 })
 
 
@@ -68,4 +73,20 @@ function closeHeaderMenu() {
 }
 
 
+
+/* объвертка текста для анимации */
+function wrapText(elementName) {
+   const text = document.querySelectorAll(elementName);
+   text.forEach((e) => {
+      const list = e.children;
+      for (const el of list) {
+         let className;
+         if (el.classList.contains('color-text')) { className = 'color-text' };
+         const words = el.innerHTML.trim().split(' ');
+         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
+         el.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      }
+   })
+}
+wrapText('.js-text-animate');
 

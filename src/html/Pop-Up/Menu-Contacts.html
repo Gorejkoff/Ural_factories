@@ -1,4 +1,4 @@
-<div id="menu-contacts" class="menu-contacts js-modal-hidden js-modal-close">
+<div id="menu-contacts" class="menu-contacts menu-base js-modal-hidden js-modal-close">
    <div class="menu-contacts__container">
       <div class="menu-contacts__shell">
          <div></div>
@@ -7,73 +7,72 @@
                <path d="M4.20371 5.80416L0.668173 2.26862C0.277648 1.8781 0.277648 1.24493 0.668173 0.85441C1.0587 0.463886 1.69186 0.463886 2.08239 0.85441L5.61792 4.38994L9.15345 0.854411C9.54398 0.463886 10.1771 0.463886 10.5677 0.85441C10.9582 1.24493 10.9582 1.8781 10.5677 2.26862L7.03213 5.80416L10.5677 9.33969C10.9582 9.73022 10.9582 10.3634 10.5677 10.7539C10.1771 11.1444 9.54398 11.1444 9.15345 10.7539L5.61792 7.21837L2.08239 10.7539C1.69186 11.1444 1.0587 11.1444 0.668172 10.7539C0.277648 10.3634 0.277648 9.73022 0.668172 9.33969L4.20371 5.80416Z" fill="#FEFEFE" />
             </svg>
          </button>
-         <div class="menu-contacts__body js-modal-stop-close">
+         <div class="js-menu-effect">
+            <div class="menu-contacts__body js-modal-stop-close">
 
-            <div class="menu-contacts__contacts menu-contacts__base">
-               <a class="menu-contacts__contacts-email" href="mailto:sale@uralradio.ru">sale@uralradio.ru</a>
-               <a class="menu-contacts__contacts-tel" href="tel: 88003331300"> 8-800-333-13-00</a>
+               <form class="menu-contacts__form menu-contacts__base" action="#" method="post" data-da=".menu-contacts__body,1,1024">
+                  <div class="menu-contacts__form-title">Связаться с нами</div>
+                  <input class="input-text" type="text" name="name" placeholder="Ваше имя">
+                  <input class="input-text" type="text" name="tel" placeholder="Телефон">
+                  <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
+                  <label class="checkbox-body">
+                     <input class="checkbox-input" type="checkbox" name="consent">
+                     <span class="checkbox-item">
+                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M4.99997 8.58597L1.70697 5.29297L0.292969 6.70697L4.99997 11.414L14.707 1.70697L13.293 0.292969L4.99997 8.58597Z" fill="#0C1014" />
+                        </svg>
+                     </span>
+                     <span class="checkbox-text">Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
+                  </label>
+                  <div class="menu-contacts__button">
+                     <a href="#0" class="button">
+                        <span>Отправить</span>
+                        <span class="button-icon">
+                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
+                           </svg>
+                        </span>
+                     </a>
+                  </div>
+               </form>
+
+               <div class="menu-contacts__contacts menu-contacts__base">
+                  <a class="menu-contacts__contacts-email" href="mailto:sale@uralradio.ru">sale@uralradio.ru</a>
+                  <a class="menu-contacts__contacts-tel" href="tel: 88003331300"> 8-800-333-13-00</a>
+               </div>
+
+               <address class="menu-contacts__address menu-contacts__base">
+                  <div class="menu-contacts__addres-title">Адреса офисов</div>
+                  <div class="menu-contacts__addres-block">
+                     <div class="menu-contacts__address-text">
+                        <p>г. Ижевск, </p>
+                        <p>ул. Максима Горького,</p>
+                        <p>д. 92</p>
+                     </div>
+                     <div class="menu-contacts__address-text">
+                        <p>г. Москва,</p>
+                        <p>ул. Расковой, д. 34,</p>
+                        <p>корп. 40, оф. 10</p>
+                     </div>
+                  </div>
+                  <div class="menu-contacts__addres-title">Адрес производства</div>
+                  <div class="menu-contacts__address-text">г. Ижевск, ул. Ленина, д. 134</div>
+                  <div class="menu-contacts__addres-title">Режим работы</div>
+                  <time class="menu-contacts__address-text" datetime="8:00-17:30">Пн-Пт 8:00 - 17:30</time>
+                  <div class="menu-contacts__button">
+                     <a href="#0" class="button">
+                        <span>На карте</span>
+                        <span class="button-icon">
+                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
+                           </svg>
+                        </span>
+                     </a>
+                  </div>
+               </address>
+
             </div>
-
-            <address class="menu-contacts__address menu-contacts__base">
-               <div class="menu-contacts__addres-title">Адреса офисов</div>
-               <div class="menu-contacts__addres-block">
-                  <div class="menu-contacts__address-text">
-                     <p>г. Ижевск, </p>
-                     <p>ул. Максима Горького,</p>
-                     <p>д. 92</p>
-                  </div>
-                  <div class="menu-contacts__address-text">
-                     <p>г. Москва,</p>
-                     <p>ул. Расковой, д. 34,</p>
-                     <p>корп. 40, оф. 10</p>
-                  </div>
-               </div>
-               <div class="menu-contacts__addres-title">Адрес производства</div>
-               <div class="menu-contacts__address-text">г. Ижевск, ул. Ленина, д. 134</div>
-               <div class="menu-contacts__addres-title">Режим работы</div>
-               <time class="menu-contacts__address-text" datetime="8:00-17:30">Пн-Пт 8:00 - 17:30</time>
-               <div class="menu-contacts__button">
-                  <a href="#0" class="menu-contacts__address-button button">
-                     <span>На карте</span>
-                     <span class="button-icon">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
-                        </svg>
-                     </span>
-                  </a>
-               </div>
-            </address>
-
-
-            <form class="menu-contacts__form menu-contacts__base" action="#" method="post" data-da=".menu-contacts__body,1,1024">
-               <div class="menu-contacts__form-title">Связаться с нами</div>
-               <input class="input-text" type="text" name="name" placeholder="Ваше имя">
-               <input class="input-text" type="text" name="tel" placeholder="Телефон">
-               <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
-               <label class="checkbox-body">
-                  <input class="checkbox-input" type="checkbox" name="consent">
-                  <span class="checkbox-item">
-                     <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.99997 8.58597L1.70697 5.29297L0.292969 6.70697L4.99997 11.414L14.707 1.70697L13.293 0.292969L4.99997 8.58597Z" fill="#0C1014" />
-                     </svg>
-                  </span>
-                  <span class="checkbox-text">Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
-               </label>
-
-               <div class="menu-contacts__button">
-                  <a href="#0" class="button">
-                     <span>Отправить</span>
-                     <span class="button-icon">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
-                        </svg>
-                     </span>
-                  </a>
-               </div>
-            </form>
-
          </div>
       </div>
-
    </div>
 </div>
