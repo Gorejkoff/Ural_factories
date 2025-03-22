@@ -1,13 +1,40 @@
 @use '../assets/mixin.scss' as *;
 @use '../assets/variablesSCSS.scss' as *;
 
+// .mobile-menu {
+//    position: fixed;
+//    top: 0;
+//    left: 0;
+//    height: var(--vh);
+//    width: 100%;
+
+
+//    background-color: var(--color-white);
+// }
+
+
 .mobile-menu {
-   position: fixed;
-   top: 0;
-   left: 0;
-   height: var(--vh);
-   width: 100%;
+
+   &__button-contact {
+      padding-bottom: 32px;
+      position: fixed;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+
+      &>* {
+         pointer-events: all;
+      }
+
+      .header__button-contact {
+         --button-max-width: 100%;
+         // --button-height: 46px;
+         --button-background: var(--color-lavender);
+         --button-color: var(--color-black);
+      }
 
 
-   background-color: var(--color-white);
+   }
 }

@@ -1,16 +1,28 @@
+@use "../assets/mixin.scss" as *;
+
 .about-section {
-   padding-top: 160px;
-   margin-bottom: -120px;
+   padding-top: 96px;
+
+   @media (min-width:1024px) {
+      padding-top: 160px;
+      margin-bottom: -120px;
+   }
 
    &__container {}
 
    &__title {
-      margin: 0 auto 96px;
-      font-size: 88px;
+      margin-bottom: 64px;
+      font-size: 32px;
       line-height: 91%;
       letter-spacing: -0.03em;
       color: var(--color-periwinkle-crayola);
       max-width: 1150px;
+      @include size_adaptive (font-size, 32, 88, 375, 1024);
+
+      @media (min-width:1024px) {
+         margin: 0 auto 96px;
+         font-size: 88px;
+      }
 
       span {
          color: var(--color-silver-grey);
@@ -22,16 +34,30 @@
    }
 
    &__data {
-      padding-top: 96px;
-      padding-bottom: 280px;
+      padding-top: 64px;
+      padding-bottom: 96px;
       background: url('../img/png/background-3.png') no-repeat top center / 100% 100%;
+
+      @media (min-width:1024px) {
+         padding-top: 96px;
+         padding-bottom: 280px;
+      }
    }
 
    &__body {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      font-size: 162px;
+      align-items: center;
+      flex-direction: column;
+      gap: 32px;
+      font-size: 56px;
+      @include size_adaptive (font-size, 56, 162, 375, 1024);
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+         gap: 40px;
+         font-size: 162px;
+      }
    }
 
    &__data-block {
@@ -43,26 +69,42 @@
       font-weight: 400;
       letter-spacing: -0.06em;
       color: var(--color-periwinkle-crayola);
+
    }
 
    &__dete-text {
-      padding-top: 10px;
+      padding-top: 8px;
       max-width: 110px;
       font-weight: 300;
-      font-size: 16px;
-      line-height: 112%;
+      font-size: 14px;
       color: var(--color-silver-grey);
+
+      @media (min-width:1024px) {
+         padding-top: 10px;
+         font-size: 16px;
+         line-height: 112%;
+      }
    }
 
    &__dete-circle {
-      margin-top: 0.2em;
-      width: 15px;
-      height: 15px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background-color: var(--color-orange);
+
+      @media (min-width:1024px) {
+         margin-top: 0.2em;
+         width: 15px;
+         height: 15px;
+      }
    }
 
    &__data-arrow {
-      width: 28px;
+      width: 24px;
+
+      @media (min-width:1024px) {
+         transform: rotate(-90deg);
+         width: 28px;
+      }
    }
 }

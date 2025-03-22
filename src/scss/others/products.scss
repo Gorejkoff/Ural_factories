@@ -89,12 +89,16 @@
    }
 
    &__cell {
-      padding-bottom: 130%;
+      padding-bottom: 118%;
       position: relative;
       background-color: var(--color-lavender);
       border-radius: 16px;
       overflow: hidden;
+
       // --button-background: var(--color-sea-foam)
+      @media (min-width:1024px) {
+         padding-bottom: 130%;
+      }
    }
 
    &__cell-shell {
@@ -126,6 +130,7 @@
       letter-spacing: -0.03em;
 
       @media (min-width:1024px) {
+         margin-bottom: 52px;
          font-size: 24px;
       }
 

@@ -1,3 +1,5 @@
+@use '../assets/mixin.scss' as *;
+
 .presentation {
    height: var(--vh);
    background: linear-gradient(180deg, rgba(12, 16, 20, 0) 0%, #0c1014 100%), url("../img/jpg/background-1.jpg") no-repeat top / cover;
@@ -5,20 +7,32 @@
    flex-direction: column;
 
    &__container {
+      padding-bottom: 78px;
       position: relative;
       z-index: 1;
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+
+      @media (min-width:1024px) {
+         padding-bottom: 0;
+      }
    }
 
    &__title {
-      font-size: 304px;
-      line-height: 93%;
+      font-size: 112px;
+      line-height: 86%;
       letter-spacing: -0.06em;
       text-transform: uppercase;
       color: var(--color-lavender);
+
+      @include size_adaptive (font-size, 112, 304, 375, 1024);
+
+      @media (min-width:1024px) {
+         line-height: 93%;
+         font-size: 304px;
+      }
    }
 
    &__footer {
@@ -26,11 +40,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
+      gap: 16px;
       font-weight: 300;
-      font-size: 16px;
+      font-size: 12px;
       line-height: 112%;
       color: var(--color-silver-grey);
+
+      @media (min-width:1024px) {
+         font-size: 16px;
+      }
    }
 
    &__footer-text {
@@ -44,17 +62,25 @@
       max-width: 300px;
 
       img {
-         width: 40px;
+         width: 32px;
+
+         @media (min-width:1024px) {
+            width: 40px;
+         }
       }
    }
 
    &__footer-arrow {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #eeeff5;
-      border-radius: 12px;
+      display: none;
+
+      @media (min-width:1024px) {
+         width: 56px;
+         height: 56px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border: 1px solid #eeeff5;
+         border-radius: 12px;
+      }
    }
 }

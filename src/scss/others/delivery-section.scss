@@ -85,13 +85,14 @@
 
    &__cell-title {
       flex: 1 1 auto;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
       font-weight: 500;
       font-size: 20px;
       line-height: 100%;
       letter-spacing: -0.03em;
 
       @media (min-width:1024px) {
+         margin-bottom: 40px;
          font-size: 32px;
       }
    }

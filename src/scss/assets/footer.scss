@@ -1,41 +1,72 @@
 @use '../assets/variablesSCSS.scss' as *;
 
 .footer {
-   margin-top: 160px;
-   padding-bottom: 24px;
+   margin-top: 96px;
+   padding-bottom: 96px;
+
+   @media (min-width:1024px) {
+      margin-top: 160px;
+      padding-bottom: 24px;
+   }
 
    &__container {}
 
    &__body {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 8px;
       --button-color: var(--color-periwinkle-crayola);
+
+      @media (min-width:1024px) {
+         grid-template-columns: repeat(3, 1fr);
+      }
    }
 
    &__top {
-      grid-column: span 2;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      flex-direction: column;
+
+      @media (max-width:1023.98px) {
+         min-height: 140px;
+      }
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+         align-items: center;
+         grid-column: span 2;
+      }
    }
 
    &__base {
-      padding: 24px;
+      padding: 16px;
       border-radius: 24px;
       background-color: var(--color-blackish-blue);
       color: var(--color-periwinkle-crayola);
+
+      @media (min-width:1024px) {
+         padding: 24px;
+      }
    }
 
    &__button {
+      margin-top: 48px;
       flex: 1 1 auto;
       display: flex;
       align-items: flex-end;
+
+      @media (min-width:1024px) {
+         margin-top: 32px;
+      }
    }
 
    &__logo {
       width: 100%;
-      max-width: 420px;
+      max-width: 210px;
+
+      @media (min-width:1024px) {
+         max-width: 420px;
+      }
 
       img,
       svg {
@@ -54,6 +85,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media (max-width:1023.98px) {
+         min-height: 124px;
+      }
    }
 
    &__contacts-email {
@@ -64,9 +99,14 @@
 
    &__contacts-tel {
       font-weight: 300;
-      font-size: 40px;
+      font-size: 24px;
       line-height: 100%;
       letter-spacing: -0.02em;
+
+      @media (min-width:1024px) {
+         font-size: 40px;
+
+      }
    }
 
    &__address {
@@ -83,14 +123,13 @@
    }
 
    &__address-text {
-      margin-bottom: 24px;
       font-weight: 500;
       font-size: 16px;
       line-height: 112%;
-   }
 
-   &__address-button {
-      margin-top: 32px;
+      &:not(:last-child) {
+         margin-bottom: 24px;
+      }
    }
 
    &__addres-block {
@@ -110,9 +149,13 @@
    &__form-title {
       margin-bottom: 44px;
       font-weight: 500;
-      font-size: 32px;
+      font-size: 20px;
       line-height: 100%;
       letter-spacing: -0.03em;
+
+      @media (min-width:1024px) {
+         font-size: 32px;
+      }
    }
 
 

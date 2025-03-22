@@ -1,3 +1,5 @@
+@use "../assets/mixin.scss" as *;
+
 .services-section {
 
    &__container {}
@@ -8,7 +10,10 @@
 
    &__header {
       margin-bottom: 94px;
-      display: flex;
+
+      @media (min-width:1024px) {
+         display: flex;
+      }
 
       &>* {
          flex: 0 0 50%;
@@ -16,16 +21,32 @@
    }
 
    &__header-text {
+      margin-bottom: 96px;
       margin-right: 32px;
       max-width: 410px;
+
+      @media (min-width:1024px) {
+         margin-bottom: 0;
+      }
    }
 
    &__title {
       margin-bottom: 64px;
-      font-size: 72px;
+      font-size: 32px;
       line-height: 89%;
       letter-spacing: -0.03em;
       color: var(--color-periwinkle-crayola);
+
+      @include size_adaptive (font-size, 32, 72, 375, 1024);
+
+      @media (min-width:1024px) {
+         margin-bottom: 64px;
+         font-size: 72px;
+      }
+
+      span {
+         color: var(--color-silver-grey);
+      }
    }
 
    &__button {
@@ -36,10 +57,15 @@
 
    &__swiper-slide {
       position: relative;
-      min-height: 706px;
+      min-height: 304px;
       border-radius: 16px;
       overflow: hidden;
       background-color: var(--color-darkpurple-blue);
+      @include size_adaptive (min-height, 304, 706, 375, 1024);
+
+      @media (min-width:1024px) {
+         min-height: 706px;
+      }
    }
 
    &__swiper-image {
@@ -55,18 +81,31 @@
    }
 
    &__swiper-body {
-      padding: 24px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       height: 100%;
+
+      @media (min-width:1024px) {
+         padding: 24px;
+      }
    }
 
    &__swiper-icon {
-      margin-bottom: 56px;
+      margin-bottom: 16px;
+
+      @media (min-width:1024px) {
+         margin-bottom: 56px;
+      }
 
       img {
-         width: 56px;
-         height: 56px;
+         width: 40px;
+         height: 40px;
+
+         @media (min-width:1024px) {
+            width: 56px;
+            height: 56px;
+         }
       }
    }
 
@@ -74,10 +113,16 @@
       flex: 1 1 auto;
       max-width: 400px;
       font-weight: 300;
-      font-size: 40px;
+      font-size: 24px;
       line-height: 100%;
       letter-spacing: -0.02em;
       color: var(--color-periwinkle-crayola);
+
+      @include size_adaptive (font-size, 24, 40, 375, 1024);
+
+      @media (min-width:1024px) {
+         font-size: 40px;
+      }
    }
 
    &__swiper-footer {
@@ -88,17 +133,25 @@
 
    &__swiper-footer-text {
       font-weight: 300;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 112%;
       color: var(--color-silver-grey);
       max-width: 250px;
+
+      @media (min-width:1024px) {
+         font-size: 16px;
+      }
    }
 
    &__nav {
-      margin-top: 24px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      display: none;
+
+      @media (min-width:1024px) {
+         margin-top: 24px;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+      }
    }
 
    &__pagination {
