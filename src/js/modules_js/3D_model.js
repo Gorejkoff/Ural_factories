@@ -152,4 +152,5 @@ window.addEventListener("resize", function () {
    camera.updateProjectionMatrix();
    renderer.setSize(canvasSiseX, canvasSiseY);
 });
+
 animate();
