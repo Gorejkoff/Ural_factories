@@ -1,7 +1,7 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 // import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-
+import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 
 let viewportX;
 let viewportY;
@@ -21,40 +21,36 @@ const camera = new THREE.PerspectiveCamera(18, canvasSiseX / canvasSiseY, 0.1, 1
 let ratioX = viewportX / 1000;
 let ratioY = viewportY / 1000;
 
-
 let object;
 let empty;
 let cylinder;
 let volume;
 let frequency;
 
-
-
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
 
 const loader = new GLTFLoader();
-
+loader.setDRACOLoader(dracoLoader);
 loader.load(
-   `../dist/glb/transmitter.glb`,
-   // `../glb/transmitter.glb`,
+   `../dist/glb/transmitter-2.glb`,
+   // `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
-
       empty = object.getObjectByProperty('name', 'Empty');
       cylinder = object.getObjectByProperty('name', 'Cylinder');
       volume = object.getObjectByProperty('name', 'volume');
       frequency = object.getObjectByProperty('name', 'Frequency');
-      // console.log(cylinder);
-
    },
-   // function (xhr) {
-   //    // прогресс загрузки модели
-   //    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-   // },
-   // function (error) {
-   //    //Если есть ошибка
-   //    console.error(error);
-   // }
+   function (xhr) {
+      // прогресс загрузки модели
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+   },
+   function (error) {
+      //Если есть ошибка
+      console.error(error);
+   }
 );
 
 function moveRadio() {
@@ -156,12 +152,4 @@ window.addEventListener("resize", function () {
    camera.updateProjectionMatrix();
    renderer.setSize(canvasSiseX, canvasSiseY);
 });
-
-
 animate();
-
-
-
-
-// Cylinder
-// Empty  

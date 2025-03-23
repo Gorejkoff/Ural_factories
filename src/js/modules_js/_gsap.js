@@ -26,7 +26,7 @@ function addTextAnimate(name) {
    })
    const text = document.querySelectorAll(`${name} .letter`);
    text && text.forEach((e) => {
-      tl.to(e, 1, { opacity: 1 })
+      tl.to(e, { opacity: 1 })
    })
 }
 
@@ -55,8 +55,8 @@ window.addEventListener('load', function (event) {
    //       start: '0% 0%',
    //       end: '100% 100%',
 
-   //       // pin: true,
-   //       // scrub: true,
+   // pin: true,
+   // scrub: true,
 
    //       markers: {
    //          startColor: "red",
@@ -67,11 +67,6 @@ window.addEventListener('load', function (event) {
    //       },
    //    }
    // })
-
-
-
-
-
 
    gsap.to('#container3D', {
       scrollTrigger: {
@@ -90,15 +85,17 @@ window.addEventListener('load', function (event) {
 
    LIST_DESCRIPTION_BLOCK.forEach((element, index) => {
       let durationValue = 0.7;
-      let xValue = 100;
+      let xValue = 400;
       if (index % 2 == 0) { xValue *= -1 };
       gsap.fromTo(element, {
          x: xValue,
+         scale: 0,
          opacity: 0,
          duration: durationValue,
       },
          {
             x: 0,
+            scale: 1,
             opacity: 1,
             duration: durationValue,
             scrollTrigger: {
@@ -111,14 +108,28 @@ window.addEventListener('load', function (event) {
       )
    })
 
-
-
    addTextAnimatePin('.about-section__title');
-
    addTextAnimate('.services-section__title')
 
 
+   let tl_about = gsap.timeline({
+      scrollTrigger: {
+         trigger: '.about-section__body',
+         start: '0% 50%',
+         end: '0% 50%',
+         // markers: {
+         //    startColor: "red",
+         //    endColor: "green",
+         //    fontSize: "18px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // },
+      }
+   })
 
-
+   const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
+   ABOUT_ANIMATION.forEach((e) => {
+      tl_about.to(e, { opacity: 1, duration: 0.5 })
+   })
 
 })

@@ -402,6 +402,43 @@ body {
   display: none;
 }
 
+.animate-title {
+  overflow: hidden;
+}
+
+.animate-title span {
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  display: block;
+  -webkit-animation: title-text 1s 0.5s forwards;
+          animation: title-text 1s 0.5s forwards;
+}
+
+@-webkit-keyframes title-text {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes title-text {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
 .header {
   position: relative;
   z-index: 5;
@@ -976,6 +1013,10 @@ body {
 
 .about-section__data-arrow {
   width: 24px;
+}
+
+.js-about-animation {
+  opacity: 0;
 }
 
 .delivery-section__title {

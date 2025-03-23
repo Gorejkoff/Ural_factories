@@ -26,7 +26,6 @@
       letter-spacing: -0.06em;
       text-transform: uppercase;
       color: var(--color-lavender);
-
       @include size_adaptive (font-size, 112, 304, 375, 1024);
 
       @media (min-width:1024px) {

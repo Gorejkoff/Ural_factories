@@ -324,6 +324,26 @@ body {
 
 .checkbox-text {}
 
+.animate-title {
+   overflow: hidden;
+
+   span {
+      transform: translateY(100%);
+      display: block;
+      animation: title-text 1s 0.5s forwards;
+   }
+}
+
+@keyframes title-text {
+   0% {
+      transform: translateY(100%);
+   }
+
+   100% {
+      transform: translateY(0%);
+   }
+}
+
 // .js-tabs-shell {
 //    will-change: height;
 //    transform: translateZ(0);

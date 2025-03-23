@@ -94,7 +94,7 @@ wrapText('.js-text-animate');
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 // import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-
+import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 
 let viewportX;
 let viewportY;
@@ -114,40 +114,36 @@ const camera = new THREE.PerspectiveCamera(18, canvasSiseX / canvasSiseY, 0.1, 1
 let ratioX = viewportX / 1000;
 let ratioY = viewportY / 1000;
 
-
 let object;
 let empty;
 let cylinder;
 let volume;
 let frequency;
 
-
-
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
 
 const loader = new GLTFLoader();
-
+loader.setDRACOLoader(dracoLoader);
 loader.load(
-   `../dist/glb/transmitter.glb`,
-   // `../glb/transmitter.glb`,
+   `../dist/glb/transmitter-2.glb`,
+   // `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
-
       empty = object.getObjectByProperty('name', 'Empty');
       cylinder = object.getObjectByProperty('name', 'Cylinder');
       volume = object.getObjectByProperty('name', 'volume');
       frequency = object.getObjectByProperty('name', 'Frequency');
-      // console.log(cylinder);
-
    },
-   // function (xhr) {
-   //    // прогресс загрузки модели
-   //    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-   // },
-   // function (error) {
-   //    //Если есть ошибка
-   //    console.error(error);
-   // }
+   function (xhr) {
+      // прогресс загрузки модели
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+   },
+   function (error) {
+      //Если есть ошибка
+      console.error(error);
+   }
 );
 
 function moveRadio() {
@@ -249,15 +245,8 @@ window.addEventListener("resize", function () {
    camera.updateProjectionMatrix();
    renderer.setSize(canvasSiseX, canvasSiseY);
 });
-
-
 animate();
 
-
-
-
-// Cylinder
-// Empty  
 // перемещение блоков при адаптиве
 // data-da=".class,3,768" 
 // класс родителя куда перемещать
@@ -342,7 +331,7 @@ function addTextAnimate(name) {
    })
    const text = document.querySelectorAll(`${name} .letter`);
    text && text.forEach((e) => {
-      tl.to(e, 1, { opacity: 1 })
+      tl.to(e, { opacity: 1 })
    })
 }
 
@@ -371,8 +360,8 @@ window.addEventListener('load', function (event) {
    //       start: '0% 0%',
    //       end: '100% 100%',
 
-   //       // pin: true,
-   //       // scrub: true,
+   // pin: true,
+   // scrub: true,
 
    //       markers: {
    //          startColor: "red",
@@ -383,11 +372,6 @@ window.addEventListener('load', function (event) {
    //       },
    //    }
    // })
-
-
-
-
-
 
    gsap.to('#container3D', {
       scrollTrigger: {
@@ -406,15 +390,17 @@ window.addEventListener('load', function (event) {
 
    LIST_DESCRIPTION_BLOCK.forEach((element, index) => {
       let durationValue = 0.7;
-      let xValue = 100;
+      let xValue = 400;
       if (index % 2 == 0) { xValue *= -1 };
       gsap.fromTo(element, {
          x: xValue,
+         scale: 0,
          opacity: 0,
          duration: durationValue,
       },
          {
             x: 0,
+            scale: 1,
             opacity: 1,
             duration: durationValue,
             scrollTrigger: {
@@ -427,15 +413,29 @@ window.addEventListener('load', function (event) {
       )
    })
 
-
-
    addTextAnimatePin('.about-section__title');
-
    addTextAnimate('.services-section__title')
 
 
+   let tl_about = gsap.timeline({
+      scrollTrigger: {
+         trigger: '.about-section__body',
+         start: '0% 50%',
+         end: '0% 50%',
+         // markers: {
+         //    startColor: "red",
+         //    endColor: "green",
+         //    fontSize: "18px",
+         //    fontWeight: "bold",
+         //    indent: 20
+         // },
+      }
+   })
 
-
+   const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
+   ABOUT_ANIMATION.forEach((e) => {
+      tl_about.to(e, { opacity: 1, duration: 0.5 })
+   })
 
 })
 /* открывает, закрывает модальные окна. */
