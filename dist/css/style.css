@@ -287,8 +287,8 @@ body {
 }
 
 .scroll-animation-trigger #container3D {
-  width: 100vw;
-  height: calc(var(-vh) + 100px);
+  width: 100%;
+  height: calc(var(--vh) + 50px);
 }
 
 .scroll-animation {
