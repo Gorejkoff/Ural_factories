@@ -97,13 +97,6 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 
 
-if (WEBGL.isWebGLAvailable()) {
-   document.querySelector('.presentation__title').innerHTML = "+";
-} else {
-   document.querySelector('.presentation__title').innerHTML = "-";
-}
-
-
 let viewportX;
 let viewportY;
 let canvasSiseX;
@@ -116,6 +109,22 @@ function addSizeViewport() {
    viewportY = window.innerHeight;
 }
 addSizeViewport();
+
+//Создать создание нового рендеринга и установить его размер
+const screen3D = document.getElementById('container3D');
+console.log(screen3D);
+const renderer = new THREE.WebGLRenderer({
+   alpha: true,  // прозрачный фон
+   canvas: screen3D, // 
+})
+renderer.setSize(canvasSiseX, canvasSiseY);
+const gl = document.createElement('canvas').getContext('webgl2');
+if (gl) {
+   document.querySelector('.presentation__title').innerHTML = "+";
+} else {
+   document.querySelector('.presentation__title').innerHTML = "-";
+}
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(18, canvasSiseX / canvasSiseY, 0.1, 100);
 
@@ -135,8 +144,8 @@ const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.load(
    // `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
-   `../dist/glb/transmitter-2.glb`,
-   // `../glb/transmitter-2.glb`,
+   // `../dist/glb/transmitter-2.glb`,
+   `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
@@ -198,12 +207,7 @@ function reverseRotationFrequency() {
 
 
 
-//Создать создание нового рендеринга и установить его размер
-const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true позволяет transparent background
-renderer.setSize(canvasSiseX, canvasSiseY);
 
-//Add the renderer to the DOM
-document.getElementById("container3D").appendChild(renderer.domElement);
 
 //Установите, как далеко будет камера от 3D -модели
 camera.position.z = 50;
