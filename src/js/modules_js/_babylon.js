@@ -1,14 +1,17 @@
 window.addEventListener('DOMContentLoaded', function () {
    let model;
    let empty;
+   let volumeElement;
+   let frequency;
    let cylinder;
    let viewportX;
    let viewportY;
-   // let canvasSiseX;
-   // let canvasSiseY;
+   let progressRotationValue = 0;
+   let degRotationValue = -100;
+   let degRotationFrequency = 180;
+   let progressRotationFrequency = 0;
+
    function addSizeViewport() {
-      // canvasSiseX = window.innerWidth;
-      // canvasSiseY = window.innerHeight + 100;
       viewportX = Math.min(window.innerWidth, 1440);
       viewportY = window.innerHeight;
    }
@@ -33,7 +36,6 @@ window.addEventListener('DOMContentLoaded', function () {
    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 1), scene);
 
    // Загрузка модели
-   // BABYLON.SceneLoader.Append("../glb/", "transmitter-2.glb", scene, function (scene) {
    BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-2.glb", scene, function (scene) {
       scene.animationGroups.forEach(animationGroup => {
          animationGroup.stop();
@@ -45,13 +47,14 @@ window.addEventListener('DOMContentLoaded', function () {
       }
       cylinder = model._children[0];
       empty = model._children[1];
-      empty.rotation = new BABYLON.Vector3(0, 0, 0)
-      console.log(cylinder);
-
+      empty.rotation = new BABYLON.Vector3(0, 0, 0);
+      volumeElement = empty._children.filter((e) => { return e.name == "volume" });
+      frequency = empty._children.filter((e) => { return e.name == "Frequency" });
+      // console.log(volumeElement[0]);
    });
 
-   let k = 0.4;
-   let path = 1 - k;
+   let circleStart = 0.4;
+   let circlePath = 1 - circleStart;
    function rodioAnimation() {
       if (MIN768.matches) {
          empty.position = new BABYLON.Vector3(
@@ -62,8 +65,8 @@ window.addEventListener('DOMContentLoaded', function () {
          model.position = new BABYLON.Vector3(progressRadioAnimation * -3, progressRadioAnimation * -2 + 2, 0)
       }
       empty.rotation = new BABYLON.Vector3(0, (Math.PI * 2) * -progressRadioAnimation, 0);
-      if (progressRadioAnimation > k) {
-         let value = (progressRadioAnimation - k) / path;
+      if (progressRadioAnimation > circleStart) {
+         let value = (progressRadioAnimation - circleStart) / circlePath;
          cylinder.scaling.x = value;
          cylinder.scaling.y = value;
          cylinder.scaling.z = value;
@@ -71,6 +74,14 @@ window.addEventListener('DOMContentLoaded', function () {
          cylinder.scaling.x = 0;
          cylinder.scaling.y = 0
          cylinder.scaling.z = 0
+      }
+      if (progressRadioAnimation >= 0.9) {
+         degRotationValue <= progressRotationValue && rotationVolume();
+         degRotationFrequency >= progressRotationFrequency && rotationFrequency();
+      }
+      if (progressRadioAnimation < 0.9) {
+         progressRotationValue <= 0 && reverseRotationVolume();
+         progressRotationFrequency >= 0 && reverseRotationFrequency();
       }
 
    }
@@ -86,5 +97,23 @@ window.addEventListener('DOMContentLoaded', function () {
    window.addEventListener("resize", function () {
       engine.resize();
    });
+
+
+   function rotationVolume() {
+      progressRotationValue -= 2;
+      volumeElement[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * progressRotationValue);
+   }
+   function reverseRotationVolume() {
+      progressRotationValue += 2;
+      volumeElement[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * progressRotationValue);
+   }
+   function rotationFrequency() {
+      progressRotationFrequency += 2.5;
+      frequency[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * -progressRotationValue);
+   }
+   function reverseRotationFrequency() {
+      progressRotationFrequency -= 2.5;
+      frequency[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * -progressRotationValue);
+   }
 });
 
