@@ -168,7 +168,8 @@ window.addEventListener('DOMContentLoaded', function () {
    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 1), scene);
 
    // Загрузка модели
-   BABYLON.SceneLoader.Append("../glb/", "transmitter-2.glb", scene, function (scene) {
+   // BABYLON.SceneLoader.Append("../glb/", "transmitter-2.glb", scene, function (scene) {
+   BABYLON.SceneLoader.Append("../dist/glb/transmitter-2.glb", "transmitter-2.glb", scene, function (scene) {
       // console.log("Модель загружена!");
       scene.animationGroups.forEach(animationGroup => {
          animationGroup.stop(); // Остановка анимации
