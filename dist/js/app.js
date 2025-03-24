@@ -126,7 +126,7 @@ dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.load(
-   `https://github.com/Gorejkoff/Ural_factories/blob/main/dist/glb/transmitter-2.glb`,
+   `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
    // `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
