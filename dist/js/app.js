@@ -91,8 +91,8 @@ function wrapText(elementName) {
 wrapText('.js-text-animate');
 
 
-import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 // import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 
@@ -126,7 +126,7 @@ dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.load(
-   `../dist/glb/transmitter-2.glb`,
+   `https://github.com/Gorejkoff/Ural_factories/blob/main/dist/glb/transmitter-2.glb`,
    // `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
@@ -136,14 +136,12 @@ loader.load(
       volume = object.getObjectByProperty('name', 'volume');
       frequency = object.getObjectByProperty('name', 'Frequency');
    },
-   function (xhr) {
-      // прогресс загрузки модели
-      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-   },
-   function (error) {
-      //Если есть ошибка
-      console.error(error);
-   }
+   // function (xhr) {
+   //    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+   // },
+   // function (error) {
+   //    console.error(error);
+   // }
 );
 
 function moveRadio() {
