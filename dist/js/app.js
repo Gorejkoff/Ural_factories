@@ -96,6 +96,14 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
 
+
+if (WEBGL.isWebGLAvailable()) {
+   document.querySelector('.presentation__title').innerHTML = "+";
+} else {
+   document.querySelector('.presentation__title').innerHTML = "-";
+}
+
+
 let viewportX;
 let viewportY;
 let canvasSiseX;
@@ -126,7 +134,8 @@ dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.load(
-   `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
+   // `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
+   `../dist/glb/transmitter-2.glb`,
    // `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
