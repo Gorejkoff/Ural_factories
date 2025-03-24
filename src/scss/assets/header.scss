@@ -23,6 +23,17 @@
       flex: 1 1 40%;
    }
 
+   &__right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+
+      @media (min-width:1024px) {
+         gap: 16px;
+      }
+   }
+
    &__logo {
       display: inline-block;
       max-width: 187px;
@@ -44,8 +55,21 @@
    &__button-menu {
       --size-icon: 40px;
 
+      @media (min-width:1024px) {
+         --size-icon: 56px;
+      }
+   }
+
+   &__button-login {
+
       @media (max-width:1023.98px) {
-         --button-border-radius: 12px;
+         --size-icon: 40px;
+         background-color: transparent;
+         border: 1px solid var(--color-black-02);
+
+         svg path {
+            stroke: var(--color-black);
+         }
       }
 
       @media (min-width:1024px) {
@@ -53,10 +77,15 @@
       }
    }
 
+   &__buttons-right-mobile {
+      @media (max-width:1023.98px) {
+         display: flex;
+         gap: 8px;
+      }
+   }
+
    &__button-contact {
-      margin-left: auto;
       --button-max-width: 272px;
-      // --button-height: 56px;
       --button-background: var(--color-black);
       --button-color: var(--color-periwinkle-crayola);
    }

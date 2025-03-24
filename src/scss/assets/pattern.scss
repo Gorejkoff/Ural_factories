@@ -62,12 +62,24 @@ body {
       border-radius: 12px;
       font-size: var(--button-font-size, 18px);
    }
+
+   &:hover {
+      .button-icon {
+         background-color: var(--color-orange-dark);
+      }
+   }
 }
 
 .button-darck {
    --button-color: var(--color-periwinkle-crayola);
    --button-max-width: 292px;
    --button-border-color: var(--color-periwinkle-crayola-02);
+}
+
+.button-black {
+   --button-color: var(--color-periwinkle-crayola);
+   --button-background: var(--color-black);
+   --button-border-color: var(--color-black);
 }
 
 .button-icon {
@@ -80,12 +92,16 @@ body {
    justify-content: center;
    background-color: var(--color-orange);
    border-radius: var(--button-border-radius, 5px);
+   transition: background-color 0.3s;
 
    @media (min-width:1024px) {
       --button-size-icon: var(--size-icon, calc(var(--button-height, 56px) - 8px));
       border-radius: 8px;
    }
 
+   &:hover {
+      background-color: var(--color-orange-dark);
+   }
 }
 
 .scroll-animation-trigger {
@@ -326,22 +342,17 @@ body {
 .checkbox-text {}
 
 .animate-title {
-   overflow: hidden;
-
-   span {
-      transform: translateY(100%);
-      display: block;
-      animation: title-text 1s 0.5s forwards;
-   }
+   opacity: 0;
+   animation: title-animate 1s 0.5s forwards;
 }
 
-@keyframes title-text {
+@keyframes title-animate {
    0% {
-      transform: translateY(100%);
+      opacity: 0;
    }
 
    100% {
-      transform: translateY(0%);
+      opacity: 1;
    }
 }
 

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
 <meta name="description" content="Описание сайта">
-<link rel="stylesheet" href="css/style.css?_v=20250324094516">
+<link rel="stylesheet" href="css/style.css?_v=20250324124855">
 </head>
 
 
@@ -41,21 +41,29 @@
                </svg>
             </a>
          </div>
-         <button class="header__button-menu button-icon js-modal-open" type="button" aria-label="открыть меню" data-modal_open="menu">
-            <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <circle cx="2" cy="2" r="2" fill="#FFFBF9" />
-               <circle cx="10" cy="2" r="2" fill="#FFFBF9" />
-               <circle cx="18" cy="2" r="2" fill="#FFFBF9" />
-               <circle cx="2" cy="10" r="2" fill="#FFFBF9" />
-               <circle cx="10" cy="10" r="2" fill="#FFFBF9" />
-               <circle cx="18" cy="10" r="2" fill="#FFFBF9" />
-            </svg>
-         </button>
+         <div class="header__buttons-right-mobile">
+            <button class="header__button-menu button-icon js-modal-open" type="button" aria-label="открыть меню" data-modal_open="menu">
+               <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="2" cy="2" r="2" fill="#FFFBF9" />
+                  <circle cx="10" cy="2" r="2" fill="#FFFBF9" />
+                  <circle cx="18" cy="2" r="2" fill="#FFFBF9" />
+                  <circle cx="2" cy="10" r="2" fill="#FFFBF9" />
+                  <circle cx="10" cy="10" r="2" fill="#FFFBF9" />
+                  <circle cx="18" cy="10" r="2" fill="#FFFBF9" />
+               </svg>
+            </button>
+            <button class="header__button-login button-icon js-modal-open" type="button" data-da=".header__right,2,1024" data-modal_open="login">
+               <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.17873 12.4225V15.4284C5.17873 15.7472 5.3054 16.0531 5.53089 16.2786C5.75638 16.504 6.0622 16.6307 6.38109 16.6307H14.7976C15.1165 16.6307 15.4223 16.504 15.6478 16.2786C15.8733 16.0531 16 15.7472 16 15.4284V2.20236C16 1.88348 15.8733 1.57765 15.6478 1.35216C15.4223 1.12668 15.1165 1 14.7976 1H6.38109C6.0622 1 5.75638 1.12668 5.53089 1.35216C5.3054 1.57765 5.17873 1.88348 5.17873 2.20236V5.20827M1.57164 8.81536H11.1905" stroke="#FFFBF9" stroke-width="1.60315" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8.78595 6.41064L11.1907 8.81537L8.78595 11.2201" stroke="#FFFBF9" stroke-width="1.60315" stroke-linecap="round" stroke-linejoin="round" />
+               </svg>
+            </button>
+         </div>
       </div>
    </div>
 </header>
                   <div class="presentation__container">
-                     <h1 class="presentation__title animate-title"><span>Эрика</span></h1>
+                     <h1 class="presentation__title animate-title">Эрика</h1>
                      <div class="presentation__footer">
                         <div class="presentation__footer-text">Современная цифровая радиосвязь стандарта DMR</div>
                         <div class="presentation__footer-registry">
@@ -104,11 +112,13 @@
          <div class="products__header">
             <div class="products__header-title">Транкинговые системы</div>
             <div class="products__header-grid">
+
                <div>
-                  <div class="products__header-cell">
-                     <div class="products__header-cell-shell">
+                  <div class="products__cell">
+                     <div class="products__cell-shell">
+                        <div class="products__cell-title">Базовое</div>
                         <a href="#0" class="button">
-                           <span>Смотреть оборудование</span>
+                           <span>Смотреть все</span>
                            <span class="button-icon">
                               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
@@ -116,14 +126,16 @@
                            </span>
                         </a>
                      </div>
-                     <img class="products__header-cell-image" src="./img/jpg/img-8.jpg" alt="изображение продукта">
+                     <img class="products__cell-image" src="./img/jpg/img-16.jpg" alt="изображение продукта">
                   </div>
                </div>
+
                <div>
-                  <div class="products__header-cell">
-                     <div class="products__header-cell-shell">
+                  <div class="products__cell">
+                     <div class="products__cell-shell">
+                        <div class="products__cell-title">Абонентское</div>
                         <a href="#0" class="button">
-                           <span>Смотреть оборудование</span>
+                           <span>Смотреть все</span>
                            <span class="button-icon">
                               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
@@ -131,9 +143,28 @@
                            </span>
                         </a>
                      </div>
-                     <img class="products__header-cell-image" src="./img/jpg/img-9.jpg" alt="изображение продукта">
+                     <img class="products__cell-image" src="./img/jpg/img-17.jpg" alt="изображение продукта">
                   </div>
                </div>
+
+
+               <div>
+                  <div class="products__cell">
+                     <div class="products__cell-shell">
+                        <div class="products__cell-title">Инфраструктурное</div>
+                        <a href="#0" class="button">
+                           <span>Смотреть все</span>
+                           <span class="button-icon">
+                              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
+                              </svg>
+                           </span>
+                        </a>
+                     </div>
+                     <img class="products__cell-image" src="./img/jpg/img-18.jpg" alt="изображение продукта">
+                  </div>
+               </div>
+
             </div>
          </div>
          <div class="products__grid">
@@ -150,7 +181,7 @@
             </span>
          </a>
       </div>
-      <img class="products__cell-image" src="./img/jpg/img-8.jpg" alt="изображение продукта">
+      <img class="products__cell-image" src="./img/jpg/img-12.jpg" alt="изображение продукта">
    </div>
 </div><div>
    <div class="products__cell">
@@ -165,7 +196,7 @@
             </span>
          </a>
       </div>
-      <img class="products__cell-image" src="./img/jpg/img-8.jpg" alt="изображение продукта">
+      <img class="products__cell-image" src="./img/jpg/img-13.jpg" alt="изображение продукта">
    </div>
 </div><div>
    <div class="products__cell">
@@ -180,7 +211,7 @@
             </span>
          </a>
       </div>
-      <img class="products__cell-image" src="./img/jpg/img-8.jpg" alt="изображение продукта">
+      <img class="products__cell-image" src="./img/jpg/img-14.jpg" alt="изображение продукта">
    </div>
 </div><div>
    <div class="products__cell">
@@ -210,24 +241,27 @@
             </span>
          </a>
       </div>
-      <img class="products__cell-image" src="./img/jpg/img-8.jpg" alt="изображение продукта">
-   </div>
-</div><div>
-   <div class="products__cell">
-      <div class="products__cell-shell">
-         <div class="products__cell-title">Аксессуары</div>
-         <a href="#0" class="button">
-            <span>Смотреть все</span>
-            <span class="button-icon">
-               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
-               </svg>
-            </span>
-         </a>
-      </div>
-      <img class="products__cell-image" src="./img/jpg/img-10.jpg" alt="изображение продукта">
+      <img class="products__cell-image" src="./img/jpg/img-15.jpg" alt="изображение продукта">
    </div>
 </div>
+            <div>
+               <div class="products__cell">
+                  <div class="products__cell-shell">
+                     <div>
+                        <div class="products__cell-title">Оставьте заявку на подбор оборудования под вашу задачу</div>
+                        <div class="products__cell-text">Оставьте заявку на подбор оборудования под вашу задачу</div>
+                     </div>
+                     <a href="#0" class="button-black button">
+                        <span>Оставить заявку</span>
+                        <span class="button-icon">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
+                           </svg>
+                        </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
@@ -631,7 +665,7 @@
    </div>
    <div class="mobile-menu__button-contact">
       <div class="mobile-menu__container">
-         <div class="header__wrapper" data-da=".header__body,2,1024">
+         <div class="header__wrapper header__right" data-da=".header__body,2,1024">
             <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu-contacts">
                <span>Связаться с нами</span>
                <span class="button-icon">
@@ -643,8 +677,8 @@
          </div>
       </div>
    </div>
-   <div id="menu" class="menu menu-base js-modal-hidden js-modal-close">
-   <div class="menu__container">
+   <div id="menu" class="modal__base js-modal-hidden js-modal-close">
+   <div class="menu__container modal__padding">
       <div class="menu__shell">
 
          <button class="menu__close button-icon js-modal-close" type="button">
@@ -693,8 +727,8 @@
       </div>
    </div>
 </div>
-   <div id="menu-contacts" class="menu-contacts menu-base js-modal-hidden js-modal-close">
-   <div class="menu-contacts__container">
+   <div id="menu-contacts" class="modal__base js-modal-hidden js-modal-close">
+   <div class="menu-contacts__container modal__padding">
       <div class="menu-contacts__shell">
          <div></div>
          <button class="menu-contacts__close  button-icon" type="button">
@@ -705,8 +739,8 @@
          <div class="js-menu-effect">
             <div class="menu-contacts__body js-modal-stop-close">
 
-               <form class="menu-contacts__form menu-contacts__base" action="#" method="post" data-da=".menu-contacts__body,1,1024">
-                  <div class="menu-contacts__form-title">Связаться с нами</div>
+               <form class="menu-contacts__form modal__content" action="#" method="post" data-da=".menu-contacts__body,1,1024">
+                  <div class="modal__title">Связаться с нами</div>
                   <input class="input-text" type="text" name="name" placeholder="Ваше имя">
                   <input class="input-text" type="text" name="tel" placeholder="Телефон">
                   <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
@@ -720,7 +754,7 @@
                      <span class="checkbox-text">Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
                   </label>
                   <div class="menu-contacts__button">
-                     <a href="#0" class="button">
+                     <a href="#0" class="button button-black">
                         <span>Отправить</span>
                         <span class="button-icon">
                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -731,12 +765,12 @@
                   </div>
                </form>
 
-               <div class="menu-contacts__contacts menu-contacts__base">
+               <div class="menu-contacts__contacts modal__content">
                   <a class="menu-contacts__contacts-email" href="mailto:sale@uralradio.ru">sale@uralradio.ru</a>
                   <a class="menu-contacts__contacts-tel" href="tel: 88003331300"> 8-800-333-13-00</a>
                </div>
 
-               <address class="menu-contacts__address menu-contacts__base">
+               <address class="menu-contacts__address modal__content">
                   <div class="menu-contacts__addres-title">Адреса офисов</div>
                   <div class="menu-contacts__addres-block">
                      <div class="menu-contacts__address-text">
@@ -771,14 +805,44 @@
       </div>
    </div>
 </div>
+   <div id="login" class="modal__base js-modal-hidden js-modal-close js-modal-visible">
+   <div class="login__container  modal__padding">
+      <div class="login__shell">
+         <button class="login__close  button-icon" type="button">
+            <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M4.20371 5.80416L0.668173 2.26862C0.277648 1.8781 0.277648 1.24493 0.668173 0.85441C1.0587 0.463886 1.69186 0.463886 2.08239 0.85441L5.61792 4.38994L9.15345 0.854411C9.54398 0.463886 10.1771 0.463886 10.5677 0.85441C10.9582 1.24493 10.9582 1.8781 10.5677 2.26862L7.03213 5.80416L10.5677 9.33969C10.9582 9.73022 10.9582 10.3634 10.5677 10.7539C10.1771 11.1444 9.54398 11.1444 9.15345 10.7539L5.61792 7.21837L2.08239 10.7539C1.69186 11.1444 1.0587 11.1444 0.668172 10.7539C0.277648 10.3634 0.277648 9.73022 0.668172 9.33969L4.20371 5.80416Z" fill="#FEFEFE" />
+            </svg>
+         </button>
+         <div class="js-menu-effect">
+            <div class="modal__content js-modal-stop-close">
+               <form action="#" method="post">
+                  <div class="modal__title">Вход</div>
+                  <input class="input-text" type="text" name="login" placeholder="Логин">
+                  <input class="input-text" type="text" name="password" placeholder="Пароль">
+                  <div class="login__button">
+                     <a href="#0" class="button button-black">
+                        <span>Войти</span>
+                        <span class="button-icon">
+                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
+                           </svg>
+                        </span>
+                     </a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
-   <script defer src='./js/gsap.min.js?_v=20250324094516'></script>
-<script defer src='./js/ScrollToPlugin.min.js?_v=20250324094516'></script>
-<script defer src='./js/ScrollTrigger.min.js?_v=20250324094516'></script>
-<script defer src='./js/ScrollSmoother.js?_v=20250324094516'></script>
-<script defer type="module" src='./js/app.js?_v=20250324094516'></script>
+   <script defer src='./js/gsap.min.js?_v=20250324124855'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250324124855'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250324124855'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250324124855'></script>
+<script defer type="module" src='./js/app.js?_v=20250324124855'></script>
 
-<script defer src='./js/swiper.js?_v=20250324094516'></script>
+<script defer src='./js/swiper.js?_v=20250324124855'></script>
 
 
 

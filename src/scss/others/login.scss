@@ -1,0 +1,28 @@
+.login {
+
+   &__container {}
+
+   &__shell {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+         gap: 20px;
+
+      }
+   }
+
+   &__close {
+      @media (max-width:1023.98px) {
+         margin-left: auto;
+      }
+   }
+
+
+   &__button {
+      margin-top: 64px;
+   }
+}

@@ -5,11 +5,13 @@
          <div class="products__header">
             <div class="products__header-title">Транкинговые системы</div>
             <div class="products__header-grid">
+
                <div>
-                  <div class="products__header-cell">
-                     <div class="products__header-cell-shell">
+                  <div class="products__cell">
+                     <div class="products__cell-shell">
+                        <div class="products__cell-title">Базовое</div>
                         <a href="#0" class="button">
-                           <span>Смотреть оборудование</span>
+                           <span>Смотреть все</span>
                            <span class="button-icon">
                               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
@@ -17,14 +19,16 @@
                            </span>
                         </a>
                      </div>
-                     <img class="products__header-cell-image" src="@img/jpg/img-8.jpg" alt="изображение продукта">
+                     <img class="products__cell-image" src="@img/jpg/img-16.jpg" alt="изображение продукта">
                   </div>
                </div>
+
                <div>
-                  <div class="products__header-cell">
-                     <div class="products__header-cell-shell">
+                  <div class="products__cell">
+                     <div class="products__cell-shell">
+                        <div class="products__cell-title">Абонентское</div>
                         <a href="#0" class="button">
-                           <span>Смотреть оборудование</span>
+                           <span>Смотреть все</span>
                            <span class="button-icon">
                               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
@@ -32,13 +36,50 @@
                            </span>
                         </a>
                      </div>
-                     <img class="products__header-cell-image" src="@img/jpg/img-9.jpg" alt="изображение продукта">
+                     <img class="products__cell-image" src="@img/jpg/img-17.jpg" alt="изображение продукта">
                   </div>
                </div>
+
+
+               <div>
+                  <div class="products__cell">
+                     <div class="products__cell-shell">
+                        <div class="products__cell-title">Инфраструктурное</div>
+                        <a href="#0" class="button">
+                           <span>Смотреть все</span>
+                           <span class="button-icon">
+                              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
+                              </svg>
+                           </span>
+                        </a>
+                     </div>
+                     <img class="products__cell-image" src="@img/jpg/img-18.jpg" alt="изображение продукта">
+                  </div>
+               </div>
+
             </div>
          </div>
          <div class="products__grid">
             @@loop('../Products/Product-Cell.html', 'json/Product-cell.json')
+            <div>
+               <div class="products__cell">
+                  <div class="products__cell-shell">
+                     <div>
+                        <div class="products__cell-title">Оставьте заявку на подбор оборудования под вашу задачу</div>
+                        <div class="products__cell-text">Оставьте заявку на подбор оборудования под вашу задачу</div>
+                     </div>
+                     <a href="#0" class="button-black button">
+                        <span>Оставить заявку</span>
+                        <span class="button-icon">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
+                           </svg>
+                        </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>

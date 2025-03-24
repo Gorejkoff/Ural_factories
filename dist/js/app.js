@@ -72,25 +72,6 @@ function closeHeaderMenu() {
    document.body.classList.remove('menu-is-open')
 }
 
-
-
-/* объвертка текста для анимации */
-function wrapText(elementName) {
-   const text = document.querySelectorAll(elementName);
-   text.forEach((e) => {
-      const list = e.children;
-      for (const el of list) {
-         let className;
-         if (el.classList.contains('color-text')) { className = 'color-text' };
-         const words = el.innerHTML.trim().split(' ');
-         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
-         el.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
-      }
-   })
-}
-wrapText('.js-text-animate');
-
-
 // import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
@@ -112,21 +93,19 @@ addSizeViewport();
 
 //Создать создание нового рендеринга и установить его размер
 const screen3D = document.getElementById('container3D');
-console.log(screen3D);
 const renderer = new THREE.WebGLRenderer({
-   alpha: true,  // прозрачный фон
-   canvas: screen3D, // 
+   alpha: true, // прозрачный фон
+   canvas: screen3D,
 })
 renderer.setSize(canvasSiseX, canvasSiseY);
-const gl = document.createElement('canvas').getContext('webgl2');
-if (gl) {
-   document.querySelector('.presentation__title').innerHTML = "+";
-} else {
-   document.querySelector('.presentation__title').innerHTML = "-";
-}
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(18, canvasSiseX / canvasSiseY, 0.1, 100);
+//Установите, как далеко будет камера от 3D -модели
+camera.position.z = 90;
+if (MIN768.matches) {
+   camera.position.z = 50;
+}
 
 let ratioX = viewportX / 1000;
 let ratioY = viewportY / 1000;
@@ -143,9 +122,9 @@ dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.load(
-   // `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
+   `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
    // `../dist/glb/transmitter-2.glb`,
-   `../glb/transmitter-2.glb`,
+   // `../glb/transmitter-2.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
@@ -154,19 +133,27 @@ loader.load(
       volume = object.getObjectByProperty('name', 'volume');
       frequency = object.getObjectByProperty('name', 'Frequency');
    },
-   // function (xhr) {
-   //    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-   // },
-   // function (error) {
-   //    console.error(error);
-   // }
+   function (xhr) {
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+   },
+   function (error) {
+      console.error(error);
+   }
 );
-
 function moveRadio() {
    if (typeof object !== "undefined") {
-      object.position.x = ratioX * 3.8 * (1 - progressRadioAnimation);
-      object.position.y = -3.3 + ratioY * -1.2 * (1 - progressRadioAnimation);
+      if (!MIN768.matches) {
+         object.scale.set(0.7, 0.7, 0.7);
+      }
+      object.position.x = -7 * ratioX * (1 - progressRadioAnimation) + 3;
+      object.position.y = 1 + ratioY * (1 - progressRadioAnimation);
       empty.rotation.y = (Math.PI * 2) * -progressRadioAnimation;
+
+      if (MIN768.matches) {
+         object.position.x = ratioX * 3.8 * (1 - progressRadioAnimation);
+         object.position.y = -3.3 + ratioY * -1.2 * (1 - progressRadioAnimation);
+         empty.rotation.y = (Math.PI * 2) * -progressRadioAnimation;
+      }
       cylinder.scale.x = progressRadioAnimation;
       cylinder.scale.y = progressRadioAnimation;
       cylinder.scale.z = progressRadioAnimation;
@@ -204,13 +191,6 @@ function reverseRotationFrequency() {
    progressRotationFrequency -= 2.5;
    frequency.rotation.z = (Math.PI / 180) * progressRotationFrequency;
 }
-
-
-
-
-
-//Установите, как далеко будет камера от 3D -модели
-camera.position.z = 50;
 
 
 //Добавьте свет в сцену, чтобы мы могли увидеть 3D -модель
@@ -316,6 +296,21 @@ function moving(e, order, addressMove) {
 
 
 var smoother;
+/* объвертка текста для анимации */
+function wrapText(elementName) {
+   const text = document.querySelectorAll(elementName);
+   text.forEach((e) => {
+      const list = e.children;
+      for (const el of list) {
+         let className;
+         if (el.classList.contains('color-text')) { className = 'color-text' };
+         const words = el.innerHTML.trim().split(' ');
+         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
+         el.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      }
+   })
+}
+wrapText('.js-text-animate');
 function addTextAnimatePin(name) {
    let tl = gsap.timeline({
       scrollTrigger: {

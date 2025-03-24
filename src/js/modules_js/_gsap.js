@@ -1,4 +1,19 @@
 var smoother;
+/* объвертка текста для анимации */
+function wrapText(elementName) {
+   const text = document.querySelectorAll(elementName);
+   text.forEach((e) => {
+      const list = e.children;
+      for (const el of list) {
+         let className;
+         if (el.classList.contains('color-text')) { className = 'color-text' };
+         const words = el.innerHTML.trim().split(' ');
+         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
+         el.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      }
+   })
+}
+wrapText('.js-text-animate');
 function addTextAnimatePin(name) {
    let tl = gsap.timeline({
       scrollTrigger: {

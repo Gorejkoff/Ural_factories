@@ -1,30 +1,6 @@
 .menu {
-   padding: 16px;
-   position: fixed;
-   top: 0;
-   left: 0;
-   z-index: 5;
-   width: 100%;
-   height: var(--vh);
-   background-color: var(--color-lavender);
 
-
-   @media (min-width:1024px) {
-      padding: 0;
-      background-color: var(--modal-bg);
-      height: 100%;
-   }
-
-   &__container {
-      padding: 0;
-
-      @media (min-width:1024px) {
-         padding-left: var(--padding-container);
-         padding-right: var(--padding-container);
-         padding-top: 24px;
-         padding-bottom: 24px;
-      }
-   }
+   &__container {}
 
    &__shell {
       // padding-top: 56px;
@@ -89,9 +65,14 @@
       display: block;
       font-weight: 500;
       font-size: 16px;
+      transition: color 0.3s;
 
       @media (min-width:1024px) {
          font-size: 18px;
+      }
+
+      &:hover {
+         color: var(--color-orange);
       }
    }
 

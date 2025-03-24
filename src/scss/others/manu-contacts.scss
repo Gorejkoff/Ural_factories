@@ -1,28 +1,6 @@
 .menu-contacts {
-   padding: 16px;
-   position: fixed;
-   top: 0;
-   left: 0;
-   z-index: 5;
-   width: 100%;
-   height: 100%;
-   background-color: var(--color-lavender);
 
-   @media (min-width:1024px) {
-      padding: 0;
-      background-color: var(--modal-bg);
-   }
-
-   &__container {
-      padding: 0;
-
-      @media (min-width:1024px) {
-         padding-left: var(--padding-container);
-         padding-right: var(--padding-container);
-         padding-top: 24px;
-         padding-bottom: 24px;
-      }
-   }
+   &__container {}
 
    &__shell {
       @media (min-width:1024px) {
@@ -67,22 +45,15 @@
       display: flex;
       justify-content: space-between;
 
+      @media (max-width:1023.98px) {
+         background-color: var(--color-blue-alice);
+      }
+
       @media (min-width:1024px) {
          margin-top: 0;
          flex-direction: column;
          min-height: 143px;
          order: 1;
-      }
-   }
-
-   &__base {
-      padding: 16px;
-      border-radius: 16px;
-      background-color: var(--color-white);
-
-      @media (min-width:1024px) {
-         background-color: var(--color-lavender);
-         padding: 24px;
       }
    }
 
@@ -107,6 +78,10 @@
    &__address {
       display: flex;
       flex-direction: column;
+
+      @media (max-width:1023.98px) {
+         background-color: var(--color-blue-alice);
+      }
 
       @media (min-width:1024px) {
          order: 3;
@@ -152,7 +127,7 @@
    &__form {
       display: flex;
       flex-direction: column;
-      background-color: var(--color-lavender);
+      // background-color: var(--color-lavender);
 
       @media (max-width:1023.98px) {
          padding: 0;
@@ -162,30 +137,5 @@
          grid-row: span 2;
          order: 2;
       }
-
-      .textarea,
-      .input-text {
-         color: var(--color-black-02);
-         border-color: var(--color-black-02);
-      }
-
-      .checkbox-text {
-         color: var(--color-black-06)
-      }
-
-      .checkbox-item {
-         svg path {
-            fill: var(--color-orange);
-         }
-      }
-
-   }
-
-   &__form-title {
-      margin-bottom: 44px;
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 100%;
-      letter-spacing: -0.03em;
    }
 }
