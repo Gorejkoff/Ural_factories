@@ -231,7 +231,10 @@ window.addEventListener("resize", function () {
    addSizeViewport();
    camera.aspect = window.innerWidth / window.innerHeight;
    camera.updateProjectionMatrix();
-   renderer.setSize(canvasSiseX, canvasSiseY);
+
+   if (MIN768.matches) {
+      renderer.setSize(canvasSiseX, canvasSiseY);
+   }
 });
 
 animate();
