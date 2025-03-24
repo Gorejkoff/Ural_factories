@@ -10,14 +10,13 @@ let canvasSiseX;
 let canvasSiseY;
 
 function addSizeViewport() {
-   canvasSiseX = document.documentElement.clientWidth;
+   canvasSiseX = window.innerWidth;
    canvasSiseY = window.innerHeight + 100;
    viewportX = Math.min(window.innerWidth, 1440);
    viewportY = window.innerHeight;
 }
 addSizeViewport();
 
-//Создать создание нового рендеринга и установить его размер
 const screen3D = document.getElementById('container3D');
 const renderer = new THREE.WebGLRenderer({
    alpha: true, // прозрачный фон
@@ -118,19 +117,17 @@ function reverseRotationFrequency() {
    frequency.rotation.z = (Math.PI / 180) * progressRotationFrequency;
 }
 
-
-//Добавьте свет в сцену, чтобы мы могли увидеть 3D -модель
 const color_light = 0x3b3b3b;
 // const color_light = 0x404040;
 const leftLight = new THREE.DirectionalLight(color_light, 10);
 leftLight.position.set(3, 5, 1.5);
 scene.add(leftLight);
-const helper = new THREE.DirectionalLightHelper(leftLight, 1);
+// const helper = new THREE.DirectionalLightHelper(leftLight, 1);
 // scene.add(helper);
 const leftLight2 = new THREE.DirectionalLight(color_light, 10);
 leftLight2.position.set(-3, -5, 1.5);
 scene.add(leftLight2);
-const helper2 = new THREE.DirectionalLightHelper(leftLight2, 1);
+// const helper2 = new THREE.DirectionalLightHelper(leftLight2, 1);
 // scene.add(helper2);
 const leftLight3 = new THREE.DirectionalLight(color_light, 10);
 leftLight3.position.set(-3, 5, 1.5);
@@ -140,7 +137,7 @@ leftLight4.position.set(3, -5, 1.5);
 scene.add(leftLight4);
 
 
-const ambientLight = new THREE.AmbientLight(0x404040, 5);
+// const ambientLight = new THREE.AmbientLight(0x404040, 5);
 // scene.add(ambientLight);
 
 
