@@ -72,173 +72,6 @@ function closeHeaderMenu() {
    document.body.classList.remove('menu-is-open')
 }
 
-// import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-import { DRACOLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js";
-
-
-let viewportX;
-let viewportY;
-let canvasSiseX;
-let canvasSiseY;
-
-function addSizeViewport() {
-   canvasSiseX = window.innerWidth;
-   canvasSiseY = window.innerHeight + 100;
-   viewportX = Math.min(window.innerWidth, 1440);
-   viewportY = window.innerHeight;
-}
-addSizeViewport();
-
-const screen3D = document.getElementById('container3D');
-const renderer = new THREE.WebGLRenderer({
-   alpha: true, // прозрачный фон
-   canvas: screen3D,
-})
-renderer.setSize(canvasSiseX, canvasSiseY);
-
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(18, canvasSiseX / canvasSiseY, 0.1, 100);
-//Установите, как далеко будет камера от 3D -модели
-camera.position.z = 90;
-if (MIN768.matches) {
-   camera.position.z = 50;
-}
-
-let ratioX = viewportX / 1000;
-let ratioY = viewportY / 1000;
-
-let object;
-let empty;
-let cylinder;
-let volume;
-let frequency;
-
-const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-
-const loader = new GLTFLoader();
-loader.setDRACOLoader(dracoLoader);
-loader.load(
-   `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
-   // `../dist/glb/transmitter-2.glb`,
-   // `../glb/transmitter-2.glb`,
-   function (glb) {
-      object = glb.scene;
-      scene.add(object);
-      empty = object.getObjectByProperty('name', 'Empty');
-      cylinder = object.getObjectByProperty('name', 'Cylinder');
-      volume = object.getObjectByProperty('name', 'volume');
-      frequency = object.getObjectByProperty('name', 'Frequency');
-   },
-   function (xhr) {
-      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-   },
-   function (error) {
-      console.error(error);
-   }
-);
-function moveRadio() {
-   if (typeof object !== "undefined") {
-      if (!MIN768.matches) {
-         object.scale.set(0.7, 0.7, 0.7);
-      }
-      object.position.x = -7 * ratioX * (1 - progressRadioAnimation) + 3;
-      object.position.y = 1 + ratioY * (1 - progressRadioAnimation);
-      empty.rotation.y = (Math.PI * 2) * -progressRadioAnimation;
-
-      if (MIN768.matches) {
-         object.position.x = ratioX * 3.8 * (1 - progressRadioAnimation);
-         object.position.y = -3.3 + ratioY * -1.2 * (1 - progressRadioAnimation);
-         empty.rotation.y = (Math.PI * 2) * -progressRadioAnimation;
-      }
-      cylinder.scale.x = progressRadioAnimation;
-      cylinder.scale.y = progressRadioAnimation;
-      cylinder.scale.z = progressRadioAnimation;
-
-      if (progressRadioAnimation >= 0.9) {
-         degRotationValue <= progressRotationValue && rotationVolume();
-         degRotationFrequency >= progressRotationFrequency && rotationFrequency();
-      }
-      if (progressRadioAnimation < 0.9) {
-         progressRotationValue <= 0 && reverseRotationVolume();
-         progressRotationFrequency >= 0 && reverseRotationFrequency();
-      }
-   }
-}
-
-
-let progressRotationValue = 0;
-let degRotationValue = -100;
-let degRotationFrequency = 180;
-let progressRotationFrequency = 0;
-
-function rotationVolume() {
-   progressRotationValue -= 2;
-   volume.rotation.z = (Math.PI / 180) * progressRotationValue;
-}
-function reverseRotationVolume() {
-   progressRotationValue += 2;
-   volume.rotation.z = (Math.PI / 180) * progressRotationValue;
-}
-function rotationFrequency() {
-   progressRotationFrequency += 2.5;
-   frequency.rotation.z = (Math.PI / 180) * progressRotationFrequency;
-}
-function reverseRotationFrequency() {
-   progressRotationFrequency -= 2.5;
-   frequency.rotation.z = (Math.PI / 180) * progressRotationFrequency;
-}
-
-const color_light = 0x3b3b3b;
-// const color_light = 0x404040;
-const leftLight = new THREE.DirectionalLight(color_light, 10);
-leftLight.position.set(3, 5, 1.5);
-scene.add(leftLight);
-// const helper = new THREE.DirectionalLightHelper(leftLight, 1);
-// scene.add(helper);
-const leftLight2 = new THREE.DirectionalLight(color_light, 10);
-leftLight2.position.set(-3, -5, 1.5);
-scene.add(leftLight2);
-// const helper2 = new THREE.DirectionalLightHelper(leftLight2, 1);
-// scene.add(helper2);
-const leftLight3 = new THREE.DirectionalLight(color_light, 10);
-leftLight3.position.set(-3, 5, 1.5);
-scene.add(leftLight3);
-const leftLight4 = new THREE.DirectionalLight(color_light, 10);
-leftLight4.position.set(3, -5, 1.5);
-scene.add(leftLight4);
-
-
-// const ambientLight = new THREE.AmbientLight(0x404040, 5);
-// scene.add(ambientLight);
-
-
-//Это добавляет элементы управления в камеру, поэтому мы можем повернуть / масштабировать ее с помощью мыши
-// const controls = new OrbitControls(camera, renderer.domElement);
-
-
-//Render the scene
-function animate() {
-   renderer.render(scene, camera);
-   moveRadio();
-   requestAnimationFrame(animate);
-}
-
-//Добавить слушателя в окно, чтобы мы могли изменить размер окна и камеры
-window.addEventListener("resize", function () {
-   addSizeViewport();
-   camera.aspect = window.innerWidth / window.innerHeight;
-   camera.updateProjectionMatrix();
-
-   if (MIN768.matches) {
-      renderer.setSize(canvasSiseX, canvasSiseY);
-   }
-});
-
-animate();
-
 // перемещение блоков при адаптиве
 // data-da=".class,3,768" 
 // класс родителя куда перемещать
@@ -295,22 +128,105 @@ function moving(e, order, addressMove) {
 
 
 
-var smoother;
-/* объвертка текста для анимации */
-function wrapText(elementName) {
-   const text = document.querySelectorAll(elementName);
-   text.forEach((e) => {
-      const list = e.children;
-      for (const el of list) {
-         let className;
-         if (el.classList.contains('color-text')) { className = 'color-text' };
-         const words = el.innerHTML.trim().split(' ');
-         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
-         el.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+window.addEventListener('DOMContentLoaded', function () {
+   let model;
+   let empty;
+   let cylinder;
+   let viewportX;
+   let viewportY;
+   let canvasSiseX;
+   let canvasSiseY;
+   function addSizeViewport() {
+      canvasSiseX = window.innerWidth;
+      canvasSiseY = window.innerHeight + 100;
+      viewportX = Math.min(window.innerWidth, 1440);
+      viewportY = window.innerHeight;
+   }
+   addSizeViewport();
+   let ratioX = viewportX / 1000;
+   let ratioY = viewportY / 1000;
+
+
+   // Инициализация движка
+   const canvas = document.getElementById("container3D");
+   const engine = new BABYLON.Engine(canvas, true);
+
+   // Создание сцены
+
+   const scene = new BABYLON.Scene(engine);
+   scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+   // Добавление камеры
+   const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2, 20, BABYLON.Vector3.Zero(), scene);
+   camera.attachControl(canvas, true);
+
+   // Добавление света
+   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 1), scene);
+
+   // Загрузка модели
+   BABYLON.SceneLoader.Append("../glb/", "transmitter-2.glb", scene, function (scene) {
+      // console.log("Модель загружена!");
+      scene.animationGroups.forEach(animationGroup => {
+         animationGroup.stop(); // Остановка анимации
+         animationGroup.dispose(); // Удаление анимации из памяти
+      });
+      // console.log("Все анимации удалены!");
+      // список имен
+      // const models = scene.meshes;
+      // console.log(models);
+      // models.forEach(mesh => console.log(mesh.name));
+
+      model = scene.getMeshByName("__root__");
+
+      model.position = new BABYLON.Vector3(0, -3, 0);
+
+      cylinder = model._children[0];
+      // const empty = model.getChildMeshes().find((mesh) => { mesh.name === "Empty" });
+      empty = model._children[1];
+      // console.log(empty);
+
+      empty.rotation = new BABYLON.Vector3(0, 0, 0)
+      empty.position = new BABYLON.Vector3(10, 0, 0)
+
+      // console.log(empty);
+
+   });
+
+   let k = 0.4;
+   let path = 1 - k;
+   function rodioAnimation() {
+      empty.position = new BABYLON.Vector3(
+         8 * ratioX * (1 - progressRadioAnimation),
+         -1 * ratioY * (1 - progressRadioAnimation) - 1,
+         0)
+      empty.rotation = new BABYLON.Vector3(0, (Math.PI * 2) * -progressRadioAnimation, 0);
+      if (progressRadioAnimation > k) {
+         let value = (progressRadioAnimation - k) / path;
+         cylinder.scaling.x = value;
+         cylinder.scaling.y = value;
+         cylinder.scaling.z = value;
+      } else {
+         cylinder.scaling.x = 0;
+         cylinder.scaling.y = 0
+         cylinder.scaling.z = 0
       }
-   })
-}
-wrapText('.js-text-animate');
+
+   }
+
+
+   // Рендер сцены
+   engine.runRenderLoop(function () {
+      if (empty) { rodioAnimation() }
+      scene.render();
+   });
+
+   // Обработка изменения размера окна
+   window.addEventListener("resize", function () {
+      engine.resize();
+   });
+});
+
+
+var smoother;
 function addTextAnimatePin(name) {
    let tl = gsap.timeline({
       scrollTrigger: {
