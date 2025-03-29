@@ -33,14 +33,23 @@ window.addEventListener('DOMContentLoaded', function () {
    camera.attachControl(canvas, true);
 
    // Добавление света
-   const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 5), scene);
-   light.intensity = 1.1;
-   // light.diffuse = new BABYLON.Color3(1, 1, 1);
-   light.diffuse = new BABYLON.Color3(1, 1, 1);
-   // const light = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(1, 10, 1), scene);
+   // let color = BABYLON.Color3.FromHexString("#ff764d");
+   const light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-1, 1, 5), scene);
+   light1.intensity = 0.8;
+   light1.diffuse = new BABYLON.Color3(1, 1, 1);
+   const light2 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(0, 0, -5), scene);
+   light2.intensity = 0.3;
+   light2.diffuse = new BABYLON.Color3(1, 1, 1);
+
+
+
+
+   // Color3(1, 0.466, 0.302)
+   // FF764EFF
+
    // Загрузка модели
-   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-3.glb", scene, function (scene) {
-      // BABYLON.SceneLoader.Append("../glb/", "transmitter-3.glb", scene, function (scene) {
+   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-6.glb", scene, function (scene) {
+      // BABYLON.SceneLoader.Append("../glb/", "transmitter-6.glb", scene, function (scene) {
       scene.animationGroups.forEach(animationGroup => {
          animationGroup.stop();
          animationGroup.dispose();
@@ -51,6 +60,8 @@ window.addEventListener('DOMContentLoaded', function () {
       }
       cylinder = model._children[0];
       empty = model._children[1];
+      console.log(empty);
+
       empty.rotation = new BABYLON.Vector3(0, 0, 0);
       volumeElement = empty._children.filter((e) => { return e.name == "volume" });
       frequency = empty._children.filter((e) => { return e.name == "Frequency" });
@@ -89,6 +100,7 @@ window.addEventListener('DOMContentLoaded', function () {
       }
 
    }
+
 
 
    // Рендер сцены
