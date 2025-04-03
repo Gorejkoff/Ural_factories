@@ -47,9 +47,9 @@ dracoLoader.setDecoderPath(' https://www.gstatic.com/draco/versioned/decoders/1.
 const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.load(
-   `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
+   // `https://gorejkoff.github.io/Ural_factories/dist/glb/transmitter-2.glb`,
    // `../dist/glb/transmitter-2.glb`,
-   // `../glb/transmitter-2.glb`,
+   `../glb/transmitter-6.glb`,
    function (glb) {
       object = glb.scene;
       scene.add(object);
@@ -126,15 +126,15 @@ scene.add(leftLight);
 // scene.add(helper);
 const leftLight2 = new THREE.DirectionalLight(color_light, 10);
 leftLight2.position.set(-3, -5, 1.5);
-scene.add(leftLight2);
+// scene.add(leftLight2);
 // const helper2 = new THREE.DirectionalLightHelper(leftLight2, 1);
 // scene.add(helper2);
 const leftLight3 = new THREE.DirectionalLight(color_light, 10);
 leftLight3.position.set(-3, 5, 1.5);
-scene.add(leftLight3);
+// scene.add(leftLight3);
 const leftLight4 = new THREE.DirectionalLight(color_light, 10);
 leftLight4.position.set(3, -5, 1.5);
-scene.add(leftLight4);
+// scene.add(leftLight4);
 
 
 // const ambientLight = new THREE.AmbientLight(0x404040, 5);

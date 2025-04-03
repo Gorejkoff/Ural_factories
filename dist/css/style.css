@@ -217,7 +217,7 @@ body {
 }
 
 .button {
-  padding: 3px 3px 3px 16px;
+  padding: 2px 2px 2px 16px;
   height: var(--button-height, 46px);
   width: 100%;
   max-width: var(--button-max-width, 100%);
@@ -252,6 +252,11 @@ body {
   --button-color: var(--color-periwinkle-crayola);
   --button-background: var(--color-black);
   --button-border-color: var(--color-black);
+}
+
+.button-white {
+  --button-background: var(--color-white);
+  --button-border-color: var(--color-white);
 }
 
 .button-icon {
@@ -456,6 +461,10 @@ body {
   }
 }
 
+.test {
+  color: rgb(255, 144, 0);
+}
+
 .header {
   position: relative;
   z-index: 5;
@@ -503,16 +512,21 @@ body {
   max-width: 100%;
 }
 
-.header__logo svg path {
-  fill: var(--color-black);
-}
-
 .header__button-menu {
   --size-icon: 40px;
 }
 
 .header__button-contact {
   --button-max-width: 272px;
+  --button-background: var(--color-white);
+  --button-border-color: var(--color-white);
+}
+
+.presentation .header__logo svg path {
+  fill: var(--color-black);
+}
+
+.presentation .header__button-contact {
   --button-background: var(--color-black);
   --button-color: var(--color-periwinkle-crayola);
 }
@@ -1067,7 +1081,7 @@ body {
   max-width: 191px;
 }
 
-.delivery-section__gryd {
+.delivery-section__grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -1480,6 +1494,10 @@ body {
   margin-top: 64px;
 }
 
+.catalog-section__button {
+  margin-bottom: 24px;
+}
+
 @media (min-width: 768px) {
   body {
     --padding-container: 20px;
@@ -1514,7 +1532,7 @@ body {
   }
 
   .button {
-    padding: 4px 4px 4px 20px;
+    padding: 3px 3px 3px 20px;
     height: var(--button-height, 56px);
     border-radius: 12px;
     font-size: var(--button-font-size, 18px);
@@ -1756,7 +1774,7 @@ body {
     width: 28px;
   }
 
-  .delivery-section__gryd {
+  .delivery-section__grid {
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
@@ -1919,6 +1937,11 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
     gap: 20px;
+  }
+
+  .catalog-section__button {
+    max-width: 272px;
+    margin-bottom: 40px;
   }
 }
 

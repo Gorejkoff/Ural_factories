@@ -1,0 +1,13 @@
+.catalog-section {
+
+   &__container {}
+
+   &__button {
+      margin-bottom: 24px;
+
+      @media (min-width:1024px) {
+         max-width: 272px;
+         margin-bottom: 40px;
+      }
+   }
+}

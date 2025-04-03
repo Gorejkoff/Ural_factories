@@ -1,0 +1,27 @@
+[
+   {
+      "title": "Радиостанции",
+      "image": "jpg/img-12.jpg",
+      "link": "catalog.html"
+   },
+   {
+      "title": "Ретрансляторы",
+      "image": "jpg/img-13.jpg",
+      "link": "catalog.html"
+   },
+   {
+      "title": "Системы",
+      "image": "jpg/img-14.jpg",
+      "link": "catalog.html"
+   },
+   {
+      "title": "Программное обеспечение",
+      "image": "jpg/img-11.jpg",
+      "link": "catalog.html"
+   },
+   {
+      "title": "Комплексы",
+      "image": "jpg/img-15.jpg",
+      "link": "catalog.html"
+   }
+]

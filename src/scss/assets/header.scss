@@ -46,9 +46,9 @@
       svg {
          max-width: 100%;
 
-         path {
-            fill: var(--color-black)
-         }
+         // path {
+         //    fill: var(--color-periwinkle-crayola)
+         // }
       }
    }
 
@@ -86,6 +86,19 @@
 
    &__button-contact {
       --button-max-width: 272px;
+      --button-background: var(--color-white);
+      --button-border-color: var(--color-white);
+   }
+}
+
+.presentation {
+   .header__logo {
+      svg path {
+         fill: var(--color-black)
+      }
+   }
+
+   .header__button-contact {
       --button-background: var(--color-black);
       --button-color: var(--color-periwinkle-crayola);
    }

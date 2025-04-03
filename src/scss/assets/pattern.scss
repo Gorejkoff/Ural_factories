@@ -42,7 +42,7 @@ body {
 }
 
 .button {
-   padding: 3px 3px 3px 16px;
+   padding: 2px 2px 2px 16px;
    height: var(--button-height, 46px);
    width: 100%;
    max-width: var(--button-max-width, 100%);
@@ -57,7 +57,7 @@ body {
    font-size: var(--button-font-size, 14px);
 
    @media (min-width:1024px) {
-      padding: 4px 4px 4px 20px;
+      padding: 3px 3px 3px 20px;
       height: var(--button-height, 56px);
       border-radius: 12px;
       font-size: var(--button-font-size, 18px);
@@ -80,6 +80,11 @@ body {
    --button-color: var(--color-periwinkle-crayola);
    --button-background: var(--color-black);
    --button-border-color: var(--color-black);
+}
+
+.button-white {
+   --button-background: var(--color-white);
+   --button-border-color: var(--color-white);
 }
 
 .button-icon {
@@ -406,3 +411,6 @@ body {
 //       color:var(--color-black, #000000);
 //    }
 // }
+.test {
+   color: rgb(255, 144, 0);
+}
