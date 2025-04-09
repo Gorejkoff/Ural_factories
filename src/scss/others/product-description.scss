@@ -1,0 +1,79 @@
+@use '../assets/mixin.scss' as *;
+@use '../assets/variablesSCSS.scss' as *;
+
+.product-description {
+
+   &__container {}
+
+   &__body {
+      padding: 96px 0;
+      color: var(--color-periwinkle-crayola);
+
+      @include size_adaptive (padding-left, 0, 96, 1024, 1300);
+      @include size_adaptive (padding-right, 0, 96, 1024, 1300);
+      @include size_adaptive (padding-top, 96, 160, 1024, 1300);
+      @include size_adaptive (padding-bottom, 96, 160, 1024, 1300);
+
+      @media (min-width:1300px) {
+         padding: 160px 96px;
+      }
+
+      &>*:not(:last-child) {
+         margin-bottom: 64px;
+
+         @media (min-width:1024px) {
+            margin-bottom: 96px;
+         }
+      }
+   }
+
+   &__header {
+      font-size: 32px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+
+      @media (min-width:768px) {
+         font-size: 48px;
+      }
+
+      @media (min-width:1024px) {
+         font-size: 56px;
+      }
+   }
+
+   &__block {
+      font-size: 16px;
+      line-height: 122%;
+
+      @media (min-width:1024px) {
+         display: flex;
+         font-size: 18px;
+      }
+   }
+
+   &__block-name {
+      margin-bottom: 24px;
+      flex: 0 0 324px;
+      @include size_adaptive_flex (0, 0, 250, 324, 1024, 1300);
+
+      @media (min-width:1300px) {
+         flex: 0 0 324px;
+      }
+   }
+
+   &__block-content {
+      flex: 1 1 auto;
+      font-weight: 300;
+
+      li {
+         list-style: url('../img/svg/check-2.svg');
+         padding-left: 16px;
+         margin-left: 24px;
+
+         &:not(:last-child) {
+            margin-bottom: 16px;
+         }
+      }
+
+   }
+}

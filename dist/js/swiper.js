@@ -6181,7 +6181,7 @@ var Swiper = function () {
 
 
 if (document.querySelector('.services-section__swiper')) {
-   const swiper = new Swiper('.swiper', {
+   const swiper = new Swiper('.services-section__swiper', {
       keyboard: {
          enabled: true,
          onlyInViewport: true,
@@ -6207,8 +6207,96 @@ if (document.querySelector('.services-section__swiper')) {
    });
 }
 
+if (document.querySelector('.product-card__top-swiper')) {
+   const swiper = new Swiper('.product-card__top-swiper', {
+      keyboard: {
+         enabled: true,
+         onlyInViewport: true,
+      },
+      // loop: true,
+      spaceBetween: 10,
+      speed: 300,
+      slidesPerView: 1,
+      grabCursor: true,
+      breakpoints: {
+         1024: {
+            pagination: {
+               type: 'fraction',
+            },
+         },
+      },
+      navigation: {
+         nextEl: ".product-card__top-swiper-button-next",
+         prevEl: ".product-card__top-swiper-button-prev",
+      },
+      pagination: {
+         el: '.product-card__top-pagination',
+         type: 'bullets',
+         clickable: true,
+      },
+
+   });
+}
 
 
+
+if (document.querySelector('.slider-of-four')) {
+   const list = document.querySelectorAll('.slider-of-four');
+   list.forEach((element) => { addSwiper(element) });
+   function addSwiper(element) {
+      const swiper = new Swiper(element, {
+         allowTouchMove: true,
+         spaceBetween: 8,
+         speed: 300,
+         slidesPerView: 1.3,
+         breakpoints: {
+            768: {
+               slidesPerView: 2
+            },
+            1024: {
+               slidesPerView: 4
+            },
+         },
+         pagination: {
+            el: '.slider-of-four__pagination',
+            type: 'bullets',
+         },
+      });
+   }
+}
+
+
+if (document.querySelector('.three-slides-visible__swiper')) {
+   const list = document.querySelectorAll('.three-slides-visible__swiper');
+   list.forEach((element) => { addSwiper(element) });
+   function addSwiper(element) {
+      const swiper = new Swiper(element, {
+         allowTouchMove: true,
+         spaceBetween: 8,
+         speed: 300,
+         slidesPerView: 1.3,
+         breakpoints: {
+            768: {
+               slidesPerView: 2
+            },
+            1024: {
+               slidesPerView: 3,
+               pagination: {
+                  type: 'fraction',
+               },
+               navigation: {
+                  nextEl: element.parentElement.querySelector('.three-slides-visible__swiper-button-next'),
+                  prevEl: element.parentElement.querySelector('.three-slides-visible__swiper-button-prev')
+               },
+            },
+         },
+         pagination: {
+            el: element.parentElement.querySelector('.three-slides-visible__pagination'),
+            type: 'bullets',
+         },
+      });
+   }
+}
 
 /* создание и ликвидация состояния слайдера в зависимости от ширины вьюпорта */
 // if (document.querySelector('.swiper')) {

@@ -22,6 +22,7 @@ const MIN768 = window.matchMedia('(min-width: 768px)');
 
 // variables
 const HEADER = document.getElementById('header');
+const MOBILE_BUTTON_CONTACT = document.querySelector('.mobile-menu__button-contact');
 let progressRadioAnimation = 0;
 
 
@@ -44,12 +45,15 @@ function setMenuEffectSize() {
 }
 queueMicrotask(setMenuEffectSize)
 /* запись переменных высоты элементов */
-// function addHeightVariable() {
-//    if (typeof HEADER !== "undefined") {
-//       document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
-//    }
-// }
-// addHeightVariable();
+function addHeightVariable() {
+   if (HEADER) {
+      document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
+   }
+   if (MOBILE_BUTTON_CONTACT) {
+      document.body.style.setProperty('--padding-for-button-mobile', `${MOBILE_BUTTON_CONTACT.offsetHeight}px`)
+   }
+}
+addHeightVariable();
 
 
 // ** ======================= RESIZE ======================  ** //
@@ -149,7 +153,7 @@ function findNodeByName(rootNode, name) {
 window.addEventListener('DOMContentLoaded', function () {
    const canvas = document.getElementById("container3D");
    if (!canvas) {
-      console.error("Canvas not found!");
+      console.log("Canvas not found!");
       return;
    };
    let model;
@@ -199,37 +203,37 @@ window.addEventListener('DOMContentLoaded', function () {
    light2.diffuse = new BABYLON.Color3(1, 1, 1);
 
 
-   const spotLight = new BABYLON.SpotLight(
-      "spotLight",
-      new BABYLON.Vector3(10, 5, -3),
-      new BABYLON.Vector3(-10, -4, 2),
-      Math.PI / 3,
-      0,
-      scene);
-   spotLight.intensity = 1500;
-   spotLight.diffuse = new BABYLON.Color3(1, 0.144, 0);
-   console.log(spotLight);
+   // const spotLight = new BABYLON.SpotLight(
+   //    "spotLight",
+   //    new BABYLON.Vector3(10, 5, -3),
+   //    new BABYLON.Vector3(-10, -4, 2),
+   //    Math.PI / 3,
+   //    0,
+   //    scene);
+   // spotLight.intensity = 1500;
+   // spotLight.diffuse = new BABYLON.Color3(1, 0.144, 0);
+   // console.log(spotLight);
 
 
-   const spotLight_1 = new BABYLON.SpotLight(
-      "spotLight1",
-      new BABYLON.Vector3(1, 3.3, 2),
-      new BABYLON.Vector3(0, 0, -2),
-      Math.PI * 2,
-      10,
-      scene);
-   spotLight_1.intensity = 25;
-   spotLight_1.radius = 500;
-   spotLight_1.diffuse = new BABYLON.Color3(1, 0.1, 0);
+   // const spotLight_1 = new BABYLON.SpotLight(
+   //    "spotLight1",
+   //    new BABYLON.Vector3(1, 3.3, 2),
+   //    new BABYLON.Vector3(0, 0, -2),
+   //    Math.PI * 2,
+   //    10,
+   //    scene);
+   // spotLight_1.intensity = 25;
+   // spotLight_1.radius = 500;
+   // spotLight_1.diffuse = new BABYLON.Color3(1, 0.1, 0);
 
    // Color3(1, 0.466, 0.302)
    // FF764EFF
    // rgb(255, 144, 0)
 
-   const shadowGenerator = new BABYLON.ShadowGenerator(
-      1024, // Размер текстуры теней (чем больше, тем качественнее)
-      spotLight // Источник света
-   );
+   // const shadowGenerator = new BABYLON.ShadowGenerator(
+   //    1024, // Размер текстуры теней (чем больше, тем качественнее)
+   //    spotLight // Источник света
+   // );
 
    // Загрузка модели
    BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-5.glb", scene, function (scene) {
@@ -265,8 +269,8 @@ window.addEventListener('DOMContentLoaded', function () {
       console.log(frequency[0], 'frequency');
 
 
-      spotLight.parent = empty;
-      spotLight_1.parent = empty;
+      // spotLight.parent = empty;
+      // spotLight_1.parent = empty;
 
 
       let front_frame = empty._children.filter((e) => { return e.name == "front frame" });
@@ -290,38 +294,35 @@ window.addEventListener('DOMContentLoaded', function () {
       let black_glass_primitive1 = black_glass[0]._children.filter((e) => { return e.name == "black glass_primitive1" });
       console.log(black_glass_primitive1[0], 'black glass_primitive1');
 
-      spotLight.excludedMeshes.push(black_glass_primitive0[0]);
-      spotLight.excludedMeshes.push(black_glass_primitive1[0]);
-      spotLight.excludedMeshes.push(glass[0]);
-
+      // spotLight.excludedMeshes.push(black_glass_primitive0[0]);
+      // spotLight.excludedMeshes.push(black_glass_primitive1[0]);
+      // spotLight.excludedMeshes.push(glass[0]);
 
       let frame = empty._children.filter((e) => { return e.name == "frame" });
       console.log(frame[0], 'frame');
       let frame_primitive0 = frame[0]._children.filter((e) => { return e.name == "frame_primitive0" });
       console.log(frame_primitive0[0], 'frame_primitive0');
 
-
       // spotLight.includedOnlyMeshes = [antenna[0], front_frame[0]];
 
-
-      let point = empty._children.filter((e) => { return e.name == "Point" });
-      console.log(point[0], "point");
-
+      // let point = empty._children.filter((e) => { return e.name == "Point" });
+      // console.log(point[0], "point");
 
 
 
 
-      // Настройка качества (опционально)
-      shadowGenerator.useBlurExponentialShadowMap = true;
-      shadowGenerator.blurKernel = 320; // Размытие (если включено)
-      // отбрасывает тень
-      shadowGenerator.addShadowCaster(back_cover[0])
-      shadowGenerator.addShadowCaster(frame_primitive0[0])
-      // shadowGenerator.addShadowCaster(holder[0])
-      // принимает тень
-      holder[0].receiveShadows = true;
-      // frame_primitive0[0].receiveShadows = true;
-      // back_cover[0].receiveShadows = true;
+
+      // // Настройка качества (опционально)
+      // shadowGenerator.useBlurExponentialShadowMap = true;
+      // shadowGenerator.blurKernel = 320; // Размытие (если включено)
+      // // отбрасывает тень
+      // shadowGenerator.addShadowCaster(back_cover[0])
+      // shadowGenerator.addShadowCaster(frame_primitive0[0])
+      // // shadowGenerator.addShadowCaster(holder[0])
+      // // принимает тень
+      // holder[0].receiveShadows = true;
+      // // frame_primitive0[0].receiveShadows = true;
+      // // back_cover[0].receiveShadows = true;
 
 
 
@@ -397,6 +398,20 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 var smoother;
+
+function textWpapSpan(elementName) {
+   const listText = document.querySelectorAll(elementName);
+   listText.forEach(element => {
+      const listSpan = element.querySelectorAll('span');
+      listSpan.forEach(element => {
+         const words = element.innerHTML.trim().split(' ');
+         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
+         element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      })
+   });
+}
+textWpapSpan(".js-text-animate")
+
 function addTextAnimatePin(name) {
    let tl = gsap.timeline({
       scrollTrigger: {
@@ -465,19 +480,20 @@ window.addEventListener('load', function (event) {
    //       },
    //    }
    // })
-
-   gsap.to('#container3D', {
-      scrollTrigger: {
-         trigger: '.scroll-animation-trigger',
-         start: '0% 0%',
-         end: '100% 100%',
-         pin: true,
-         scrub: true,
-         onUpdate: (self) => {
-            progressRadioAnimation = self.progress.toFixed(4);
-         },
-      }
-   })
+   if (document.getElementById('container3D')) {
+      gsap.to('#container3D', {
+         scrollTrigger: {
+            trigger: '.scroll-animation-trigger',
+            start: '0% 0%',
+            end: '100% 100%',
+            pin: true,
+            scrub: true,
+            onUpdate: (self) => {
+               progressRadioAnimation = self.progress.toFixed(4);
+            },
+         }
+      })
+   }
 
    const LIST_DESCRIPTION_BLOCK = this.document.querySelectorAll('.description__block');
 
@@ -506,29 +522,28 @@ window.addEventListener('load', function (event) {
       )
    })
 
-   addTextAnimatePin('.about-section__title');
-   addTextAnimate('.services-section__title')
+   if (document.querySelector('.about-section__title')) addTextAnimatePin('.about-section__title');
+
+   if (document.querySelector('.services-section__title')) addTextAnimate('.services-section__title')
+
+   let tl_about;
+   if (document.querySelector('.about-section__body')) {
+      tl_about = gsap.timeline({
+         scrollTrigger: {
+            trigger: '.about-section__body',
+            start: '0% 50%',
+            end: '0% 50%',
+         }
+      })
+
+      const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
+      if (ABOUT_ANIMATION.length === 0) return;
+      ABOUT_ANIMATION.forEach((e) => {
+         tl_about.to(e, { opacity: 1, duration: 0.5 })
+      })
+   }
 
 
-   let tl_about = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.about-section__body',
-         start: '0% 50%',
-         end: '0% 50%',
-         // markers: {
-         //    startColor: "red",
-         //    endColor: "green",
-         //    fontSize: "18px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // },
-      }
-   })
-
-   const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
-   ABOUT_ANIMATION.forEach((e) => {
-      tl_about.to(e, { opacity: 1, duration: 0.5 })
-   })
 
 })
 /* открывает, закрывает модальные окна. */

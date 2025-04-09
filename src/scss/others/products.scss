@@ -5,8 +5,12 @@
    &__header {
       margin-bottom: 8px;
       background-color: var(--color-lavender);
-      border-radius: 16px;
+      border-radius: 8px;
       overflow: hidden;
+
+      @media (min-width:1024px) {
+         border-radius: 16px;
+      }
    }
 
    &__header-title {
@@ -70,11 +74,12 @@
       padding-bottom: 118%;
       position: relative;
       background-color: var(--color-lavender);
-      border-radius: 16px;
+      border-radius: 8px;
       overflow: hidden;
 
       @media (min-width:1024px) {
          padding-bottom: 130%;
+         border-radius: 16px;
       }
    }
 

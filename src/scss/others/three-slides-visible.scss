@@ -1,0 +1,36 @@
+.three-slides-visible {
+
+   &__container {}
+
+   &__body {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      padding-left: 16px;
+      padding-right: 16px;
+      background-color: var(--color-blackish-blue);
+      overflow: hidden;
+
+      @media (min-width:1024px) {
+         padding-top: 96px;
+         padding-bottom: 96px;
+         padding-left: 96px;
+         padding-right: 96px;
+      }
+   }
+
+   &__title {
+      margin-bottom: 32px;
+
+      @media (min-width:1024px) {
+         margin-bottom: 64px;
+      }
+   }
+
+   &__swiper {
+      border-radius: 16px;
+
+      @media (min-width:768px) {
+         overflow: hidden;
+      }
+   }
+}

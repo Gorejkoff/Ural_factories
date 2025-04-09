@@ -22,6 +22,7 @@ const MIN768 = window.matchMedia('(min-width: 768px)');
 
 // variables
 const HEADER = document.getElementById('header');
+const MOBILE_BUTTON_CONTACT = document.querySelector('.mobile-menu__button-contact');
 let progressRadioAnimation = 0;
 
 
@@ -44,12 +45,15 @@ function setMenuEffectSize() {
 }
 queueMicrotask(setMenuEffectSize)
 /* запись переменных высоты элементов */
-// function addHeightVariable() {
-//    if (typeof HEADER !== "undefined") {
-//       document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
-//    }
-// }
-// addHeightVariable();
+function addHeightVariable() {
+   if (HEADER) {
+      document.body.style.setProperty('--height-header', `${HEADER.offsetHeight}px`)
+   }
+   if (MOBILE_BUTTON_CONTACT) {
+      document.body.style.setProperty('--padding-for-button-mobile', `${MOBILE_BUTTON_CONTACT.offsetHeight}px`)
+   }
+}
+addHeightVariable();
 
 
 // ** ======================= RESIZE ======================  ** //

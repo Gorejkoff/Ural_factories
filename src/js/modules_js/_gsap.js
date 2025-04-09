@@ -1,4 +1,18 @@
 var smoother;
+
+function textWpapSpan(elementName) {
+   const listText = document.querySelectorAll(elementName);
+   listText.forEach(element => {
+      const listSpan = element.querySelectorAll('span');
+      listSpan.forEach(element => {
+         const words = element.innerHTML.trim().split(' ');
+         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
+         element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      })
+   });
+}
+textWpapSpan(".js-text-animate")
+
 function addTextAnimatePin(name) {
    let tl = gsap.timeline({
       scrollTrigger: {
@@ -67,19 +81,20 @@ window.addEventListener('load', function (event) {
    //       },
    //    }
    // })
-
-   gsap.to('#container3D', {
-      scrollTrigger: {
-         trigger: '.scroll-animation-trigger',
-         start: '0% 0%',
-         end: '100% 100%',
-         pin: true,
-         scrub: true,
-         onUpdate: (self) => {
-            progressRadioAnimation = self.progress.toFixed(4);
-         },
-      }
-   })
+   if (document.getElementById('container3D')) {
+      gsap.to('#container3D', {
+         scrollTrigger: {
+            trigger: '.scroll-animation-trigger',
+            start: '0% 0%',
+            end: '100% 100%',
+            pin: true,
+            scrub: true,
+            onUpdate: (self) => {
+               progressRadioAnimation = self.progress.toFixed(4);
+            },
+         }
+      })
+   }
 
    const LIST_DESCRIPTION_BLOCK = this.document.querySelectorAll('.description__block');
 
@@ -108,28 +123,27 @@ window.addEventListener('load', function (event) {
       )
    })
 
-   addTextAnimatePin('.about-section__title');
-   addTextAnimate('.services-section__title')
+   if (document.querySelector('.about-section__title')) addTextAnimatePin('.about-section__title');
+
+   if (document.querySelector('.services-section__title')) addTextAnimate('.services-section__title')
+
+   let tl_about;
+   if (document.querySelector('.about-section__body')) {
+      tl_about = gsap.timeline({
+         scrollTrigger: {
+            trigger: '.about-section__body',
+            start: '0% 50%',
+            end: '0% 50%',
+         }
+      })
+
+      const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
+      if (ABOUT_ANIMATION.length === 0) return;
+      ABOUT_ANIMATION.forEach((e) => {
+         tl_about.to(e, { opacity: 1, duration: 0.5 })
+      })
+   }
 
 
-   let tl_about = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.about-section__body',
-         start: '0% 50%',
-         end: '0% 50%',
-         // markers: {
-         //    startColor: "red",
-         //    endColor: "green",
-         //    fontSize: "18px",
-         //    fontWeight: "bold",
-         //    indent: 20
-         // },
-      }
-   })
-
-   const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
-   ABOUT_ANIMATION.forEach((e) => {
-      tl_about.to(e, { opacity: 1, duration: 0.5 })
-   })
 
 })

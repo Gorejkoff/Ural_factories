@@ -7,7 +7,7 @@
    flex-direction: column;
 
    &__container {
-      padding-bottom: 78px;
+      padding-bottom: var(--padding-for-button-mobile, 78px);
       position: relative;
       z-index: 1;
       flex: 1 1 auto;
@@ -52,21 +52,6 @@
 
    &__footer-text {
       max-width: 232px;
-   }
-
-   &__footer-registry {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      max-width: 300px;
-
-      img {
-         width: 32px;
-
-         @media (min-width:1024px) {
-            width: 40px;
-         }
-      }
    }
 
    &__footer-arrow {

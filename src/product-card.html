@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   @@include('html/1_head.html',{"title":"Catalog"})
+   @@include('html/1_head.html',{"title":"Product Card"})
 </head>
 
 
@@ -13,11 +13,18 @@
 
          <div class="wrapper">
 
-            @@include('html/Catalog/Catalog-First-Screen.html',{})
+            @@include('html/2_header.html',{})
 
             <div class="main">
 
-               @@include('html/Products/Products.html',{"link":"catalog-section.html"})
+               @@include('html/Product-Card/Product-Card-Item.html',{})
+               @@include('html/Product-Card/Product-Options.html',{})
+               @@include('html/Product-Card/Product-Description.html',{})
+
+               @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{title:"Другая продукция", path:'json/Other-Products.json'})
+
+               @@include('html/Viewed-Earlier/Viewed-Earlier.html',{})
+
 
 
 

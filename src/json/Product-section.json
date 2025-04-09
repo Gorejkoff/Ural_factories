@@ -2,31 +2,37 @@
    {
       "title": "Эрика-DMR-T",
       "image": "jpg/img-8.jpg",
-      "link": "catalog-section.html"
+      "link": "product-card.html",
+      "button-text": "Смотреть всё"
    },
    {
       "title": "Эрика-Р161Т",
       "image": "jpg/img-8.jpg",
-      "link": "catalog-section.html"
+      "link": "product-card.html",
+      "button-text": "Смотреть всё"
    },
    {
       "title": "Эрика-БРК-Ц",
       "image": "jpg/img-8.jpg",
-      "link": "catalog-section.html"
+      "link": "product-card.html",
+      "button-text": "Смотреть всё"
    },
    {
       "title": "Эрика-СДУ-Ц",
       "image": "jpg/img-8.jpg",
-      "link": "catalog-section.html"
+      "link": "product-card.html",
+      "button-text": "Смотреть всё"
    },
    {
       "title": "Эрика-160",
       "image": "jpg/img-8.jpg",
-      "link": "catalog-section.html"
+      "link": "product-card.html",
+      "button-text": "Смотреть всё"
    },
    {
       "title": "Эрика-260",
       "image": "jpg/img-8.jpg",
-      "link": "catalog-section.html"
+      "link": "product-card.html",
+      "button-text": "Смотреть всё"
    }
 ]
