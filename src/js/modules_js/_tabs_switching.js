@@ -18,22 +18,9 @@ class TabsSwitching {
    }
 }
 
-if (document.querySelector('.bestshellers__body')) {
-   let tab = new TabsSwitching('.tab', '.tab__button', '.bestshellers__swiper', setValue);
+if (document.querySelector('.documents-certificates')) {
+   let tab = new TabsSwitching('.documents-certificates__tab-buttons', '.documents-certificates__tab-button', '.documents-certificates__tab-page');
    tab.init();
 }
 
-function setValue(event) {
-   let parent = event.target.closest('.js-tabs-body');
-   if (!parent) return;
-   let activeText = parent.querySelector('.active');
-   if (!activeText) return;
-   let text = parent.querySelector('.js-tabs-text');
-   if (!text) return;
-   text.innerText = activeText.innerText;
-}
 
-if (document.querySelector('.personal__order')) {
-   let tab = new TabsSwitching('.personal__order-tab-buttons', '.personal__order-tab-button', '.personal__order-tab');
-   tab.init();
-}

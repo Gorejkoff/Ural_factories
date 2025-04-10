@@ -1,5 +1,51 @@
 .slider-of-four {
-   overflow: hidden;
+   .swiper-button-shell {
+      display: none;
+   }
+
+   .swiper-pagination {
+      @media (min-width:1024px) {
+         display: none;
+      }
+   }
+
+   &.swiper-nav-visible {
+      .swiper-button-shell {
+         @media (min-width:1024px) {
+            display: flex;
+         }
+      }
+
+      .swiper-pagination {
+         @media (min-width:1024px) {
+            display: block;
+         }
+      }
+   }
+
+   &__body {
+      margin-top: 96px;
+      margin-bottom: 96px;
+
+      @media (min-width:1024px) {
+         margin: 140px auto 160px;
+         max-width: 1200px;
+      }
+   }
+
+   &__title {
+      margin-bottom: 64px;
+   }
+
+   &__swiper {
+      overflow: hidden;
+   }
+
+   &__nav {
+      @media (min-width:1024px) {
+         margin-top: 28px;
+      }
+   }
 
    &__cell {
       padding: 8px;
@@ -38,6 +84,7 @@
       margin-top: 16px;
       padding: 16px;
       display: flex;
+      gap: 16px;
    }
 
    &__content {

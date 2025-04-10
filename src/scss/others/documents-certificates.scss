@@ -1,0 +1,113 @@
+.documents-certificates {
+
+   &__container {}
+
+   &__title {}
+
+   &__tab-buttons-scroll {
+      overflow-x: auto;
+   }
+
+   &__tab-buttons {
+      margin-bottom: 24px;
+      display: flex;
+      gap: 8px;
+
+      @media (max-width:1024.98px) {
+         min-width: max-content;
+      }
+
+      @media (min-width:1024px) {
+         flex-wrap: wrap;
+         margin-bottom: 64px;
+      }
+   }
+
+   &__tab-button {
+      padding: 6px 12px;
+      font-size: 16px;
+      line-height: 112%;
+      color: var(--color-periwinkle-crayola);
+      border-radius: 4px;
+      border: 1px solid var(--color-periwinkle-crayola-02);
+      background-color: transparent;
+      transition: background-color 0.3s, border-color 0.3s;
+
+      ._pc &:hover,
+      &.active {
+         background-color: var(--color-orange);
+         border-color: var(--color-orange);
+         ;
+      }
+   }
+
+   &__tab-pages {}
+
+   &__tab-page {
+      display: none;
+
+      &.active {
+         display: block;
+      }
+   }
+
+   &__item {
+      padding-top: 24px;
+      padding-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      @media (min-width:1024px) {
+         padding-top: 40px;
+         padding-bottom: 40px;
+         gap: 64px;
+         flex-wrap: nowrap;
+      }
+
+      &:not(:first-child) {
+         border-top: 1px solid var(--color-periwinkle-crayola-01);
+      }
+   }
+
+   &__item-icon {
+      flex: 0 0 48px;
+
+      @media (min-width:1024px) {
+         flex: 0 0 88px;
+      }
+
+      img,
+      svg {
+         width: 100%;
+      }
+   }
+
+   &__item-text {
+      flex: 0 1 calc(100% - 48px - 16px);
+      font-size: 16px;
+      line-height: 117%;
+      color: var(--color-periwinkle-crayola);
+
+      @media (min-width:1024px) {
+         flex: 1 1 auto;
+         font-size: 24px;
+      }
+   }
+
+   &__item-button {
+      flex: 0 0 100%;
+
+      .button {
+         --button-max-width: 100%;
+
+         @media (min-width:1024px) {
+            --button-height: 64px
+         }
+      }
+
+      @media (min-width:1024px) {
+         flex: 0 0 285px;
+      }
+   }
+}

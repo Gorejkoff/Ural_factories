@@ -6240,8 +6240,8 @@ if (document.querySelector('.product-card__top-swiper')) {
 
 
 
-if (document.querySelector('.slider-of-four')) {
-   const list = document.querySelectorAll('.slider-of-four');
+if (document.querySelector('.slider-of-four__swiper')) {
+   const list = document.querySelectorAll('.slider-of-four__swiper');
    list.forEach((element) => { addSwiper(element) });
    function addSwiper(element) {
       const swiper = new Swiper(element, {
@@ -6254,14 +6254,24 @@ if (document.querySelector('.slider-of-four')) {
                slidesPerView: 2
             },
             1024: {
-               slidesPerView: 4
+               slidesPerView: 4,
+               pagination: {
+                  type: 'fraction',
+               },
             },
          },
          pagination: {
-            el: '.slider-of-four__pagination',
+            el: element.parentElement.querySelector('.slider-of-four__pagination'),
             type: 'bullets',
          },
+         navigation: {
+            nextEl: element.parentElement.querySelector(".slider-of-four__swiper-button-next"),
+            prevEl: element.parentElement.querySelector(".slider-of-four__swiper-button-prev"),
+         },
       });
+      if (element.querySelectorAll('.slider-of-four__cell').length > 4 && element.closest('.slider-of-four')) {
+         element.closest('.slider-of-four').classList.add('swiper-nav-visible');
+      }
    }
 }
 
