@@ -14,11 +14,13 @@
    $minpx : delete-unit($min) + px;
    $minWidth : delete-unit($minW) + px;
    $maxWidth : delete-unit($maxW) - 0.02 + px;
+   $maxNum : delete-unit($max);
+   $minNum : delete-unit($min);
    $maxWNum : delete-unit($maxW);
    $minWNum : delete-unit($minW);
 
    @media (min-width: $minWidth) and (max-width:$maxWidth) {
-      #{$prop}: calc($minpx + (100vw - $minWidth)/($maxWNum - $minWNum)*($max - $min));
+      #{$prop}: calc($minpx + (100vw - $minWidth)/($maxWNum - $minWNum)*($maxNum - $minNum));
    }
 }
 

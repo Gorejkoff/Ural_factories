@@ -10,3 +10,7 @@ $max-width-container: $padding-desktop * 2 + $width-content;
 $tr-time: .3s;
 $tr-time-l: .7s;
 $bezier: cubic-bezier(.6, -0.01, .24, 1);
+
+$min-padding-x: 16px;
+$max-padding-x: 96px;
+$min-margin-x: 0;

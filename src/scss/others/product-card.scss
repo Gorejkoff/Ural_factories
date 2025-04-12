@@ -6,7 +6,14 @@
 
    &__container {}
 
-   &__top {}
+   &__top {
+      padding: 24px 16px;
+      @include size_adaptive (padding, 40, 72, 1024, $max-width-container);
+
+      @media (min-width:$max-width-container) {
+         padding: 72px;
+      }
+   }
 
    &__top-title {
       margin-bottom: 24px;
@@ -129,9 +136,16 @@
    &__top-buttons {
       display: flex;
       justify-content: flex-end;
+      gap: 16px;
 
       .button {
          max-width: 300px;
+      }
+   }
+
+   &__top-request {
+      @media (min-width:1024px) {
+         --button-height: 64px;
       }
    }
 }

@@ -6,24 +6,10 @@
    &__container {}
 
    &__body {
-      padding: 96px 0;
       color: var(--color-periwinkle-crayola);
-
-      @include size_adaptive (padding-left, 0, 96, 1024, 1300);
-      @include size_adaptive (padding-right, 0, 96, 1024, 1300);
-      @include size_adaptive (padding-top, 96, 160, 1024, 1300);
-      @include size_adaptive (padding-bottom, 96, 160, 1024, 1300);
-
-      @media (min-width:1300px) {
-         padding: 160px 96px;
-      }
 
       &>*:not(:last-child) {
          margin-bottom: 64px;
-
-         @media (min-width:1024px) {
-            margin-bottom: 96px;
-         }
       }
    }
 
@@ -64,16 +50,5 @@
    &__block-content {
       flex: 1 1 auto;
       font-weight: 300;
-
-      li {
-         list-style: url('../img/svg/check-2.svg');
-         padding-left: 16px;
-         margin-left: 24px;
-
-         &:not(:last-child) {
-            margin-bottom: 16px;
-         }
-      }
-
    }
 }

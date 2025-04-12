@@ -1,0 +1,109 @@
+@use '../assets/mixin.scss' as *;
+
+.services {
+   &__first-screen-header {
+      width: 100%;
+      --button-max-width: 330px;
+   }
+
+   &__first-screen-title {
+      margin-bottom: 64px;
+      max-width: 836px;
+   }
+
+   &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+
+      @media (min-width:768px) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width:1200px) {
+         grid-template-columns: repeat(3, 1fr);
+      }
+   }
+
+   &__container {}
+
+   &__description {
+      @media (max-width:767.98px) {
+         padding-top: 40px;
+         padding-bottom: 40px;
+      }
+
+      @media (min-width:1200px) {
+         display: flex;
+         align-items: flex-start;
+         gap: 40px;
+      }
+   }
+
+   &__description-icon {
+      margin-bottom: 16px;
+
+      img {
+         width: 40px;
+         height: 40px;
+
+         @media (min-width:1024px) {
+            width: 56px;
+            height: 56px;
+         }
+      }
+   }
+
+   &__description-content {}
+
+   &__description-text {
+      margin-bottom: 68px;
+      font-size: 32px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      color: var(--color-periwinkle-crayola);
+
+      @include size_adaptive (font-size, 32, 56, 768, 1024);
+
+      @media (min-width:1024px) {
+         margin-bottom: 96px;
+         font-size: 56px;
+      }
+
+      .text-color {
+         color: var(--color-silver-grey);
+      }
+   }
+
+   &__description-list {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 122%;
+      color: var(--color-periwinkle-crayola);
+
+      @media (min-width:768px) {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         gap: 20px;
+      }
+
+      @media (min-width:1024px) {
+         font-size: 18px;
+      }
+   }
+
+   &__description-list-title {
+      margin-bottom: 24px;
+      flex: 0 0 128px;
+   }
+
+   &__description-list-body {
+      max-width: 1000px;
+
+      ol,
+      ul {
+         margin-bottom: 64px;
+      }
+   }
+}

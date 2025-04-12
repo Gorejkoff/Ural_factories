@@ -1,4 +1,5 @@
 .slider-of-four {
+
    .swiper-button-shell {
       display: none;
    }
@@ -20,16 +21,6 @@
          @media (min-width:1024px) {
             display: block;
          }
-      }
-   }
-
-   &__body {
-      margin-top: 96px;
-      margin-bottom: 96px;
-
-      @media (min-width:1024px) {
-         margin: 140px auto 160px;
-         max-width: 1200px;
       }
    }
 

@@ -34,5 +34,34 @@
          --button-background: var(--color-lavender);
          --button-color: var(--color-black);
       }
+
+   }
+
+   &__group-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+
+      a,
+      button {
+         padding: 5px;
+         justify-content: center;
+      }
+
+      .button-icon {
+         display: none;
+      }
+
+      .button-back,
+      .header__button-contact {
+         background-color: var(--color-black);
+         border: 1px solid var(--color-periwinkle-crayola-03);
+         color: var(--color-periwinkle-crayola);
+      }
+
+      &>*:not(.button-back) {
+         flex: 1 1 10%;
+      }
    }
 }

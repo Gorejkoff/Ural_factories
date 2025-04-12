@@ -1,7 +1,7 @@
 @@if(context.title){ <section class="slider-of-four">}
    @@if(!context.title){ <div class="slider-of-four">}
       <div class="slider-of-four__container">
-         <div class="slider-of-four__body">
+         <div class="margin-large">
             @@if(context.title){ <h2 class="slider-of-four__title title-section">@@title</h2>}
             @@include('./Slider-Of-Four-Swiper.html',{json: '@@json'})
             <div class="slider-of-four__nav swiper-nav-block">

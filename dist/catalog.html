@@ -6,7 +6,7 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
 <meta name="description" content="Описание сайта">
-<link rel="stylesheet" href="css/style.css?_v=20250410224245">
+<link rel="stylesheet" href="css/style.css?_v=20250412185630">
 </head>
 
 
@@ -18,7 +18,7 @@
          <div class="wrapper">
 
             <section class="catalog">
-   <div class="catalog__first-screen">
+   <div class="first-screen">
       <header id="header" class="header">
    <div class="header__container">
       <div class="header__body">
@@ -53,7 +53,7 @@
                </svg>
             </button>
             <button class="header__button-login button-icon js-modal-open" type="button" data-da=".header__right,2,1024" data-modal_open="login">
-               <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.17873 12.4225V15.4284C5.17873 15.7472 5.3054 16.0531 5.53089 16.2786C5.75638 16.504 6.0622 16.6307 6.38109 16.6307H14.7976C15.1165 16.6307 15.4223 16.504 15.6478 16.2786C15.8733 16.0531 16 15.7472 16 15.4284V2.20236C16 1.88348 15.8733 1.57765 15.6478 1.35216C15.4223 1.12668 15.1165 1 14.7976 1H6.38109C6.0622 1 5.75638 1.12668 5.53089 1.35216C5.3054 1.57765 5.17873 1.88348 5.17873 2.20236V5.20827M1.57164 8.81536H11.1905" stroke="#FFFBF9" stroke-width="1.60315" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M8.78595 6.41064L11.1907 8.81537L8.78595 11.2201" stroke="#FFFBF9" stroke-width="1.60315" stroke-linecap="round" stroke-linejoin="round" />
                </svg>
@@ -62,8 +62,8 @@
       </div>
    </div>
 </header>
-      <div class="catalog__container">
-         <div class="catalog__first-screen-content">
+      <div class="first-screen__container">
+         <div class="first-screen__content">
             <div class="catalog__first-screen-registry">
                <div class="registry">
    <div>
@@ -73,20 +73,20 @@
 </div>
             </div>
             <div class="catalog__first-screen-header">
-               <h1 class="catalog__first-screen-title first-screen-title">Каталог оборудования</h1>
-               <div class="catalog__first-screen-text first-screen-text">цифровой связи стандарта DMR</div>
+               <h1 class="catalog__first-screen-title first-screen__title">Каталог оборудования</h1>
+               <div class="first-screen__text">цифровой связи стандарта DMR</div>
             </div>
          </div>
       </div>
-      <img class="catalog__first-screen-background" src="./img/jpg/background-2.jpg" alt="img" aria-hidden="true">
+      <img class="first-screen__background" src="./img/jpg/background-3.jpg" alt="img" aria-hidden="true">
    </div>
 </section>
 
-            <div class="main">
+            <main class="main">
 
                <section class="products">
    <div class="products__container">
-      <div class="blur-block">
+      <div class="blur-section padding-medium content-container">
          <h2 class="title-section">Продукция</h2>
          <div class="products__header">
             <div class="products__header-title">Транкинговые системы</div>
@@ -245,9 +245,7 @@
    </div>
 </section>
 
-
-
-            </div>
+            </main>
 
             <footer id="footer" class="footer">
    <div class="footer__container">
@@ -338,15 +336,15 @@
    <div class="mobile-menu__button-contact">
       <div class="mobile-menu__container">
          <div class="header__wrapper header__right" data-da=".header__body,2,1024">
-            <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu-contacts">
-               <span>Связаться с нами</span>
-               <span class="button-icon">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
-                  </svg>
-               </span>
-            </button>
-         </div>
+   <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu-contacts">
+      <span>Связаться с нами</span>
+      <span class="button-icon">
+         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
+         </svg>
+      </span>
+   </button>
+</div>
       </div>
    </div>
    <div id="menu" class="modal__base js-modal-hidden js-modal-close">
@@ -366,7 +364,7 @@
                   <li><a class="menu__link" href="#0">О компании</a></li>
                   <li><a class="menu__link" href="catalog.html">Каталог продукции и ПО</a></li>
                   <li><a class="menu__link" href="#0">Отраслевые решения</a></li>
-                  <li><a class="menu__link" href="#0">Услуги</a></li>
+                  <li><a class="menu__link" href="services.html">Услуги</a></li>
                   <li><a class="menu__link" href="#0">Реализованные проекты</a></li>
                   <li><a class="menu__link" href="#0">Для конечных заказчиков</a></li>
                   <li><a class="menu__link" href="#0">Для интеграторов</a></li>
@@ -508,15 +506,15 @@
    </div>
 </div>
 
-   <script defer src='./js/gsap.min.js?_v=20250410224245'></script>
-<script defer src='./js/ScrollToPlugin.min.js?_v=20250410224245'></script>
-<script defer src='./js/ScrollTrigger.min.js?_v=20250410224245'></script>
-<script defer src='./js/ScrollSmoother.js?_v=20250410224245'></script>
-<script src="https://cdn.babylonjs.com/babylon.js?_v=20250410224245"></script>
-<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250410224245"></script>
-<script defer type="module" src='./js/app.js?_v=20250410224245'></script>
+   <script defer src='./js/gsap.min.js?_v=20250412185630'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250412185630'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250412185630'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250412185630'></script>
+<script src="https://cdn.babylonjs.com/babylon.js?_v=20250412185630"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250412185630"></script>
+<script defer type="module" src='./js/app.js?_v=20250412185630'></script>
 
-<script defer src='./js/swiper.js?_v=20250410224245'></script>
+<script defer src='./js/swiper.js?_v=20250412185630'></script>
 
 
 

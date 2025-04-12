@@ -1,0 +1,124 @@
+.input-text {
+   padding: 20px 0 0;
+   position: relative;
+   display: block;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 111%;
+   color: var(--color-black-06);
+   // border-bottom: 1px solid var(--color-black-02);
+   transition: color 0.3s;
+
+   textarea {
+      height: 136px;
+      resize: none;
+   }
+
+   textarea,
+   input {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      display: block;
+      width: 100%;
+      font-size: inherit;
+      color: inherit;
+      transition: color 0.3s;
+      border-bottom: 1px solid var(--color-black-02);
+
+      &:focus {
+         font-weight: 500;
+         color: var(--color-black);
+      }
+
+      // &:invalid {
+      //    color: var(--color-scarlet);
+      //    border-color: var(--color-scarlet);
+      // }
+
+   }
+
+   &:hover {
+
+      textarea,
+      input {
+         color: var(--color-black);
+      }
+
+      textarea:placeholder-shown~.input-placeholder,
+      input:placeholder-shown~.input-placeholder {
+         color: var(--color-black);
+      }
+   }
+
+   textarea:not(:placeholder-shown):invalid,
+   input:not(:placeholder-shown):invalid {
+      color: var(--color-scarlet);
+      border-color: var(--color-scarlet);
+
+      &~.input-error {
+         display: block;
+      }
+   }
+
+   textarea:not(:placeholder-shown)~.input-placeholder,
+   input:not(:placeholder-shown)~.input-placeholder,
+   textarea:focus~.input-placeholder,
+   input:focus~.input-placeholder {
+      top: 0;
+      font-size: 12px;
+   }
+
+   .input-placeholder {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      // transform: translateY(-50%);
+      transition: all 0.3s;
+   }
+
+   .input-error {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      color: var(--color-scarlet);
+      display: none;
+   }
+}
+
+
+.input-file {
+   cursor: pointer;
+   margin-bottom: 64px;
+   display: flex;
+   align-items: center;
+   gap: 12px;
+
+   @media (min-width:1024px) {
+      gap: 16px;
+   }
+
+   input {
+      display: none;
+   }
+
+   svg,
+   img {
+      width: 24px;
+
+      @media (min-width:1024px) {
+         width: 32px;
+      }
+   }
+
+   &__text {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 122%;
+
+      @media (min-width:1024px) {
+         max-width: 244px;
+         font-size: 18px;
+      }
+   }
+
+}

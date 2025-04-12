@@ -6190,7 +6190,7 @@ if (document.querySelector('.services-section__swiper')) {
       spaceBetween: 8,
       speed: 300,
       slidesPerView: 1.08,
-      grabCursor: true,
+      // grabCursor: true,
       navigation: {
          nextEl: ".services-section__swiper-button-next",
          prevEl: ".services-section__swiper-button-prev",

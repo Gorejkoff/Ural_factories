@@ -6,7 +6,7 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 <meta name="viewport" content="width=device-width initial-scale=1.0">
 <meta name="description" content="Описание сайта">
-<link rel="stylesheet" href="css/style.css?_v=20250410224245">
+<link rel="stylesheet" href="css/style.css?_v=20250412185630">
 </head>
 
 
@@ -18,7 +18,7 @@
          <div class="wrapper">
 
             <div class="scroll-animation">
-               <section class="presentation">
+               <section class="presentation dark-header">
                   <header id="header" class="header">
    <div class="header__container">
       <div class="header__body">
@@ -53,7 +53,7 @@
                </svg>
             </button>
             <button class="header__button-login button-icon js-modal-open" type="button" data-da=".header__right,2,1024" data-modal_open="login">
-               <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.17873 12.4225V15.4284C5.17873 15.7472 5.3054 16.0531 5.53089 16.2786C5.75638 16.504 6.0622 16.6307 6.38109 16.6307H14.7976C15.1165 16.6307 15.4223 16.504 15.6478 16.2786C15.8733 16.0531 16 15.7472 16 15.4284V2.20236C16 1.88348 15.8733 1.57765 15.6478 1.35216C15.4223 1.12668 15.1165 1 14.7976 1H6.38109C6.0622 1 5.75638 1.12668 5.53089 1.35216C5.3054 1.57765 5.17873 1.88348 5.17873 2.20236V5.20827M1.57164 8.81536H11.1905" stroke="#FFFBF9" stroke-width="1.60315" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M8.78595 6.41064L11.1907 8.81537L8.78595 11.2201" stroke="#FFFBF9" stroke-width="1.60315" stroke-linecap="round" stroke-linejoin="round" />
                </svg>
@@ -103,11 +103,11 @@
                </div>
             </div>
 
-            <div class="main">
+            <main class="main">
 
                <section class="products">
    <div class="products__container">
-      <div class="blur-block">
+      <div class="blur-section padding-medium content-container">
          <h2 class="title-section">Продукция</h2>
          <div class="products__header">
             <div class="products__header-title">Транкинговые системы</div>
@@ -306,7 +306,7 @@
 
                <section class="delivery-section">
    <div class="delivery-section__container">
-      <div class="blur-block">
+      <div class="blur-section padding-medium">
          <h2 class="delivery-section__title title-section">Поставки для знаковых объектов в России</h2>
          <div class="delivery-section__grid">
             <div class="delivery-section__cell">
@@ -433,7 +433,7 @@
 
                <section class="services-section">
    <div class="services-section__container">
-      <div class="services-section__body blur-block">
+      <div class="services-section__body blur-section padding-large">
          <div class="services-section__header">
             <div>
                <div class="services-section__header-text title-section">АО «Уральские заводы» проводит опытно-конструкторские разработки по новым направлениям в области цифровой радиосвязи, проектирование систем радиосвязи, производство, монтаж, обучение и техническое сопровождение наших клиентов.</div>
@@ -443,7 +443,7 @@
                   <span>Наше предприятие является </span>
                   <span class="color-text">предприятием полного цикла</span>
                </h2>
-               <a href="#0" class="services-section__button button button-dark">
+               <a href="services.html" class="services-section__button button button-dark">
                   <span>Все услуги</span>
                   <span class="button-icon">
                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -453,100 +453,99 @@
                </a>
             </div>
          </div>
-
          <div class="services-section__swiper swiper">
    <div class="swiper-wrapper">
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-body">
-            <div class="services-section__swiper-icon">
+      <div class="swiper-slide">
+         <a href="#0" class="dark-card">
+            <div class="dark-card__icon">
                <img src="./img/svg/icon-1.svg" alt="img">
             </div>
-            <div class="services-section__swiper-text">Проведение предпроектных обследований объектов</div>
-            <div class="services-section__swiper-footer">
-               <div class="services-section__swiper-footer-text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
-               <a href="#0" class="">
+            <div class="dark-card__title">Проведение предпроектных обследований объектов</div>
+            <div class="dark-card__footer">
+               <div class="dark-card__text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
+               <div>
                   <span class="button-icon">
                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
                      </svg>
                   </span>
-               </a>
+               </div>
             </div>
-         </div>
+         </a>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-image">
+      <div class="swiper-slide">
+         <div class="dark-card">
             <img src="./img/jpg/img-5.jpg" alt="рабочий с радиостанцией">
          </div>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-body">
-            <div class="services-section__swiper-icon">
+      <div class="swiper-slide">
+         <a href="#0" class="dark-card">
+            <div class="dark-card__icon">
                <img src="./img/svg/icon-2.svg" alt="img">
             </div>
-            <div class="services-section__swiper-text">Проектирование систем и расчеты зон радиопокрытия</div>
-            <div class="services-section__swiper-footer">
-               <div class="services-section__swiper-footer-text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
-               <a href="#0" class="">
+            <div class="dark-card__title">Проектирование систем и расчеты зон радиопокрытия</div>
+            <div class="dark-card__footer">
+               <div class="dark-card__text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
+               <div>
                   <span class="button-icon">
                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
                      </svg>
                   </span>
-               </a>
+               </div>
             </div>
-         </div>
+         </a>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-image">
+      <div class="swiper-slide">
+         <div class="dark-card">
             <img src="./img/jpg/img-6.jpg" alt="рабочий с радиостанцией">
          </div>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-body">
-            <div class="services-section__swiper-icon">
+      <div class="swiper-slide">
+         <a href="#0" class="dark-card">
+            <div class="dark-card__icon">
                <img src="./img/svg/icon-1.svg" alt="img">
             </div>
-            <div class="services-section__swiper-text">Проведение предпроектных обследований объектов</div>
-            <div class="services-section__swiper-footer">
-               <div class="services-section__swiper-footer-text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
-               <a href="#0" class="">
+            <div class="dark-card__title">Проведение предпроектных обследований объектов</div>
+            <div class="dark-card__footer">
+               <div class="dark-card__text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
+               <div>
                   <span class="button-icon">
                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
                      </svg>
                   </span>
-               </a>
+               </div>
             </div>
-         </div>
+         </a>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-image">
+      <div class="swiper-slide">
+         <div class="dark-card">
             <img src="./img/jpg/img-5.jpg" alt="рабочий с радиостанцией">
          </div>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-body">
-            <div class="services-section__swiper-icon">
+      <div class="swiper-slide">
+         <a href="#0" class="dark-card">
+            <div class="dark-card__icon">
                <img src="./img/svg/icon-2.svg" alt="img">
             </div>
-            <div class="services-section__swiper-text">Проектирование систем и расчеты зон радиопокрытия</div>
-            <div class="services-section__swiper-footer">
-               <div class="services-section__swiper-footer-text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
-               <a href="#0" class="">
+            <div class="dark-card__title">Проектирование систем и расчеты зон радиопокрытия</div>
+            <div class="dark-card__footer">
+               <div class="dark-card__text">Инспектирование собранных изделий с применением автоматической системы визуального контроля.</div>
+               <div>
                   <span class="button-icon">
                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.175 9.00016H1C0.71667 9.00016 0.479337 8.90416 0.288004 8.71216C0.0966702 8.52016 0.000670115 8.28283 3.44827e-06 8.00016C-0.000663218 7.71749 0.0953369 7.48016 0.288004 7.28816C0.48067 7.09616 0.718003 7.00016 1 7.00016H12.175L7.275 2.10016C7.075 1.90016 6.979 1.66683 6.987 1.40016C6.995 1.13349 7.09934 0.900159 7.3 0.700159C7.5 0.516826 7.73334 0.420826 8 0.412159C8.26667 0.403493 8.5 0.499492 8.7 0.700159L15.3 7.30016C15.4 7.40016 15.471 7.50849 15.513 7.62516C15.555 7.74183 15.5757 7.86683 15.575 8.00016C15.5743 8.13349 15.5537 8.25849 15.513 8.37516C15.4723 8.49183 15.4013 8.60016 15.3 8.70016L8.7 15.3002C8.51667 15.4835 8.28767 15.5752 8.013 15.5752C7.73834 15.5752 7.50067 15.4835 7.3 15.3002C7.1 15.1002 7 14.8628 7 14.5882C7 14.3135 7.1 14.0758 7.3 13.8752L12.175 9.00016Z" fill="#FFFBF9" />
                      </svg>
                   </span>
-               </a>
+               </div>
             </div>
-         </div>
+         </a>
       </div>
-      <div class="services-section__swiper-slide swiper-slide">
-         <div class="services-section__swiper-image">
+      <div class="swiper-slide">
+         <a div class="dark-card">
             <img src="./img/jpg/img-6.jpg" alt="рабочий с радиостанцией">
-         </div>
+         </a>
       </div>
    </div>
 </div>
@@ -566,15 +565,12 @@
       </button>
    </div>
 </div>
-
-
-
       </div>
    </div>
 
 </section>
 
-            </div>
+            </main>
 
             <footer id="footer" class="footer">
    <div class="footer__container">
@@ -665,15 +661,15 @@
    <div class="mobile-menu__button-contact">
       <div class="mobile-menu__container">
          <div class="header__wrapper header__right" data-da=".header__body,2,1024">
-            <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu-contacts">
-               <span>Связаться с нами</span>
-               <span class="button-icon">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
-                  </svg>
-               </span>
-            </button>
-         </div>
+   <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu-contacts">
+      <span>Связаться с нами</span>
+      <span class="button-icon">
+         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H6V1C6 0.447715 6.44772 0 7 0C7.55228 0 8 0.447715 8 1V6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H8V13C8 13.5523 7.55228 14 7 14C6.44772 14 6 13.5523 6 13V8Z" fill="#FFFBF9" />
+         </svg>
+      </span>
+   </button>
+</div>
       </div>
    </div>
    <div id="menu" class="modal__base js-modal-hidden js-modal-close">
@@ -693,7 +689,7 @@
                   <li><a class="menu__link" href="#0">О компании</a></li>
                   <li><a class="menu__link" href="catalog.html">Каталог продукции и ПО</a></li>
                   <li><a class="menu__link" href="#0">Отраслевые решения</a></li>
-                  <li><a class="menu__link" href="#0">Услуги</a></li>
+                  <li><a class="menu__link" href="services.html">Услуги</a></li>
                   <li><a class="menu__link" href="#0">Реализованные проекты</a></li>
                   <li><a class="menu__link" href="#0">Для конечных заказчиков</a></li>
                   <li><a class="menu__link" href="#0">Для интеграторов</a></li>
@@ -835,15 +831,15 @@
    </div>
 </div>
 
-   <script defer src='./js/gsap.min.js?_v=20250410224245'></script>
-<script defer src='./js/ScrollToPlugin.min.js?_v=20250410224245'></script>
-<script defer src='./js/ScrollTrigger.min.js?_v=20250410224245'></script>
-<script defer src='./js/ScrollSmoother.js?_v=20250410224245'></script>
-<script src="https://cdn.babylonjs.com/babylon.js?_v=20250410224245"></script>
-<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250410224245"></script>
-<script defer type="module" src='./js/app.js?_v=20250410224245'></script>
+   <script defer src='./js/gsap.min.js?_v=20250412185630'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250412185630'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250412185630'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250412185630'></script>
+<script src="https://cdn.babylonjs.com/babylon.js?_v=20250412185630"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250412185630"></script>
+<script defer type="module" src='./js/app.js?_v=20250412185630'></script>
 
-<script defer src='./js/swiper.js?_v=20250410224245'></script>
+<script defer src='./js/swiper.js?_v=20250412185630'></script>
 
 
 

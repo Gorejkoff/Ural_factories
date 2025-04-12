@@ -45,7 +45,6 @@
 
       svg {
          max-width: 100%;
-
          // path {
          //    fill: var(--color-periwinkle-crayola)
          // }
@@ -65,11 +64,7 @@
       @media (max-width:1023.98px) {
          --size-icon: 40px;
          background-color: transparent;
-         border: 1px solid var(--color-black-02);
-
-         svg path {
-            stroke: var(--color-black);
-         }
+         border: 1px solid var(--color-periwinkle-crayola-03);
       }
 
       @media (min-width:1024px) {
@@ -91,10 +86,20 @@
    }
 }
 
-.presentation {
+.dark-header {
    .header__logo {
       svg path {
          fill: var(--color-black)
+      }
+   }
+
+   .header__button-login {
+      @media (max-width:1023.98px) {
+         border: 1px solid var(--color-black-02);
+
+         svg path {
+            stroke: var(--color-black);
+         }
       }
    }
 
