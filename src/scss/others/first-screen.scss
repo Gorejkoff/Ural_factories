@@ -33,6 +33,7 @@
    }
 
    &__title {
+      margin-bottom: 16px;
       font-weight: 400;
       font-size: 40px;
       line-height: 100%;
@@ -40,6 +41,7 @@
       color: var(--color-periwinkle-crayola);
 
       @media (min-width:1024px) {
+         margin-bottom: 24px;
          font-size: 72px;
          line-height: 89%;
       }

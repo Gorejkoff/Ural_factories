@@ -61,6 +61,7 @@ window.addEventListener('resize', () => {
    //  addHeightVariable();
    closeHeaderMenu();
    setMenuEffectSize();
+   setMarginCustomSwiper();
 })
 
 
@@ -75,3 +76,15 @@ function openHeaderMenu() {
 function closeHeaderMenu() {
    document.body.classList.remove('menu-is-open')
 }
+
+
+const CUSTOM_SWIPER = document.getElementById('custom-swiper');
+const CUSTOM_SWIPER_BODY = document.getElementById('custom-swiper-body');
+function setMarginCustomSwiper() {
+   if (CUSTOM_SWIPER && CUSTOM_SWIPER_BODY) {
+      const getOffset = parseInt(getComputedStyle(CUSTOM_SWIPER_BODY).marginTop);
+      const setOffset = -CUSTOM_SWIPER_BODY.offsetHeight + CUSTOM_SWIPER.offsetHeight + getOffset + "px";
+      CUSTOM_SWIPER_BODY.style.setProperty("--margin-bottom", setOffset);
+   }
+}
+setMarginCustomSwiper()

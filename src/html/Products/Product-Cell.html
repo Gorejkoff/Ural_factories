@@ -1,7 +1,7 @@
-<div @@if(context.swiper){class="swiper-slide" }">
-   <div class="products__cell">
+<div @@if(context.swiper){class="swiper-slide" }>
+   <article class="products__cell">
       <div class="products__cell-shell">
-         <div class="products__cell-title">@@title</div>
+         <h3 class="products__cell-title">@@title</h3>
          <a href="@@link" class="button">
             <span>@@button-text</span>
             <span class="button-icon">
@@ -12,5 +12,5 @@
          </a>
       </div>
       <img class="products__cell-image" src="@img/@@image" alt="изображение продукта">
-   </div>
+   </article>
 </div>

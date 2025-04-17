@@ -3,7 +3,6 @@
 @use 'description';
 @use 'products';
 @use 'about-section';
-@use 'delivery-section';
 @use 'services-section';
 @use 'menu';
 @use 'manu-contacts';
@@ -12,7 +11,6 @@
 @use 'first-screen';
 @use 'slider-of-four';
 @use 'product-card';
-@use 'product-options';
 @use 'product-description';
 @use 'three-slides-visible';
 @use 'documents-certificates';
@@ -20,3 +18,8 @@
 @use 'dark-card';
 @use 'form-section';
 @use 'form';
+@use 'about-company';
+@use 'info-grid';
+@use 'information';
+@use 'specialist-card';
+@use 'custom-swiper';

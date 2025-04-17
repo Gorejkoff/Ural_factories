@@ -18,16 +18,27 @@
             <main class="main">
 
                @@include('html/Product-Card/Product-Card-Item.html',{})
-               @@include('html/Product-Card/Product-Options.html',{})
+
+               @@include('html/Info-Grid/Info-Grid.html',{
+               json: 'json/Product-Options-Info.json'
+               })
+
                @@include('html/Product-Card/Product-Description.html',{})
 
-               @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{title:"Другая продукция", path:'json/Other-Products.json'})
+               @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
+               title:"Другая продукция",
+               card:"../Products/Product-Cell.html",
+               json:'json/Other-Products.json'})
 
-               @@include('html/Slider-Of-Four/Slider-Of-Four.html',{title:'Ранее вы смотрели',json: 'json/Viewed-Earlier.json'})
+               @@include('html/Slider-Of-Four/Slider-Of-Four.html',{
+               title:'Ранее вы смотрели',
+               json: 'json/Viewed-Earlier.json'})
 
-               @@include('html/Documents-Certificates/Documents-Certificates.html',{})
+               @@include('html/Documents-Certificates/Documents-Certificates.html',{dark: true})
 
-               @@include('html/Slider-Of-Four/Slider-Of-Four.html',{json: 'json/Communication-Information.json'})
+               @@include('html/Slider-Of-Four/Slider-Of-Four.html',{
+               json: 'json/Communication-Information.json'
+               })
 
             </main>
 

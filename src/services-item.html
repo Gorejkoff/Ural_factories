@@ -18,7 +18,6 @@
             <main class="main">
 
                @@include('html/Services/Services-Description.html',{})
-               @@include('html/Documents-Certificates/Documents-Certificates.html',{})
                @@include('html/Forms/Form-Section.html', {
                "title": "Запросить оценку стоимости проекта",
                "input1": {
@@ -36,7 +35,11 @@
                "button": "Отправить",
                "expert-text": "Для подготовки ТКП и расчета стоимости реализации вашего проекта, укажите данные в форме или заполните опросный лист и отправьте его на почту:"
                })
-               @@include('html/Delivery-Section/Delivery-Section.html',{})
+               @@include('html/Documents-Certificates/Documents-Certificates.html',{dark: true})
+               @@include('html/Informational/Informational-Grid.html',{
+               title: "Поставки для знаковых объектов в России",
+               json: "json/Delevery-cell.json"
+               })
 
             </main>
 

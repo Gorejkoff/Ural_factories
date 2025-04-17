@@ -27,6 +27,8 @@ body {
 }
 
 .main {
+   position: relative;
+   z-index: 1;
    flex: 1 1 auto;
 }
 
@@ -389,6 +391,7 @@ main>*:last-child {
    position: relative;
    z-index: 1;
    display: flex;
+
    transition-property: transform;
 
    .swiper-slide {
@@ -414,6 +417,12 @@ main>*:last-child {
    height: 48px;
    border-radius: 8px;
    border: 1px solid var(--color-periwinkle-crayola-02);
+   transition: border-color 0.3s;
+
+   ._pc &:not(.swiper-button-disabled):hover {
+      border-color: var(--color-periwinkle-crayola-06);
+   }
+
 }
 
 .swiper-nav-block {

@@ -1,0 +1,13 @@
+@@if(context.title){<section class="information">}
+   @@if(!context.title){<div class="information">}
+      <div class="information__container">
+         <div class="@@if(context.blur){blur-section} padding-medium">
+            @@if(context.title){ <h2 class="information__title title-section">@@title</h2> }
+            <div class="information__grid">
+               @@loop('./Informational-Cell.html', '@@json')
+            </div>
+         </div>
+      </div>
+      @@if(!context.title){
+   </div>}
+   @@if(context.title){</section>}
