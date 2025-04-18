@@ -6721,15 +6721,17 @@ if (document.querySelector('.custom-swiper__swiper')) {
    const BACKGROUND = document.querySelector('.custom-swiper__background');
    const offset = BACKGROUND.dataset.offset;
    const duration = BACKGROUND.dataset.duration;
+   let backgroundImage;
 
 
    if (BACKGROUND && duration) {
-      BACKGROUND.style.transitionDuration = duration + "s";
+      backgroundImage = BACKGROUND.querySelector('img')
+      backgroundImage.style.transitionDuration = duration + "s";
    }
    function backgroundMove(value) {
-      if (BACKGROUND) {
-         BACKGROUND.style.transform = `translateX(${value}px)`;
-         setTimeout(() => { BACKGROUND.style.transform = `translateX(0)` }, duration * 1000)
+      if (backgroundImage) {
+         backgroundImage.style.transform = `translateX(calc(-50% + ${value}px))`;
+         setTimeout(() => { backgroundImage.style.transform = `translateX(-50%)` }, duration * 1000)
       }
    }
 

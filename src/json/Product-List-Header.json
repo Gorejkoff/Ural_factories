@@ -1,0 +1,20 @@
+[
+   {
+      "title": "Базовое",
+      "image": "jpg/img-16.jpg",
+      "link": "catalog.html",
+      "button-text": "Смотреть всё"
+   },
+   {
+      "title": "Абонентское",
+      "image": "jpg/img-17.jpg",
+      "link": "catalog.html",
+      "button-text": "Смотреть всё"
+   },
+   {
+      "title": "Инфраструктурное",
+      "image": "jpg/img-21.jpg",
+      "link": "catalog.html",
+      "button-text": "Смотреть всё"
+   }
+]

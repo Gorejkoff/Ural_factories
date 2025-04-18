@@ -67,7 +67,10 @@ window.addEventListener('resize', () => {
 
 // ** ======================= CLICK ======================  ** //
 document.documentElement.addEventListener("click", (event) => {
-   if (event.target.closest('.open-menu')) { openHeaderMenu() }
+   if (event.target.closest('.open-menu')) { openHeaderMenu() };
+   if (event.target.closest('.js-sort-menu-filter')) {
+      setValueSortMenu(event.target.closest('.js-sort-menu-filter'));
+   }
 })
 
 function openHeaderMenu() {
@@ -87,4 +90,24 @@ function setMarginCustomSwiper() {
       CUSTOM_SWIPER_BODY.style.setProperty("--margin-bottom", setOffset);
    }
 }
-setMarginCustomSwiper()
+setMarginCustomSwiper();
+
+function setValueSortMenu(element) {
+   const sortMenu = element.closest('.sort-menu');
+   if (!sortMenu) return;
+   const selectedValue = sortMenu.querySelector('.js-selected-value');
+   if (!selectedValue) return;
+   selectedValue.innerHTML = element.innerHTML;
+}
+
+
+const INFO_GRID = document.querySelectorAll('.js-quantity-child');
+
+function calcCildElementInfo(element) {
+   const quantity = element.children.length;
+   console.log(quantity);
+   element.style.setProperty('--quantity', quantity);
+}
+INFO_GRID.forEach(e => {
+   calcCildElementInfo(e)
+})

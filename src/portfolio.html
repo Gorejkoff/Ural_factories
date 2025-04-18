@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"Portfolio"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: false,
+            title:"Свыше 350 реализованных проектов по всей России",
+            })
+
+            <main class="main">
+
+               @@include('html/Informational/Informational-Grid.html',{
+               dark: true,
+               sort: true,
+               json: 'json/List-Portfolio.json'
+               })
+
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

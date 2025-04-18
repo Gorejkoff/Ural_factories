@@ -1,0 +1,51 @@
+.portfolio {
+
+   &__container {}
+
+   &__description {
+      display: flex;
+      gap: 60px;
+      flex-direction: column;
+
+      @media (min-width:992px) {
+         flex-direction: row;
+         gap: min(120px, 6.25vw);
+      }
+   }
+
+   &__description-title {
+      flex: 11 auto;
+      font-size: 32px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      color: var(--color-periwinkle-crayola);
+
+      .color {
+         color: var(--color-silver-grey);
+      }
+
+      @media (min-width:1024px) {
+         font-size: 56px;
+      }
+   }
+
+   &__description-text {
+      flex: 0 0 30%;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 125%;
+      color: var(--color-silver-grey);
+
+      p {
+         margin-bottom: 24px;
+
+         @media (min-width:1024px) {
+            margin-bottom: 32px;
+         }
+      }
+
+      @media (min-width:1024px) {
+         font-size: 18px;
+      }
+   }
+}

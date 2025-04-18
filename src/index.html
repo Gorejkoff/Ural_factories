@@ -53,8 +53,10 @@
             </div>
 
             <main class="main">
-
-               @@include('html/Products/Products.html',{"link":"catalog.html"})
+               @@include('html/Products/Products.html',{
+               "json1":"json/Product-List-Header.json",
+               "json2":"json/Product-List.json"
+               })
 
                @@include('html/About-Section/About-Section.html',{})
 

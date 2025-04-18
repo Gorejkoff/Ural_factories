@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"News Item"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/2_header.html',{})
+
+            <main class="main">
+
+               @@include('html/News/News.html',{})
+
+               @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
+               "title":"Другие новости",
+               card:"../Informational/Informational-Cell.html",
+               json:"json/News-Info.json" })
+
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

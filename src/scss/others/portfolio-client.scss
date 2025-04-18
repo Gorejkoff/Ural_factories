@@ -1,0 +1,72 @@
+.portfolio-client {
+   margin-bottom: 8px;
+
+   &__container {}
+
+   &__body {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 32px;
+      color: var(--color-periwinkle-crayola);
+
+      @media (min-width:1024px) {
+         padding: 0;
+         gap: 8px;
+         grid-template-columns: repeat(3, 1fr);
+      }
+   }
+
+   &__logo {
+
+      @media (min-width:1024px) {
+         padding: 44px;
+         padding: 44px;
+      }
+
+      img {
+         max-width: 150px;
+
+         @media (min-width:1024px) {
+            max-width: 214px;
+         }
+      }
+   }
+
+   &__text {
+      font-size: 14px;
+      line-height: 112%;
+
+      @media (min-width:1024px) {
+         font-size: 16px;
+         padding: 44px 0;
+      }
+
+      span {
+         display: block;
+         max-width: 360px;
+      }
+   }
+
+   &__tags {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      @media (min-width:1024px) {
+         padding: 44px 0;
+      }
+
+      span {
+         padding: 6px 12px;
+         font-size: 14px;
+         line-height: 112%;
+         border: 1px solid var(--color-blue-crayola-cadet);
+         border-radius: 4px;
+
+         @media (min-width:1024px) {
+            font-size: 16px;
+         }
+      }
+   }
+}

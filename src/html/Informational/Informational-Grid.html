@@ -1,9 +1,10 @@
 @@if(context.title){<section class="information">}
    @@if(!context.title){<div class="information">}
       <div class="information__container">
-         <div class="@@if(context.blur){blur-section} padding-medium">
+         <div class="@@if(context.blur){blur-section} @@if(context.dark){dark-section} padding-medium">
             @@if(context.title){ <h2 class="information__title title-section">@@title</h2> }
-            <div class="information__grid">
+            @@if(context.sort){ @@include('../Elements/Sort-Menu.html',{}) }
+            <div class="information__grid @@if(context.triple){ triple}">
                @@loop('./Informational-Cell.html', '@@json')
             </div>
          </div>

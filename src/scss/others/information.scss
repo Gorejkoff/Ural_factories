@@ -16,6 +16,13 @@
       @media (min-width:1024px) {
          grid-template-columns: 1fr 1fr;
       }
+
+      &.triple {
+         @media (min-width:1200px) {
+            grid-template-columns: 1fr 1fr 1fr;
+         }
+      }
+
    }
 
    &__cell {

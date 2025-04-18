@@ -1,0 +1,15 @@
+<section class="first-screen">
+   @@include('../2_header.html',{})
+   <div class="first-screen__container">
+      <div class="first-screen__content">
+         <div class="first-screen__registry">
+            @@if(context.registry == true){ @@include('../Elements/Registry.html',{})}
+         </div>
+         <div class="catalog__first-screen-header">
+            <h1 class="catalog__first-screen-title first-screen__title">@@title</h1>
+            @@if(context.text){ <div class="first-screen__text">@@text</div>}
+         </div>
+      </div>
+   </div>
+   <img class="first-screen__background" src="@img/jpg/background-3.jpg" alt="img" aria-hidden="true">
+</section>

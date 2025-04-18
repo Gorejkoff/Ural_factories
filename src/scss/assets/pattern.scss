@@ -85,6 +85,11 @@ body {
 
 main>*:last-child {
 
+   .padding-large:not(.dark-section, .blur-section),
+   .padding-medium:not(.dark-section, .blur-section) {
+      padding-bottom: 0;
+   }
+
    .margin-large,
    .margin-medium {
       margin-bottom: 0;
@@ -191,6 +196,20 @@ main>*:last-child {
    }
 }
 
+.title-list {
+   margin-bottom: 16px;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 111%;
+   letter-spacing: -0.03em;
+   color: var(--color-periwinkle-crayola);
+
+   @media (min-width:1024px) {
+      margin-bottom: 40px;
+      font-size: 32px;
+   }
+}
+
 .li-style {
    li {
       list-style: url('../img/svg/check-2.svg');
@@ -222,7 +241,7 @@ main>*:last-child {
       padding: 3px 3px 3px 20px;
       height: var(--button-height, 56px);
       border-radius: 12px;
-      font-size: var(--button-font-size, 18px);
+      font-size: var(--button-font-size, 16px);
    }
 
    &:hover {
@@ -268,6 +287,10 @@ main>*:last-child {
 
    &:hover {
       background-color: var(--color-orange-dark);
+   }
+
+   svg {
+      transition: transform 0.3s;
    }
 }
 

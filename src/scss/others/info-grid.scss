@@ -1,17 +1,14 @@
 .info-grid {
-   &__grid {
+
+   &__body {
       gap: 8px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
 
       @media (min-width:1200px) {
-         grid-template-columns: repeat(4, 1fr);
+         grid-template-columns: repeat(var(--quantity, 4), 1fr);
       }
    }
-
-   // &__flex {
-   //    display: flex;
-   // }
 
    &__cell {
       padding: 16px;
@@ -22,10 +19,17 @@
       overflow: hidden;
       background-color: var(--color-blackish-blue);
 
+      @media (max-width:1199.98px) {
+         &:nth-last-child(3):first-child {
+            grid-column: span 2;
+         }
+      }
+
       @media (min-width:768px) {
          gap: 24px;
          padding: 24px;
       }
+
    }
 
    &__icon {
@@ -49,6 +53,10 @@
       color: var(--color-periwinkle-crayola);
 
       @media (min-width:768px) {
+         font-size: 32px;
+      }
+
+      @media (min-width:1250px) {
          font-size: 40px;
       }
    }

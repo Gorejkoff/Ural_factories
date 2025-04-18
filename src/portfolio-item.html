@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"Portfolio Item"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: false,
+            title:"АО «Новоуральский электрохимический комбинат»",
+            })
+
+            <main class="main">
+
+               @@include('html/Portfolio/Portfolio-Client.html',{})
+               @@include('html/Info-Grid/Info-Grid.html',{json: 'json/Portfolio-Item-Info.json'})
+
+               @@include('html/Portfolio/Portfolio-Description.html',{})
+
+               @@include('html/Results-Grid/Results-Grid.html',{
+               title:"Что было сделано",
+               json:"json/Results-List.json"
+               })
+
+               @@include('html/Customer-Feedback/Customer-Feedback.html',{})
+
+               @@include('html/Results-Grid/Results-Grid.html',{
+               title:"Результаты проекта",
+               json:"json/Results-List-2.json"
+               })
+
+               @@include('html/Forms/Form-Section.html', {
+               "title": "Запросить оценку стоимости проекта",
+               "input1": {
+               "str1": "Название компании*",
+               "str2": "Введите название"
+               },
+               "input2": {
+               "str1": "Регион объекта*",
+               "str2": "Введите регион"
+               },
+               "textarea": {
+               "str1": "Краткое описание проекта*",
+               "str2": "Опешите проект"
+               },
+               "button": "Отправить",
+               "expert-text": "Для подготовки ТКП и расчета стоимости реализации вашего проекта, укажите данные в форме или заполните опросный лист и отправьте его на почту:"
+               })
+
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

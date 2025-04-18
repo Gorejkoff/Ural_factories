@@ -19,21 +19,18 @@
 
                @@include('html/Info-Grid/Info-Grid.html',{json: 'json/About-Company-Info.json'})
 
-
-
                @@include('html/Custom-Swiper/Custom-Swiper.html',{})
 
-
-
                @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
-               background: 'blur',
-               title:'Коммерческий отдел',
+               blur: true,
+               title:'Отдел маркетинга и сбыта',
                card:'../Specialist-Card/Specialist-Card.html',
                json:'json/Commercial-Department.json'})
 
                @@include('html/Documents-Certificates/Documents-Certificates.html',{})
 
                @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
+               dark: true,
                "title":"Новости",
                card:"../Informational/Informational-Cell.html",
                json:"json/News-Info.json" })

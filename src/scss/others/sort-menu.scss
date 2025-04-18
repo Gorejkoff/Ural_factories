@@ -1,0 +1,81 @@
+.sort-menu {
+   --button-height: 56px;
+   position: relative;
+   z-index: 3;
+
+   @media (min-width:768px) {
+      max-width: 272px;
+   }
+
+   &.js-tabs-open {
+      .button-icon svg {
+         transform: rotate3d(1, 0, 0, 180deg);
+      }
+
+   }
+
+   &__selected {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 24px;
+
+      @media (min-width:1024px) {
+
+         margin-bottom: 40px;
+      }
+   }
+
+   &__drop-down {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 0;
+
+      overflow: hidden;
+      transition: height 0.5s;
+      background-color: var(--color-lavender);
+      border-radius: 8px;
+
+      ol {
+         padding: calc(var(--button-height) / 2) 4px 4px;
+         display: flex;
+         flex-direction: column;
+         text-align: start;
+
+
+      }
+
+      @media (min-width:1024px) {
+         border-radius: 12px;
+      }
+
+      li {
+         display: block;
+         width: 100%;
+         list-style: none;
+      }
+
+      button {
+         padding: 16px;
+         min-height: 48px;
+         display: flex;
+         align-items: center;
+         width: 100%;
+         background-color: transparent;
+         transition: background-color 0.3s;
+         border-radius: 8px;
+         margin-top: 2px;
+         font-size: var(--button-font-size, 14px);
+
+         @media (min-width:1024px) {
+            border-radius: 12px;
+            font-size: var(--button-font-size, 16px);
+         }
+
+         &:hover {
+            background-color: var(--color-white);
+         }
+      }
+   }
+}

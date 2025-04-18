@@ -2,6 +2,10 @@
 
    &__container {}
 
+   &__body {
+      overflow: hidden;
+   }
+
    &__title {
       margin-bottom: 32px;
 
