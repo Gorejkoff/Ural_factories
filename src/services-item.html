@@ -13,7 +13,14 @@
 
          <div class="wrapper">
 
-            @@include('html/Services/Services-First-Screen.html',{title : 'Проведение предпроектных обследований объектов'})
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: true,
+            title:"Проведение <br>предпроектных <br>обследований объектов",
+            text:false,
+            buttons: true
+            })
+
+            <!-- @@include('html/Services/Services-First-Screen.html',{title : 'Проведение предпроектных обследований объектов'}) -->
 
             <main class="main">
 
@@ -35,10 +42,22 @@
                "button": "Отправить",
                "expert-text": "Для подготовки ТКП и расчета стоимости реализации вашего проекта, укажите данные в форме или заполните опросный лист и отправьте его на почту:"
                })
+
                @@include('html/Documents-Certificates/Documents-Certificates.html',{dark: true})
-               @@include('html/Informational/Informational-Grid.html',{
+
+               @@include('html/Block-Grid/Block-Grid.html',{
+               grid_three:false,
+               grid_four: false,
                title: "Поставки для знаковых объектов в России",
-               json: "json/Delevery-cell.json"
+               sort: false,
+               card:"../Cards/Informational-Cell.html",
+               json: "json/Delevery-cell.json",
+               blur: false,
+               dark: false,
+               p_l: true,
+               p_m: false,
+               m_l: false,
+               m_m: false,
                })
 
             </main>

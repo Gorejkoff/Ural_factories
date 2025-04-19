@@ -37,6 +37,47 @@
 
    }
 
+
+   &.input-dark {
+      color: var(--color-silver-grey);
+
+      textarea {
+         height: 88px;
+
+         @media (min-width:1024px) {
+            margin-bottom: 24px;
+            height: 92px;
+         }
+      }
+
+      textarea,
+      input {
+         border-bottom: 1px solid var(--color-periwinkle-crayola-02);
+
+         @media (min-width:1024px) {
+            margin-bottom: 24px;
+         }
+
+         &:focus {
+            font-weight: 500;
+            color: var(--color-periwinkle-crayola);
+         }
+      }
+
+      &:hover {
+
+         textarea,
+         input {
+            color: var(--color-periwinkle-crayola)
+         }
+
+         textarea:placeholder-shown~.input-placeholder,
+         input:placeholder-shown~.input-placeholder {
+            color: var(--color-periwinkle-crayola)
+         }
+      }
+   }
+
    &:hover {
 
       textarea,
@@ -83,8 +124,15 @@
       color: var(--color-scarlet);
       display: none;
    }
-}
 
+   &__remove-margin {
+      // margin-bottom: 0;
+
+      input {
+         margin-bottom: 0;
+      }
+   }
+}
 
 .input-file {
    cursor: pointer;
@@ -120,5 +168,93 @@
          font-size: 18px;
       }
    }
+}
 
+.form {
+
+   &__basis {
+      padding: 16px;
+      border-radius: 16px;
+      background-color: var(--color-lavender);
+
+      @media (min-width:768px) {
+         padding: 24px;
+      }
+
+      @media (min-width:1024px) {
+         border-radius: 24px;
+         padding: 40px;
+      }
+   }
+
+   &__title {
+      margin-bottom: 64px;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 100%;
+      letter-spacing: -0.03em;
+
+      @media (min-width:1024px) {
+         font-size: 56px;
+         font-weight: 400;
+      }
+
+   }
+
+   &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+         gap: 40px;
+         --button-max-width: 330px;
+         --button-height: 64px;
+      }
+
+      .input-text {
+         width: 100%;
+      }
+
+   }
+
+   &__submit {
+      --button-max-width: 330px;
+   }
+
+   &__search {
+      --button-max-width: 195px;
+   }
+}
+
+
+
+.checkbox-body {
+   display: flex;
+   gap: 12px;
+}
+
+.checkbox-input {
+   display: none;
+
+   &:checked+.checkbox-item svg {
+      display: block;
+   }
+}
+
+.checkbox-item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 24px;
+   min-width: 24px;
+   height: 24px;
+   min-height: 24px;
+   border-radius: 4px;
+   background-color: var(--color-periwinkle-crayola);
+
+   svg {
+      display: none;
+   }
 }

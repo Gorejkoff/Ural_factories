@@ -1,5 +1,11 @@
 .form-section {
 
+   .form__title {
+      @media (min-width:1024px) {
+         margin-bottom: 48px;
+      }
+   }
+
    &__container {}
 
    &__body {
@@ -14,35 +20,6 @@
 
    &__request {
       flex: 1 1 auto;
-   }
-
-   &__basis {
-      border-radius: 16px;
-      padding: 16px;
-      background-color: var(--color-lavender);
-
-      @media (min-width:768px) {
-         padding: 24px;
-      }
-
-      @media (min-width:1024px) {
-         border-radius: 24px;
-         padding: 40px;
-      }
-   }
-
-   &__title {
-      margin-bottom: 64px;
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 100%;
-      letter-spacing: -0.03em;
-
-      @media (min-width:1024px) {
-         margin-bottom: 48px;
-         font-size: 56px;
-         font-weight: 400;
-      }
    }
 
    &__expert {
@@ -80,8 +57,6 @@
       }
    }
 
-   &__expert-position {}
-
    &__expert-text {
       flex: 1 1 auto;
       display: flex;
@@ -92,11 +67,7 @@
       }
    }
 
-   &__expert-button {}
-
    &__button {
-      --button-max-width: 330px;
-
       .button {
          margin-left: auto;
       }

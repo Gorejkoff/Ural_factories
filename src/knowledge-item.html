@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   @@include('html/1_head.html',{"title":"News Item"})
+   @@include('html/1_head.html',{"title":"Knowledge Item"})
 </head>
 
 <body>
@@ -16,22 +16,9 @@
 
             <main class="main">
 
-               @@include('html/News/News.html',{})
 
 
-
-               @@include('html/Block-Swiper/Block-Swiper.html',{
-               dark: false,
-               blur: false,
-               quantity: 3,
-               title:"Отдел маркетинга и сбыта",
-               card:"../Cards/Informational-Cell.html",
-               json:'json/News-Info.json'})
-
-               <!-- @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
-               "title":"Другие новости",
-               card:"../Cards/Informational-Cell.html",
-               json:"json/News-Info.json" }) -->
+               @@include('html/Forms/Subscribe.html',{})
 
             </main>
 

@@ -5,18 +5,19 @@
 
          <article class="products__list">
             <h3 class="title-list">Транкинговое оборудование TIER III</h3>
-            <div class="products__grid">
+            <div class="block-grid__body block-grid__three">
                @@loop('../Products/Product-Cell.html', '@@json1')
             </div>
          </article>
 
          <article class="products__list">
             <h3 class="title-list">Транкинговое оборудование TIER II</h3>
-            <div class="products__grid">
+            <div class="block-grid__body block-grid__three">
                @@loop('../Products/Product-Cell.html', '@@json2')
                @@include('./Product-Cell-Request.html',{})
             </div>
          </article>
+
       </div>
    </div>
 </section>

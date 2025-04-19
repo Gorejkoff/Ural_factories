@@ -1,31 +1,6 @@
 @use '../assets/mixin.scss' as *;
 
 .services {
-   &__first-screen-header {
-      width: 100%;
-      --button-max-width: 330px;
-   }
-
-   &__first-screen-title {
-      margin-bottom: 64px;
-      max-width: 836px;
-   }
-
-   &__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-
-      @media (min-width:768px) {
-         grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (min-width:1200px) {
-         grid-template-columns: repeat(3, 1fr);
-      }
-   }
-
-   &__container {}
 
    &__description {
       @media (max-width:767.98px) {

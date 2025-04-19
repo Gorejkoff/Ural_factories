@@ -13,11 +13,30 @@
 
          <div class="wrapper">
 
-            @@include('html/Services/Services-First-Screen.html',{title: 'Реализуем комплексные проекты, так и отдельные этапы'})
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: true,
+            title:"Реализуем комплексные <br>проекты и отдельные <br>этапы",
+            text:false,
+            buttons: true
+            })
+
 
             <main class="main">
 
-               @@include('html/Services/Services-Grid.html',{})
+               @@include('html/Block-Grid/Block-Grid.html',{
+               grid_three: true,
+               grid_four: false,
+               title: "Услуги",
+               sort: false,
+               card:"../Cards/Dark-Card.html",
+               json: "json/Services-Grid.json",
+               blur: true,
+               dark: false,
+               p_l: false,
+               p_m: true,
+               m_l: false,
+               m_m: false,
+               })
 
             </main>
 
@@ -30,9 +49,7 @@
    <div class="mobile-menu__button-contact">
       <div class="mobile-menu__container">
          <div class="mobile-menu__group-buttons">
-
             @@include('html/Header/Header-Button-Contact.html',{})
-
             <a href="#0" class="button button-white" data-da=".first-screen__buttons,1,1024">
                <span>Обсудить задачу</span>
                <span class="button-icon">
@@ -41,7 +58,6 @@
                   </svg>
                </span>
             </a>
-
          </div>
       </div>
    </div>

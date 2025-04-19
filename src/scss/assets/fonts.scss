@@ -3,6 +3,18 @@
       Hoves;
    font-display: swap;
    src:
+      url("../fonts/TTHovesLight.woff2") format("woff2"),
+      url("../fonts/TTHovesLight.woff") format("woff");
+   font-weight:
+      300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family:
+      Hoves;
+   font-display: swap;
+   src:
       url("../fonts/TTHovesRegular.woff2") format("woff2"),
       url("../fonts/TTHovesRegular.woff") format("woff");
    font-weight:
@@ -19,18 +31,6 @@
       url("../fonts/TTHovesMedium.woff") format("woff");
    font-weight:
       500;
-   font-style: normal;
-}
-
-@font-face {
-   font-family:
-      Hoves;
-   font-display: swap;
-   src:
-      url("../fonts/TTHovesLight.woff2") format("woff2"),
-      url("../fonts/TTHovesLight.woff") format("woff");
-   font-weight:
-      300;
    font-style: normal;
 }
 

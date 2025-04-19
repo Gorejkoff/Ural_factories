@@ -1,43 +1,4 @@
-.slider-of-four {
-
-   .swiper-button-shell {
-      display: none;
-   }
-
-   .swiper-pagination {
-      @media (min-width:1024px) {
-         display: none;
-      }
-   }
-
-   &.swiper-nav-visible {
-      .swiper-button-shell {
-         @media (min-width:1024px) {
-            display: flex;
-         }
-      }
-
-      .swiper-pagination {
-         @media (min-width:1024px) {
-            display: block;
-         }
-      }
-   }
-
-   &__title {
-      margin-bottom: 64px;
-   }
-
-   &__swiper {
-      overflow: hidden;
-   }
-
-   &__nav {
-      @media (min-width:1024px) {
-         margin-top: 28px;
-      }
-   }
-
+.info-card {
    &__cell {
       padding: 8px;
       display: flex;
@@ -46,8 +7,13 @@
       background-color: var(--color-blackish-blue);
       overflow: hidden;
 
+      .blur-section &,
+      .dark-section & {
+         background-color: var(--color-black);
+      }
+
       &:hover {
-         .slider-of-four__icon-item {
+         .info-card__icon-item {
             opacity: 1;
          }
       }

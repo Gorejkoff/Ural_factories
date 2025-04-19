@@ -4,6 +4,7 @@
 // $minW - минимальная ширина вьюпорта,
 // $maxW - махимальная ширина вьюпорта
 @use 'sass:math';
+@use './variablesSCSS.scss' as *;
 
 @function delete-unit($number) {
    @return math.div($number, ($number * 0 + 1));
@@ -41,5 +42,29 @@
 
    @media (min-width: $minWidth) and (max-width:$maxWidth) {
       flex: $grow $shrink calc($minpx + (100vw - $minWidth)/($maxWNum - $minWNum)*($max - $min));
+   }
+}
+
+@mixin padding-x {
+   padding-left: $min-padding-x;
+   padding-right: $min-padding-x;
+   @include size_adaptive (padding-left, $min-padding-x, $max-padding-x, 1024, $max-width-container);
+   @include size_adaptive (padding-right, $min-padding-x, $max-padding-x, 1024, $max-width-container);
+
+   @media (min-width:$max-width-container) {
+      padding-left: $max-padding-x;
+      padding-right: $max-padding-x;
+   }
+}
+
+@mixin margin-x {
+   margin-left: $min-margin-x;
+   margin-right: $min-margin-x;
+   @include size_adaptive (margin-left, $min-padding-x, $max-padding-x, 1024, $max-width-container);
+   @include size_adaptive (margin-right, $min-padding-x, $max-padding-x, 1024, $max-width-container);
+
+   @media (min-width:$max-width-container) {
+      margin-left: $max-padding-x;
+      margin-right: $max-padding-x;
    }
 }

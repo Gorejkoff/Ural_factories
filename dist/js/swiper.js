@@ -6644,46 +6644,12 @@ if (document.querySelector('.product-card__top-swiper')) {
    });
 }
 
-if (document.querySelector('.slider-of-four__swiper')) {
-   const list = document.querySelectorAll('.slider-of-four__swiper');
+
+if (document.querySelector('.block-swiper__swiper')) {
+   const list = document.querySelectorAll('.block-swiper__swiper');
    list.forEach((element) => { addSwiper(element) });
    function addSwiper(element) {
-      const swiper = new Swiper(element, {
-         allowTouchMove: true,
-         spaceBetween: 8,
-         speed: 300,
-         slidesPerView: 1.3,
-         breakpoints: {
-            768: {
-               slidesPerView: 2
-            },
-            1024: {
-               slidesPerView: 4,
-               pagination: {
-                  type: 'fraction',
-               },
-            },
-         },
-         pagination: {
-            el: element.parentElement.querySelector('.slider-of-four__pagination'),
-            type: 'bullets',
-         },
-         navigation: {
-            nextEl: element.parentElement.querySelector(".slider-of-four__swiper-button-next"),
-            prevEl: element.parentElement.querySelector(".slider-of-four__swiper-button-prev"),
-         },
-      });
-      if (element.querySelectorAll('.slider-of-four__cell').length > 4 && element.closest('.slider-of-four')) {
-         element.closest('.slider-of-four').classList.add('swiper-nav-visible');
-      }
-   }
-}
-
-
-if (document.querySelector('.three-slides-visible__swiper')) {
-   const list = document.querySelectorAll('.three-slides-visible__swiper');
-   list.forEach((element) => { addSwiper(element) });
-   function addSwiper(element) {
+      const quantity = Number(element.dataset.quantity);
       const swiper = new Swiper(element, {
          allowTouchMove: true,
          spaceBetween: 8,
@@ -6699,16 +6665,22 @@ if (document.querySelector('.three-slides-visible__swiper')) {
                   type: 'fraction',
                },
                navigation: {
-                  nextEl: element.parentElement.querySelector('.three-slides-visible__swiper-button-next'),
-                  prevEl: element.parentElement.querySelector('.three-slides-visible__swiper-button-prev')
+                  nextEl: element.parentElement.querySelector('.block-swiper__swiper-button-next'),
+                  prevEl: element.parentElement.querySelector('.block-swiper__swiper-button-prev')
                },
             },
          },
          pagination: {
-            el: element.parentElement.querySelector('.three-slides-visible__pagination'),
+            el: element.parentElement.querySelector('.block-swiper__pagination'),
             type: 'bullets',
          },
       });
+      if (quantity == 4) {
+         swiper.params.breakpoints["1200"] = { slidesPerView: quantity };
+      }
+      if (element.querySelectorAll('.swiper-slide').length > quantity && element.closest('.block-swiper')) {
+         element.closest('.block-swiper').classList.add('swiper-nav-visible');
+      }
    }
 }
 

@@ -1,0 +1,53 @@
+.block-swiper {
+   .swiper-button-shell {
+      display: none;
+   }
+
+   .swiper-pagination {
+      @media (min-width:1200px) {
+         display: none;
+      }
+   }
+
+   &.swiper-nav-visible {
+      .swiper-button-shell {
+         @media (min-width:1200px) {
+            display: flex;
+         }
+      }
+
+      .swiper-pagination {
+         @media (min-width:1200px) {
+            display: block;
+         }
+      }
+   }
+
+   &__container {}
+
+   &__body {
+      overflow: hidden;
+   }
+
+   &__title {
+      margin-bottom: 32px;
+
+      @media (min-width:1024px) {
+         margin-bottom: 64px;
+      }
+   }
+
+   &__swiper {
+      border-radius: 8px;
+
+      @media (min-width:768px) {
+         overflow: hidden;
+      }
+   }
+
+   &__nav {
+      @media (min-width:1024px) {
+         margin-top: 28px;
+      }
+   }
+}

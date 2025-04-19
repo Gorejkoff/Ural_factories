@@ -9,7 +9,7 @@
 <meta name="description" content="Современная цифровая радиосвязь стандарта DMR">
 <meta itemprop="image" content="https://gorejkoff.github.io/Ural_factories/dist/img/jpg/img-7.jpg">
 
-<link rel="stylesheet" href="css/style.css?_v=20250418231022">
+<link rel="stylesheet" href="css/style.css?_v=20250419171408">
 </head>
 
 
@@ -20,9 +20,8 @@
 
          <div class="wrapper">
 
-            <section class="catalog">
-   <div class="first-screen">
-      <header id="header" class="header">
+            <section class="first-screen">
+   <header id="header" class="header">
    <div class="header__container">
       <div class="header__body">
          <div class="header__wrapper">
@@ -65,24 +64,25 @@
       </div>
    </div>
 </header>
-      <div class="first-screen__container">
-         <div class="first-screen__content">
-            <div class="first-screen__registry">
-               <div class="registry">
+   <div class="first-screen__container">
+      <div class="first-screen__content">
+         <div class="first-screen__registry">
+             <div class="registry">
    <div>
       <img src="./img/svg/registry_logo.svg" alt="логотип реестра">
    </div>
    <div>В реестре российской электронной продукции</div>
 </div>
-            </div>
-            <div class="catalog__first-screen-header">
-               <h1 class="catalog__first-screen-title first-screen__title">Каталог оборудования</h1>
-               <div class="first-screen__text">цифровой связи стандарта DMR</div>
-            </div>
+         </div>
+         <div class="first-screen__header">
+            <h1 class="first-screen__title">Каталог <br>оборудования</h1>
+             <div class="first-screen__text">цифровой связи стандарта DMR</div>
+            
+            
          </div>
       </div>
-      <img class="first-screen__background" src="./img/jpg/background-3.jpg" alt="img" aria-hidden="true">
    </div>
+   <img class="first-screen__background" src="./img/jpg/background-3.jpg" alt="img" aria-hidden="true">
 </section>
 
             <main class="main">
@@ -94,7 +94,7 @@
 
          <article class="products__list">
             <h3 class="title-list">Транкинговое оборудование TIER III</h3>
-            <div class="products__grid">
+            <div class="block-grid__body block-grid__three">
                <div >
    <article class="products__cell">
       <div class="products__cell-shell">
@@ -146,7 +146,7 @@
 
          <article class="products__list">
             <h3 class="title-list">Транкинговое оборудование TIER II</h3>
-            <div class="products__grid">
+            <div class="block-grid__body block-grid__three">
                <div >
    <article class="products__cell">
       <div class="products__cell-shell">
@@ -243,6 +243,7 @@
 </div>
             </div>
          </article>
+
       </div>
    </div>
 </section>
@@ -302,9 +303,21 @@
 
          <form class="footer__form footer__base" action="#" method="post" data-da=".footer__body,1,1024">
             <div class="footer__form-title">Связаться с нами</div>
-            <input class="input-text" type="text" name="name" placeholder="Ваше имя">
-            <input class="input-text" type="text" name="tel" placeholder="Телефон">
-            <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
+            <label class="input-text input-dark">
+               <input type="text" placeholder="">
+               <span class="input-placeholder">Ваше имя</span>
+               <span class="input-error">Введите имя</span>
+            </label>
+            <label class="input-text input-dark">
+               <input type="number" placeholder="">
+               <span class="input-placeholder">Телефон</span>
+               <span class="input-error">Введите телефон</span>
+            </label>
+            <label class="input-text input-dark">
+               <textarea placeholder="" minlength="2" required></textarea>
+               <span class="input-placeholder">Сообщение</span>
+               <span class="input-error">Введите сообщение</span>
+            </label>
             <label class="checkbox-body">
                <input class="checkbox-input" type="checkbox" name="consent">
                <span class="checkbox-item">
@@ -312,7 +325,7 @@
                      <path d="M4.99997 8.58597L1.70697 5.29297L0.292969 6.70697L4.99997 11.414L14.707 1.70697L13.293 0.292969L4.99997 8.58597Z" fill="#0C1014" />
                   </svg>
                </span>
-               <span class="checkbox-text">Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
+               <span>Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
             </label>
 
             <div class="footer__button">
@@ -376,7 +389,7 @@
                   <li><a class="menu__link" href="#0">Реквизиты</a></li>
                   <li><a class="menu__link" href="#0">Лицензии и сертификаты</a></li>
                   <li><a class="menu__link" href="#0">Свежие вакансии</a></li>
-                  <li><a class="menu__link" href="#0">Энциклопедия</a></li>
+                  <li><a class="menu__link" href="knowledge.html">Энциклопедия</a></li>
                   <li><a class="menu__link" href="#0">Контакты</a></li>
                </ol>
                <a class="menu__download" href="#0">
@@ -508,15 +521,15 @@
    </div>
 </div>
 
-   <script defer src='./js/gsap.min.js?_v=20250418231022'></script>
-<script defer src='./js/ScrollToPlugin.min.js?_v=20250418231022'></script>
-<script defer src='./js/ScrollTrigger.min.js?_v=20250418231022'></script>
-<script defer src='./js/ScrollSmoother.js?_v=20250418231022'></script>
-<script src="https://cdn.babylonjs.com/babylon.js?_v=20250418231022"></script>
-<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250418231022"></script>
-<script defer type="module" src='./js/app.js?_v=20250418231022'></script>
+   <script defer src='./js/gsap.min.js?_v=20250419171408'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250419171408'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250419171408'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250419171408'></script>
+<script src="https://cdn.babylonjs.com/babylon.js?_v=20250419171408"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250419171408"></script>
+<script defer type="module" src='./js/app.js?_v=20250419171408'></script>
 
-<script defer src='./js/swiper.js?_v=20250418231022'></script>
+<script defer src='./js/swiper.js?_v=20250419171408'></script>
 
 
 

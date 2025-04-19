@@ -13,7 +13,12 @@
 
          <div class="wrapper">
 
-            @@include('html/About-Company/About-Company-First-Screen.html',{})
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: false,
+            title: "30 лет обеспечиваем <br>надежной радиосвязью",
+            text: "Оборудование и ПО для организации цифровой радиосвязи стандарта DMR",
+            buttons: false
+            })
 
             <main class="main">
 
@@ -21,19 +26,23 @@
 
                @@include('html/Custom-Swiper/Custom-Swiper.html',{})
 
-               @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
+               @@include('html/Block-Swiper/Block-Swiper.html',{
+               dark: false,
                blur: true,
-               title:'Отдел маркетинга и сбыта',
-               card:'../Specialist-Card/Specialist-Card.html',
+               quantity: 3,
+               title:"Отдел маркетинга и сбыта",
+               card:"../Cards/Specialist-Card.html",
                json:'json/Commercial-Department.json'})
 
                @@include('html/Documents-Certificates/Documents-Certificates.html',{})
 
-               @@include('html/Three-Slides-Visible/Three-Slides-Visible.html',{
-               dark: true,
-               "title":"Новости",
-               card:"../Informational/Informational-Cell.html",
-               json:"json/News-Info.json" })
+               @@include('html/Block-Swiper/Block-Swiper.html',{
+               dark: false,
+               blur: true,
+               quantity: 3,
+               title:"Отдел маркетинга и сбыта",
+               card:"../Cards/Informational-Cell.html",
+               json:'json/News-Info.json'})
 
             </main>
 

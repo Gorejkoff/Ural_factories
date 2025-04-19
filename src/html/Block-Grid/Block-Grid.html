@@ -1,0 +1,14 @@
+@@if(context.title){<section class="block-grid">}
+   @@if(!context.title){<div class="block-grid">}
+      <div class="block-grid__container">
+         <div class="@@if(context.blur){blur-section }@@if(context.dark){dark-section }@@if(context.p_m){padding-medium }@@if(context.p_l){padding-large }@@if(context.m_l){margin-large }@@if(context.m_m){margin-medium }">
+            @@if(context.title){ <h2 class="block-grid__title title-section">@@title</h2> }
+            @@if(context.sort){ @@include('../Elements/Sort-Menu.html',{}) }
+            <div class="block-grid__body @@if(context.grid_three){block-grid__three }@@if(context.grid_four){block-grid__four}">
+               @@loop('@@card', '@@json')
+            </div>
+         </div>
+      </div>
+      @@if(!context.title){
+   </div>}
+   @@if(context.title){</section>}

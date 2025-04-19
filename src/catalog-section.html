@@ -13,12 +13,31 @@
 
          <div class="wrapper">
 
-            <div class="scroll-animation">
-               @@include('html/Catalog/Catalog-First-Screen.html',{})
-            </div>
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: true,
+            title:"Каталог <br>оборудования",
+            text:"цифровой связи стандарта DMR",
+            })
+
+
 
             <main class="main">
-               @@include('html/Catalog/Catalog-Section.html',{})
+
+               @@include('html/Block-Grid/Block-Grid.html',{
+               grid_three: true,
+               grid_four: false,
+               title: false,
+               sort: true,
+               card:"../Cards/Product-Cell.html",
+               json: "json/Product-Section.json",
+               blur: true,
+               dark: false,
+               p_l: false,
+               p_m: true,
+               m_l: false,
+               m_m: false,
+               })
+
             </main>
 
             @@include('html/4_footer.html',{})

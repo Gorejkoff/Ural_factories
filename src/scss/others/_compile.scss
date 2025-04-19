@@ -7,18 +7,15 @@
 @use 'menu';
 @use 'manu-contacts';
 @use 'login';
-@use 'catalog';
 @use 'first-screen';
-@use 'slider-of-four';
 @use 'product-card';
 @use 'product-description';
-@use 'three-slides-visible';
+@use 'block-swiper';
 @use 'documents-certificates';
 @use 'services';
 @use 'dark-card';
 @use 'form-section';
 @use 'form';
-@use 'about-company';
 @use 'info-grid';
 @use 'information';
 @use 'specialist-card';
@@ -30,3 +27,5 @@
 @use 'customer-feedback';
 @use 'news';
 @use 'subscribe';
+@use 'block-grid';
+@use 'info-card';

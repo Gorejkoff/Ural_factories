@@ -57,31 +57,64 @@ body {
 //    }
 // }
 
+
 .padding-large {
-   padding: 96px $min-padding-x;
-   @include size_adaptive (padding-left, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (padding-right, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (padding-top, 96, 160, 1024, $max-width-container);
-   @include size_adaptive (padding-bottom, 96, 160, 1024, $max-width-container);
+   padding-top: $large-min;
+   padding-bottom: $large-min;
+   @include padding-x;
+   @include size_adaptive (padding-top, $large-min, $large-max, 1024, $max-width-container);
+   @include size_adaptive (padding-bottom, $large-min, $large-max, 1024, $max-width-container);
 
    @media (min-width:$max-width-container) {
-      padding: 160px $max-padding-x;
+      padding-top: $large-max;
+      padding-bottom: $large-max;
       border-radius: 24px;
    }
 }
 
 .padding-medium {
-   padding: 48px $min-padding-x;
-   @include size_adaptive (padding-left, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (padding-right, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (padding-top, 48, 96, 1024, $max-width-container);
-   @include size_adaptive (padding-bottom, 48, 96, 1024, $max-width-container);
+   padding-top: $medium-min;
+   padding-bottom: $medium-min;
+   @include padding-x;
+   @include size_adaptive (padding-top, $medium-min, $medium-max, 1024, $max-width-container);
+   @include size_adaptive (padding-bottom, $medium-min, $medium-max, 1024, $max-width-container);
 
    @media (min-width:$max-width-container) {
-      padding: 96px $max-padding-x;
+      padding-top: $medium-max;
+      padding-bottom: $medium-max;
       border-radius: 24px;
    }
 }
+
+.margin-large {
+   margin-top: $large-min;
+   margin-bottom: $large-min;
+   @include margin-x;
+   @include size_adaptive (margin-top, $large-min, $large-max, 1024, $max-width-container);
+   @include size_adaptive (margin-bottom, $large-min, $large-max, 1024, $max-width-container);
+
+   @media (min-width:$max-width-container) {
+      margin-top: $large-max;
+      margin-bottom: $large-max;
+      border-radius: 24px;
+   }
+}
+
+.margin-medium {
+   margin-top: $medium-min;
+   margin-bottom: $medium-min;
+   @include margin-x;
+   @include size_adaptive (margin-top, $medium-min, $medium-max, 1024, $max-width-container);
+   @include size_adaptive (margin-bottom, $medium-min, $medium-max, 1024, $max-width-container);
+
+   @media (min-width:$max-width-container) {
+      margin-top: $medium-max;
+      margin-bottom: $medium-max;
+      border-radius: 24px;
+   }
+}
+
+
 
 main>*:last-child {
 
@@ -93,32 +126,6 @@ main>*:last-child {
    .margin-large,
    .margin-medium {
       margin-bottom: 0;
-   }
-}
-
-.margin-large {
-   margin: 96px $min-margin-x;
-   @include size_adaptive (margin-left, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (margin-right, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (margin-top, 96, 160, 1024, $max-width-container);
-   @include size_adaptive (margin-bottom, 96, 160, 1024, $max-width-container);
-
-   @media (min-width:$max-width-container) {
-      margin: 160px $max-padding-x;
-      border-radius: 24px;
-   }
-}
-
-.margin-medium {
-   margin: 48px $min-margin-x;
-   @include size_adaptive (margin-left, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (margin-right, $min-padding-x, $max-padding-x, 1024, $max-width-container);
-   @include size_adaptive (margin-top, 48, 96, 1024, $max-width-container);
-   @include size_adaptive (margin-bottom, 48, 96, 1024, $max-width-container);
-
-   @media (min-width:$max-width-container) {
-      margin: 96px $max-padding-x;
-      border-radius: 24px;
    }
 }
 
@@ -494,67 +501,6 @@ main>*:last-child {
       }
    }
 }
-
-.input-text {
-   margin-bottom: 16px;
-   padding-bottom: 12px;
-   border-bottom: 1px solid var(--color-periwinkle-crayola-02);
-   width: 100%;
-   font-size: 14px;
-   line-height: 112%;
-   color: var(--color-silver-grey);
-
-   @media (min-width:1024px) {
-      margin-bottom: 24px;
-      font-size: 16px;
-   }
-}
-
-.textarea {
-   margin-bottom: 16px;
-   height: 88px;
-   resize: none;
-   border-bottom: 1px solid var(--color-periwinkle-crayola-02);
-   font-size: 14px;
-   color: var(--color-silver-grey);
-
-   @media (min-width:1024px) {
-      margin-bottom: 24px;
-      height: 92px;
-      font-size: 16px;
-   }
-}
-
-.checkbox-body {
-   display: flex;
-   gap: 12px;
-}
-
-.checkbox-input {
-   display: none;
-
-   &:checked+.checkbox-item svg {
-      display: block;
-   }
-}
-
-.checkbox-item {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 24px;
-   min-width: 24px;
-   height: 24px;
-   min-height: 24px;
-   border-radius: 4px;
-   background-color: var(--color-periwinkle-crayola);
-
-   svg {
-      display: none;
-   }
-}
-
-.checkbox-text {}
 
 .animate-title {
    opacity: 0;

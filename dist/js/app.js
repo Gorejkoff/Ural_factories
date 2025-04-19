@@ -105,7 +105,6 @@ const INFO_GRID = document.querySelectorAll('.js-quantity-child');
 
 function calcCildElementInfo(element) {
    const quantity = element.children.length;
-   console.log(quantity);
    element.style.setProperty('--quantity', quantity);
 }
 INFO_GRID.forEach(e => {

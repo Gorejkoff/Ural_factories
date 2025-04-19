@@ -9,7 +9,7 @@
 <meta name="description" content="Современная цифровая радиосвязь стандарта DMR">
 <meta itemprop="image" content="https://gorejkoff.github.io/Ural_factories/dist/img/jpg/img-7.jpg">
 
-<link rel="stylesheet" href="css/style.css?_v=20250418231022">
+<link rel="stylesheet" href="css/style.css?_v=20250419171408">
 </head>
 
 
@@ -20,9 +20,8 @@
 
          <div class="wrapper">
 
-            <section class="services">
-   <div class="first-screen">
-      <header id="header" class="header">
+            <section class="first-screen">
+   <header id="header" class="header">
    <div class="header__container">
       <div class="header__body">
          <div class="header__wrapper">
@@ -65,28 +64,38 @@
       </div>
    </div>
 </header>
-      <div class="first-screen__container">
-         <div class="first-screen__content">
-            <div></div>
-            <div class="services__first-screen-header">
-               <h1 class="services__first-screen-title first-screen__title">Реализуем комплексные проекты, так и отдельные этапы</h1>
-               <div class="first-screen__buttons"></div>
-            </div>
+   <div class="first-screen__container">
+      <div class="first-screen__content">
+         <div class="first-screen__registry">
+             <div class="registry">
+   <div>
+      <img src="./img/svg/registry_logo.svg" alt="логотип реестра">
+   </div>
+   <div>В реестре российской электронной продукции</div>
+</div>
+         </div>
+         <div class="first-screen__header">
+            <h1 class="first-screen__title">Реализуем комплексные <br>проекты и отдельные <br>этапы</h1>
+            
+            
+             <div class="first-screen__buttons"></div> 
          </div>
       </div>
-      <img class="first-screen__background" src="./img/jpg/background-3.jpg" alt="img" aria-hidden="true">
    </div>
+   <img class="first-screen__background" src="./img/jpg/background-3.jpg" alt="img" aria-hidden="true">
 </section>
+
 
             <main class="main">
 
-               <section class="services">
-   <div class="services__container">
-      <div class="dark-section padding-medium">
-         <div class="services__title title-section">Услуги</div>
-         <div class="services__grid">
+               <section class="block-grid">
+   
+      <div class="block-grid__container">
+         <div class="blur-section padding-medium ">
+             <h2 class="block-grid__title title-section">Услуги</h2> 
             
-            
+            <div class="block-grid__body block-grid__three ">
+               
 <a href="services-item.html" class="dark-card">
    <div class="dark-card__icon">
       <img src="./img/svg/icon-1.svg" alt="обстрактная иконка" aria-hidden="true">
@@ -223,11 +232,11 @@
 </a>
 
 
+            </div>
          </div>
       </div>
-   </div>
-
-</section>
+      
+   </section>
 
             </main>
 
@@ -284,9 +293,21 @@
 
          <form class="footer__form footer__base" action="#" method="post" data-da=".footer__body,1,1024">
             <div class="footer__form-title">Связаться с нами</div>
-            <input class="input-text" type="text" name="name" placeholder="Ваше имя">
-            <input class="input-text" type="text" name="tel" placeholder="Телефон">
-            <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
+            <label class="input-text input-dark">
+               <input type="text" placeholder="">
+               <span class="input-placeholder">Ваше имя</span>
+               <span class="input-error">Введите имя</span>
+            </label>
+            <label class="input-text input-dark">
+               <input type="number" placeholder="">
+               <span class="input-placeholder">Телефон</span>
+               <span class="input-error">Введите телефон</span>
+            </label>
+            <label class="input-text input-dark">
+               <textarea placeholder="" minlength="2" required></textarea>
+               <span class="input-placeholder">Сообщение</span>
+               <span class="input-error">Введите сообщение</span>
+            </label>
             <label class="checkbox-body">
                <input class="checkbox-input" type="checkbox" name="consent">
                <span class="checkbox-item">
@@ -294,7 +315,7 @@
                      <path d="M4.99997 8.58597L1.70697 5.29297L0.292969 6.70697L4.99997 11.414L14.707 1.70697L13.293 0.292969L4.99997 8.58597Z" fill="#0C1014" />
                   </svg>
                </span>
-               <span class="checkbox-text">Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
+               <span>Я принимаю политику конфиденциальности и даю согласие на обработку персональных данных.</span>
             </label>
 
             <div class="footer__button">
@@ -320,7 +341,6 @@
    <div class="mobile-menu__button-contact">
       <div class="mobile-menu__container">
          <div class="mobile-menu__group-buttons">
-
             <div class="header__wrapper header__right" data-da=".header__body,2,1024">
    <button class="header__button-contact button js-modal-open" type="button" data-modal_open="menu-contacts">
       <span>Связаться с нами</span>
@@ -331,7 +351,6 @@
       </span>
    </button>
 </div>
-
             <a href="#0" class="button button-white" data-da=".first-screen__buttons,1,1024">
                <span>Обсудить задачу</span>
                <span class="button-icon">
@@ -340,7 +359,6 @@
                   </svg>
                </span>
             </a>
-
          </div>
       </div>
    </div>
@@ -371,7 +389,7 @@
                   <li><a class="menu__link" href="#0">Реквизиты</a></li>
                   <li><a class="menu__link" href="#0">Лицензии и сертификаты</a></li>
                   <li><a class="menu__link" href="#0">Свежие вакансии</a></li>
-                  <li><a class="menu__link" href="#0">Энциклопедия</a></li>
+                  <li><a class="menu__link" href="knowledge.html">Энциклопедия</a></li>
                   <li><a class="menu__link" href="#0">Контакты</a></li>
                </ol>
                <a class="menu__download" href="#0">
@@ -503,15 +521,15 @@
    </div>
 </div>
 
-   <script defer src='./js/gsap.min.js?_v=20250418231022'></script>
-<script defer src='./js/ScrollToPlugin.min.js?_v=20250418231022'></script>
-<script defer src='./js/ScrollTrigger.min.js?_v=20250418231022'></script>
-<script defer src='./js/ScrollSmoother.js?_v=20250418231022'></script>
-<script src="https://cdn.babylonjs.com/babylon.js?_v=20250418231022"></script>
-<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250418231022"></script>
-<script defer type="module" src='./js/app.js?_v=20250418231022'></script>
+   <script defer src='./js/gsap.min.js?_v=20250419171408'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250419171408'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250419171408'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250419171408'></script>
+<script src="https://cdn.babylonjs.com/babylon.js?_v=20250419171408"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250419171408"></script>
+<script defer type="module" src='./js/app.js?_v=20250419171408'></script>
 
-<script defer src='./js/swiper.js?_v=20250418231022'></script>
+<script defer src='./js/swiper.js?_v=20250419171408'></script>
 
 
 
