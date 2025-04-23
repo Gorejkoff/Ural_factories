@@ -6649,37 +6649,41 @@ if (document.querySelector('.block-swiper__swiper')) {
    const list = document.querySelectorAll('.block-swiper__swiper');
    list.forEach((element) => { addSwiper(element) });
    function addSwiper(element) {
-      const quantity = Number(element.dataset.quantity);
+      const blockSwiper = element.closest('.block-swiper');
+      const quantity = Number(blockSwiper.dataset.quantity);
       const swiper = new Swiper(element, {
          allowTouchMove: true,
          spaceBetween: 8,
          speed: 300,
-         slidesPerView: 1.3,
-         breakpoints: {
-            768: {
-               slidesPerView: 2
-            },
-            1024: {
-               slidesPerView: 3,
-               pagination: {
-                  type: 'fraction',
-               },
-               navigation: {
-                  nextEl: element.parentElement.querySelector('.block-swiper__swiper-button-next'),
-                  prevEl: element.parentElement.querySelector('.block-swiper__swiper-button-prev')
-               },
-            },
+         slidesPerView: quantity > 1 ? 1.3 : 1,
+         navigation: {
+            nextEl: element.parentElement.querySelector('.block-swiper__swiper-button-next'),
+            prevEl: element.parentElement.querySelector('.block-swiper__swiper-button-prev')
          },
          pagination: {
             el: element.parentElement.querySelector('.block-swiper__pagination'),
             type: 'bullets',
          },
+         breakpoints: {
+            768: {
+               slidesPerView: quantity > 1 ? 2 : quantity,
+            },
+            1024: {
+               slidesPerView: quantity > 2 ? 3 : quantity,
+               pagination: {
+                  type: 'fraction',
+               },
+            },
+            1200: {
+               slidesPerView: quantity > 3 ? 4 : quantity,
+               pagination: {
+                  type: 'fraction',
+               },
+            }
+         },
       });
-      if (quantity == 4) {
-         swiper.params.breakpoints["1200"] = { slidesPerView: quantity };
-      }
-      if (element.querySelectorAll('.swiper-slide').length > quantity && element.closest('.block-swiper')) {
-         element.closest('.block-swiper').classList.add('swiper-nav-visible');
+      if (element.querySelectorAll('.swiper-slide').length <= quantity) {
+         blockSwiper.classList.add('swiper-nav-hidden');
       }
    }
 }
@@ -6816,9 +6820,6 @@ if (document.querySelector('.custom-swiper__swiper')) {
 //       }
 //    }
 // }
-
-
-
 
 
 

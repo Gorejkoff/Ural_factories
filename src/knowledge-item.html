@@ -16,7 +16,15 @@
 
             <main class="main">
 
+               @@include('html/Knowledge/Knowledge-Post.html',{})
 
+               @@include('html/Block-Swiper/Block-Swiper.html',{
+               dark: false,
+               blur: false,
+               quantity: 4,
+               title: "Другие материалы",
+               card:"../Cards/Info-Card.html",
+               json:'json/Knowledge-List-Swiper.json'})
 
                @@include('html/Forms/Subscribe.html',{})
 

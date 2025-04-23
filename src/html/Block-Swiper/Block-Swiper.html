@@ -1,13 +1,14 @@
-<div class="block-swiper">
-   <div class="block-swiper__container">
-      <div class="block-swiper__body @@if(context.blur){blur-section} @@if(context.dark){dark-section} padding-medium">
+<div class="block-swiper" data-quantity="@@if(context.quantity){@@quantity}@@if(!context.quantity){3}">
+   @@if(!context.nocontainer){<div class="block-swiper__container">}
+      <div class="block-swiper__body @@if(context.blur){blur-section} @@if(context.dark){dark-section} @@if(!context.nopadding){padding-medium}">
          @@if(context.title){<div class="block-swiper__title title-section">@@title</div>}
-         <div class="block-swiper__swiper swiper" data-quantity="@@if(context.quantity){@@quantity}@@if(!context.quantity){3}">
+         <div class="block-swiper__swiper swiper">
             <div class="swiper-wrapper">
                @@loop('@@card', '@@json')
             </div>
          </div>
          <div class="block-swiper__nav swiper-nav-block">
+            @@if(context.bottomtittle){<div class="block-swiper__bottom-title">@@bottomtittle</div>}
             <div class="block-swiper__pagination swiper-pagination pagination-mobile"></div>
             <div class="swiper-button-shell">
                <button class="block-swiper__swiper-button-prev swiper-button" type="button" aria-label="листать слайлер назад">
@@ -23,5 +24,6 @@
             </div>
          </div>
       </div>
-   </div>
+      @@if(!context.nocontainer){
+   </div>}
 </div>
