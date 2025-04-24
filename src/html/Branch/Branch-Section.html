@@ -1,0 +1,33 @@
+<section class="branch">
+   <div class="branch__container">
+      <div class="padding-medium dark-section">
+
+         <div class="branch__header">
+            <h2 class="branch__header-title">Основа эффективного управления</h2>
+            <div class="branch__header-text">
+               <p>Надежная связь играет ключевую роль в обеспечении безопасности и координации работы предприятий газовой отрасли. </p>
+               <p>Современные технологии радиосвязи позволяют оперативно управлять процессами добычи, транспортировки, переработки и хранения газа, особенно в труднодоступных районах.</p>
+            </div>
+         </div>
+
+         @@include('../Block-Grid/Block-Grid.html',{
+         nocontainer: true,
+         grid_three: true,
+         grid_four: false,
+         title: "Ключевые технические решения",
+         sort: false,
+         card:"../Cards/Dark-Card.html",
+         json: "json/Branch-Section.json",
+         blur: false,
+         dark: false,
+         p_l: false,
+         p_m: false,
+         m_l: true,
+         m_m: false,
+         })
+
+         @@include('./Branch-Baner.html',{})
+
+      </div>
+   </div>
+</section>

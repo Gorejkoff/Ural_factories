@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"Branch Item"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/First-Screen/First-Screen.html',{
+            title:"Современная цифровая <br>связь для газовой отрасли",
+            })
+
+            <main class="main">
+
+               @@include('html/Branch/Branch-Section.html',{})
+
+               @@include('html/Block-Staps/Block-Steps.html',{})
+
+               @@include('html/Block-Grid/Block-Grid.html',{
+               nocontainer: false,
+               grid_three:false,
+               grid_four: false,
+               title: "Поставки для знаковых объектов в России",
+               sort: false,
+               card:"../Cards/Informational-Cell.html",
+               json: "json/Delevery-cell.json",
+               blur: true,
+               dark: false,
+               p_l: false,
+               p_m: true,
+               m_l: false,
+               m_m: false,
+               })
+
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

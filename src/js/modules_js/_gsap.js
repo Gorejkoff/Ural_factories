@@ -1,19 +1,16 @@
 var smoother;
 
-function textWpapSpan(elementName) {
-   const listText = document.querySelectorAll(elementName);
-   listText.forEach(element => {
-      const listSpan = element.querySelectorAll('span');
-      listSpan.forEach(element => {
-         const words = element.innerHTML.trim().split(' ');
-         const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
-         element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
-      })
-   });
+function textWpapSpan(element) {
+   const listSpan = element.querySelectorAll('span');
+   listSpan.forEach(element => {
+      const words = element.innerHTML.trim().split(' ');
+      const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
+      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+   })
 }
-textWpapSpan(".js-text-animate")
 
 function addTextAnimatePin(name) {
+   textWpapSpan(element)
    let tl = gsap.timeline({
       scrollTrigger: {
          trigger: `${name}`,
@@ -29,16 +26,17 @@ function addTextAnimatePin(name) {
    })
 }
 
-function addTextAnimate(name) {
+function addTextAnimate(element) {
+   textWpapSpan(element)
    let tl = gsap.timeline({
       scrollTrigger: {
-         trigger: `${name}`,
+         trigger: element,
          start: "0% 90%",
          end: `0% 5%`,
          scrub: true,
       }
    })
-   const text = document.querySelectorAll(`${name} .letter`);
+   const text = element.querySelectorAll(`.letter`);
    text && text.forEach((e) => {
       tl.to(e, { opacity: 1 })
    })
@@ -123,9 +121,13 @@ window.addEventListener('load', function (event) {
       )
    })
 
-   if (document.querySelector('.about-section__title')) addTextAnimatePin('.about-section__title');
+   // if (document.querySelector('.about-section__title')) addTextAnimatePin('.about-section__title');
 
-   if (document.querySelector('.services-section__title')) addTextAnimate('.services-section__title')
+   const ANIMATE_PIN = document.querySelectorAll('.js-text-animate-pin');
+   ANIMATE_PIN.forEach(element => { addTextAnimate(element) });
+
+   const ANIMATE_FREE = document.querySelectorAll('.js-text-animate-free');
+   ANIMATE_FREE.forEach(element => { addTextAnimate(element) });
 
    let tl_about;
    if (document.querySelector('.about-section__body')) {
@@ -135,14 +137,14 @@ window.addEventListener('load', function (event) {
             start: '0% 50%',
             end: '0% 50%',
          }
-      })
+      });
 
       const ABOUT_ANIMATION = this.document.querySelectorAll('.js-about-animation');
       if (ABOUT_ANIMATION.length === 0) return;
       ABOUT_ANIMATION.forEach((e) => {
          tl_about.to(e, { opacity: 1, duration: 0.5 })
-      })
-   }
+      });
+   };
 
 
 

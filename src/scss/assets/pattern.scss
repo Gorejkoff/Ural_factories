@@ -231,7 +231,7 @@ main>*:last-child {
 
 .button {
    padding: 2px 2px 2px 16px;
-   height: var(--button-height, 46px);
+   min-height: var(--button-height, 46px);
    width: 100%;
    max-width: var(--button-max-width, 100%);
    display: flex;
@@ -246,7 +246,7 @@ main>*:last-child {
 
    @media (min-width:1024px) {
       padding: 3px 3px 3px 20px;
-      height: var(--button-height, 56px);
+      min-height: var(--button-height, 56px);
       border-radius: 12px;
       font-size: var(--button-font-size, 16px);
    }
@@ -279,7 +279,8 @@ main>*:last-child {
    --button-size-icon: var(--size-icon, calc(var(--button-height, 46px) - 6px));
    width: var(--button-size-icon);
    min-width: var(--button-size-icon);
-   height: var(--button-size-icon);
+   min-height: var(--button-size-icon);
+   align-self: stretch;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -307,7 +308,7 @@ main>*:last-child {
    align-items: center;
    width: var(--size-button-back, 46px);
    min-width: var(--size-button-back, 46px);
-   height: var(--size-button-back, 46px);
+   min-height: var(--size-button-back, 46px);
    border: 1px solid var(--color-periwinkle-crayola-03);
    border-radius: 8px;
 
