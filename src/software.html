@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   @@include('html/1_head.html',{"title":"Product Card"})
+   @@include('html/1_head.html',{"title":"Software"})
 </head>
 
 
@@ -18,45 +18,47 @@
             <main class="main">
 
                @@include('html/Product-Card/Product-Card-Item.html',{
-               title:"Ретранслятор цифровой «ЭРИКА-Р161Т»",
-               image:"jpg/img-8.jpg",
-               text:"Ретранслятор Р161Т — это современное устройство, обеспечивающее высококачественную передачу цифрового радиосигнала. Он предназначен для расширения зоны покрытия и повышения надежности связи в различных условиях."
+               title:"Программное обеспечение",
+               image:"jpg/img-11.jpg",
+               text:"Геопозиционирование сотрудников и транспортных средств для координации действий (ГЛОНАСС/GPS). Мониторинг контактов и групп внутри организаций. Эффективнее решайте задачи и координируйте совместную работу — диспетчерская консоль создана для этого."
                })
 
                @@include('html/Info-Grid/Info-Grid.html',{
-               json: 'json/Product-Options-Info.json'
+               json: 'json/Software-Info.json'
                })
 
-               @@include('html/Product-Card/Product-Description.html',{})
-
-               @@include('html/Documents-Certificates/Documents-Certificates.html',{dark: false})
-
-
                @@include('html/Block-Swiper/Block-Swiper.html',{
-               dark: true,
+               dark: false,
                blur: false,
                quantity: 3,
-               title:"Другая продукция",
-               card:"../Cards/Product-Cell.html",
-               json:'json/Other-Products.json'})
+               title:"Преимущества ЭРИКА -DMR Диспетчер",
+               card:"../Cards/Info-Grid-Cell.html",
+               json:'json/Software-Swiper-List.json'})
 
 
-               @@include('html/Block-Swiper/Block-Swiper.html',{
-               dark: false,
-               blur: false,
-               quantity: 4,
-               title:"Ранее вы смотрели",
-               card:"../Cards/Info-Card.html",
-               json:'json/Viewed-Earlier.json'})
 
 
-               @@include('html/Block-Swiper/Block-Swiper.html',{
-               dark: false,
-               blur: false,
-               quantity: 4,
-               title: false,
-               card:"../Cards/Info-Card.html",
-               json:'json/Communication-Information.json'})
+
+
+               @@include('html/Forms/Form-Section.html', {
+               "title": "Запросить демонстрацию ПО ЭРИКА-DMR Диспетчер",
+               "input1": {
+               "str1": "Название компании*",
+               "str2": "Введите название"
+               },
+               "input2": {
+               "str1": "Регион объекта*",
+               "str2": "Введите регион"
+               },
+               "textarea": {
+               "str1": "Краткое описание проекта*",
+               "str2": "Опешите проект"
+               },
+               "button": "Далее",
+               "expert-text": "Запишитесь на демонстрацию работы ПО ЭРИКА-DMR Диспетчер в форме слева или отправьте запрос на электронную почту: "
+               })
+
+               @@include('html/Documents-Certificates/Documents-Certificates.html',{dark: true})
 
             </main>
 

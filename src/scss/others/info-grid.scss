@@ -71,10 +71,9 @@
       @media (min-width:768px) {
          font-size: 16px;
       }
+
+      &.full {
+         max-width: none;
+      }
    }
-
-
-
-
-
 }
