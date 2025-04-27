@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"Partner"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: false,
+            title:"Системным партнёрам <br>и интеграторам",
+            text:"АО «Уральские заводы» приглашает к сотрудничеству системных партнёров и интеграторов для совместного предоставления передовых решений в области профессиональной радиосвязи и поставки оборудования."
+            })
+
+            <main class="main">
+
+               @@include('html/Block-Grid/Block-Grid.html',{
+               grid_three: true,
+               grid_four: false,
+               title: "Будьте в курсе",
+               sort: false,
+               card:"../Cards/Dark-Card.html",
+               json: "json/Partner-List.json",
+               blur: false,
+               dark: true,
+               p_l: false,
+               p_m: true,
+               m_l: false,
+               m_m: false,
+               })
+
+               @@include('html/Forms/Form-Section.html', {
+               "title": "Заявка на партнерство",
+               "input1": {
+               "str1": "Название компании*",
+               "str2": "Введите название"
+               },
+               "input2": {
+               "str1": "ИНН компании**",
+               "str2": "Введите ИНН"
+               },
+               "textarea": {
+               "str1": "О компании*",
+               "str2": "Опешите компанию"
+               },
+               "button": "Далее",
+               "expert_text": "Для подготовки ТКП и расчета стоимости реализации вашего проекта, укажите данные в форме или заполните опросный лист и отправьте его на почту: "
+               })
+
+
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

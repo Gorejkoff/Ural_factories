@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"Career"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/First-Screen/First-Screen.html',{
+            registry: false,
+            title:"Карьера <br>в АО «Уральские заводы»",
+            text:"АО «Уральские заводы» — ведущий российский разработчик и производитель современных систем цифровой радиосвязи. Мы создаём инновационные решения для промышленных предприятий, силовых структур и экстренных служб, обеспечивая надёжную и безопасную связь в любых условиях."
+            })
+
+            <main class="main">
+
+               @@include('html/Block-Grid/Block-Grid.html',{
+               grid_three: false,
+               grid_four: true,
+               title: "Почему стоит работать у нас?",
+               sort: false,
+               card:"../Cards/Dark-Card.html",
+               json: "json/Career-List.json",
+               blur: false,
+               dark: true,
+               p_l: false,
+               p_m: true,
+               m_l: false,
+               m_m: false,
+               })
+
+               @@include('html/Vacancy/vacancy.html',{})
+
+               @@include('html/Forms/Form-Section.html', {
+               "title": "Заявка на партнерство",
+               "input1": {
+               "str1": "Название компании*",
+               "str2": "Введите название"
+               },
+               "input2": {
+               "str1": "ИНН компании**",
+               "str2": "Введите ИНН"
+               },
+               "textarea": {
+               "str1": "О компании*",
+               "str2": "Опешите компанию"
+               },
+               "button": "Далее",
+               "expert_text": false,
+               "image":"jpg/photo-8.jpg"
+               })
+
+
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

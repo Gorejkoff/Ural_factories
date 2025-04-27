@@ -1,6 +1,12 @@
 <section class="form-section">
    <div class="form-section__container">
       <div class="form-section__body margin-large">
+
+         @@if(context.image){
+         <div class="form-section__image-sell  form__basis">
+            <img class="form-section__image-item" src="@img/@@image" alt="фотография процесса производства">
+         </div>
+         }
          <div class="form-section__request form__basis">
             <div class="form__title">@@title</div>
             <form action="#" method="post" name="request-price">
@@ -26,7 +32,6 @@
                   </svg>
                   <span class="input-file__text">Приложить файлы технического задания</span>
                </label>
-
                <div class="form-section__button form__submit">
                   <button type="submit" class=" button button-black">
                      <span>@@button</span>
@@ -37,17 +42,17 @@
                      </span>
                   </button>
                </div>
-
             </form>
          </div>
+         @@if(context.expert_text){
          <div class="form-section__expert form__basis">
             <div class="form-section__expert-avatar">
                <img src="@img/jpg/avatar.jpg" alt="фотография">
             </div>
             <div class="form-section__expert-name">Кондакова Елена Леонидовна</div>
             <div>Специалист по работе с ключевыми заказчиками АО «Уральские заводы»</div>
-            <div class="form-section__expert-text">
-               <p>@@expert-text<a href="mailto:ural@uralradio.ru">ural@uralradio.ru</a></p>
+            <div class="form-section__expert_text">
+               <p>@@expert_text<a href="mailto:ural@uralradio.ru">ural@uralradio.ru</a></p>
             </div>
             <div>
                <a href="#0" download="" class="button button-black">
@@ -59,8 +64,8 @@
                   </span>
                </a>
             </div>
-
          </div>
+         }
 
       </div>
    </div>

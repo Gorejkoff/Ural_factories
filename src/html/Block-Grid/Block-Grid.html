@@ -4,7 +4,7 @@
          <div class="@@if(context.blur){blur-section }@@if(context.dark){dark-section }@@if(context.p_m){padding-medium }@@if(context.p_l){padding-large }@@if(context.m_l){margin-large }@@if(context.m_m){margin-medium }">
             @@if(context.title){ <h2 class="block-grid__title title-section">@@title</h2> }
             @@if(context.sort){ @@include('../Elements/Sort-Menu.html',{}) }
-            <div class="block-grid__body @@if(context.grid_three){block-grid__three }@@if(context.grid_four){block-grid__four}">
+            <div class="block-grid__body @@if(context.grid_three){ columns-3 }@@if(context.grid_four){ columns-4 }">
                @@loop('@@card', '@@json')
             </div>
          </div>

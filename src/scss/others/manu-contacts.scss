@@ -19,6 +19,7 @@
       --size-icon: 40px;
 
       @media (min-width:1024px) {
+         align-self: flex-start;
          --size-icon: 56px;
       }
 

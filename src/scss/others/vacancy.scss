@@ -1,0 +1,74 @@
+.vacancy {
+
+   &__container {}
+
+   &__item {
+      padding: 24px 0;
+      display: flex;
+      gap: 16px;
+      font-size: 16px;
+      line-height: 117%;
+      color: var(--color-periwinkle-crayola);
+
+      &:not(:last-child) {
+         border-bottom: 1px solid var(--color-periwinkle-crayola-02);
+      }
+
+      @media (min-width:1024px) {
+         padding: 40px 0;
+         font-size: 24px;
+         gap: 24px;
+      }
+   }
+
+   &__data {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+         justify-content: space-between;
+      }
+   }
+
+   &__city {
+      font-size: 14px;
+      color: var(--color-silver-grey);
+
+      @media (min-width:1024px) {
+         flex: 0 0 20%;
+         order: 2;
+         font-size: 24px;
+      }
+   }
+
+   &__description {
+      @media (min-width:1024px) {
+         flex: 0 0 40%;
+         order: 1;
+      }
+
+      .vacancy__date {
+         margin-top: 16px;
+      }
+   }
+
+   &__date {
+      font-size: 14px;
+      color: var(--color-silver-grey);
+
+      @media (min-width:1024px) {
+         font-size: 16px;
+      }
+   }
+
+   &__price {
+      @media (min-width:1024px) {
+         flex: 0 0 30%;
+         order: 3;
+      }
+   }
+
+}

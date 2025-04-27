@@ -92,6 +92,7 @@
       color: var(--color-silver-grey);
 
       @media (min-width:1024px) {
+         max-width: 440px;
          font-size: 18px;
          line-height: 122%;
       }

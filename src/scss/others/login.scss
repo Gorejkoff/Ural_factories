@@ -12,10 +12,15 @@
          flex-direction: row;
          gap: 20px;
 
+         .modal__content {
+            min-width: 374px;
+         }
       }
    }
 
    &__close {
+      align-self: flex-start;
+
       @media (max-width:1023.98px) {
          margin-left: auto;
       }
