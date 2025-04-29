@@ -1,7 +1,9 @@
 .custom-swiper {
    position: relative;
 
-   &__container {}
+   &__container {
+      position: relative;
+   }
 
    &__body {
       margin-bottom: var(--margin-bottom, -20%);
@@ -10,7 +12,7 @@
 
    &__background {
       padding-top: 75px;
-      margin-left: calc(var(--padding-container) * -1);
+      // margin-left: calc(var(--padding-container) * -1);
       width: 100vw;
       position: relative;
       z-index: -1;
@@ -51,12 +53,15 @@
       }
    }
 
-   &__swiper {
+   &__swiper-shell {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
+      overflow-x: hidden;
    }
+
+   &__swiper {}
 
 
    &__swiper-slide {
@@ -127,11 +132,11 @@
    }
 
    &__prev {
-      left: 0;
+      left: var(--padding-container);
    }
 
    &__next {
-      right: 0;
+      right: var(--padding-container);
    }
 
    .swiper-slide-active {

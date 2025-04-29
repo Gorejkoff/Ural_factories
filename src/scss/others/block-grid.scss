@@ -1,7 +1,5 @@
 .block-grid {
 
-
-
    &__body {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -11,8 +9,6 @@
          grid-template-columns: repeat(2, 1fr);
       }
    }
-
-
 
    .columns-3 {
       @media (min-width:768px) {
