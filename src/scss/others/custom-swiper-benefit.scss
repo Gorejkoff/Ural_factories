@@ -1,0 +1,122 @@
+@use '../assets/variablesSCSS.scss' as *;
+@use '../assets/mixin.scss' as *;
+
+.custom-swiper-benefit {
+   position: relative;
+   margin-bottom: 96px;
+   padding-top: $large-min;
+   @include size_adaptive (padding-top, $large-min, $large-max, 1024, $max-width-container);
+   @include size_adaptive (margin-bottom, 96, 200, 1024, $max-width-container);
+
+   @media (min-width:$max-width-container) {
+      padding-top: $large-max;
+      margin-bottom: 200px;
+   }
+
+   .title-section {
+      @media (min-width:1024px) {
+         margin-bottom: 0;
+      }
+   }
+
+   &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+
+      width: 200%;
+
+      @media (min-width:1024px) {
+         left: auto;
+         right: 0;
+         width: auto;
+         max-width: 80%;
+
+      }
+   }
+
+   &__container {
+      height: 100%;
+   }
+
+   &__title-shell {
+      @include padding-x;
+   }
+
+   &__swiper {}
+
+   &__slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      height: 100%;
+      @include padding-x;
+
+      @media (min-width:1024px) {
+         align-items: center;
+         flex-direction: row;
+         --gap: 40px;
+         gap: var(--gap);
+
+         &>* {
+            flex: 0 0 calc(50% - var(--gap) / 2);
+         }
+      }
+   }
+
+
+
+   &__content-title {
+      margin-bottom: 16px;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 89%;
+      letter-spacing: -0.03em;
+      color: var(--color-periwinkle-crayola);
+
+      @media (min-width:1024px) {
+         margin-bottom: 24px;
+         font-size: 72px;
+      }
+   }
+
+   &__content-text {
+      max-width: 320px;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 122%;
+      color: var(--color-silver-grey);
+
+      @media (min-width:1024px) {
+         font-size: 18px;
+      }
+   }
+
+   &__image {
+      margin: 0 auto;
+      width: 100%;
+
+      @media (min-width:1024px) {
+         max-width: 512px;
+      }
+   }
+
+   &__image-shell {
+      position: relative;
+      padding-bottom: 78%;
+      overflow: hidden;
+      border-radius: 16px;
+
+      img {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+}

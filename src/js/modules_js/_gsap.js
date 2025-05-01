@@ -50,35 +50,6 @@ window.addEventListener('load', function (event) {
       // effects: true
    });
 
-   // document.body.addEventListener('click', (event) => {
-   //    if (event.target.closest('[href^="#"]')) {
-   //       event.preventDefault();
-   //       let getName = event.target.closest('[href^="#"]').getAttribute('href');
-   //       closeHeaderMenu();
-   //       gsap.to(window, { scrollTo: getName, ease: "power2" })
-   //    }
-   // })
-
-
-   // gsap.to('.scroll-animation', {
-   //    scrollTrigger: {
-   //       trigger: '.scroll-animation',
-
-   //       start: '0% 0%',
-   //       end: '100% 100%',
-
-   // pin: true,
-   // scrub: true,
-
-   //       markers: {
-   //          startColor: "red",
-   //          endColor: "green",
-   //          fontSize: "18px",
-   //          fontWeight: "bold",
-   //          indent: 20
-   //       },
-   //    }
-   // })
    if (document.getElementById('container3D')) {
       gsap.to('#container3D', {
          scrollTrigger: {
@@ -121,7 +92,6 @@ window.addEventListener('load', function (event) {
       )
    })
 
-   // if (document.querySelector('.about-section__title')) addTextAnimatePin('.about-section__title');
 
    const ANIMATE_PIN = document.querySelectorAll('.js-text-animate-pin');
    ANIMATE_PIN.forEach(element => { addTextAnimate(element) });
@@ -147,5 +117,44 @@ window.addEventListener('load', function (event) {
    };
 
 
+   if (document.querySelector('.benefit__body')) {
+      gsap.to('.benefit__progress', {
+         "--progress": "100%",
+         scrollTrigger: {
+            trigger: '.benefit__body',
+            start: '100% 100%',
+            end: '0% 0%',
+            scrub: true,
+            // markers: {
+            //    startColor: "red",
+            //    endColor: "green",
+            //    fontSize: "18px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
+         }
+      })
+   }
 
+   // if (document.querySelector('.benefit__block')) {
+   //    const benefitBody = document.querySelector('.benefit__body').offsetWidth;
+   //    console.log(benefitBody);
+   //    gsap.to('.benefit__body ', {
+   //       x: -benefitBody + "px",
+
+   //       scrollTrigger: {
+   //          trigger: '.benefit__body',
+   //          start: '90% 90%',
+   //          end: '-10% -10%',
+   //          scrub: true,
+   //          markers: {
+   //             startColor: "red",
+   //             endColor: "green",
+   //             fontSize: "18px",
+   //             fontWeight: "bold",
+   //             indent: 20
+   //          }
+   //       }
+   //    })
+   // }
 })

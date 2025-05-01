@@ -12,9 +12,21 @@
 
                <form class="menu-contacts__form modal__content" action="#" method="post" data-da=".menu-contacts__body,1,1024">
                   <div class="modal__title">Связаться с нами</div>
-                  <input class="input-text" type="text" name="name" placeholder="Ваше имя">
-                  <input class="input-text" type="text" name="tel" placeholder="Телефон">
-                  <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
+                  <label class="input-text">
+                     <input type="text" placeholder="">
+                     <span class="input-placeholder">Ваше имя</span>
+                     <span class="input-error">Введите имя</span>
+                  </label>
+                  <label class="input-text">
+                     <input type="number" placeholder="">
+                     <span class="input-placeholder">Телефон</span>
+                     <span class="input-error">Введите телефон</span>
+                  </label>
+                  <label class="input-text">
+                     <textarea placeholder="" minlength="2" required></textarea>
+                     <span class="input-placeholder">Сообщение</span>
+                     <span class="input-error">Введите сообщение</span>
+                  </label>
                   <label class="checkbox-body">
                      <input class="checkbox-input" type="checkbox" name="consent">
                      <span class="checkbox-item">

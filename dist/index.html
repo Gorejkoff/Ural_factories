@@ -9,7 +9,7 @@
 <meta name="description" content="Современная цифровая радиосвязь стандарта DMR">
 <meta itemprop="image" content="https://gorejkoff.github.io/Ural_factories/dist/img/jpg/img-7.jpg">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?_v=20250501104129">
 </head>
 
 
@@ -730,9 +730,21 @@
 
                <form class="menu-contacts__form modal__content" action="#" method="post" data-da=".menu-contacts__body,1,1024">
                   <div class="modal__title">Связаться с нами</div>
-                  <input class="input-text" type="text" name="name" placeholder="Ваше имя">
-                  <input class="input-text" type="text" name="tel" placeholder="Телефон">
-                  <textarea class="textarea" name="message" placeholder="Сообщение"></textarea>
+                  <label class="input-text">
+                     <input type="text" placeholder="">
+                     <span class="input-placeholder">Ваше имя</span>
+                     <span class="input-error">Введите имя</span>
+                  </label>
+                  <label class="input-text">
+                     <input type="number" placeholder="">
+                     <span class="input-placeholder">Телефон</span>
+                     <span class="input-error">Введите телефон</span>
+                  </label>
+                  <label class="input-text">
+                     <textarea placeholder="" minlength="2" required></textarea>
+                     <span class="input-placeholder">Сообщение</span>
+                     <span class="input-error">Введите сообщение</span>
+                  </label>
                   <label class="checkbox-body">
                      <input class="checkbox-input" type="checkbox" name="consent">
                      <span class="checkbox-item">
@@ -825,16 +837,16 @@
    </div>
 </div>
 
-   <script defer src='./js/gsap.min.js'></script>
-<script defer src='./js/ScrollToPlugin.min.js'></script>
-<script defer src='./js/ScrollTrigger.min.js'></script>
-<script defer src='./js/ScrollSmoother.js'></script>
-<script src="https://cdn.babylonjs.com/babylon.js"></script>
-<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js"></script>
-<script defer type="module" src='./js/app.js'></script>
+   <script defer src='./js/gsap.min.js?_v=20250501104129'></script>
+<script defer src='./js/ScrollToPlugin.min.js?_v=20250501104129'></script>
+<script defer src='./js/ScrollTrigger.min.js?_v=20250501104129'></script>
+<script defer src='./js/ScrollSmoother.js?_v=20250501104129'></script>
+<script src="https://cdn.babylonjs.com/babylon.js?_v=20250501104129"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylon.glTF2FileLoader.min.js?_v=20250501104129"></script>
 
-<script defer src='./js/swiper.js'></script>
+<script defer src='./js/swiper.js?_v=20250501104129'></script>
 
+<script defer type="module" src='./js/app.js?_v=20250501104129'></script>
 
 
 </body>

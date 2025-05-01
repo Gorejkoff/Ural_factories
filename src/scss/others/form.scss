@@ -91,15 +91,15 @@
       }
    }
 
-   textarea:not(:placeholder-shown):invalid,
-   input:not(:placeholder-shown):invalid {
-      color: var(--color-scarlet);
-      border-color: var(--color-scarlet);
+   // textarea:not(:placeholder-shown):invalid,
+   // input:not(:placeholder-shown):invalid {
+   //    color: var(--color-scarlet);
+   //    border-color: var(--color-scarlet);
 
-      &~.input-error {
-         display: block;
-      }
-   }
+   //    &~.input-error {
+   //       display: block;
+   //    }
+   // }
 
    textarea:not(:placeholder-shown)~.input-placeholder,
    input:not(:placeholder-shown)~.input-placeholder,

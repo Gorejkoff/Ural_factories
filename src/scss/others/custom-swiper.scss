@@ -1,5 +1,6 @@
 .custom-swiper {
    position: relative;
+   overflow: hidden;
 
    &__container {
       position: relative;
@@ -12,11 +13,9 @@
 
    &__background {
       padding-top: 75px;
-      // margin-left: calc(var(--padding-container) * -1);
       width: 100vw;
       position: relative;
       z-index: -1;
-      transition: transform 2s cubic-bezier(0.32, 0, 0.38, 0.99);
       overflow: hidden;
 
       @media (min-width:992px) {
@@ -157,17 +156,3 @@
       }
    }
 }
-
-// @keyframes custom_swiper_prev {
-//    0% {
-//       transform: translateX(0);
-//    }
-
-//    50% {
-//       transform: translateX(100vw);
-//    }
-
-//    100% {
-//       transform: translateX(0);
-//    }
-// }
