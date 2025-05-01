@@ -144,6 +144,21 @@ if (document.querySelector('.custom-swiper__swiper')) {
 if (document.querySelector('.custom-swiper-benefit__swiper')) {
 
    const animate = new AnimateBackground('.custom-swiper-benefit__background');
+   const benefitSwiper = document.querySelector('.custom-swiper-benefit__swiper');
+   const quantitySlide = benefitSwiper.querySelectorAll('.swiper-slide');
+   const thumbList = document.querySelector('.custom-swiper-benefit__swiper-thumb-list');
+   for (let i = 1; i < quantitySlide.length; i++) {
+      const thumbLi = thumbList.querySelector('li').cloneNode(true);
+      thumbList.append(thumbLi)
+   }
+
+   const swiper_tumb = new Swiper('.custom-swiper-benefit__swiper-thumb', {
+      allowTouchMove: true,
+      spaceBetween: 8,
+      speed: 2000,
+      slidesPerView: 3.5,
+      grabCursor: true,
+   });
 
    const swiper = new Swiper('.custom-swiper-benefit__swiper', {
       keyboard: {
@@ -156,6 +171,9 @@ if (document.querySelector('.custom-swiper-benefit__swiper')) {
       speed: 2000,
       slidesPerView: 1,
       grabCursor: true,
+      thumbs: {
+         swiper: swiper_tumb,
+      },
       on: {
          slideNextTransitionStart: function () {
             animate.backgroundMove(-50)

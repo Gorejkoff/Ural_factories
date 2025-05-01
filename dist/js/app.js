@@ -285,14 +285,15 @@ window.addEventListener('load', function (event) {
    };
 
 
-   if (document.querySelector('.benefit__body')) {
+   if (document.querySelector('.benefit__body') && MIN768.matches) {
       gsap.to('.benefit__progress', {
          "--progress": "100%",
+         duration: 5,
          scrollTrigger: {
             trigger: '.benefit__body',
             start: '100% 100%',
             end: '0% 0%',
-            scrub: true,
+            scrub: MIN768.matches ? true : false,
             // markers: {
             //    startColor: "red",
             //    endColor: "green",
@@ -304,27 +305,50 @@ window.addEventListener('load', function (event) {
       })
    }
 
-   // if (document.querySelector('.benefit__block')) {
-   //    const benefitBody = document.querySelector('.benefit__body').offsetWidth;
-   //    console.log(benefitBody);
-   //    gsap.to('.benefit__body ', {
-   //       x: -benefitBody + "px",
+   if (document.querySelector('.benefit__block') && !MIN768.matches) {
 
-   //       scrollTrigger: {
-   //          trigger: '.benefit__body',
-   //          start: '90% 90%',
-   //          end: '-10% -10%',
-   //          scrub: true,
-   //          markers: {
-   //             startColor: "red",
-   //             endColor: "green",
-   //             fontSize: "18px",
-   //             fontWeight: "bold",
-   //             indent: 20
-   //          }
-   //       }
-   //    })
-   // }
+      const paddingX = getComputedStyle(document.querySelector('.benefit__container')).paddingLeft;
+      const scrollWidth = document.querySelector('.benefit__body').offsetWidth - window.innerWidth + parseInt(paddingX) * 2;
+      const benefitScroll = document.querySelector('.benefit__scroll');
+      let scrollValue = 0;
+      const benefitProgress = document.querySelector('.benefit__progress');
+
+      benefitScroll.addEventListener('scroll', (event) => {
+         benefitProgress.style.setProperty('--progress', benefitScroll.scrollLeft / scrollWidth * 100 + "%")
+      })
+
+      function scrollElement() {
+         scrollValue += 2;
+         benefitScroll.scrollLeft = scrollValue;
+         if (scrollValue < scrollWidth) {
+            requestAnimationFrame(scrollElement)
+         }
+      }
+
+      function scrollToBeginning() {
+         scrollValue = 0;
+         benefitScroll.scrollLeft = 0;
+      }
+
+      gsap.to('.benefit__body ', {
+         duration: 5,
+         scrollTrigger: {
+            trigger: '.benefit__body',
+            start: '100% 100%',
+            end: '0% 0%',
+            onEnter: () => { if (scrollElement) scrollElement() },
+            onLeaveBack: () => { if (scrollToBeginning) scrollToBeginning() },
+            // scrub: true,
+            // markers: {
+            //    startColor: "red",
+            //    endColor: "green",
+            //    fontSize: "18px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
+         }
+      })
+   }
 })
 /* открывает, закрывает модальные окна. */
 /*
@@ -543,6 +567,21 @@ if (document.querySelector('.custom-swiper__swiper')) {
 if (document.querySelector('.custom-swiper-benefit__swiper')) {
 
    const animate = new AnimateBackground('.custom-swiper-benefit__background');
+   const benefitSwiper = document.querySelector('.custom-swiper-benefit__swiper');
+   const quantitySlide = benefitSwiper.querySelectorAll('.swiper-slide');
+   const thumbList = document.querySelector('.custom-swiper-benefit__swiper-thumb-list');
+   for (let i = 1; i < quantitySlide.length; i++) {
+      const thumbLi = thumbList.querySelector('li').cloneNode(true);
+      thumbList.append(thumbLi)
+   }
+
+   const swiper_tumb = new Swiper('.custom-swiper-benefit__swiper-thumb', {
+      allowTouchMove: true,
+      spaceBetween: 8,
+      speed: 2000,
+      slidesPerView: 3.5,
+      grabCursor: true,
+   });
 
    const swiper = new Swiper('.custom-swiper-benefit__swiper', {
       keyboard: {
@@ -555,6 +594,9 @@ if (document.querySelector('.custom-swiper-benefit__swiper')) {
       speed: 2000,
       slidesPerView: 1,
       grabCursor: true,
+      thumbs: {
+         swiper: swiper_tumb,
+      },
       on: {
          slideNextTransitionStart: function () {
             animate.backgroundMove(-50)

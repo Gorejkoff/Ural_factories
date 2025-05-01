@@ -1,13 +1,15 @@
 .benefit {
    overflow: hidden;
 
+   &__scroll {
+      @media (max-width:767.98px) {
+         overflow-x: auto;
+      }
+   }
 
    &__body {
       position: relative;
       width: fit-content;
-
-      // transform: translateX(calc(-100% + 100vw));
-
 
       @media (min-width:768px) {
          width: 100%;

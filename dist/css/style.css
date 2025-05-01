@@ -3522,6 +3522,45 @@ a.dark-card__text {
      object-fit: cover;
 }
 
+.custom-swiper-benefit__swiper-thumb {
+  padding-bottom: 32px;
+}
+
+.custom-swiper-benefit__swiper-thumb-list {
+  counter-reset: item;
+}
+
+.custom-swiper-benefit__swiper-thumb-slide {
+  height: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid rgba(212, 214, 227, 0.2);
+  border-radius: 4px;
+  background-color: transparent;
+  -webkit-transition: background-color 0.5s, border-color 0.5s;
+  transition: background-color 0.5s, border-color 0.5s;
+}
+
+.custom-swiper-benefit__swiper-thumb-slide:before {
+  content: counter(item);
+  counter-increment: item;
+  color: var(--color-white);
+}
+
+.custom-swiper-benefit__swiper-thumb-slide.swiper-slide-thumb-active {
+  border-color: transparent;
+  background-color: var(--color-orange);
+  -webkit-transition: background-color 0.5s, border-color 0.5s;
+  transition: background-color 0.5s, border-color 0.5s;
+}
+
 .benefit {
   overflow: hidden;
 }
@@ -3751,6 +3790,10 @@ a.dark-card__text {
 
   .scheme__card-text {
     font-size: 18px;
+  }
+
+  .custom-swiper-benefit__swiper-thumb {
+    display: none;
   }
 
   .benefit__body {
@@ -5153,6 +5196,10 @@ a.dark-card__text {
 
   .form-section__image-sell {
     min-height: 53vw;
+  }
+
+  .benefit__scroll {
+    overflow-x: auto;
   }
 }
 

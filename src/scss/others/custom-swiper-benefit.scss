@@ -119,4 +119,42 @@
          object-fit: cover;
       }
    }
+
+
+   &__swiper-thumb {
+      padding-bottom: 32px;
+
+      @media (min-width:768px) {
+         display: none;
+      }
+   }
+
+   &__swiper-thumb-list {
+      counter-reset: item
+   }
+
+   &__swiper-thumb-slide {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(212, 214, 227, 0.2);
+      border-radius: 4px;
+      background-color: transparent;
+      transition: background-color 0.5s, border-color 0.5s;
+
+      &:before {
+         content: counter(item);
+         counter-increment: item;
+         color: var(--color-white);
+      }
+
+      &.swiper-slide-thumb-active {
+         border-color: transparent;
+         background-color: var(--color-orange);
+         transition: background-color 0.5s, border-color 0.5s;
+      }
+
+   }
+
 }
