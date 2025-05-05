@@ -230,7 +230,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
    // Добавление света
    const light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-1, 1, 5), scene);
-   light1.intensity = 0.8;
+   light1.intensity = 1;
    light1.diffuse = new BABYLON.Color3(1, 1, 1);
    const light2 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(0, 0, -5), scene);
    light2.intensity = 0.3;
@@ -270,9 +270,9 @@ window.addEventListener('DOMContentLoaded', function () {
    // );
 
    // Загрузка модели
-   // BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-5.glb", scene, function (scene) {
-   BABYLON.SceneLoader.Append("../glb/", "radio-texture-1.glb", scene, function (scene) {
-      // BABYLON.SceneLoader.Append("../glb/", "transmitter-5.glb", scene, function (scene) {
+   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-8.glb", scene, function (scene) {
+      // BABYLON.SceneLoader.Append("../glb/", "radio-texture-1.glb", scene, function (scene) {
+      // BABYLON.SceneLoader.Append("../glb/", "transmitter-8.glb", scene, function (scene) {
       scene.animationGroups.forEach(animationGroup => {
          animationGroup.stop();
          animationGroup.dispose();
@@ -343,87 +343,93 @@ window.addEventListener('DOMContentLoaded', function () {
       console.log(mesh_primitive0, " - mash frame_primitive0");
 
 
-      // Создаём новый материал
-      const new_material = new BABYLON.StandardMaterial("custom_mat", scene);
-
-      // Загружаем текстуру
-      const new_texture = new BABYLON.Texture("../textures/mud.png", scene); // 🚨 Укажите правильный путь!
-      // Проверка ошибок загрузки текстуры
-      new_texture.onLoadObservable.add(() => {
-         console.log("Текстура успешно загружена!");
-      });
-      // new_texture.onErrorObservable.add(() => {
-      //    console.error("Ошибка загрузки текстуры!");
-      // });
-
-      // new_material.diffuseTexture = new_texture;
 
 
+      function addTexture() {
+         // *******************************************************************************************************
+         // Создаём новый материал
+         const new_material = new BABYLON.StandardMaterial("custom_mat", scene);
 
-      // PBR texture
-      // Основные текстуры
-      const pbr = new BABYLON.PBRMaterial("pbr", scene);
-      pbr.albedoTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_albedo.png", scene); // Albedo
-      pbr.normalTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_normal-ogl.png", scene);    // Normal Map
-      pbr.metallicTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_metallic.png", scene); // Metallic
-      pbr.roughnessTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_roughness.png", scene); // Roughness
-      pbr.emissiveTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_emissive.png", scene)
-      pbr.ambientTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_ao.png", scene); // имитирует мягкие тени в углах и складках 3D-модели, добавляя реалистичность без увеличения количества источников света
-      // pbr.ambientTextureStrength = 2.0; // Усиливаем эффект
-      pbr.heightTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_height.png", scene);
-      pbr.useParallax = true; // Включить параллакс
-      pbr.useParallaxOcclusion = true; // Более точный эффект
-      pbr.parallaxScaleBias = 0.1; // Сила эффекта (0.01–0.1)
+         // Загружаем текстуру
+         const new_texture = new BABYLON.Texture("../textures/mud.png", scene); // 🚨 Укажите правильный путь!
+         // Проверка ошибок загрузки текстуры
+         new_texture.onLoadObservable.add(() => {
+            console.log("Текстура успешно загружена!");
+         });
+         // new_texture.onErrorObservable.add(() => {
+         //    console.error("Ошибка загрузки текстуры!");
+         // });
 
-      pbr.albedoTexture.uScale = 1; // Горизонтальный масштаб
-      pbr.albedoTexture.vScale = 1; // Вертикальный масштаб
+         // new_material.diffuseTexture = new_texture;
 
-      pbr.metallic = 1.0;       // Полная металличность
-      pbr.roughness = 0.3;      // Гладкая поверхность
-      // pbr.subSurface.isRefractionEnabled = true; // Прозрачность (для стекла/воды)
-      // Применяем материал к мешу
-      mesh_primitive0.material = pbr;
-      back_cover.material = pbr;
-      holder.material = pbr;
-      // Настраиваем материал (опционально)
+         // ********************************************************************************************************
+         // PBR texture
+         // Основные текстуры
+         const pbr = new BABYLON.PBRMaterial("pbr", scene);
+         pbr.albedoTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_albedo.png", scene); // Albedo
+         pbr.normalTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_normal-ogl.png", scene);    // Normal Map
+         pbr.metallicTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_metallic.png", scene); // Metallic
+         pbr.roughnessTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_roughness.png", scene); // Roughness
+         pbr.emissiveTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_emissive.png", scene)
+         pbr.ambientTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_ao.png", scene); // имитирует мягкие тени в углах и складках 3D-модели, добавляя реалистичность без увеличения количества источников света
+         // pbr.ambientTextureStrength = 2.0; // Усиливаем эффект
+         pbr.heightTexture = new BABYLON.Texture("../textures/columned-lava-rock-bl/columned-lava-rock_height.png", scene);
+         pbr.useParallax = true; // Включить параллакс
+         pbr.useParallaxOcclusion = true; // Более точный эффект
+         pbr.parallaxScaleBias = 0.1; // Сила эффекта (0.01–0.1)
 
-      // new_material.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2); // Можно настроить блики
-      // new_material.emissiveColor = new BABYLON.Color3(0.1, 0.1, 0.1); // Лёгкое свечение
-      // new_material.ambientColor = new BABYLON.Color3(0.1, 0.1, 0.1); // Затемнение. Серый оттенок (0-1)
+         pbr.albedoTexture.uScale = 1; // Горизонтальный масштаб
+         pbr.albedoTexture.vScale = 1; // Вертикальный масштаб
 
-      // Применяем материал к мешу
-      // mesh_primitive0.material = new_material;
+         pbr.metallic = 1.0;       // Полная металличность
+         pbr.roughness = 0.3;      // Гладкая поверхность
+         // pbr.subSurface.isRefractionEnabled = true; // Прозрачность (для стекла/воды)
+         // Применяем материал к мешу
 
+         // mesh_primitive0.material = pbr;
+         back_cover.material = pbr;
+         holder.material = pbr;
+         // Настраиваем материал (опционально)
 
+         // new_material.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2); // Можно настроить блики
+         // new_material.emissiveColor = new BABYLON.Color3(0.1, 0.1, 0.1); // Лёгкое свечение
+         // new_material.ambientColor = new BABYLON.Color3(0.1, 0.1, 0.1); // Затемнение. Серый оттенок (0-1)
 
-      if (mesh_primitive0 && mesh_primitive0.material) {
-         const material = mesh_primitive0.material;
-         console.log(material, " - material");
-
-         // Проверка диффузной текстуры(albedo)
-         if (material.diffuseTexture) {
-            console.log("Diffuse Texture:", material.diffuseTexture.name);
-         }
-
-         // Проверка нормал-мапа
-         if (material.bumpTexture) {
-            console.log("Bump Texture:", material.bumpTexture.name);
-         }
-
-
-         // Проверка других текстур (в зависимости от типа материала)
-         if (material instanceof BABYLON.PBRMaterial) {
-            if (material.albedoTexture) {
-               console.log("Albedo Texture:", material.albedoTexture.name);
-            }
-            if (material.metallicRoughnessTexture) {
-               console.log("MetallicRoughness Texture:", material.metallicRoughnessTexture.name);
-            }
-         }
+         // Применяем материал к мешу
+         // mesh_primitive0.material = new_material;
+         // ********************************************************************************************************
       }
 
 
+      function testTexture() {
+         if (mesh_primitive0 && mesh_primitive0.material) {
+            const material = mesh_primitive0.material;
+            console.log(material, " - material");
 
+            // Проверка диффузной текстуры(albedo)
+            if (material.diffuseTexture) {
+               console.log("Diffuse Texture:", material.diffuseTexture.name);
+            }
+
+            // Проверка нормал-мапа
+            if (material.bumpTexture) {
+               console.log("Bump Texture:", material.bumpTexture.name);
+            }
+
+            // Проверка других текстур (в зависимости от типа материала)
+            if (material instanceof BABYLON.PBRMaterial) {
+               if (material.albedoTexture) {
+                  console.log("Albedo Texture:", material.albedoTexture.name);
+               }
+               // if (material.normalTexture) {
+               //    console.log("Normal Texture:", material.normalTexture.name);
+               // }
+               if (material.metallicRoughnessTexture) {
+                  console.log("MetallicRoughness Texture:", material.metallicRoughnessTexture.name);
+               }
+            }
+         }
+      }
 
 
       // spotLight.includedOnlyMeshes = [antenna[0], front_frame[0]];
