@@ -23,7 +23,9 @@ window.addEventListener('DOMContentLoaded', function () {
       return;
    };
    let model;
-   let empty;
+   let transmitter;
+   let light_side;
+   let light_screen;
    let volumeElement;
    let frequency;
    let antenna;
@@ -58,15 +60,21 @@ window.addEventListener('DOMContentLoaded', function () {
    let distance = 40;
    if (MIN768.matches) { distance = 20 };
    const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2, distance, BABYLON.Vector3.Zero(), scene);
+   camera.setTarget(BABYLON.Vector3.Zero());
+
+
    // camera.attachControl(canvas, true);
 
-   // Добавление света
+   //todo--- Добавление света 
+
    const light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-1, 1, 5), scene);
    light1.intensity = 1;
    light1.diffuse = new BABYLON.Color3(1, 1, 1);
    const light2 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(0, 0, -5), scene);
    light2.intensity = 0.3;
    light2.diffuse = new BABYLON.Color3(1, 1, 1);
+
+
 
 
    // const spotLight = new BABYLON.SpotLight(
@@ -102,9 +110,9 @@ window.addEventListener('DOMContentLoaded', function () {
    // );
 
    // Загрузка модели
-   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "transmitter-8.glb", scene, function (scene) {
+   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "edit-4.glb", scene, function (scene) {
       // BABYLON.SceneLoader.Append("../glb/", "radio-texture-1.glb", scene, function (scene) {
-      // BABYLON.SceneLoader.Append("../glb/", "transmitter-8.glb", scene, function (scene) {
+      // BABYLON.SceneLoader.Append("../glb/", "edit-4.glb", scene, function (scene) {
       scene.animationGroups.forEach(animationGroup => {
          animationGroup.stop();
          animationGroup.dispose();
@@ -123,24 +131,24 @@ window.addEventListener('DOMContentLoaded', function () {
       cylinder = model._children[0];
       // console.log(cylinder, 'cylinder')
 
-      empty = model._children[1];
-      // console.log(empty, "empty");
+      transmitter = model._children[1];
+      console.log(transmitter, "transmitter");
 
-      // antenna = empty._children.filter((e) => { return e.name == "antenna" });
+      // antenna = transmitter._children.filter((e) => { return e.name == "antenna" });
       // console.log(antenna[0], 'antenna');
 
-      volumeElement = empty._children.filter((e) => { return e.name == "volume" });
+      volumeElement = transmitter._children.filter((e) => { return e.name == "volume" });
       // console.log(volumeElement[0], 'volumeElement');
 
-      frequency = empty._children.filter((e) => { return e.name == "Frequency" });
+      frequency = transmitter._children.filter((e) => { return e.name == "frequency" });
       // console.log(frequency[0], 'frequency');
 
 
-      // spotLight.parent = empty;
-      // spotLight_1.parent = empty;
+      // spotLight.parent = transmitter;
+      // spotLight_1.parent = transmitter;
 
 
-      // let front_frame = empty._children.filter((e) => { return e.name == "front frame" });
+      // let front_frame = transmitter._children.filter((e) => { return e.name == "front frame" });
       // console.log(front_frame[0], 'front_frame');
 
       let back_cover = scene.getMeshByName("back cover");
@@ -149,10 +157,11 @@ window.addEventListener('DOMContentLoaded', function () {
       let holder = scene.getMeshByName("holder");
       // console.log(holder[0], 'holder');
 
-      // let glass = empty._children.filter((e) => { return e.name == "glass" });
+      let glass = transmitter._children.filter((e) => { return e.name == "glass" });
+
       // console.log(glass[0], 'glass');
 
-      // let black_glass = empty._children.filter((e) => { return e.name == "black glass" });
+      // let black_glass = transmitter._children.filter((e) => { return e.name == "black glass" });
       // console.log(black_glass[0], 'black glass');
 
       // let black_glass_primitive0 = black_glass[0]._children.filter((e) => { return e.name == "black glass_primitive0" });
@@ -165,15 +174,46 @@ window.addEventListener('DOMContentLoaded', function () {
       // spotLight.excludedMeshes.push(black_glass_primitive1[0]);
       // spotLight.excludedMeshes.push(glass[0]);
 
-      // let frame = empty._children.filter((e) => { return e.name == "frame" });
-      // console.log(frame[0], 'frame');
+      // let frame = transmitter._children.filter((e) => { return e.name == "frame" });
+      const front_frame = scene.getMeshByName("front frame");
+      // console.log(front_frame, 'front frame');
       // let frame_primitive0 = frame[0]._children.filter((e) => { return e.name == "frame_primitive0" });
       // console.log(frame_primitive0[0], 'frame_primitive0');
 
 
       const mesh_primitive0 = scene.getMeshByName("frame_primitive0");
-      console.log(mesh_primitive0, " - mash frame_primitive0");
+      // console.log(mesh_primitive0, " - mash frame_primitive0");
 
+      // const lights = scene.lights;
+      // console.log(lights, " - все источники света");
+      //todo--- Добавление света 
+      light_screen = scene.getLightByName("light_screen");
+      light_screen.intensity = 20;
+      light_screen.diffuse = new BABYLON.Color3(1, 0.065, 0);
+      light_screen.range = 3000;
+
+      // console.log(light_screen, " - light_screen");
+
+      light_side = scene.getLightByName("light_side");
+      // light_side.intensity = 2000;
+      light_side.shadowEnabled = true;
+      console.log(light_side, " - light_side");
+
+      const shadowGenerator = new BABYLON.ShadowGenerator(1024, light_side);
+      shadowGenerator.useBlurExponentialShadowMap = true; // Для мягких теней
+      shadowGenerator.blurKernel = 32;
+
+      // Добавляем объекты, которые должны отбрасывать тени
+      shadowGenerator.addShadowCaster(mesh_primitive0, front_frame);
+      // свет игнорирует указанные модели
+      light_side.excludedMeshes.push(front_frame, glass[0]);
+
+
+      // группировка радиостации и боковой подсветки
+      // const group = new BABYLON.TransformNode("group", scene);
+      // Добавляем объекты в группу (делаем их дочерними)
+      // transmitter.parent = group;
+      // light_side.parent = group;
 
 
 
@@ -266,7 +306,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
       // spotLight.includedOnlyMeshes = [antenna[0], front_frame[0]];
 
-      // let point = empty._children.filter((e) => { return e.name == "Point" });
+      // let point = transmitter._children.filter((e) => { return e.name == "Point" });
       // console.log(point[0], "point");
 
 
@@ -298,7 +338,11 @@ window.addEventListener('DOMContentLoaded', function () {
    function rodioAnimation() {
 
       if (MIN768.matches) {
-         empty.position = new BABYLON.Vector3(
+         transmitter.position = new BABYLON.Vector3(
+            8 * ratioX * (1 - progressRadioAnimation),
+            -1 * ratioY * (1 - progressRadioAnimation) - 1,
+            0);
+         light_side.position = new BABYLON.Vector3(
             8 * ratioX * (1 - progressRadioAnimation),
             -1 * ratioY * (1 - progressRadioAnimation) - 1,
             0);
@@ -308,7 +352,7 @@ window.addEventListener('DOMContentLoaded', function () {
       } else {
          model.position = new BABYLON.Vector3(progressRadioAnimation * -3, progressRadioAnimation * -2 + 2, 0)
       }
-      empty.rotation = new BABYLON.Vector3(0, (Math.PI * 2) * -progressRadioAnimation, 0);
+      transmitter.rotation = new BABYLON.Vector3(0, (Math.PI * 2) * -progressRadioAnimation, 0);
       if (progressRadioAnimation > circleStart) {
          let value = (progressRadioAnimation - circleStart) / circlePath;
          cylinder.scaling.x = value;
@@ -332,7 +376,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
    // Рендер сцены
    engine.runRenderLoop(function () {
-      if (empty) { rodioAnimation() }
+      if (transmitter) { rodioAnimation() }
       scene.render();
    });
 
