@@ -196,6 +196,28 @@ body {
   --container-width: 1872px;
   --max-width-container: 1920px;
   background-color: var(--color-black);
+  -webkit-animation: start 0.5s forwards;
+          animation: start 0.5s forwards;
+}
+
+@-webkit-keyframes start {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes start {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .wrapper {

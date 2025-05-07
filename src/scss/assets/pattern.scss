@@ -10,6 +10,8 @@ body {
    --max-width-container: #{$max-width-container};
    // scrollbar-gutter: stable;
    background-color: var(--color-black);
+   // opacity: 0;
+   animation: start .5s forwards;
 
    @media (min-width:768px) {
       --padding-container: #{$padding-tablet};
@@ -17,6 +19,16 @@ body {
 
    @media (min-width:1024px) {
       --padding-container: #{$padding-desktop};
+   }
+}
+
+@keyframes start {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
    }
 }
 
