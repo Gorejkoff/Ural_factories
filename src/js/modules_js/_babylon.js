@@ -110,9 +110,9 @@ window.addEventListener('DOMContentLoaded', function () {
    // );
 
    // Загрузка модели
-   // BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "edit-4.glb", scene, function (scene) {
-   // BABYLON.SceneLoader.Append("../glb/", "radio-texture-1.glb", scene, function (scene) {
-   BABYLON.SceneLoader.Append("../glb/", "edit-7.glb", scene, function (scene) {
+   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "edit-7.glb", scene, function (scene) {
+      // BABYLON.SceneLoader.Append("../glb/", "radio-texture-1.glb", scene, function (scene) {
+      // BABYLON.SceneLoader.Append("../glb/", "edit-7.glb", scene, function (scene) {
       // scene.animationGroups.forEach(animationGroup => {
       //    animationGroup.stop();
       //    animationGroup.dispose();
