@@ -39,15 +39,13 @@
       max-width: 187px;
 
       @media (min-width:1024px) {
-         padding: 12px 24px;
+         // padding: 12px 24px;
          max-width: 285px;
       }
 
+      img,
       svg {
          max-width: 100%;
-         // path {
-         //    fill: var(--color-periwinkle-crayola)
-         // }
       }
    }
 
@@ -84,12 +82,20 @@
       --button-background: var(--color-white);
       --button-border-color: var(--color-white);
    }
+
+   &__logo-dark {
+      display: none;
+   }
 }
 
 .dark-header {
    .header__logo {
-      svg path {
-         fill: var(--color-black)
+      .header__logo-light {
+         display: none;
+      }
+
+      .header__logo-dark {
+         display: block;
       }
    }
 

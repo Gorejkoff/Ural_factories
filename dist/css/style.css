@@ -298,19 +298,19 @@ main > *:last-child .margin-medium {
   background: var(--color-bg-008);
 }
 
-.js-text-animate > * {
+.js-text-animate-free > * {
   display: block;
 }
 
-.js-text-animate .color-text {
+.js-text-animate-free .color-text {
   color: var(--color-text);
 }
 
-.js-text-animate .word {
+.js-text-animate-free .word {
   white-space: nowrap;
 }
 
-.js-text-animate .letter {
+.js-text-animate-free .letter {
   opacity: 0.3;
 }
 
@@ -617,6 +617,7 @@ main > *:last-child .margin-medium {
   max-width: 187px;
 }
 
+.header__logo img,
 .header__logo svg {
   max-width: 100%;
 }
@@ -631,8 +632,16 @@ main > *:last-child .margin-medium {
   --button-border-color: var(--color-white);
 }
 
-.dark-header .header__logo svg path {
-  fill: var(--color-black);
+.header__logo-dark {
+  display: none;
+}
+
+.dark-header .header__logo .header__logo-light {
+  display: none;
+}
+
+.dark-header .header__logo .header__logo-dark {
+  display: block;
 }
 
 .dark-header .header__button-contact {
@@ -3938,7 +3947,6 @@ a.dark-card__text {
   }
 
   .header__logo {
-    padding: 12px 24px;
     max-width: 285px;
   }
 

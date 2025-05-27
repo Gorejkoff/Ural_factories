@@ -123,16 +123,16 @@ window.addEventListener('load', function (event) {
          duration: 5,
          scrollTrigger: {
             trigger: '.benefit__body',
-            start: '100% 100%',
-            end: '0% 0%',
+            start: '80% 100%',
+            end: '40% 0%',
             scrub: MIN768.matches ? true : false,
-            // markers: {
-            //    startColor: "red",
-            //    endColor: "green",
-            //    fontSize: "18px",
-            //    fontWeight: "bold",
-            //    indent: 20
-            // }
+            markers: {
+               startColor: "red",
+               endColor: "green",
+               fontSize: "18px",
+               fontWeight: "bold",
+               indent: 20
+            }
          }
       })
    }
