@@ -111,7 +111,7 @@ INFO_GRID.forEach(e => {
    calcCildElementInfo(e)
 })
 // перемещение блоков при адаптиве
-// data-da=".class,3,768" 
+// data-da=".class,3,768"
 // класс родителя куда перемещать
 // порядковый номер в родительском блоке куда перемещается начиная с 0 как индексы массива
 // ширина экрана min-width
@@ -251,7 +251,6 @@ window.addEventListener('DOMContentLoaded', function () {
       const front_frame = scene.getMeshByName("front frame");
       // console.log(front_frame, 'front frame');
 
-
       const mesh_primitive0 = scene.getMeshByName("frame_primitive0");
       // console.log(mesh_primitive0, " - mash frame_primitive0");
 
@@ -320,8 +319,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
    // Рендер сцены
    engine.runRenderLoop(function () {
-      if (transmitter) { rodioAnimation() }
-      scene.render();
+      if (transmitter && Number(progressRadioAnimation) != 1) {
+         rodioAnimation();
+         scene.render();
+      }
    });
 
    // Обработка изменения размера окна
@@ -399,6 +400,28 @@ window.addEventListener('load', function (event) {
       smooth: 1,
       // effects: true
    });
+
+   if (document.querySelector('main')) {
+      const main = document.querySelector('main');
+      const parentHeader = HEADER.parentElement;
+      gsap.to(main, {
+         scrollTrigger: {
+            trigger: main,
+            start: '0% 0%',
+            end: '0% 0%',
+            onEnter: () => { moveHeader() },
+            onLeaveBack: () => { moveHeaderBack() },
+         }
+      })
+
+      function moveHeader() {
+         document.body.prepend(HEADER);
+      }
+      function moveHeaderBack() {
+         parentHeader.prepend(HEADER);
+      }
+
+   }
 
    if (document.getElementById('container3D')) {
       gsap.to('#container3D', {

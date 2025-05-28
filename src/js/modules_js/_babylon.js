@@ -83,7 +83,6 @@ window.addEventListener('DOMContentLoaded', function () {
       const front_frame = scene.getMeshByName("front frame");
       // console.log(front_frame, 'front frame');
 
-
       const mesh_primitive0 = scene.getMeshByName("frame_primitive0");
       // console.log(mesh_primitive0, " - mash frame_primitive0");
 
@@ -152,8 +151,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
    // Рендер сцены
    engine.runRenderLoop(function () {
-      if (transmitter) { rodioAnimation() }
-      scene.render();
+      if (transmitter && Number(progressRadioAnimation) != 1) {
+         rodioAnimation();
+         scene.render();
+      }
    });
 
    // Обработка изменения размера окна

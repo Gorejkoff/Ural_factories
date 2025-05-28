@@ -20,6 +20,13 @@ body {
    @media (min-width:1024px) {
       --padding-container: #{$padding-desktop};
    }
+
+   &>.header {
+      position: sticky;
+      top: 0;
+      background-color: var(--color-blackish-blue);
+   }
+
 }
 
 @keyframes start {

@@ -200,6 +200,12 @@ body {
           animation: start 0.5s forwards;
 }
 
+body > .header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-blackish-blue);
+}
+
 @-webkit-keyframes start {
   0% {
     opacity: 0;

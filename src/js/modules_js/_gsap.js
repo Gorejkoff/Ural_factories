@@ -50,6 +50,28 @@ window.addEventListener('load', function (event) {
       // effects: true
    });
 
+   if (document.querySelector('main')) {
+      const main = document.querySelector('main');
+      const parentHeader = HEADER.parentElement;
+      gsap.to(main, {
+         scrollTrigger: {
+            trigger: main,
+            start: '0% 0%',
+            end: '0% 0%',
+            onEnter: () => { moveHeader() },
+            onLeaveBack: () => { moveHeaderBack() },
+         }
+      })
+
+      function moveHeader() {
+         document.body.prepend(HEADER);
+      }
+      function moveHeaderBack() {
+         parentHeader.prepend(HEADER);
+      }
+
+   }
+
    if (document.getElementById('container3D')) {
       gsap.to('#container3D', {
          scrollTrigger: {
