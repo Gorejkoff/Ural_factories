@@ -32,7 +32,7 @@
 
 :root {
   --font-family: "Hoves", sans-serif;
-  --color-white: #ffffff;
+  --color-white: #FEFEFE;
   --color-sea-foam: #FFFBF9;
   --color-blue-alice: #F9FCFF;
   --color-black: #0C1014;
@@ -526,12 +526,17 @@ main > *:last-child .margin-medium {
   height: 48px;
   border-radius: 8px;
   border: 1px solid var(--color-periwinkle-crayola-02);
-  -webkit-transition: border-color 0.3s;
-  transition: border-color 0.3s;
+  -webkit-transition: border-color 0.3s, opacity 0.3s;
+  transition: border-color 0.3s, opacity 0.3s;
 }
 
 ._pc .swiper-button:not(.swiper-button-disabled):hover {
   border-color: var(--color-periwinkle-crayola-06);
+}
+
+.swiper-button.swiper-button-disabled {
+  pointer-events: none;
+  opacity: 0.3;
 }
 
 .swiper-nav-block {
@@ -653,6 +658,7 @@ main > *:last-child .margin-medium {
 .dark-header .header__button-contact {
   --button-background: var(--color-black);
   --button-color: var(--color-periwinkle-crayola);
+  --button-border-color: var(--color-black);
 }
 
 .footer {
@@ -702,6 +708,7 @@ main > *:last-child .margin-medium {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  --button-border-color: var(--color-periwinkle-crayola-02);
 }
 
 .footer__logo {
@@ -1104,7 +1111,6 @@ main > *:last-child .margin-medium {
 
 .about-section__title {
   margin-bottom: 64px;
-  height: var(--vh);
   max-width: 1150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1756,6 +1762,7 @@ main > *:last-child .margin-medium {
 .documents-certificates__tab-button.active {
   background-color: var(--color-orange);
   border-color: var(--color-orange);
+  color: var(--color-white);
 }
 
 .documents-certificates__tab-page {
@@ -2313,8 +2320,9 @@ a.dark-card__text {
   max-width: none;
 }
 
-.information__cell {
+.information__cell a {
   padding: 8px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4104,7 +4112,7 @@ a.dark-card__text {
   }
 
   .about-section__title {
-    margin: 0 auto;
+    margin: 0 auto 96px;
     font-size: 88px;
   }
 

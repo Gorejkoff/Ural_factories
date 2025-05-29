@@ -26,12 +26,15 @@
    // }
 
    &__cell {
-      padding: 8px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 16px;
-      overflow: hidden;
-      background-color: var(--color-lavender);
+      a {
+         padding: 8px;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         border-radius: 16px;
+         overflow: hidden;
+         background-color: var(--color-lavender);
+      }
    }
 
    &__cell-content {

@@ -467,10 +467,15 @@ main>*:last-child {
    height: 48px;
    border-radius: 8px;
    border: 1px solid var(--color-periwinkle-crayola-02);
-   transition: border-color 0.3s;
+   transition: border-color 0.3s, opacity 0.3s;
 
    ._pc &:not(.swiper-button-disabled):hover {
       border-color: var(--color-periwinkle-crayola-06);
+   }
+
+   &.swiper-button-disabled {
+      pointer-events: none;
+      opacity: 0.3;
    }
 
 }

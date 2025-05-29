@@ -316,10 +316,22 @@ window.addEventListener('DOMContentLoaded', function () {
          progressRotationFrequency >= 0 && reverseRotationFrequency();
       }
    }
-
    // Рендер сцены
+   let renderRun = true;
+   let renderStrart = true;
+   const renderStop = throttle(() => {
+      renderRun = false;
+      this.setTimeout(() => { renderStrart = false }, 2000);
+   }, 1500)
    engine.runRenderLoop(function () {
-      if (transmitter && Number(progressRadioAnimation) != 1) {
+      if (Number(progressRadioAnimation) !== 1) {
+         renderRun = true;
+      }
+      if (Number(progressRadioAnimation) == 1 && renderRun) {
+         renderStop();
+      }
+      if (transmitter && (renderRun || renderStrart)) {
+         // console.log("render Babylon");
          rodioAnimation();
          scene.render();
       }
