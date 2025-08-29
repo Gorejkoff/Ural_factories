@@ -22,5 +22,22 @@ if (document.querySelector('.documents-certificates')) {
    let tab = new TabsSwitching('.documents-certificates__tab-buttons', '.documents-certificates__tab-button', '.documents-certificates__tab-page');
    tab.init();
 }
+if (document.querySelector('.js-map-button')) {
+   let tab = new TabsSwitching('.js-map-buttons', '.js-map-button', '.js-map-tab');
+   tab.init();
+}
+if (document.querySelector('.js-form')) {
+   let tab = new TabsSwitching('.js-form-tab-button', '.js-form-tab-button', '.js-form-tab');
+   tab.init();
+   const firstTab = document.querySelector('.js-form');
+   const formTabs = firstTab.querySelectorAll('.js-form-tab')
+   const inputs = formTabs[0].querySelectorAll('[required]');
+   function back() {
+      formTabs.forEach(e => e.classList.remove('active'))
+      formTabs[0].classList.add('active');
+   }
+   inputs.forEach(e => e.addEventListener('invalid', back))
+}
+
 
 

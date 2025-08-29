@@ -197,4 +197,32 @@
       line-height: 114%;
       color: var(--color-silver-grey);
    }
+
+   &__contents-title {
+      margin-bottom: 24px;
+      font-size: 18px;
+      color: var(--color-silver-grey);
+   }
+
+   &__contents-list {
+      li {
+         list-style: none;
+         margin-bottom: 8px;
+      }
+
+      a {
+         font-size: 16px;
+         line-height: 116%;
+         color: var(--color-silver-grey);
+         transition: color 0.3s;
+
+         &:hover {
+            color: var(--color-periwinkle-crayola);
+         }
+
+         @media (min-width:1024px) {
+            font-size: 24px;
+         }
+      }
+   }
 }

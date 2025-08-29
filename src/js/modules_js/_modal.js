@@ -47,7 +47,7 @@ function initOpenModal(id) {
    if (document.querySelector(`#${id}`)) {
       document.querySelector(`#${id}`).classList.add('js-modal-visible');
       // document.body.classList.add('body-overflow');
-      smoother.paused(true);
+      if (smoother) smoother.paused(true);
       document.querySelector(`#${id}`).style.setProperty('--opacity-effect', 1);
       menuIsOpen();
    }

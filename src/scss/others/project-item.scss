@@ -1,0 +1,121 @@
+.project-item {
+
+   &__container {}
+
+   &__body {
+      border-radius: 24px;
+      padding: 24px;
+      background-color: var(--color-lavender);
+
+      @media (min-width:1024px) {
+         padding: 40px;
+      }
+   }
+
+   &__back {
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      line-height: 112%;
+      color: rgba(26, 31, 36, 0.6);
+   }
+
+   &__status {
+      margin-bottom: 40px;
+      border-radius: 4px;
+      padding: 6px 12px 8px 12px;
+      background-color: var(--color-orange);
+      font-size: 16px;
+      line-height: 112%;
+      text-align: center;
+      color: var(--color-white);
+   }
+
+   &__shell {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+      }
+   }
+
+   &__content {
+      flex: 1 1 auto;
+   }
+
+   &__manager {
+      flex: 0 0 392px;
+
+      .specialist-card {
+         background-color: var(--color-white);
+      }
+   }
+
+   &__content-block {
+      margin-top: 40px;
+   }
+
+   &__content-block-title {
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 112%;
+      color: rgba(26, 31, 36, 0.6);
+   }
+
+   &__content-block-text {
+      margin-top: 16px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 111%;
+   }
+
+   &__files {
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: var(--color-white);
+      overflow: hidden;
+      margin-bottom: 1.1px;
+
+      @media (min-width:768px) {
+         flex-wrap: nowrap;
+         justify-content: space-between;
+      }
+
+      &:first-child {
+         border-top-right-radius: 16px;
+         border-top-left-radius: 16px;
+      }
+
+      &:last-child {
+         border-bottom-left-radius: 16px;
+         border-bottom-right-radius: 16px;
+      }
+   }
+
+   &__files-icon {
+      min-width: 88px;
+      width: 88px;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-lavender);
+      border-radius: 8px;
+   }
+
+   &__files-text {
+      flex: 1 1 auto;
+      font-size: 18px;
+      line-height: 122%;
+   }
+
+   &__files-button {}
+}

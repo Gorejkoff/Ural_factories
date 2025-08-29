@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   @@include('html/1_head.html',{"title":"DEV"})
+</head>
+
+<body>
+
+   <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+         <div class="wrapper">
+
+            @@include('html/First-Screen/First-Screen.html',{
+            title:"Энциклопедия"
+            })
+
+            <main class="main">
+               <div class="__container">
+                  <div class="white-body">
+
+                     <div class="status js-tabs-body js-tabs-closing">
+                        <div class="status__title">Статус проекта</div>
+                        <button class="status__button js-tabs-toggle" type="button">
+                           <span class="">Отклонен</span>
+                           <span class="status__arrow">
+                              <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M5.29994 6.29992L0.466602 1.46659C0.399935 1.39992 0.350157 1.32792 0.317268 1.25058C0.284379 1.17325 0.26749 1.0897 0.266602 0.999919C0.266602 0.822141 0.327935 0.666585 0.450602 0.533251C0.573268 0.399918 0.734157 0.333252 0.933268 0.333252H11.0666C11.2666 0.333252 11.4279 0.399918 11.5506 0.533251C11.6733 0.666585 11.7342 0.822141 11.7333 0.999919C11.7333 1.04436 11.6666 1.19992 11.5333 1.46659L6.69993 6.29992C6.58882 6.41103 6.47771 6.48881 6.3666 6.53325C6.25549 6.5777 6.13327 6.59992 5.99994 6.59992C5.8666 6.59992 5.74438 6.5777 5.63327 6.53325C5.52216 6.48881 5.41105 6.41103 5.29994 6.29992Z" fill="black" />
+                              </svg>
+                           </span>
+                        </button>
+                        <div class="status__shell js-tabs-shell">
+                           <ol class="status__list js-tabs-inner">
+                              <li>Ожидает рассмотрения</li>
+                              <li>На уточнении</li>
+                              <li>Одобрен</li>
+                              <li>Черновик</li>
+                              <li>Закрыт</li>
+                              <li>Отклонен</li>
+                           </ol>
+                        </div>
+                     </div>
+
+
+                  </div>
+               </div>
+            </main>
+
+            @@include('html/4_footer.html',{})
+
+         </div>
+
+      </div>
+   </div>
+   <div class="mobile-menu__button-contact">
+      <div class="mobile-menu__container">
+         @@include('html/Header/Header-Button-Contact.html',{})
+      </div>
+   </div>
+   @@include('html/Pop-Up/Menu.html',{})
+   @@include('html/Pop-Up/Menu-Contacts.html',{})
+   @@include('html/Pop-Up/Login.html',{})
+
+   @@include('html/3_scripts.html',{
+   swiper: true,
+   })
+
+
+</body>
+
+</html>

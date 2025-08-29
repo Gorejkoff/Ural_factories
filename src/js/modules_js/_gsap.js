@@ -1,3 +1,5 @@
+
+
 var smoother;
 
 function textWpapSpan(element) {
@@ -5,7 +7,8 @@ function textWpapSpan(element) {
    listSpan.forEach(element => {
       const words = element.innerHTML.trim().split(' ');
       const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
-      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word"> ')}</span> `
+      element.after(' ');
    })
 }
 
@@ -51,6 +54,9 @@ window.addEventListener('load', function (event) {
    });
 
    if (document.querySelector('main')) {
+      const paddingHeader = document.createElement('div');
+      paddingHeader.classList.add('padding-header')
+      paddingHeader.style.height = 'var(--height-header)';
       const main = document.querySelector('main');
       const parentHeader = HEADER.parentElement;
       gsap.to(main, {
@@ -65,9 +71,11 @@ window.addEventListener('load', function (event) {
 
       function moveHeader() {
          document.body.prepend(HEADER);
+         parentHeader.prepend(paddingHeader)
       }
       function moveHeaderBack() {
          parentHeader.prepend(HEADER);
+         document.querySelector('.padding-header').remove();
       }
 
    }
@@ -90,27 +98,13 @@ window.addEventListener('load', function (event) {
    const LIST_DESCRIPTION_BLOCK = this.document.querySelectorAll('.description__block');
 
    LIST_DESCRIPTION_BLOCK.forEach((element, index) => {
-      let durationValue = 0.7;
-      let xValue = 400;
-      if (index % 2 == 0) { xValue *= -1 };
-      gsap.fromTo(element, {
-         x: xValue,
-         scale: 0,
-         opacity: 0,
-         duration: durationValue,
-      },
-         {
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: durationValue,
-            scrollTrigger: {
-               trigger: element,
-               start: '0% 70%',
-               end: '0% 70%',
-               toggleActions: 'play none reverse none',
-            }
+      gsap.to(element, {
+         scrollTrigger: {
+            trigger: element,
+            start: "top 60%",
+            toggleClass: { targets: element, className: "text-animate-grow-show" }
          }
+      }
       )
    })
 
@@ -148,13 +142,13 @@ window.addEventListener('load', function (event) {
             start: '80% 100%',
             end: '40% 0%',
             scrub: MIN768.matches ? true : false,
-            markers: {
-               startColor: "red",
-               endColor: "green",
-               fontSize: "18px",
-               fontWeight: "bold",
-               indent: 20
-            }
+            // markers: {
+            //    startColor: "red",
+            //    endColor: "green",
+            //    fontSize: "18px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
          }
       })
    }
@@ -203,4 +197,14 @@ window.addEventListener('load', function (event) {
          }
       })
    }
+
+   // прокрутка по якорям
+   document.body.addEventListener('click', (event) => {
+      if (event.target.closest('[href^="#"]')) {
+         event.preventDefault();
+         let getName = event.target.closest('[href^="#"]').getAttribute('href');
+         closeHeaderMenu();
+         gsap.to(window, { scrollTo: getName, ease: "power2" })
+      }
+   })
 })

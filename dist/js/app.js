@@ -53,7 +53,10 @@ function addHeightVariable() {
       document.body.style.setProperty('--padding-for-button-mobile', `${MOBILE_BUTTON_CONTACT.offsetHeight}px`)
    }
 }
-addHeightVariable();
+window.addEventListener('load', (event) => {
+   addHeightVariable();
+});
+
 
 
 // ** ======================= RESIZE ======================  ** //
@@ -61,7 +64,7 @@ window.addEventListener('resize', () => {
    //  addHeightVariable();
    closeHeaderMenu();
    setMenuEffectSize();
-   setMarginCustomSwiper();
+   setTimeout(setMarginCustomSwiper, 1000)
 })
 
 
@@ -90,7 +93,7 @@ function setMarginCustomSwiper() {
       CUSTOM_SWIPER_BODY.style.setProperty("--margin-bottom", setOffset);
    }
 }
-setMarginCustomSwiper();
+setTimeout(setMarginCustomSwiper, 500)
 
 function setValueSortMenu(element) {
    const sortMenu = element.closest('.sort-menu');
@@ -110,6 +113,67 @@ function calcCildElementInfo(element) {
 INFO_GRID.forEach(e => {
    calcCildElementInfo(e)
 })
+// принудительный перенос строки после слова. Номер по порядку указать в аттрибуте data-line_break="2", присвоить класс js-text-transfer
+function textTransfer(element) {
+   let text = '';
+   const line_break = element.dataset.line_break;
+   const arrayText = element.innerHTML.trim().split(' ');
+   if (!line_break) {
+      console.error('Нет аттрибута с порядковым номером слова для переноса. (прим:data-line_break="2")', element);
+      return;
+   };
+   if (arrayText.length == 0) return;
+   for (let i = 0; i < arrayText.length; i++) {
+      if (line_break == i) {
+         text = text + '<br>'
+      }
+      text = text + arrayText[i] + ' ';
+   }
+   element.innerHTML = text;
+}
+function inittextTransfer() {
+   document.querySelectorAll('.js-text-transfer').forEach((element) => {
+      textTransfer(element)
+   })
+}
+setTimeout(inittextTransfer, 0);
+
+// анимация текста, появляются слова снизу вверх (js-text-animate-grow). Класс у родителя text-animate-grow-show запускает анимацию.
+function wrapWordsSpan(animateGrow) {
+   const tempDiv = document.createElement('div');
+   tempDiv.innerHTML = animateGrow.innerHTML;
+   function processNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+         const text = node.textContent.replace(/\s{2,}/g, ' ').trim();
+         if (text) {
+            const words = text.split(/\s+/);
+            const fragment = document.createDocumentFragment();
+            words.forEach((word, index) => {
+               const spanWrapper = document.createElement('span');
+               spanWrapper.className = 'word-wrap';
+               const spanWord = document.createElement('span');
+               spanWord.className = 'word';
+               spanWord.textContent = word;
+               spanWrapper.append(spanWord);
+               fragment.append(spanWrapper, ' ');
+               if (index < words.length - 1) { fragment.append(document.createTextNode(' ')) }
+            });
+            node.parentNode.replaceChild(fragment, node);
+         }
+      } else if (node.nodeType === Node.ELEMENT_NODE && node.childNodes) {
+         Array.from(node.childNodes).forEach(processNode);
+      }
+   }
+   Array.from(tempDiv.childNodes).forEach(processNode);
+   animateGrow.innerHTML = tempDiv.innerHTML;
+   if (animateGrow.dataset.duration) {
+      animateGrow.style.setProperty('--tr', animateGrow.dataset.duration + 's');
+   }
+}
+const listAnimateGrow = document.querySelectorAll('.js-text-animate-grow');
+listAnimateGrow.forEach(e => wrapWordsSpan(e))
+
+
 // перемещение блоков при адаптиве
 // data-da=".class,3,768"
 // класс родителя куда перемещать
@@ -166,6 +230,7 @@ function moving(e, order, addressMove) {
 
 
 
+
 window.addEventListener('DOMContentLoaded', function () {
    const canvas = document.getElementById("container3D");
    if (!canvas) {
@@ -185,7 +250,7 @@ window.addEventListener('DOMContentLoaded', function () {
    let degRotationValue = -100;
    let degRotationFrequency = 180;
    let progressRotationFrequency = 0;
-
+   const orthoSize = 11;
    function addSizeViewport() {
       viewportX = Math.min(window.innerWidth, 1440);
       viewportY = window.innerHeight;
@@ -193,89 +258,175 @@ window.addEventListener('DOMContentLoaded', function () {
    addSizeViewport();
    let ratioX = viewportX / 1000;
    let ratioY = viewportY / 1000;
+
    // отключить анимацию загрузки babylon
    BABYLON.SceneLoader.ShowLoadingScreen = false;
    // Инициализация движка
    const engine = new BABYLON.Engine(canvas, true);
-   console.log("WebGL version:", engine.webGLVersion); // 1 или 2
-   console.log("WebGL API:", engine.version); // "webgl1" или "webgl2"
-   if (engine.webGLVersion < 2) {
-      console.warn("WebGL 2.0 не поддерживается, некоторые эффекты могут не работать");
-   }
+   // console.log("WebGL version:", engine.webGLVersion); // 1 или 2
+   // console.log("WebGL API:", engine.version); // "webgl1" или "webgl2"
+   // if (engine.webGLVersion < 2) {
+   //    console.warn("WebGL 2.0 не поддерживается, некоторые эффекты могут не работать");
+   // }
    // Создание сцены
    const scene = new BABYLON.Scene(engine);
    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
    // Добавление камеры
    let distance = 40;
-   if (MIN768.matches) { distance = 20 };
    const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2, distance, BABYLON.Vector3.Zero(), scene);
+
+   // Включаем ортографический режим
+   if (MIN768.matches) { camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA; };
+   const aspectRatio = engine.getAspectRatio(camera);
+   if (aspectRatio < 1) {
+      camera.orthoTop = orthoSize;
+      camera.orthoBottom = -orthoSize;
+      camera.orthoLeft = -orthoSize * aspectRatio;
+      camera.orthoRight = orthoSize * aspectRatio;
+   }
+   else {
+      camera.orthoLeft = -orthoSize;
+      camera.orthoRight = orthoSize;
+      camera.orthoTop = orthoSize / aspectRatio;
+      camera.orthoBottom = -orthoSize / aspectRatio;
+   }
+
    camera.setTarget(BABYLON.Vector3.Zero());
+
+
    // Добавление света 
    const light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-1, 1, 5), scene);
-   light1.intensity = 0.2;
+   light1.intensity = 0.4;
    light1.diffuse = new BABYLON.Color3(1, 1, 1);
    const light2 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(0, 0, -5), scene);
-   light2.intensity = 0.1;
+   light2.intensity = 0.5;
    light2.diffuse = new BABYLON.Color3(1, 1, 1);
+   const backLight = new BABYLON.DirectionalLight("backLight", new BABYLON.Vector3(0, 0, -1), scene);
+   backLight.intensity = 0.9;
+
+   const URL = "https://gorejkoff.github.io/Ural_factories/dist/glb/";
+   const modelName = "edit-7.glb";
+
+
+
+
+
+   //! ===================================================================================
+
+
+
+   async function cacheModel(modelUrl) {
+      try {
+         const cache = await caches.open('3d-models-v1');
+         const response = await fetch(modelUrl);
+
+         if (response.ok) {
+            await cache.put(modelUrl, response);
+            console.log('3D модель закеширована!');
+         }
+      } catch (error) {
+         console.error('Ошибка кеширования модели:', error);
+      }
+   }
+
+   // const searchModel = await cache.match(modelUrl);
+   //          console.log(searchModel);
+   //          if (searchModel) {
+   //             const blob = await searchModel.blob();
+   //             const size = blob.size;
+   //             console.log(size);
+
+
+   //          }
+   async function loadModel() {
+      if (!('caches' in window)) {
+         console.error('Cache API не поддерживается');
+         downloadingFromServer();
+         return;
+      }
+
+      const cache = await caches.open('3d-models-v1');
+      const searchModel = await cache.match(URL + modelName);
+      if (searchModel) {
+         console.log("есть модель к кэше");
+         // Получаем данные как Blob
+         const modelBlob = await searchModel.blob();
+         // Создаем URL для Blob
+         const blobUrl = window.URL.createObjectURL(modelBlob);
+         console.log(blobUrl);
+         downloadingFromCache(blobUrl);
+         // Не забудьте освободить URL после загрузки, для предотвращения утечки памяти
+         // URL.revokeObjectURL(blobUrl);
+      }
+   }
+
+   loadModel()
+
+   function downloadingFromServer() {
+      BABYLON.SceneLoader.Append(URL, modelName, scene, actionModel);
+   }
+   async function downloadingFromCache(blobUrl) {
+      console.log('Загрузка из cache');
+      BABYLON.SceneLoader.Append("", blobUrl, scene, function (meshes) {
+         console.log("Модель загружена успешно");
+         actionModel(meshes);
+      }, null, null, ".glb");
+   }
+
+   // Использование
+   // cacheModel(URL + modelName);
+
+
+   //! ===================================================================================
    // Загрузка модели
-   BABYLON.SceneLoader.Append("https://gorejkoff.github.io/Ural_factories/dist/glb/", "edit-7.glb", scene, function (scene) {
-      // подгрузка модели локально для разработки
-      // BABYLON.SceneLoader.Append("../glb/", "radio-texture-1.glb", scene, function (scene) {
-      // BABYLON.SceneLoader.Append("../glb/", "edit-7.glb", scene, function (scene) {
-      // scene.animationGroups.forEach(animationGroup => {
-      //    animationGroup.stop();
-      //    animationGroup.dispose();
-      // });
+
+
+
+   // подгрузка модели локально для разработки
+
+   // BABYLON.SceneLoader.Append("../glb/", "edit-7.glb", scene, actionModel);
+   // scene.animationGroups.forEach(animationGroup => {
+   //    animationGroup.stop();
+   //    animationGroup.dispose();
+   // });
+
+   async function actionModel() {
       model = scene.getMeshByName("__root__");
+
+
+
       if (!model) {
          console.error("Не найден __root__!");
          return;
       }
-      // console.log(model, "model");
       if (MIN768.matches) {
          model.position = new BABYLON.Vector3(0, -3, 0);
+         const scale = 1 + (window.innerWidth - 1440) / (1920 - 1440) * (0.8 - 1);
+         model.scaling.x = scale;
+         model.scaling.y = scale;
       }
       cylinder = model._children[0];
-      // console.log(cylinder, 'cylinder')
+      cylinder.position.y = 5.3;
+      backLight.includedOnlyMeshes = [cylinder]
       transmitter = model._children[1];
-      // console.log(transmitter, "transmitter");
       volumeElement = transmitter._children.filter((e) => { return e.name == "volume" });
-      // console.log(volumeElement[0], 'volumeElement');
       frequency = transmitter._children.filter((e) => { return e.name == "frequency" });
-      // console.log(frequency[0], 'frequency');
-
       let glass = transmitter._children.filter((e) => { return e.name == "glass" });
-      // console.log(glass[0], 'glass');
-
-      // let frame = transmitter._children.filter((e) => { return e.name == "frame" });
       const front_frame = scene.getMeshByName("front frame");
-      // console.log(front_frame, 'front frame');
-
       const mesh_primitive0 = scene.getMeshByName("frame_primitive0");
-      // console.log(mesh_primitive0, " - mash frame_primitive0");
-
-      // Добавление света 
+      // Добавление света
       light_screen = scene.getLightByName("light_screen");
-      // light_screen.intensity = 8;
-      // light_screen.position.y = -3.5;
-      // light_screen.range = 5;
-      // light_screen.diffuse = new BABYLON.Color3(1, 0.065, 0);
-      // console.log(light_screen, " - light_screen");
-
       light_side = scene.getLightByName("light_side");
-      // light_side.intensity = 1500;
       light_side.shadowEnabled = true;
-      // console.log(light_side, " - light_side");
-
       const shadowGenerator = new BABYLON.ShadowGenerator(1024, light_side);
       shadowGenerator.useBlurExponentialShadowMap = true; // Для мягких теней
       shadowGenerator.blurKernel = 32;
-
       // Добавляем объекты, которые должны отбрасывать тени
       shadowGenerator.addShadowCaster(mesh_primitive0, front_frame);
       // свет игнорирует указанные модели
       light_side.excludedMeshes.push(front_frame, glass[0]);
-   });
+   }
+
 
    // Inspector 
    // scene.debugLayer.show();
@@ -284,15 +435,17 @@ window.addEventListener('DOMContentLoaded', function () {
    let circlePath = 1 - circleStart;
    function rodioAnimation() {
 
+
       if (MIN768.matches) {
+         const valueStartY = 1.4 + (window.innerWidth - 1440) / (1920 - 1440) * (2.4 - 1.4)
          transmitter.position = new BABYLON.Vector3(
-            8 * ratioX * (1 - progressRadioAnimation),
-            -1 * ratioY * (1 - progressRadioAnimation) - 1,
+            4.5 * ratioX * (1 - progressRadioAnimation),
+            -1 * ratioY * (1 - progressRadioAnimation) + valueStartY,
             0);
          light_side.position = new BABYLON.Vector3(
-            8 * ratioX * (1 - progressRadioAnimation),
-            -1 * ratioY * (1 - progressRadioAnimation) - 1,
-            0);
+            4.5 * ratioX * (1 - progressRadioAnimation),
+            -1 * ratioY * (1 - progressRadioAnimation) + 1,
+            2);
       } else {
          model.position = new BABYLON.Vector3(progressRadioAnimation * -3, progressRadioAnimation * -2 + 2, 0)
       }
@@ -361,6 +514,18 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//! ==========================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
 var smoother;
 
 function textWpapSpan(element) {
@@ -368,7 +533,8 @@ function textWpapSpan(element) {
    listSpan.forEach(element => {
       const words = element.innerHTML.trim().split(' ');
       const wordWrap = words.map(item => { return item.split('').map(e => { return `<span class="letter">${e}</span>` }).join('') })
-      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word">')}</span>`
+      element.innerHTML = `<span class="word">${wordWrap.join('</span>&#32;<span class="word"> ')}</span> `
+      element.after(' ');
    })
 }
 
@@ -414,6 +580,9 @@ window.addEventListener('load', function (event) {
    });
 
    if (document.querySelector('main')) {
+      const paddingHeader = document.createElement('div');
+      paddingHeader.classList.add('padding-header')
+      paddingHeader.style.height = 'var(--height-header)';
       const main = document.querySelector('main');
       const parentHeader = HEADER.parentElement;
       gsap.to(main, {
@@ -428,9 +597,11 @@ window.addEventListener('load', function (event) {
 
       function moveHeader() {
          document.body.prepend(HEADER);
+         parentHeader.prepend(paddingHeader)
       }
       function moveHeaderBack() {
          parentHeader.prepend(HEADER);
+         document.querySelector('.padding-header').remove();
       }
 
    }
@@ -453,27 +624,13 @@ window.addEventListener('load', function (event) {
    const LIST_DESCRIPTION_BLOCK = this.document.querySelectorAll('.description__block');
 
    LIST_DESCRIPTION_BLOCK.forEach((element, index) => {
-      let durationValue = 0.7;
-      let xValue = 400;
-      if (index % 2 == 0) { xValue *= -1 };
-      gsap.fromTo(element, {
-         x: xValue,
-         scale: 0,
-         opacity: 0,
-         duration: durationValue,
-      },
-         {
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: durationValue,
-            scrollTrigger: {
-               trigger: element,
-               start: '0% 70%',
-               end: '0% 70%',
-               toggleActions: 'play none reverse none',
-            }
+      gsap.to(element, {
+         scrollTrigger: {
+            trigger: element,
+            start: "top 60%",
+            toggleClass: { targets: element, className: "text-animate-grow-show" }
          }
+      }
       )
    })
 
@@ -511,13 +668,13 @@ window.addEventListener('load', function (event) {
             start: '80% 100%',
             end: '40% 0%',
             scrub: MIN768.matches ? true : false,
-            markers: {
-               startColor: "red",
-               endColor: "green",
-               fontSize: "18px",
-               fontWeight: "bold",
-               indent: 20
-            }
+            // markers: {
+            //    startColor: "red",
+            //    endColor: "green",
+            //    fontSize: "18px",
+            //    fontWeight: "bold",
+            //    indent: 20
+            // }
          }
       })
    }
@@ -566,6 +723,16 @@ window.addEventListener('load', function (event) {
          }
       })
    }
+
+   // прокрутка по якорям
+   document.body.addEventListener('click', (event) => {
+      if (event.target.closest('[href^="#"]')) {
+         event.preventDefault();
+         let getName = event.target.closest('[href^="#"]').getAttribute('href');
+         closeHeaderMenu();
+         gsap.to(window, { scrollTo: getName, ease: "power2" })
+      }
+   })
 })
 /* открывает, закрывает модальные окна. */
 /*
@@ -616,7 +783,7 @@ function initOpenModal(id) {
    if (document.querySelector(`#${id}`)) {
       document.querySelector(`#${id}`).classList.add('js-modal-visible');
       // document.body.classList.add('body-overflow');
-      smoother.paused(true);
+      if (smoother) smoother.paused(true);
       document.querySelector(`#${id}`).style.setProperty('--opacity-effect', 1);
       menuIsOpen();
    }
@@ -1021,5 +1188,22 @@ if (document.querySelector('.documents-certificates')) {
    let tab = new TabsSwitching('.documents-certificates__tab-buttons', '.documents-certificates__tab-button', '.documents-certificates__tab-page');
    tab.init();
 }
+if (document.querySelector('.js-map-button')) {
+   let tab = new TabsSwitching('.js-map-buttons', '.js-map-button', '.js-map-tab');
+   tab.init();
+}
+if (document.querySelector('.js-form')) {
+   let tab = new TabsSwitching('.js-form-tab-button', '.js-form-tab-button', '.js-form-tab');
+   tab.init();
+   const firstTab = document.querySelector('.js-form');
+   const formTabs = firstTab.querySelectorAll('.js-form-tab')
+   const inputs = formTabs[0].querySelectorAll('[required]');
+   function back() {
+      formTabs.forEach(e => e.classList.remove('active'))
+      formTabs[0].classList.add('active');
+   }
+   inputs.forEach(e => e.addEventListener('invalid', back))
+}
+
 
 

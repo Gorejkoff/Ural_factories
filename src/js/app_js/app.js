@@ -53,7 +53,10 @@ function addHeightVariable() {
       document.body.style.setProperty('--padding-for-button-mobile', `${MOBILE_BUTTON_CONTACT.offsetHeight}px`)
    }
 }
-addHeightVariable();
+window.addEventListener('load', (event) => {
+   addHeightVariable();
+});
+
 
 
 // ** ======================= RESIZE ======================  ** //
@@ -61,7 +64,7 @@ window.addEventListener('resize', () => {
    //  addHeightVariable();
    closeHeaderMenu();
    setMenuEffectSize();
-   setMarginCustomSwiper();
+   setTimeout(setMarginCustomSwiper, 1000)
 })
 
 
@@ -90,7 +93,7 @@ function setMarginCustomSwiper() {
       CUSTOM_SWIPER_BODY.style.setProperty("--margin-bottom", setOffset);
    }
 }
-setMarginCustomSwiper();
+setTimeout(setMarginCustomSwiper, 500)
 
 function setValueSortMenu(element) {
    const sortMenu = element.closest('.sort-menu');
@@ -110,3 +113,63 @@ function calcCildElementInfo(element) {
 INFO_GRID.forEach(e => {
    calcCildElementInfo(e)
 })
+// принудительный перенос строки после слова. Номер по порядку указать в аттрибуте data-line_break="2", присвоить класс js-text-transfer
+function textTransfer(element) {
+   let text = '';
+   const line_break = element.dataset.line_break;
+   const arrayText = element.innerHTML.trim().split(' ');
+   if (!line_break) {
+      console.error('Нет аттрибута с порядковым номером слова для переноса. (прим:data-line_break="2")', element);
+      return;
+   };
+   if (arrayText.length == 0) return;
+   for (let i = 0; i < arrayText.length; i++) {
+      if (line_break == i) {
+         text = text + '<br>'
+      }
+      text = text + arrayText[i] + ' ';
+   }
+   element.innerHTML = text;
+}
+function inittextTransfer() {
+   document.querySelectorAll('.js-text-transfer').forEach((element) => {
+      textTransfer(element)
+   })
+}
+setTimeout(inittextTransfer, 0);
+
+// анимация текста, появляются слова снизу вверх (js-text-animate-grow). Класс у родителя text-animate-grow-show запускает анимацию.
+function wrapWordsSpan(animateGrow) {
+   const tempDiv = document.createElement('div');
+   tempDiv.innerHTML = animateGrow.innerHTML;
+   function processNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+         const text = node.textContent.replace(/\s{2,}/g, ' ').trim();
+         if (text) {
+            const words = text.split(/\s+/);
+            const fragment = document.createDocumentFragment();
+            words.forEach((word, index) => {
+               const spanWrapper = document.createElement('span');
+               spanWrapper.className = 'word-wrap';
+               const spanWord = document.createElement('span');
+               spanWord.className = 'word';
+               spanWord.textContent = word;
+               spanWrapper.append(spanWord);
+               fragment.append(spanWrapper, ' ');
+               if (index < words.length - 1) { fragment.append(document.createTextNode(' ')) }
+            });
+            node.parentNode.replaceChild(fragment, node);
+         }
+      } else if (node.nodeType === Node.ELEMENT_NODE && node.childNodes) {
+         Array.from(node.childNodes).forEach(processNode);
+      }
+   }
+   Array.from(tempDiv.childNodes).forEach(processNode);
+   animateGrow.innerHTML = tempDiv.innerHTML;
+   if (animateGrow.dataset.duration) {
+      animateGrow.style.setProperty('--tr', animateGrow.dataset.duration + 's');
+   }
+}
+const listAnimateGrow = document.querySelectorAll('.js-text-animate-grow');
+listAnimateGrow.forEach(e => wrapWordsSpan(e))
+

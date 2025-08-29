@@ -1,6 +1,6 @@
 [
    {
-      "image": "jpg/img-1.jpg",
+      "image": "svg/icon-portfolio-1.svg",
       "title": "АО «Уральский электрохимический комбинат»",
       "tags": [
          "Новоуральск",
@@ -9,7 +9,7 @@
       "button": "Подробнее"
    },
    {
-      "image": "jpg/img-2.jpg",
+      "image": "svg/icon-portfolio-2.svg",
       "title": "Система общественной безопасности в городах-участниках проведения Чемпионата мира по футболу 2018",
       "tags": [
          "2024"
@@ -17,7 +17,7 @@
       "button": "Подробнее"
    },
    {
-      "image": "jpg/img-3.jpg",
+      "image": "svg/icon-portfolio-3.svg",
       "title": "Система общественной безопасности на Зимней Универсиаде 2019",
       "tags": [
          "Новоуральск",
@@ -26,7 +26,7 @@
       "button": "Подробнее"
    },
    {
-      "image": "jpg/img-4.jpg",
+      "image": "svg/icon-portfolio-4.svg",
       "title": "ПАО «Удмуртнефть»",
       "tags": [
          "Новоуральск"

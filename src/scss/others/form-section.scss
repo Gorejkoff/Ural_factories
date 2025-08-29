@@ -82,6 +82,7 @@
 
    &__button {
       .button {
+         margin-top: 64px;
          margin-left: auto;
       }
    }
@@ -94,5 +95,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+   }
+}
+
+.js-form-tab {
+   display: none;
+
+   &.active {
+      display: block;
    }
 }

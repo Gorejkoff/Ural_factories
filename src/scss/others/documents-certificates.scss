@@ -5,6 +5,11 @@
 
    &__tab-buttons-scroll {
       overflow-x: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+         display: none;
+      }
    }
 
    &__tab-buttons {
@@ -71,9 +76,18 @@
 
    &__item-icon {
       flex: 0 0 48px;
+      height: 48px;
+      background-color: var(--color-blackish-blue);
+      border-radius: 8px;
+      overflow: hidden;
+
+      .dark-section & {
+         background-color: var(--color-black);
+      }
 
       @media (min-width:1024px) {
          flex: 0 0 88px;
+         height: 88px;
       }
 
       img,

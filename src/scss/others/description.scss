@@ -9,7 +9,7 @@
       padding-bottom: 96px;
 
       @media (min-width:1024px) {
-         padding: 200px 120px 300px;
+         padding: 200px 120px 500px;
       }
    }
 
@@ -42,13 +42,16 @@
       line-height: 100%;
       letter-spacing: -0.03em;
       color: var(--color-periwinkle-crayola);
+      // white-space: pre;
 
       @media (min-width:1024px) {
          font-size: 32px;
       }
 
-      span,
-      div {
+      // span,
+      // div 
+      .color {
+         white-space: pre;
          color: var(--color-orange);
       }
 
@@ -59,9 +62,16 @@
       font-size: 14px;
       line-height: 122%;
       color: var(--color-silver-grey);
+      opacity: 0;
+      transition: opacity var(--tr, 0.3s) var(--tr, 0.3s);
 
       @media (min-width:1024px) {
          font-size: 18px;
       }
+
+      .text-animate-grow-show & {
+         opacity: 1;
+      }
+
    }
 }

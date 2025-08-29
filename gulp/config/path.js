@@ -27,7 +27,7 @@ export const path = {
       js: `${srcFolder}/js/*.js`, // путь к файлам, которые не объединяются
       images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
       svg: `${srcFolder}/img/**/*.svg`,
-      scss: `${srcFolder}/scss/style.scss`,
+      scss: `${srcFolder}/scss/*.scss`,
       css: `${srcFolder}/css/*.css`,
       html: `${srcFolder}/*.html`,
       fonts: `${srcFolder}/fonts/**/*.{woff,woff2}`,

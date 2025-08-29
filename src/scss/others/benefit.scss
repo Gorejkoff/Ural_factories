@@ -4,6 +4,7 @@
    &__scroll {
       @media (max-width:767.98px) {
          overflow-x: auto;
+         scrollbar-width: none
       }
    }
 

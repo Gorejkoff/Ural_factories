@@ -1,0 +1,66 @@
+.map {
+   margin-top: 24px;
+
+   &__container {}
+
+   &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      @media (min-width:1024px) {
+         flex-direction: row;
+      }
+   }
+
+   &__info {
+      @media (min-width:1024px) {
+         flex: 0 0 37.5%;
+      }
+   }
+
+   &__display {
+      @media (min-width:1024px) {
+         flex: 1 1 auto;
+      }
+   }
+
+   &__address {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 122%;
+      color: var(--color-periwinkle-crayola);
+
+      &>*:not(:last-child) {
+         margin-bottom: 20px;
+      }
+
+      a:not([href^="tel:"]) {
+         color: var(--color-orange);
+      }
+   }
+
+   &__display-body {
+      position: relative;
+      padding-bottom: 56%;
+      border-radius: 20px;
+      overflow: hidden;
+
+      iframe {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+      }
+
+   }
+}
+
+.js-map-tab {
+   display: none;
+
+   &.active {
+      display: block;
+   }
+}

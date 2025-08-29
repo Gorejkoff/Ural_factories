@@ -21,13 +21,14 @@
 
    &__background {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 25vw;
+      left: 10%;
       pointer-events: none;
-
-      width: 200%;
+      width: 130%;
+      @include size_adaptive(top, 330, 200, 360, 1024);
 
       @media (min-width:1024px) {
+         top: 0;
          left: auto;
          right: 0;
          width: auto;
