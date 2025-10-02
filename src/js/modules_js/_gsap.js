@@ -95,7 +95,7 @@ window.addEventListener('load', function (event) {
       })
    }
 
-   const LIST_DESCRIPTION_BLOCK = this.document.querySelectorAll('.description__block');
+   const LIST_DESCRIPTION_BLOCK = document.querySelectorAll('.description__block');
 
    LIST_DESCRIPTION_BLOCK.forEach((element, index) => {
       gsap.to(element, {

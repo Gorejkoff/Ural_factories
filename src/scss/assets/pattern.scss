@@ -652,6 +652,7 @@ main>*:last-child {
 
 .js-text-animate-grow {
    .word-wrap {
+      will-change: transform;
       display: inline-block;
       overflow: hidden;
    }
@@ -665,6 +666,7 @@ main>*:last-child {
 
 .text-animate-grow-show {
    .word {
+      will-change: transform;
       transform: translateY(0);
    }
 }

@@ -37,6 +37,15 @@ function throttle(callee, timeout) {
       }, timeout)
    }
 }
+function debounce(func, delay) {
+   let timeoutId;
+   return function (...args) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+         func.apply(this, args);
+      }, delay);
+   };
+}
 const menuEffectList = document.querySelectorAll('.js-menu-effect');
 function setMenuEffectSize() {
    menuEffectList.forEach(e => {
