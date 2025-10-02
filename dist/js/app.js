@@ -241,9 +241,9 @@ function moving(e, order, addressMove) {
 
 
 window.addEventListener('DOMContentLoaded', function () {
-   const canvas = document.getElementById("container3D");
+   const canvas = document.getElementById('container3D');
    if (!canvas) {
-      console.log("Canvas not found!");
+      console.log('Canvas not found!');
       return;
    };
    let model;
@@ -273,10 +273,10 @@ window.addEventListener('DOMContentLoaded', function () {
    // Инициализация движка
 
    const engine = new BABYLON.Engine(canvas, true, null, true);
-   // console.log("WebGL version:", engine.webGLVersion); // 1 или 2
-   // console.log("WebGL API:", engine.version); // "webgl1" или "webgl2"
+   // console.log('WebGL version:', engine.webGLVersion); // 1 или 2
+   // console.log('WebGL API:', engine.version); // 'webgl1' или 'webgl2'
    // if (engine.webGLVersion < 2) {
-   //    console.warn("WebGL 2.0 не поддерживается, некоторые эффекты могут не работать");
+   //    console.warn('WebGL 2.0 не поддерживается, некоторые эффекты могут не работать');
    // }
    // Создание сцены
    const scene = new BABYLON.Scene(engine);
@@ -302,7 +302,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
    // Добавление камеры
    let distance = 40;
-   const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2, distance, BABYLON.Vector3.Zero(), scene);
+   const camera = new BABYLON.ArcRotateCamera('camera', Math.PI / 2, Math.PI / 2, distance, BABYLON.Vector3.Zero(), scene);
    // camera.minZ = 0.1;   // Ближняя плоскость отсечения
    // camera.maxZ = 1000;  // Дальняя плоскость отсечения
    // camera.collisionRetryCount = 1;
@@ -326,23 +326,22 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
    // Добавление света 
-   const light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-1, 1, 5), scene);
+   const light1 = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(-1, 1, 5), scene);
    light1.intensity = 0.4;
    // light1.shadowEnabled = false;
    light1.diffuse = new BABYLON.Color3(1, 1, 1);
-   const light2 = new BABYLON.HemisphericLight("light2", new BABYLON.Vector3(0, 0, -5), scene);
+   const light2 = new BABYLON.HemisphericLight('light2', new BABYLON.Vector3(0, 0, -5), scene);
    light2.intensity = 0.5;
    // light2.shadowEnabled = false;
    light2.diffuse = new BABYLON.Color3(1, 1, 1);
-   const backLight = new BABYLON.DirectionalLight("backLight", new BABYLON.Vector3(0, 0, -1), scene);
+   const backLight = new BABYLON.DirectionalLight('backLight', new BABYLON.Vector3(0, 0, -1), scene);
    backLight.intensity = 0.9;
    // backLight.shadowEnabled = false;
 
-   // const URL = "./glb/";
-   const URL = "https://gorejkoff.github.io/Ural_factories/dist/glb/";
-   const modelName = "radio.glb";
-   // const modelName = "edit-7.glb";
-   // const modelName = "radio_optimized.glb";
+   const URL = 'https://gorejkoff.github.io/Ural_factories/dist/glb/';
+   // const modelName = 'radio.glb';
+   // const modelName = 'edit-7.glb';
+   const modelName = 'radio_optimized.glb';
    const cacheName = '3d-models-v1';
 
    async function cacheModel(modelUrl) {
@@ -362,7 +361,7 @@ window.addEventListener('DOMContentLoaded', function () {
       //Проверка наличия cahe API
       const isSecure = window.location.protocol === 'https:';
       if (!isSecure) {
-         console.error("Требуется HTTPS для работы Cache API");
+         console.error('Требуется HTTPS для работы Cache API');
       }
 
       if (!('caches' in window)) {
@@ -379,10 +378,11 @@ window.addEventListener('DOMContentLoaded', function () {
          const list = await cache.keys();
          const listURL = list.filter(e => {
             console.log(e.url);
+
             return e.url !== URL + modelName
          })
          if (listURL.length > 0) {
-            console.log("Очистка cache name:3d-models-v1");
+            console.log('Очистка cache name:3d-models-v1');
             listURL.forEach(e => cache.delete(e.url));
          }
          // Получаем данные как Blob
@@ -403,9 +403,9 @@ window.addEventListener('DOMContentLoaded', function () {
       // Удалить кеш с именем ...
       const result = await caches.delete(cacheName);
       if (result) {
-         console.log(`Cache "${cacheName}" успешно удален`);
+         console.log(`Cache '${cacheName}' успешно удален`);
       } else {
-         console.log(`Cache "${cacheName}" не найден`);
+         console.log(`Cache '${cacheName}' не найден`);
       }
    }
 
@@ -428,26 +428,26 @@ window.addEventListener('DOMContentLoaded', function () {
          }, // onSuccess (успех)
          null, // onProgress (прогресс)
          null, // onError (ошибка)
-         ".glb",
+         '.glb',
          loadingOptions);
    }
    // Загрузка из cache
    async function downloadingFromCache(blobUrl) {
-      BABYLON.SceneLoader.Append("",
+      BABYLON.SceneLoader.Append('',
          blobUrl,
          scene,
          function (meshes) {
-            console.log("Модель загружена из cache успешно");
+            console.log('Модель загружена из cache успешно');
             actionModel(meshes);
          },
          null,
          null,
-         ".glb",
+         '.glb',
          loadingOptions);
    }
 
    // подгрузка модели локально для разработки
-   // BABYLON.SceneLoader.Append("../glb/", "edit-7.glb", scene, actionModel);
+   // BABYLON.SceneLoader.Append('../glb/', 'edit-7.glb', scene, actionModel);
    // scene.animationGroups.forEach(animationGroup => {
    //    animationGroup.stop();
    //    animationGroup.dispose();
@@ -455,31 +455,43 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
    async function actionModel() {
-      model = await scene.getMeshByName("__root__");
+      model = await scene.getMeshByName('__root__');
       if (!model) {
-         console.error("Не найден __root__ в модели!");
+         console.error('Не найден __root__ в модели!');
          return;
       }
+
       if (MIN768.matches) {
          model.position = new BABYLON.Vector3(0, -3, 0);
          const scale = 1 + (window.innerWidth - 1440) / (1920 - 1440) * (0.8 - 1);
          model.scaling.x = scale;
          model.scaling.y = scale;
       }
-      cylinder = model._children[0];
+
+
+      cylinder = (model._children.filter((e) => { return e.name == 'Cylinder' }))[0];
+      console.log('cylinder', cylinder); // ! comment
       cylinder.position.y = 5.3;
       backLight.includedOnlyMeshes = [cylinder]
-      transmitter = model._children[1];
-      volumeElement = transmitter._children.filter((e) => { return e.name == "volume" });
-      console.log(volumeElement);
 
-      frequency = transmitter._children.filter((e) => { return e.name == "frequency" });
-      // let glass = transmitter._children.filter((e) => { return e.name == "glass" });
-      // const front_frame = scene.getMeshByName("front frame");
-      // const mesh_primitive0 = scene.getMeshByName("frame_primitive0");
+
+      transmitter = new BABYLON.TransformNode('transmitter', scene);
+
+      const elenentsTransmitter = model._children.filter((e) => { return !(['Cylinder', 'light_side'].includes(e.name)) });
+      elenentsTransmitter.forEach(e => e.parent = transmitter);
+      console.log('elenentsTransmitter', elenentsTransmitter);
+      transmitter.scaling = new BABYLON.Vector3(1, 1, -1);
+
+      volumeElement = (transmitter._children.filter((e) => { return e.name == 'volume' }))[0];
+      console.log('volumeElement', volumeElement); // ! comment
+      frequency = (transmitter._children.filter((e) => { return e.name == 'frequency' }))[0];
+      console.log('frequency', frequency); // ! comment
+      // let glass = transmitter._children.filter((e) => { return e.name == 'glass' });
+      // const front_frame = scene.getMeshByName('front frame');
+      // const mesh_primitive0 = scene.getMeshByName('frame_primitive0');
       // Добавление света
-      light_screen = scene.getLightByName("light_screen");
-      light_side = scene.getLightByName("light_side");
+      light_screen = scene.getLightByName('light_screen');
+      light_side = scene.getLightByName('light_side');
       light_side.shadowEnabled = true;
       // const shadowGenerator = new BABYLON.ShadowGenerator(1024, light_side);
       // shadowGenerator.useBlurExponentialShadowMap = true; // Для мягких теней
@@ -496,22 +508,22 @@ window.addEventListener('DOMContentLoaded', function () {
    let circleStart = 0.5;
    let circlePath = 1 - circleStart;
    let valueStartY;
-   function calcValueStartY() { valueStartY = 1.4 + (window.innerWidth - 1440) / (1920 - 1440) * (2.4 - 1.4) }
+   function calcValueStartY() { valueStartY = -3 + (window.innerWidth - 1440) / (1920 - 1440) * (2.4 - 1.4) }
    calcValueStartY();
    function rodioAnimation() {
       if (MIN768.matches) {
          transmitter.position = new BABYLON.Vector3(
-            4.5 * ratioX * (1 - progressRadioAnimation),
-            -1 * ratioY * (1 - progressRadioAnimation) + valueStartY,
+            -4.5 * ratioX * (1 - progressRadioAnimation),
+            0.2 * ratioY * (1 - progressRadioAnimation) + valueStartY,
             0);
          light_side.position = new BABYLON.Vector3(
-            4.5 * ratioX * (1 - progressRadioAnimation),
-            -1 * ratioY * (1 - progressRadioAnimation) + 1,
-            2);
+            -1 * ratioX * (1 - progressRadioAnimation),
+            0,
+            3);
       } else {
          model.position = new BABYLON.Vector3(progressRadioAnimation * -3, progressRadioAnimation * -2 + 2, 0)
       }
-      transmitter.rotation = new BABYLON.Vector3(0, (Math.PI * 2) * -progressRadioAnimation, 0);
+      transmitter.rotation.y = (Math.PI * 1) + (Math.PI * 2) * progressRadioAnimation;
       if (progressRadioAnimation > circleStart) {
          let value = (progressRadioAnimation - circleStart) / circlePath;
          cylinder.scaling.x = value;
@@ -523,8 +535,8 @@ window.addEventListener('DOMContentLoaded', function () {
          cylinder.scaling.z = 0
       }
       if (progressRadioAnimation >= 0.99) {
-         degRotationValue <= progressRotationValue && rotationVolume();
-         degRotationFrequency >= progressRotationFrequency && rotationFrequency();
+         if (degRotationValue <= progressRotationValue) rotationVolume();
+         if (degRotationFrequency >= progressRotationFrequency) rotationFrequency();
       }
       if (progressRadioAnimation < 0.99) {
          progressRotationValue <= 0 && reverseRotationVolume();
@@ -591,26 +603,26 @@ window.addEventListener('DOMContentLoaded', function () {
    })
 
    // Обработка изменения размера окна
-   window.addEventListener("resize", function () {
+   window.addEventListener('resize', function () {
       calcValueStartY();
       engine.resize();
    });
 
    function rotationVolume() {
       progressRotationValue -= 2;
-      volumeElement[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * progressRotationValue);
+      volumeElement.rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * progressRotationValue);
    }
    function reverseRotationVolume() {
       progressRotationValue += 2;
-      volumeElement[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * progressRotationValue);
+      volumeElement.rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * progressRotationValue);
    }
    function rotationFrequency() {
       progressRotationFrequency += 2.5;
-      frequency[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * -progressRotationValue);
+      frequency.rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * -progressRotationValue);
    }
    function reverseRotationFrequency() {
       progressRotationFrequency -= 2.5;
-      frequency[0].rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * -progressRotationValue);
+      frequency.rotation = new BABYLON.Vector3(Math.PI / 2, 0, (Math.PI / 180) * -progressRotationValue);
    }
 });
 
