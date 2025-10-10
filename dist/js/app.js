@@ -468,12 +468,10 @@ window.addEventListener('DOMContentLoaded', function () {
          model.scaling.y = scale;
       }
 
-
       cylinder = (model._children.filter((e) => { return e.name == 'Cylinder' }))[0];
       console.log('cylinder', cylinder); // ! comment
       cylinder.position.y = 5.3;
       backLight.includedOnlyMeshes = [cylinder]
-
 
       transmitter = new BABYLON.TransformNode('transmitter', scene);
 
