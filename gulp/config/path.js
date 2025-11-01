@@ -25,7 +25,7 @@ export const path = {
       appjs: `${srcFolder}/js/app_js/app.js`, // путь к главному файлу, будет первый в сборке
       jsmodules: `${srcFolder}/js/modules_js/_*.js`, // модули, которые собираются в один файл
       js: `${srcFolder}/js/*.js`, // путь к файлам, которые не объединяются
-      images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
+      images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,ico}`,
       svg: `${srcFolder}/img/**/*.svg`,
       scss: `${srcFolder}/scss/*.scss`,
       css: `${srcFolder}/css/*.css`,
