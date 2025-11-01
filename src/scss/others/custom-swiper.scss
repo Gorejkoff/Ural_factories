@@ -6,6 +6,7 @@
       position: relative;
    }
 
+   &__body.margin-large,
    &__body {
       margin-bottom: var(--margin-bottom, -20%);
       position: relative;
