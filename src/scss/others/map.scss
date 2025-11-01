@@ -1,6 +1,10 @@
 .map {
    margin-top: 24px;
 
+   .theme-light & .dark-section {
+      background-color: var(--color-light-bg-container);
+   }
+
    &__container {}
 
    &__body {
@@ -30,6 +34,10 @@
       font-size: 18px;
       line-height: 122%;
       color: var(--color-periwinkle-crayola);
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
 
       &>*:not(:last-child) {
          margin-bottom: 20px;

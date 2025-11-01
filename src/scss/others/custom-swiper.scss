@@ -34,6 +34,10 @@
          background: linear-gradient(180deg, rgba(12, 16, 20, 0) 50%, rgba(12, 16, 20, 1) 80%);
          display: none;
 
+         .theme-light & {
+            background: transparent;
+         }
+
          @media (min-width:1024px) {
             display: block;
          }
@@ -77,6 +81,10 @@
          font-size: 40px;
          justify-content: space-between;
       }
+
+      .theme-light & {
+         color: var(--color-blackish-blue)
+      }
    }
 
    &__date {
@@ -113,6 +121,10 @@
       border-radius: 24px;
       backdrop-filter: blur(30px);
       background: var(--color-black-06);
+
+      .theme-light & {
+         background: rgba(213, 220, 230, 0.5);
+      }
 
       span {
          color: var(--color-orange);

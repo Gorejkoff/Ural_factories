@@ -41,6 +41,10 @@
    &.input-dark {
       color: var(--color-silver-grey);
 
+      .theme-light &.mark-light {
+         color: var(--color-pigeon-blue-06);
+      }
+
       textarea {
          height: 88px;
 
@@ -64,18 +68,45 @@
          }
       }
 
+      .theme-light &.mark-light input:focus,
+      .theme-light &.mark-light textarea:focus {
+         color: var(--color-pigeon-blue);
+      }
+
+
+      .theme-light &.mark-light input,
+      .theme-light &.mark-light textarea {
+         border-bottom: 1px solid var(--color-black-02);
+      }
+
       &:hover {
 
          textarea,
          input {
-            color: var(--color-periwinkle-crayola)
+            color: var(--color-periwinkle-crayola);
          }
 
          textarea:placeholder-shown~.input-placeholder,
          input:placeholder-shown~.input-placeholder {
-            color: var(--color-periwinkle-crayola)
+            color: var(--color-periwinkle-crayola);
          }
       }
+
+      .theme-light &.mark-light:hover input,
+      .theme-light &.mark-light:hover textarea {
+         color: var(--color-pigeon-blue);
+      }
+
+      .theme-light &.mark-light:hover textarea:placeholder-shown~.input-placeholder,
+      .theme-light &.mark-light:hover input:placeholder-shown~.input-placeholder {
+         color: var(--color-pigeon-blue);
+      }
+
+      .theme-light &.mark-light textarea:placeholder-shown~.input-placeholder,
+      .theme-light &.mark-light input:placeholder-shown~.input-placeholder {
+         color: var(--color-pigeon-blue);
+      }
+
    }
 
    &:hover {
@@ -185,6 +216,10 @@
          border-radius: 24px;
          padding: 40px;
       }
+
+      .theme-light & {
+         background-color: var(--color-light-bg-container);
+      }
    }
 
    &__title {
@@ -233,6 +268,18 @@
 .checkbox-body {
    display: flex;
    gap: 12px;
+
+   .theme-light &.mark-light {
+      color: var(--color-pigeon-blue);
+
+      .checkbox-item {
+         background-color: var(--color-blackish-blue);
+      }
+
+      svg path {
+         fill: var(--gray-bg);
+      }
+   }
 }
 
 .checkbox-input {

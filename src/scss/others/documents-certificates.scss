@@ -37,12 +37,20 @@
       background-color: transparent;
       transition: background-color 0.3s, border-color 0.3s;
 
+      .theme-light & {
+         color: var(--color-pigeon-blue);
+         border-color: var(--color-black-02);
+      }
+
+      ._pc.theme-light &:hover,
       ._pc &:hover,
       &.active {
          background-color: var(--color-orange);
          border-color: var(--color-orange);
          color: var(--color-white);
       }
+
+
    }
 
    &__tab-pages {}
@@ -77,13 +85,13 @@
    &__item-icon {
       flex: 0 0 48px;
       height: 48px;
-      background-color: var(--color-blackish-blue);
+      // background-color: var(--color-blackish-blue);
       border-radius: 8px;
       overflow: hidden;
 
-      .dark-section & {
-         background-color: var(--color-black);
-      }
+      // .dark-section & {
+      // background-color: var(--color-black);
+      // }
 
       @media (min-width:1024px) {
          flex: 0 0 88px;
@@ -105,6 +113,10 @@
       @media (min-width:1024px) {
          flex: 1 1 auto;
          font-size: 24px;
+      }
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
       }
    }
 

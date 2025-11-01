@@ -1,6 +1,26 @@
 .description {
+   position: relative;
    overflow: hidden;
-   background: url("../img/png/background-2.png") no-repeat center / 100% 100%;
+
+   .theme-light & {
+      background-color: var(--color-black);
+   }
+
+   &__background {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 5px);
+      overflow: hidden;
+      background: url("../img/webp/background-3.webp") no-repeat center / 100% 100%;
+
+      .theme-light & {
+         border-radius: 48px 48px 0 0;
+         background: var(--gray-bg) url("../img/webp/background-3-1.webp") no-repeat center / 100% 100%;
+         overflow: hidden;
+      }
+   }
 
    &__container {}
 
@@ -42,7 +62,11 @@
       line-height: 100%;
       letter-spacing: -0.03em;
       color: var(--color-periwinkle-crayola);
+
       // white-space: pre;
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
 
       @media (min-width:1024px) {
          font-size: 32px;
@@ -68,6 +92,11 @@
       @media (min-width:1024px) {
          font-size: 18px;
       }
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
+
 
       .text-animate-grow-show & {
          opacity: 1;

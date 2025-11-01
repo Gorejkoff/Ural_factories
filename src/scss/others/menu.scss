@@ -9,20 +9,27 @@
          display: flex;
          flex-direction: column;
          align-items: center;
+
       }
    }
 
-   &__close {
-      margin-left: auto;
+   &__header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
       --size-icon: 40px;
 
-      @media (max-width:1023.98px) {
-         --button-border-radius: 12px;
+      @media (min-width:1024px) {
+         --size-icon: 56px;
+         margin-bottom: 24px;
       }
 
+   }
+
+   &__close {
       @media (min-width:1024px) {
-         margin: 0 auto 24px;
-         --size-icon: 56px;
+         --button-border-radius: 12px;
       }
    }
 
@@ -32,6 +39,7 @@
       width: 100%;
 
       @media (max-width:1023.98px) {
+         padding-top: 24px;
          height: calc(var(--vh) - 56px);
          overflow-y: auto;
       }

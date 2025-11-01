@@ -1,4 +1,4 @@
-<div class="block-swiper" data-quantity="@@if(context.quantity){@@quantity}@@if(!context.quantity){3}">
+<div class="block-swiper @@if(context.class){@@class}" data-quantity="@@if(context.quantity){@@quantity}@@if(!context.quantity){3}">
    @@if(!context.nocontainer){<div class="block-swiper__container">}
       <div class="block-swiper__body @@if(context.blur){blur-section} @@if(context.dark){dark-section} @@if(!context.nopadding){padding-medium}">
          @@if(context.title){<div class="block-swiper__title title-section">@@title</div>}

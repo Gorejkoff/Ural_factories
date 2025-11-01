@@ -23,8 +23,9 @@ const MIN768 = window.matchMedia('(min-width: 768px)');
 // variables
 const HEADER = document.getElementById('header');
 const MOBILE_BUTTON_CONTACT = document.querySelector('.mobile-menu__button-contact');
+const SWITCH_LIGHT_THEME = document.querySelector('.switch-light-theme');
+const SWITCH_DARK_THEME = document.querySelector('.switch-dark-theme');
 let progressRadioAnimation = 0;
-
 
 function throttle(callee, timeout) {
    let timer = null;
@@ -83,7 +84,48 @@ document.documentElement.addEventListener("click", (event) => {
    if (event.target.closest('.js-sort-menu-filter')) {
       setValueSortMenu(event.target.closest('.js-sort-menu-filter'));
    }
+   if (event.target.closest('.switch-light-theme')) { switchLightTheme() }
+   if (event.target.closest('.switch-dark-theme')) { switchDarkTheme() }
 })
+
+function switchLightTheme() {
+   document.body.classList.add('theme-light');
+   SWITCH_DARK_THEME.classList.remove('active');
+   SWITCH_LIGHT_THEME.classList.add('active');
+   setThemeState('theme-light')
+}
+function switchDarkTheme() {
+   document.body.classList.remove('theme-light');
+   SWITCH_DARK_THEME.classList.add('active');
+   SWITCH_LIGHT_THEME.classList.remove('active');
+   setThemeState('theme-dark')
+}
+function setThemeState(theme) {
+   localStorage.setItem('uralradio-theme', theme);
+}
+function getThemeState() {
+   return localStorage.getItem('uralradio-theme');
+}
+function settingTheme() {
+   if (getThemeState() === 'theme-dark') {
+      switchDarkTheme();
+      return;
+   }
+   if (getThemeState() === 'theme-light') {
+      switchLightTheme();
+      return;
+   }
+   if (typeof window.matchMedia === 'function') {
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+         switchLightTheme();
+         return;
+      }
+      switchDarkTheme();
+      return;
+   }
+   switchLightTheme();
+}
+settingTheme();
 
 function openHeaderMenu() {
    document.body.classList.toggle('menu-is-open')

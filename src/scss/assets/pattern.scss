@@ -13,6 +13,10 @@ body {
    // opacity: 0;
    animation: start .5s forwards;
 
+   &.theme-light {
+      background-color: var(--gray-bg);
+   }
+
    @media (min-width:768px) {
       --padding-container: #{$padding-tablet};
    }
@@ -25,6 +29,11 @@ body {
       position: sticky;
       top: 0;
       background-color: var(--color-blackish-blue);
+
+   }
+
+   &.theme-light>.header {
+      background-color: var(--gray-bg);
    }
 
 }
@@ -156,6 +165,10 @@ main>*:last-child {
    @media (min-width:1024px) {
       border-radius: 24px;
    }
+
+   .theme-light &.mark-light {
+      background-color: transparent;
+   }
 }
 
 .blur-section {
@@ -164,18 +177,36 @@ main>*:last-child {
    -webkit-backdrop-filter: blur(10px);
    background: var(--color-bg-008);
 
+   .theme-light &.mark-light {
+      background: transparent;
+      backdrop-filter: none;
+   }
+
+   .theme-light & {
+      background: var(--color-blackish-blue);
+   }
+
    @media (min-width:1024px) {
       border-radius: 24px;
    }
 }
 
 .js-text-animate-free {
+
    // &>* {
    //    display: block;
    // }
 
    .color-text {
       color: var(--color-text);
+   }
+
+   .theme-light &.mark-light {
+      color: var(--color-blackish-blue);
+   }
+
+   .theme-light &.mark-light .color-text {
+      --color-text: var(--color-pigeon-blue);
    }
 
    .word {
@@ -207,6 +238,10 @@ main>*:last-child {
          width: 40px;
       }
    }
+
+   .theme-light & {
+      color: var(--color-pigeon-blue);
+   }
 }
 
 .title-section {
@@ -221,6 +256,10 @@ main>*:last-child {
       font-size: 18px;
       max-width: none;
 
+   }
+
+   .theme-light .mark-light & {
+      color: var(--color-pigeon-blue);
    }
 }
 
@@ -277,21 +316,34 @@ main>*:last-child {
          background-color: var(--color-orange-dark);
       }
    }
+
+   .theme-light &.mark-light {
+      --button-color: var(--color-periwinkle-crayola);
+      --button-background: var(--color-black);
+      --button-border-color: var(--color-black);
+   }
 }
 
-.button-dark {
+.button.button-dark {
    --button-color: var(--color-periwinkle-crayola);
    --button-max-width: 292px;
    --button-border-color: var(--color-periwinkle-crayola-02);
+   --button-background: transparent;
+
+   .theme-light &.button.mark-light {
+      --button-color: var(--color-periwinkle-crayola);
+      --button-border-color: var(--color-blue-crayola);
+      --button-background: var(--color-black);
+   }
 }
 
-.button-black {
+.button.button-black {
    --button-color: var(--color-periwinkle-crayola);
    --button-background: var(--color-black);
    --button-border-color: var(--color-black);
 }
 
-.button-white {
+.button.button-white {
    --button-background: var(--color-white);
    --button-border-color: var(--color-white);
 }
@@ -332,6 +384,14 @@ main>*:last-child {
    min-height: var(--size-button-back, 46px);
    border: 1px solid var(--color-periwinkle-crayola-03);
    border-radius: 8px;
+
+   .theme-light &.mark-light {
+      border-color: var(--color-black-02);
+
+      path {
+         fill: var(--color-blackish-blue)
+      }
+   }
 
    &:hover {
       border-color: var(--color-periwinkle-crayola-06);
@@ -410,6 +470,11 @@ main>*:last-child {
    border: 1px solid var(--color-periwinkle-crayola-02);
    background-color: transparent;
    transition: background-color 0.3s, border-color 0.3s;
+
+   .theme-light & {
+      color: var(--color-pigeon-blue);
+      border-color: var(--color-black-02);
+   }
 
    ._pc &:hover,
    &.active {
@@ -530,7 +595,7 @@ main>*:last-child {
    transition: border-color 0.3s, opacity 0.3s;
 
    ._pc &:not(.swiper-button-disabled):hover {
-      border-color: var(--color-periwinkle-crayola-06);
+      border-color: var(--color-pigeon-blue);
    }
 
    &.swiper-button-disabled {
@@ -538,6 +603,19 @@ main>*:last-child {
       opacity: 0.3;
    }
 
+   ._pc.theme-light .mark-light &:not(.swiper-button-disabled):hover {
+      border-color: var(--color-pigeon-blue);
+   }
+
+   .theme-light .mark-light & {
+      border-color: var(--color-pigeon-blue-04);
+
+      svg {
+         path {
+            fill: var(--color-pigeon-blue)
+         }
+      }
+   }
 }
 
 .swiper-nav-block {
@@ -563,6 +641,10 @@ main>*:last-child {
    font-weight: 500;
    font-size: 18px;
    color: var(--color-silver-grey);
+
+   .theme-light .mark-light & {
+      color: var(--color-pigeon-blue);
+   }
 }
 
 .pagination-mobile {

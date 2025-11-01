@@ -10,10 +10,11 @@
 
    @media (min-width:1024px) {
       min-height: var(--vh, 100vh);
-      padding-bottom: 32vh;
+
    }
 
    @media (min-width:1024px) and (min-height: 800px) {
+      padding-bottom: 32vh;
       margin-bottom: -32vh;
    }
 
@@ -75,6 +76,10 @@
          font-size: 72px;
          line-height: 89%;
       }
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
    }
 
    &__buttons {
@@ -99,6 +104,10 @@
          max-width: 440px;
          font-size: 18px;
          line-height: 122%;
+      }
+
+      .theme-light & {
+         color: var(--color-pigeon-blue);
       }
    }
 

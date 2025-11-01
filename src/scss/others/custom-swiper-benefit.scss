@@ -81,6 +81,10 @@
          margin-bottom: 24px;
          font-size: 72px;
       }
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
    }
 
    &__content-text {
@@ -92,6 +96,10 @@
 
       @media (min-width:1024px) {
          font-size: 18px;
+      }
+
+      .theme-light & {
+         color: var(--color-pigeon-blu);
       }
    }
 

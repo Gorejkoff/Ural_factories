@@ -2,9 +2,13 @@
 
 .presentation {
    height: var(--vh);
-   background: linear-gradient(180deg, rgba(12, 16, 20, 0) 0%, #0c1014 100%), url("../img/jpg/background-1.jpg") no-repeat top / cover;
+   background: linear-gradient(180deg, rgba(12, 16, 20, 0) 90%, #0c1014 100%), url("../img/webp/background-2.webp") no-repeat top / cover;
    display: flex;
    flex-direction: column;
+
+   .theme-light & {
+      background: url("../img/webp/background-2.webp") no-repeat top / cover;
+   }
 
    &__container {
       padding-bottom: var(--padding-for-button-mobile, 78px);
@@ -36,7 +40,6 @@
    }
 
    &__footer {
-      padding-bottom: 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -47,6 +50,7 @@
       color: var(--color-silver-grey);
 
       @media (min-width:1024px) {
+         padding-bottom: 28px;
          font-size: 16px;
       }
    }

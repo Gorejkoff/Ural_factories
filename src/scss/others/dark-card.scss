@@ -11,6 +11,11 @@
    overflow: hidden;
    background-color: var(--color-darkpurple-blue);
 
+   .theme-light .mark-light & {
+      background-color: var(--color-light-bg-container);
+      ;
+   }
+
    min-height: 304px;
    @include size_adaptive (min-height, 304, 706, 375, $max-width-container);
 
@@ -92,6 +97,10 @@
       @media (min-width:1024px) {
          font-size: 40px;
       }
+
+      .theme-light .mark-light & {
+         color: var(--color-blackish-blue);
+      }
    }
 
    &__footer {
@@ -107,9 +116,12 @@
       line-height: 112%;
       color: var(--color-silver-grey);
 
-
       @media (min-width:1024px) {
          font-size: 16px;
+      }
+
+      .theme-light .mark-light & {
+         color: var(--color-pigeon-blue);
       }
    }
 }

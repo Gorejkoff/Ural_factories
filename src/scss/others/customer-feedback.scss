@@ -20,6 +20,10 @@
       border-radius: 16px;
       overflow: hidden;
 
+      .theme-light & {
+         background-color: var(--color-light-bg-container);
+      }
+
       &>*:not(:last-child) {
          margin-bottom: 40px;
       }

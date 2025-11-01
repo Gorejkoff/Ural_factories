@@ -43,13 +43,18 @@
       padding-bottom: 96px;
       // background: url('../img/png/background-3.png') no-repeat top center / 100% 100%;
       background: linear-gradient(var(--color-black), transparent 10%, transparent, transparent 90%, var(--color-black));
+
       // background: linear-gradient(red 0%, transparent 50%, transparent);
+      .theme-light & {
+         background: transparent;
+      }
 
       @media (min-width:1024px) {
          padding-top: 96px;
          padding-bottom: 280px;
       }
 
+      &>img,
       video {
          position: absolute;
          top: 50%;
@@ -87,7 +92,6 @@
       font-weight: 400;
       letter-spacing: -0.06em;
       color: var(--color-periwinkle-crayola);
-
    }
 
    &__dete-text {
@@ -101,6 +105,10 @@
          padding-top: 10px;
          font-size: 16px;
          line-height: 112%;
+      }
+
+      .theme-light & {
+         color: var(--color-pigeon-blue);
       }
    }
 
@@ -123,6 +131,13 @@
       @media (min-width:1024px) {
          transform: rotate(-90deg);
          width: 28px;
+      }
+
+      .theme-light & {
+         path {
+            fill: var(--color-pigeon-blue);
+            fill-opacity: 0.8;
+         }
       }
    }
 }

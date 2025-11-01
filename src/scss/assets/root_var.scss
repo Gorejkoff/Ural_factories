@@ -29,10 +29,20 @@
    --test: #ff764d;
    --modal-bg: var(--color-black-06);
 
+   // light theme
+   --gray-bg: #E7EDF7;
+   --color-light-bg-container: #D5DCE6;
+   --color-pigeon-blue: #5B6A78;
+   --color-pigeon-blue-04: rgba(91, 106, 120, 0.4);
+   --color-pigeon-blue-06: rgba(91, 106, 120, 0.6);
+
+
+
+
    @supports (height: 100dvh) {
       --vh: 100dvh;
    }
 }
 
 // цвет подсветки радиостанции 
-// #FF774DFF
+// #FF774DFF E7EDF7

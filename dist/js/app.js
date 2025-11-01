@@ -23,8 +23,9 @@ const MIN768 = window.matchMedia('(min-width: 768px)');
 // variables
 const HEADER = document.getElementById('header');
 const MOBILE_BUTTON_CONTACT = document.querySelector('.mobile-menu__button-contact');
+const SWITCH_LIGHT_THEME = document.querySelector('.switch-light-theme');
+const SWITCH_DARK_THEME = document.querySelector('.switch-dark-theme');
 let progressRadioAnimation = 0;
-
 
 function throttle(callee, timeout) {
    let timer = null;
@@ -83,7 +84,48 @@ document.documentElement.addEventListener("click", (event) => {
    if (event.target.closest('.js-sort-menu-filter')) {
       setValueSortMenu(event.target.closest('.js-sort-menu-filter'));
    }
+   if (event.target.closest('.switch-light-theme')) { switchLightTheme() }
+   if (event.target.closest('.switch-dark-theme')) { switchDarkTheme() }
 })
+
+function switchLightTheme() {
+   document.body.classList.add('theme-light');
+   SWITCH_DARK_THEME.classList.remove('active');
+   SWITCH_LIGHT_THEME.classList.add('active');
+   setThemeState('theme-light')
+}
+function switchDarkTheme() {
+   document.body.classList.remove('theme-light');
+   SWITCH_DARK_THEME.classList.add('active');
+   SWITCH_LIGHT_THEME.classList.remove('active');
+   setThemeState('theme-dark')
+}
+function setThemeState(theme) {
+   localStorage.setItem('uralradio-theme', theme);
+}
+function getThemeState() {
+   return localStorage.getItem('uralradio-theme');
+}
+function settingTheme() {
+   if (getThemeState() === 'theme-dark') {
+      switchDarkTheme();
+      return;
+   }
+   if (getThemeState() === 'theme-light') {
+      switchLightTheme();
+      return;
+   }
+   if (typeof window.matchMedia === 'function') {
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+         switchLightTheme();
+         return;
+      }
+      switchDarkTheme();
+      return;
+   }
+   switchLightTheme();
+}
+settingTheme();
 
 function openHeaderMenu() {
    document.body.classList.toggle('menu-is-open')
@@ -259,7 +301,7 @@ window.addEventListener('DOMContentLoaded', function () {
    let degRotationValue = -100;
    let degRotationFrequency = 180;
    let progressRotationFrequency = 0;
-   const orthoSize = 11;
+
    function addSizeViewport() {
       viewportX = Math.min(window.innerWidth, 1440);
       viewportY = window.innerHeight;
@@ -268,16 +310,19 @@ window.addEventListener('DOMContentLoaded', function () {
    let ratioX = viewportX / 1000;
    let ratioY = viewportY / 1000;
 
+
    // отключить анимацию загрузки babylon
    BABYLON.SceneLoader.ShowLoadingScreen = false;
    // Инициализация движка
 
    const engine = new BABYLON.Engine(canvas, true, null, true);
-   // console.log('WebGL version:', engine.webGLVersion); // 1 или 2
-   // console.log('WebGL API:', engine.version); // 'webgl1' или 'webgl2'
+
+   // console.log("WebGL version:", engine.webGLVersion); // 1 или 2
+   // console.log("WebGL API:", engine.version); // "webgl1" или "webgl2"
    // if (engine.webGLVersion < 2) {
    //    console.warn('WebGL 2.0 не поддерживается, некоторые эффекты могут не работать');
    // }
+
    // Создание сцены
    const scene = new BABYLON.Scene(engine);
    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
@@ -285,44 +330,50 @@ window.addEventListener('DOMContentLoaded', function () {
    scene.skipFrustumClipping = true; // Упростить вычисления освещения
    scene.freezeActiveMeshes();
    scene.freezeMaterials();
-   // Отключить автоматическую очистку для ненужных буферов
-   // scene.autoClear = false;
-   // scene.autoClearDepthAndStencil = false;
-   // scene.forceWireframe = false; // Не принуждать к каркасному режиму
-   // scene.forcePointsCloud = false; // Не принуждать к точкам
-   // scene.fogEnabled = false;
-   // scene.particlesEnabled = false; // Полное отключение системы частиц
-   // scene.forceShowBoundingBoxes = false;// Оптимизировать вычисления
-   // Основная группа рендеринга - очищаем только один раз
-   // scene.setRenderingAutoClearDepthStencil(0, true, true, true);
-   // Остальные группы - отключаем очистку
-   // scene.setRenderingAutoClearDepthStencil(1, false, false, false);
-   // scene.setRenderingAutoClearDepthStencil(2, false, false, false);
-   // scene.setRenderingAutoClearDepthStencil(3, false, false, false);
+
 
    // Добавление камеры
    let distance = 40;
-   const camera = new BABYLON.ArcRotateCamera('camera', Math.PI / 2, Math.PI / 2, distance, BABYLON.Vector3.Zero(), scene);
+   const camera = new BABYLON.ArcRotateCamera("camera", Math.PI / 2, Math.PI / 2, distance, BABYLON.Vector3.Zero(), scene);
+
    // camera.minZ = 0.1;   // Ближняя плоскость отсечения
    // camera.maxZ = 1000;  // Дальняя плоскость отсечения
    // camera.collisionRetryCount = 1;
    // Включаем ортографический режим
    if (MIN768.matches) { camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA; };
-   const aspectRatio = engine.getAspectRatio(camera);
-   if (aspectRatio < 1) {
-      camera.orthoTop = orthoSize;
-      camera.orthoBottom = -orthoSize;
-      camera.orthoLeft = -orthoSize * aspectRatio;
-      camera.orthoRight = orthoSize * aspectRatio;
-   }
-   else {
-      camera.orthoLeft = -orthoSize;
-      camera.orthoRight = orthoSize;
-      camera.orthoTop = orthoSize / aspectRatio;
-      camera.orthoBottom = -orthoSize / aspectRatio;
-   }
 
-   camera.setTarget(BABYLON.Vector3.Zero());
+   const updateRatio = throttle(() => {
+      setTimeout(() => {
+         updateOrthographicSize();
+      }, 500)
+   }, 500)
+
+   const orthoSize = 12;
+   function updateOrthographicSize() {
+      if (camera.mode === BABYLON.Camera.ORTHOGRAPHIC_CAMERA) {
+         const aspectRatio = engine.getAspectRatio(camera);
+         if (aspectRatio < 1) {
+            camera.orthoTop = orthoSize;
+            camera.orthoBottom = -orthoSize;
+            camera.orthoLeft = -orthoSize * aspectRatio;
+            camera.orthoRight = orthoSize * aspectRatio;
+         }
+         else {
+            camera.orthoLeft = -orthoSize;
+            camera.orthoRight = orthoSize;
+            camera.orthoTop = orthoSize / aspectRatio;
+            camera.orthoBottom = -orthoSize / aspectRatio;
+         }
+      }
+      camera.getProjectionMatrix(true);
+      engine.resize();
+   }
+   updateOrthographicSize();
+
+
+
+
+
 
 
    // Добавление света 
@@ -338,10 +389,9 @@ window.addEventListener('DOMContentLoaded', function () {
    backLight.intensity = 0.9;
    // backLight.shadowEnabled = false;
 
-   const URL = 'https://gorejkoff.github.io/Ural_factories/dist/glb/';
-   // const modelName = 'radio.glb';
-   // const modelName = 'edit-7.glb';
-   const modelName = 'radio_optimized.glb';
+   const URL = "http://localhost:3000/glb/";
+   // const URL = "https://gorejkoff.github.io/Ural_factories/dist/glb/";
+   const modelName = "model_radio.glb";
    const cacheName = '3d-models-v1';
 
    async function cacheModel(modelUrl) {
@@ -372,13 +422,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
       const cache = await caches.open(cacheName);
       const searchModel = await cache.match(URL + modelName);
-
       if (searchModel) {
          // очистка от прошлой модели при замене
          const list = await cache.keys();
          const listURL = list.filter(e => {
-            console.log(e.url);
-
             return e.url !== URL + modelName
          })
          if (listURL.length > 0) {
@@ -416,6 +463,7 @@ window.addEventListener('DOMContentLoaded', function () {
       timeout: 30000      // Время ожидания в миллисекундах (30 секунд)
    };
    loadModel()
+
    // Загрузка из сервера
    function downloadingFromServer() {
       BABYLON.SceneLoader.Append(
@@ -431,6 +479,7 @@ window.addEventListener('DOMContentLoaded', function () {
          '.glb',
          loadingOptions);
    }
+
    // Загрузка из cache
    async function downloadingFromCache(blobUrl) {
       BABYLON.SceneLoader.Append('',
@@ -454,6 +503,7 @@ window.addEventListener('DOMContentLoaded', function () {
    // });
 
 
+
    async function actionModel() {
       model = await scene.getMeshByName('__root__');
       if (!model) {
@@ -472,47 +522,39 @@ window.addEventListener('DOMContentLoaded', function () {
       console.log('cylinder', cylinder); // ! comment
       cylinder.position.y = 5.3;
       backLight.includedOnlyMeshes = [cylinder]
-
-      transmitter = new BABYLON.TransformNode('transmitter', scene);
-
-      const elenentsTransmitter = model._children.filter((e) => { return !(['Cylinder', 'light_side'].includes(e.name)) });
-      elenentsTransmitter.forEach(e => e.parent = transmitter);
-      console.log('elenentsTransmitter', elenentsTransmitter);
-      transmitter.scaling = new BABYLON.Vector3(1, 1, -1);
-
-      volumeElement = (transmitter._children.filter((e) => { return e.name == 'volume' }))[0];
-      console.log('volumeElement', volumeElement); // ! comment
-      frequency = (transmitter._children.filter((e) => { return e.name == 'frequency' }))[0];
-      console.log('frequency', frequency); // ! comment
-      // let glass = transmitter._children.filter((e) => { return e.name == 'glass' });
-      // const front_frame = scene.getMeshByName('front frame');
-      // const mesh_primitive0 = scene.getMeshByName('frame_primitive0');
+      transmitter = model._children[1];
+      volumeElement = transmitter._children.filter((e) => { return e.name == "volume" });
+      // console.log(volumeElement);
+      frequency = transmitter._children.filter((e) => { return e.name == "frequency" });
+      // let glass = transmitter._children.filter((e) => { return e.name == "glass" });
+      // const front_frame = scene.getMeshByName("front frame");
+      // const mesh_primitive0 = scene.getMeshByName("frame_primitive0");
       // Добавление света
       light_screen = scene.getLightByName('light_screen');
       light_side = scene.getLightByName('light_side');
       light_side.shadowEnabled = true;
-      // const shadowGenerator = new BABYLON.ShadowGenerator(1024, light_side);
-      // shadowGenerator.useBlurExponentialShadowMap = true; // Для мягких теней
-      // shadowGenerator.blurKernel = 32;
-      // Добавляем объекты, которые должны отбрасывать тени
-      // shadowGenerator.addShadowCaster(mesh_primitive0, front_frame);
-      // свет игнорирует указанные модели
-      // light_side.excludedMeshes.push(front_frame, glass[0]);
    }
 
    // Inspector 
    // scene.debugLayer.show();
+   let yVar;
+   function rider() { yVar = 4.8 - (1440 / viewportX - 1) }
+   rider()
 
    let circleStart = 0.5;
    let circlePath = 1 - circleStart;
    let valueStartY;
-   function calcValueStartY() { valueStartY = -3 + (window.innerWidth - 1440) / (1920 - 1440) * (2.4 - 1.4) }
+
+   function calcValueStartY() {
+      valueStartY = 1.4 + (window.innerWidth - 1440) / (1920 - 1440) * (2.4 - 1.4)
+   }
    calcValueStartY();
+
    function rodioAnimation() {
       if (MIN768.matches) {
          transmitter.position = new BABYLON.Vector3(
-            -4.5 * ratioX * (1 - progressRadioAnimation),
-            0.2 * ratioY * (1 - progressRadioAnimation) + valueStartY,
+            yVar * ratioX * (1 - progressRadioAnimation),
+            -1 * ratioY * (1 - progressRadioAnimation) + valueStartY,
             0);
          light_side.position = new BABYLON.Vector3(
             -1 * ratioX * (1 - progressRadioAnimation),
@@ -545,6 +587,8 @@ window.addEventListener('DOMContentLoaded', function () {
    let renderRun = true; // происходит рендер
    let renderStrart = true; // запустить рендер
    let scrollHeppening = true; // происходит скролл
+   let resizeHeppening = false; // происходит resize
+
    const renderStop = throttle(() => {
       renderRun = false;
       setTimeout(() => { renderStrart = false }, 1500);
@@ -567,7 +611,12 @@ window.addEventListener('DOMContentLoaded', function () {
          if (([1, 0].includes(Number(progressRadioAnimation)) && renderRun || !scrollHeppening && renderRun) && transmitter) {
             renderStop();
          }
-         if (transmitter && renderStrart) {
+         if (transmitter && renderStrart || resizeHeppening) {
+            if (resizeHeppening) {
+               rider();
+               calcValueStartY();
+               updateRatio();
+            }
             rodioAnimation();
             // console.log('render test');
             scene.render();
@@ -594,16 +643,19 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
    const scrollHeppeningFun = debounce(() => { scrollHeppening = false }, 500)
+   const resizeHeppeningFun = debounce(() => { resizeHeppening = false }, 3000)
 
    window.addEventListener('scroll', () => {
       scrollHeppening = true;
       scrollHeppeningFun();
    })
 
-   // Обработка изменения размера окна
-   window.addEventListener('resize', function () {
-      calcValueStartY();
-      engine.resize();
+
+   window.addEventListener("resize", () => {
+      // Обработка изменения размера окна
+      resizeHeppening = true;
+      resizeHeppeningFun();
+
    });
 
    function rotationVolume() {

@@ -7,6 +7,10 @@
       background-color: var(--color-blackish-blue);
       overflow: hidden;
 
+      .theme-light .mark-light & {
+         background-color: var(--color-light-bg-container);
+      }
+
       .blur-section &,
       .dark-section & {
          background-color: var(--color-black);
@@ -55,6 +59,10 @@
       font-size: 18px;
       line-height: 122%;
       color: var(--color-periwinkle-crayola);
+
+      .theme-light .mark-light & {
+         color: var(--color-blackish-blue);
+      }
    }
 
    &__text {
@@ -65,6 +73,11 @@
       font-size: 16px;
       line-height: 112%;
       color: var(--color-silver-grey);
+
+      .theme-light .mark-light & {
+         color: var(--color-pigeon-blue);
+      }
+
    }
 
    &__icon {

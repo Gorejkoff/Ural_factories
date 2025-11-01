@@ -24,6 +24,14 @@
          color: var(--color-silver-grey);
       }
 
+      .theme-light & {
+         color: var(--color-blackish-blue);
+
+         .color {
+            color: var(--color-pigeon-blue);
+         }
+      }
+
       @media (min-width:1024px) {
          font-size: 56px;
       }
@@ -35,6 +43,10 @@
       font-size: 16px;
       line-height: 125%;
       color: var(--color-silver-grey);
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
 
       p {
          margin-bottom: 24px;

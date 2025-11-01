@@ -4,10 +4,18 @@
 .product-description {
    margin-bottom: 0;
 
+   .theme-light & {
+      background: url('../img/webp/background-3-2.webp') center/ 100% 100% no-repeat;
+   }
+
    &__container {}
 
    &__body {
       color: var(--color-periwinkle-crayola);
+
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
 
       &>*:not(:last-child) {
          margin-bottom: 64px;

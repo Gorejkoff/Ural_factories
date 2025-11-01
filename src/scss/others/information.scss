@@ -34,7 +34,12 @@
          border-radius: 16px;
          overflow: hidden;
          background-color: var(--color-lavender);
+
+         .theme-light .mark-light & {
+            background-color: var(--color-light-bg-container);
+         }
       }
+
 
       &:hover {
          .information__image-logo {
