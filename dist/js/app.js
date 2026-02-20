@@ -389,8 +389,8 @@ window.addEventListener('DOMContentLoaded', function () {
    backLight.intensity = 0.9;
    // backLight.shadowEnabled = false;
 
-   const URL = "http://localhost:3000/glb/";
-   // const URL = "https://gorejkoff.github.io/Ural_factories/dist/glb/";
+   // const URL = "http://localhost:3000/glb/";
+   const URL = "https://gorejkoff.github.io/Ural_factories/dist/glb/";
    const modelName = "model_radio.glb";
    const cacheName = '3d-models-v1';
 

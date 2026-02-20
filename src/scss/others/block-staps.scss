@@ -8,6 +8,10 @@
       color: var(--color-periwinkle-crayola);
       counter-reset: item;
 
+      .theme-light & {
+         color: var(--color-blackish-blue);
+      }
+
       @media (min-width:1024px) {
          font-size: 24px;
       }
@@ -45,6 +49,10 @@
                justify-content: center;
                background-color: var(--color-blackish-blue);
                border-radius: 8px;
+
+               .theme-light & {
+                  background-color: var(--color-light-bg-container);
+               }
 
                @media (min-width:1024px) {
                   min-width: 64px;
