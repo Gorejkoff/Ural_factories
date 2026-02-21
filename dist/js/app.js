@@ -519,12 +519,10 @@ window.addEventListener('DOMContentLoaded', function () {
       }
 
       cylinder = (model._children.filter((e) => { return e.name == 'Cylinder' }))[0];
-      console.log('cylinder', cylinder); // ! comment
       cylinder.position.y = 5.3;
       backLight.includedOnlyMeshes = [cylinder]
       transmitter = model._children[1];
       volumeElement = transmitter._children.filter((e) => { return e.name == "volume" });
-      // console.log(volumeElement);
       frequency = transmitter._children.filter((e) => { return e.name == "frequency" });
       // let glass = transmitter._children.filter((e) => { return e.name == "glass" });
       // const front_frame = scene.getMeshByName("front frame");
@@ -552,18 +550,19 @@ window.addEventListener('DOMContentLoaded', function () {
 
    function rodioAnimation() {
       if (MIN768.matches) {
+         const valueStartY = 1.4 + (window.innerWidth - 1440) / (1920 - 1440) * (2.4 - 1.4);
          transmitter.position = new BABYLON.Vector3(
             yVar * ratioX * (1 - progressRadioAnimation),
             -1 * ratioY * (1 - progressRadioAnimation) + valueStartY,
             0);
          light_side.position = new BABYLON.Vector3(
-            -1 * ratioX * (1 - progressRadioAnimation),
-            0,
-            3);
+            4.5 * ratioX * (1 - progressRadioAnimation),
+            -1 * ratioY * (1 - progressRadioAnimation) + 1,
+            2);
       } else {
-         model.position = new BABYLON.Vector3(progressRadioAnimation * -3, progressRadioAnimation * -2 + 2, 0)
+         model.position = new BABYLON.Vector3(progressRadioAnimation * -3, progressRadioAnimation * -2 + 2, 0);
       }
-      transmitter.rotation.y = (Math.PI * 1) + (Math.PI * 2) * progressRadioAnimation;
+      transmitter.rotation = new BABYLON.Vector3(0, (Math.PI * 2) * -progressRadioAnimation, 0);
       if (progressRadioAnimation > circleStart) {
          let value = (progressRadioAnimation - circleStart) / circlePath;
          cylinder.scaling.x = value;
@@ -575,8 +574,8 @@ window.addEventListener('DOMContentLoaded', function () {
          cylinder.scaling.z = 0
       }
       if (progressRadioAnimation >= 0.99) {
-         if (degRotationValue <= progressRotationValue) rotationVolume();
-         if (degRotationFrequency >= progressRotationFrequency) rotationFrequency();
+         degRotationValue <= progressRotationValue && rotationVolume();
+         degRotationFrequency >= progressRotationFrequency && rotationFrequency();
       }
       if (progressRadioAnimation < 0.99) {
          progressRotationValue <= 0 && reverseRotationVolume();
